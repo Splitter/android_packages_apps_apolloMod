@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_extra_micro">10sp</dimen>
+    <dimen name="text_size_micro">12sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+
+    <!-- Tabs -->
+    <dimen name="tab_padding_top_bottom">6dp</dimen>
+    <dimen name="tab_padding_left_right">40dp</dimen>
+    <dimen name="tab_height">30dp</dimen>
+
+    <!-- Bottom ActionBar -->
+    <dimen name="bottom_action_bar_height">48dp</dimen>
+    <dimen name="bottom_action_bar_padding_left">4dp</dimen>
+    <dimen name="bottom_action_bar_item_width">56dp</dimen>
+    <dimen name="bottom_action_bar_item_padding_left_right">12dp</dimen>
+    <dimen name="bottom_action_bar_album_art_width_height">30dp</dimen>
+    <dimen name="bottom_action_bar_divider_height">2dp</dimen>
+    <dimen name="bottom_action_bar_info_padding_left">5dp</dimen>
+
+    <!-- ViewPager margin stroke width -->
+    <dimen name="viewpager_margin_stroke_width">0dp</dimen>
+
+    <!-- FastScroll padding -->
+    <dimen name="fast_scroll_padding_right">32dp</dimen>
+
+    <!-- List separator -->
+    <dimen name="list_separator_padding_left_right">8dp</dimen>
+    <dimen name="list_separator_min_height">32dp</dimen>
+    <dimen name="list_separator_container_padding_left">16dp</dimen>
+
+    <!-- ListView items -->
+    <dimen name="listview_item_height">64dp</dimen>
+    <dimen name="listview_items_padding_left_top">9dp</dimen>
+    <dimen name="listview_items_padding_small_top">4dp</dimen>
+    <dimen name="listview_items_padding_right">85dp</dimen>
+    <dimen name="listview_peak_meter_one_padding_right">80dp</dimen>
+    <dimen name="listview_peak_meter_two_padding_right">70dp</dimen>
+    <dimen name="listview_album_art">54dp</dimen>
+    <dimen name="listview_album_margin">4dp</dimen>
+
+    <!-- Quick Context Menu -->
+    <dimen name="quick_context_padding_right">4dp</dimen>
+    <dimen name="quick_context_line_height">30dp</dimen>
+    <dimen name="quick_context_line_width">1dp</dimen>
+    <dimen name="quick_context_margin_right">5dp</dimen>
+
+    <!-- Nofication bar button -->
+    <dimen name="status_bar_button_width_height">48dp</dimen>
+    <dimen name="status_bar_album_art">64dp</dimen>
+    <dimen name="status_bar_button_info_container_padding_left">11dp</dimen>
+    <dimen name="notification_expanded_height">128.0dip</dimen>
+    <dimen name="play_controls_notification">48.0dip</dimen>
+    <dimen name="notification_padding">8.0dip</dimen>
+
+    <!-- Colorstrip -->
+    <dimen name="colorstrip_height">4dp</dimen>
+
+    <!-- Half and half layout -->
+    <dimen name="half_and_half_text_padding">5dp</dimen>
+    <dimen name="half_and_half_image_height">200dp</dimen>
+    <dimen name="half_and_half_container_padding">3dp</dimen>
+
+    <!-- ContextMenu header text padding -->
+    <dimen name="header_text_padding">5dp</dimen>
+    <dimen name="header_text_padding_left">15dp</dimen>
+
+    <!-- GridView items -->
+    <dimen name="gridview_image_width">152dp</dimen>
+    <dimen name="gridview_image_height">152dp</dimen>
+    <dimen name="gridview_item_margin">3dp</dimen>
+    <dimen name="gridview_item_ccontainer_height">64dp</dimen>
+    <dimen name="gridview_item_ccontainer_padding_left">12dp</dimen>
+    <dimen name="gridview_item_ccontainer_padding_right">12dp</dimen>
+    <dimen name="peak_meter_one_padding_right">15dp</dimen>
+    <dimen name="peak_meter_two_padding_right">5dp</dimen>
+    <dimen name="peak_meter_padding_bottom">10dp</dimen>
+    <dimen name="peak_meter_padding_top">8dp</dimen>
+
+    <!-- Audio player -->
+    <dimen name="audio_player_info_container_padding">16dp</dimen>
+    <dimen name="audio_player_artwork_padding">20dp</dimen>
+    <dimen name="audio_player_controls_height">56dp</dimen>
+    <dimen name="audio_player_seek_bar_padding">10dp</dimen>
+    <dimen name="audio_player_button_container_padding">2dp</dimen>
+
+    <!-- Recent Applications parameters -->
+    <!-- How far the thumbnail for a recent app appears from left edge -->
+    <dimen name="status_bar_recents_thumbnail_left_margin">20dp</dimen>
+    <!-- Width of application label text -->
+    <dimen name="status_bar_recents_app_label_width">88dp</dimen>
+    <!-- Left margin of application label text -->
+    <dimen name="status_bar_recents_app_label_left_margin">0dp</dimen>
+    <!-- Padding between recents items -->
+    <dimen name="status_bar_recents_item_padding">0dp</dimen>
+    <!-- Where to place the app icon over the thumbnail -->
+    <dimen name="status_bar_recents_app_icon_left_margin">0dp</dimen>
+    <dimen name="status_bar_recents_app_icon_top_margin">8dp</dimen>
+    <!-- Recent Applications parameters -->
+    <!-- Upper width limit for application icon -->
+    <dimen name="status_bar_recents_app_icon_max_width">48dp</dimen>
+    <!-- Upper height limit for application icon -->
+    <dimen name="status_bar_recents_app_icon_max_height">48dp</dimen>
+
+    <!-- Size of application thumbnail -->
+    <dimen name="status_bar_recents_thumbnail_width">164dp</dimen>
+    <dimen name="status_bar_recents_thumbnail_height">145dp</dimen>
+
+    <!-- Size of application label text -->
+    <dimen name="status_bar_recents_app_label_text_size">14dp</dimen>
+    <!-- Size of application description text -->
+    <dimen name="status_bar_recents_app_description_text_size">14dp</dimen>
+    <!-- Size of fading edge for scroll effect -->
+    <dimen name="status_bar_recents_fading_edge_length">20dp</dimen>
+
+    <!-- AppWidgdt 1x1 -->
+    <dimen name="one_by_one_height">62dp</dimen>
+    <dimen name="one_by_one_width">72dp</dimen>
+
+    <!-- AppWidgdt 4x1 -->
+    <dimen name="four_by_one_album_art_width">90dp</dimen>
+    
+    <!-- AppWidget 4x2 -->
+    <dimen name="four_by_two_height">180dp</dimen>
+    <dimen name="four_by_two_control_height">55dp</dimen>
+    <dimen name="four_by_two_album_art_width">135dp</dimen>
+
+</resources>

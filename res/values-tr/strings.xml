@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Bu şarkıyı beğenilenlere ekle</string>
+    <string name="cd_search">Şarkıları ara</string>
+    <string name="cd_overflow">Daha fazla seçenek</string>
+    <string name="cd_bottom_action_bar_album_art">Albüm kapağı</string>
+    <string name="cd_repeat">Tümünü tekrarla</string>
+    <string name="cd_previous">Önceki</string>
+    <string name="cd_play">Oynat/Beklet</string>
+    <string name="cd_next">Sonraki</string>
+    <string name="cd_shuffle">Karıştır</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Şimdi Çalıyor</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 albüm</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> albüm</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 şarkı</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> şarkı</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 şarkı çalma listesine eklendi</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> şarkı çalma listesine eklendi</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">ALBÜM LİSTESİ</string>
+    <string name="track_header">ŞARKI LİSTESİ</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Ayarlar</string>
+    <string name="shuffle_all">Tümünü karıştır</string>
+    <string name="share">Paylaş</string>
+    <string name="play_store">Play Mağazası</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" zil sesi olarak ayarla</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Yeniden adlandır</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Bir kez tekrarla</string>
+    <string name="repeat_all">Sürekli tekrarla</string>
+    <string name="repeat_off">Tekrarlamayı kapat</string>
+    <string name="shuffle_off">Karıştırmayı kapat</string>
+    <string name="shuffle_on">Karıştırmayı aç</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Şimdi dinleniyor:</string>
+    <string name="by"> - </string>
+    <string name="share_track_using">Şarkıyı paylaş</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Tümünü çal</string>
+    <string name="add_to_playlist">Şarkı listesine ekle</string>
+    <string name="use_as_ringtone">Zil sesi olarak ayarla</string>
+    <string name="delete_playlist">Şarkı listesini sil</string>
+    <string name="search">Ara</string>
+    <string name="remove">Şarkı listesinden sil</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Bilinmeyen</string>
+
+    <!-- Settings -->
+    <string name="about">Apollo Hakkında</string>
+    <string name="eqalizer">Ekolayzer</string>
+    <string name="header_interface">Arayüz</string>
+    <string name="themes">Temalar</string>
+    <string name="apollo_themes">Apollo için tema seç</string>
+    <string name="select_theme">Temanızı seçin</string>
+    <string name="version">Apollo Sürümü</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Temayı uygula</string>
+    <string name="get_more_themes">Daha fazla tema bul</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Beğenilenler</string>
+    <string name="queue">Liste</string>
+    <string name="new_playlist">Yeni</string>
+    <string name="new_playlist_name_template"><xliff:g id="number">%d</xliff:g> çalma listesi</string>
+    <string name="save">Kaydet</string>
+    <string name="overwrite">Üzerine yaz</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">SON</string>
+    <string name="tab_artists">SANATÇILAR</string>
+    <string name="tab_albums">ALBÜMLER</string>
+    <string name="tab_songs">ŞARKILAR</string>
+    <string name="tab_playlists">LİSTELER</string>
+    <string name="tab_genres">TÜRLER</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Hata</string>
+
+</resources>

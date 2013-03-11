@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Half and half layout -->
+    <dimen name="half_and_half_image_height">200dp</dimen>
+
+    <!-- GridView items -->
+    <dimen name="gridview_image_height">152dp</dimen>
+    <dimen name="gridview_item_ccontainer_height">64dp</dimen>
+
+</resources>

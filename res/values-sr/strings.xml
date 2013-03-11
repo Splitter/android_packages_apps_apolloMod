@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Аполон</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Додај у омиљене песме</string>
+    <string name="cd_search">Претражи своју музику</string>
+    <string name="cd_overflow">Више поставки</string>
+    <string name="cd_bottom_action_bar_album_art">Омот за ову песму</string>
+    <string name="cd_repeat">Понављај једну или све</string>
+    <string name="cd_previous">Скочи уназад</string>
+    <string name="cd_play">Пусти и паузирај</string>
+    <string name="cd_next">Скочи унапред</string>
+    <string name="cd_shuffle">Пуштај насумично</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Сада пуштам</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 албум</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> албума</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 песма</item>
+        <item quantity="few"><xliff:g id="count">%d</xliff:g> песме</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> песама</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 песма додата на листу</item>
+        <!-- message shown when 2,3 or 4 songs were added -->
+        <item quantity="few">
+          <xliff:g id="number" example="3">%d</xliff:g> песме додате на листу
+        </item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other">
+          <xliff:g id="number" example="27">%d</xliff:g> песама додатих на листу
+        </item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">ЛИСТА АЛБУМА</string>
+    <string name="track_header">ЛИСТА ПЕСАМА</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Поставке</string>
+    <string name="shuffle_all">Све насумично</string>
+    <string name="share">Дели</string>
+    <string name="play_store">Play продавница</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" постави као звоно</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Преименуј листу</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Понови једну</string>
+    <string name="repeat_all">Понови све</string>
+    <string name="repeat_off">Не понављај</string>
+    <string name="shuffle_off">Искључено насумично пуштање</string>
+    <string name="shuffle_on">Укључено насумично пуштање</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Сада слушам:</string>
+    <string name="by">од</string>
+    <string name="share_track_using">Подели песму помоћу</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Пусти све</string>
+    <string name="add_to_playlist">Додај у листу</string>
+    <string name="use_as_ringtone">Користи као звоно</string>
+    <string name="delete_playlist">Избриши листу</string>
+    <string name="search">Тражи</string>
+    <string name="remove">Избриши из листе</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Аполон (1x1)</string>
+    <string name="apollo_4x1">Аполон (4x1)</string>
+    <string name="apollo_4x2">Аполон (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Непознато</string>
+
+    <!-- Settings -->
+    <string name="about">О Аполону</string>
+    <string name="eqalizer">Миксета</string>
+    <string name="header_interface">Сучеље</string>
+    <string name="themes">Теме</string>
+    <string name="apollo_themes">Изабери тему за Аполона</string>
+    <string name="select_theme">Изабери своју тему</string>
+    <string name="version">Верзија Аполона</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Примени тему</string>
+    <string name="get_more_themes">Нађи још тема</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Омиљено</string>
+    <string name="queue">Ред пуштања</string>
+    <string name="new_playlist">Нова</string>
+    <string name="new_playlist_name_template">Листа <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Сачувај</string>
+    <string name="overwrite">Пребриши</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">НЕДАВНО</string>
+    <string name="tab_artists">ИЗВОЂАЧИ</string>
+    <string name="tab_albums">АЛБУМИ</string>
+    <string name="tab_songs">ПЕСМЕ</string>
+    <string name="tab_playlists">ЛИСТЕ</string>
+    <string name="tab_genres">ЖАНРОВИ</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">Изабери радњу и примени на: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">Пусти</string>
+    <string name="play_external_question_button_queue">У ред пуштања</string>
+    <string name="play_external_question_button_cancel">Поништи</string>
+    <string name="play_external_error">Неуспело пуштање фајла</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Грешка</string>
+
+</resources>

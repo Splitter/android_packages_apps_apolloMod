@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <include layout="@layout/colorstrip" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/colorstrip"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/artist_half_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+			
+            <ImageView
+                android:id="@+id/half_artist_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop" />
+
+			<LinearLayout
+		        android:id="@+id/half_artist_info_holder"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+	            android:layout_alignBottom="@+id/half_artist_image"
+		        android:background="@color/transparent_black"
+		        android:gravity="center_vertical"
+		        android:orientation="vertical"
+		        android:paddingTop="@dimen/gridview_item_ccontainer_padding_left"
+		        android:paddingBottom="@dimen/gridview_item_ccontainer_padding_left"
+			    android:paddingLeft="@dimen/gridview_item_ccontainer_padding_left"
+	        	android:paddingRight="@dimen/gridview_item_ccontainer_padding_right">
+		        <TextView
+		            android:id="@+id/half_artist_image_text"
+		            style="@style/GridviewShadowedText"
+		            android:textStyle="bold"/>
+		
+		        <TextView
+		            android:id="@+id/half_artist_image_text_line_two"
+		            style="@style/GridviewShadowedText"/>
+	        </LinearLayout>
+	        
+		    <RelativeLayout
+		        android:layout_width="fill_parent"
+		        android:id="@+id/bottom_colorstrip"
+	            android:layout_alignBottom="@+id/half_artist_image"
+				android:layout_height="@dimen/colorstrip_height"
+		        android:background="@color/holo_blue_dark" />
+		            
+        </RelativeLayout>        
+    </LinearLayout>
+</RelativeLayout>

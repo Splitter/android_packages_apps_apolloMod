@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">この曲をお気に入りに追加する</string>
+    <string name="cd_search">曲を検索する</string>
+    <string name="cd_overflow">さらにオプションを表示</string>
+    <string name="cd_bottom_action_bar_album_art">この曲のアルバムアート</string>
+    <string name="cd_repeat">1曲またはすべてシャッフル</string>
+    <string name="cd_previous">前の曲にスキップ</string>
+    <string name="cd_play">再生と一時停止</string>
+    <string name="cd_next">次の曲にスキップ</string>
+    <string name="cd_shuffle">トラックをシャッフル</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">再生中</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1つのアルバム</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g>つのアルバム</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1曲</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g>曲</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+
+        <!-- message shown when one song was added -->
+        <item quantity="one">1つの曲をプレイイストに追加しました</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g>つの曲をプレイイストに追加しました</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">アルバムリスト</string>
+    <string name="track_header">トラックリスト</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">設定</string>
+    <string name="shuffle_all">すべてシャッフル</string>
+    <string name="share">共有</string>
+    <string name="play_store">プレイストア</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" 着信音に設定</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">プレイリストの名前を変更</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">1曲リピート</string>
+    <string name="repeat_all">全曲リピート</string>
+    <string name="repeat_off">リピートなし</string>
+    <string name="shuffle_off">シャッフルオン</string>
+    <string name="shuffle_on">シャッフルオフ</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">現在再生中:</string>
+    <string name="by">by</string>
+    <string name="share_track_using">トラックを共有する</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">すべて再生</string>
+    <string name="add_to_playlist">プレイリストに追加</string>
+    <string name="use_as_ringtone">着信音として使用</string>
+    <string name="delete_playlist">プレイリストを削除</string>
+    <string name="search">検索</string>
+    <string name="remove">プレイリストから削除</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">不明</string>
+
+    <!-- Settings -->
+    <string name="about">Apolloについて</string>
+    <string name="eqalizer">イコライザ</string>
+    <string name="header_interface">インタフェース</string>
+    <string name="themes">テーマ</string>
+    <string name="apollo_themes">Apolloのテーマを選択</string>
+    <string name="select_theme">あなたのテーマを選択</string>
+    <string name="version">Apollo バージョン</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">テーマを適用</string>
+    <string name="get_more_themes">さらにテーマを入手</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">お気に入り</string>
+    <string name="queue">キュー</string>
+    <string name="new_playlist">New</string>
+    <string name="new_playlist_name_template">プレイリスト <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">保存</string>
+    <string name="overwrite">上書き</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">新着</string>
+    <string name="tab_artists">アーティスト</string>
+    <string name="tab_albums">アルバム</string>
+    <string name="tab_songs">曲</string>
+    <string name="tab_playlists">プレイリスト</string>
+    <string name="tab_genres">ジャンル</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">次のアイテムに適用するアクションを選択: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">再生</string>
+    <string name="play_external_question_button_queue">キューに追加</string>
+    <string name="play_external_question_button_cancel">キャンセル</string>
+    <string name="play_external_error">ファイルの再生に失敗</string>
+
+    <!-- Something went wrong -->
+    <string name="error">エラー</string>
+
+</resources>

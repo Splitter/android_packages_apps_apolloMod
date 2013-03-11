@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Marca aquesta cançó com a preferida</string>
+    <string name="cd_search">Cerca la teva música</string>
+    <string name="cd_overflow">Mostra més opcions</string>
+    <string name="cd_bottom_action_bar_album_art">Coberta de l\'àlbum</string>
+    <string name="cd_repeat">Repeteix una o totes</string>
+    <string name="cd_previous">Salta enrere</string>
+    <string name="cd_play">Reprodueix i atura</string>
+    <string name="cd_next">Salta endavant</string>
+    <string name="cd_shuffle">Ordre aleatori</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Reproduint</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 àlbum</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> àlbums</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 cançó</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> cançons</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+
+        <!-- message shown when one song was added -->
+        <item quantity="one">S\'ha afegit 1 cançó a la llista.</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other">S\'han afegit <xliff:g id="number" example="27">%d</xliff:g> cançons a la llista.</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">LLISTA D\'ÀLBUMS</string>
+    <string name="track_header">LLISTA DE CANÇONS</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Preferències</string>
+    <string name="shuffle_all">Cançons aleatòries</string>
+    <string name="share">Comparteix</string>
+    <string name="play_store">Play Store</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">S\'ha establert \"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" com a to del telèfon</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Canvia el nom de la llista</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Repeteix una</string>
+    <string name="repeat_all">Repeteix totes</string>
+    <string name="repeat_off">Sense repetició</string>
+    <string name="shuffle_off">Ordre aleatori desactivat</string>
+    <string name="shuffle_on">Ordre aleatori activat</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Estic escoltant:</string>
+    <string name="by">per</string>
+    <string name="share_track_using">Comparteix la cançó fent servir</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Reprodueix totes</string>
+    <string name="add_to_playlist">Afegeix a una llista</string>
+    <string name="use_as_ringtone">Utilitza com a to del telèfon</string>
+    <string name="delete_playlist">Suprimeix aquesta llista</string>
+    <string name="search">Cerca</string>
+    <string name="remove">Suprimeix de la llista</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Desconegut</string>
+
+    <!-- Settings -->
+    <string name="about">Quant a l\'Apollo</string>
+    <string name="eqalizer">Equalitzador</string>
+    <string name="header_interface">Interfície</string>
+    <string name="themes">Temes</string>
+    <string name="apollo_themes">Seleccioneu el tema per a l\'Apollo</string>
+    <string name="select_theme">Selecciona el tema</string>
+    <string name="version">Versió de l\'Apollo</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Aplica el tema</string>
+    <string name="get_more_themes">Aconsegueix més temes</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Preferides</string>
+    <string name="queue">Cua</string>
+    <string name="new_playlist">Nova</string>
+    <string name="new_playlist_name_template">Llista <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Desa</string>
+    <string name="overwrite">Sobreescriu</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">RECENTS</string>
+    <string name="tab_artists">ARTISTES</string>
+    <string name="tab_albums">ÀLBUMS</string>
+    <string name="tab_songs">CANÇONS</string>
+    <string name="tab_playlists">LLISTES</string>
+    <string name="tab_genres">GÈNERES</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Error</string>
+
+</resources>

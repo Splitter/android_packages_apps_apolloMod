@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ImageView four_by_two_albumart has contentDescription assigned programatically. -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/four_by_two"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/four_by_two_height"
+    android:background="@drawable/appwidget_bg"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/four_by_two_controls"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/four_by_two_control_height"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/four_by_two_control_prev"
+            style="@style/FourByTwoMediaButton"
+            android:src="@drawable/apollo_holo_light_previous"
+            android:contentDescription="@string/cd_previous" />
+
+        <ImageButton
+            android:id="@+id/four_by_two_control_play"
+            style="@style/FourByTwoMediaButton"
+            android:src="@drawable/apollo_holo_light_play"
+            android:contentDescription="@string/cd_play" />
+
+        <ImageButton
+            android:id="@+id/four_by_two_control_next"
+            style="@style/FourByTwoMediaButton"
+            android:src="@drawable/apollo_holo_light_next"
+            android:contentDescription="@string/cd_next" />
+
+        <ImageButton
+            android:id="@+id/four_by_two_control_shuffle"
+            style="@style/FourByTwoMediaButton"
+            android:src="@drawable/apollo_holo_light_shuffle_normal"
+            android:contentDescription="@string/cd_shuffle" />
+
+        <ImageButton
+            android:id="@+id/four_by_two_control_repeat"
+            style="@style/FourByTwoMediaButton"
+            android:src="@drawable/apollo_holo_light_repeat_normal"
+            android:contentDescription="@string/cd_repeat" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/four_by_two_controls_info_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/four_by_two_controls"
+        android:scaleType="fitXY"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/four_by_two_albumart"
+        android:layout_width="@dimen/four_by_two_album_art_width"
+        android:layout_height="match_parent"
+        android:layout_above="@id/four_by_two_controls_info_divider"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/four_by_two_controls"
+        android:background="@color/holo_blue_dark"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/four_by_two_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/four_by_two_controls"
+        android:layout_toRightOf="@+id/four_by_two_albumart"
+        android:background="@drawable/holo_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/four_by_two_trackname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/transparent_black"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/four_by_two_albumname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/transparent_black"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:id="@+id/four_by_two_artistname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/transparent_black"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+
+</RelativeLayout>

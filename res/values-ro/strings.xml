@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">"Apollo"</string>
+    <string name="cd_favorite">"Faceţi acestă melodie una favorită"</string>
+    <string name="cd_search">"Căutaţi prin muzica dvs."</string>
+    <string name="cd_overflow">"Mai multe opţiuni"</string>
+    <string name="cd_bottom_action_bar_album_art">"Coperta pentru această melodie"</string>
+    <string name="cd_repeat">"Repetaţi una sau toate"</string>
+    <string name="cd_previous">"Înapoi"</string>
+    <string name="cd_play">"Redare şi pauză"</string>
+    <string name="cd_next">"Înainte"</string>
+    <string name="cd_shuffle">"Amestecaţi melodiile"</string>
+    <string name="nowplaying">"Se redă"</string>
+    <plurals name="Nalbums">
+        <item quantity="one">"1 album"</item>
+        <item quantity="other">"<xliff:g id="count">%d</xliff:g> albume"</item>
+    </plurals>
+    <plurals name="Nsongs">
+        <item quantity="one">"1 melodie"</item>
+        <item quantity="other">"<xliff:g id="count">%d</xliff:g> melodii"</item>
+    </plurals>
+    <plurals name="NNNtrackstoplaylist">
+        <item quantity="one">"1 melodie adăugată la lista de redare"</item>
+        <item quantity="other">"<xliff:g id="number" example="27">%d</xliff:g> melodii adăugate la lista de redare"</item>
+    </plurals>
+    <string name="album_header">"LISTA de ALBUME"</string>
+    <string name="track_header">"LISTA de PIESE"</string>
+    <string name="settings">"Setări"</string>
+    <string name="shuffle_all">"Amestecaţi toate"</string>
+    <string name="share">"Distribuiţi"</string>
+    <string name="play_store">"Magazin Play"</string>
+    <string name="set_as_ringtone">"\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" setaţi ca ton de apel"</string>
+    <string name="rename_playlist">"Redenumiţi lista de redare"</string>
+    <string name="repeat_one">"Repetare una"</string>
+    <string name="repeat_all">"Repetare toate"</string>
+    <string name="repeat_off">"Repetare dezactivată"</string>
+    <string name="shuffle_off">"Amestecare dezactivată"</string>
+    <string name="shuffle_on">"Amestecare activată"</string>
+    <string name="now_listening_to">"Acum ascultaţi:"</string>
+    <string name="by">de</string>
+    <string name="share_track_using">"Distribuiţi piesa utilizând"</string>
+    <string name="play_all">"Redaţi toate"</string>
+    <string name="add_to_playlist">"Adăugaţi la lista de redare"</string>
+    <string name="use_as_ringtone">"Utilizaţi ca ton de apel"</string>
+    <string name="delete_playlist">"Ştergeţi lista de redare"</string>
+    <string name="search">"Căutaţi"</string>
+    <string name="unknown">"Necunoscut"</string>
+    <string name="about">"Despre Apollo"</string>
+    <string name="eqalizer">"Egalizator"</string>
+    <string name="header_interface">"Interfaţă"</string>
+    <string name="themes">"Teme"</string>
+    <string name="apollo_themes">"Selectaţi tema pentru Apollo"</string>
+    <string name="select_theme">"Selectaţi tema"</string>
+    <string name="version">"Versiune Apollo"</string>
+    <string name="apply_theme">"Aplicaţi tema"</string>
+    <string name="get_more_themes">"Mai multe teme"</string>
+    <string name="favorite">"Favorite"</string>
+    <string name="queue">"Coadă"</string>
+    <string name="new_playlist">"Nouă"</string>
+    <string name="new_playlist_name_template">"Lista de redare <xliff:g id="number">%d</xliff:g>"</string>
+    <string name="save">"Salvaţi"</string>
+    <string name="overwrite">"Suprascrieţi"</string>
+    <string name="tab_recent">"RECENTE"</string>
+    <string name="tab_artists">"INTERPREŢI"</string>
+    <string name="tab_albums">"ALBUME"</string>
+    <string name="tab_songs">"MELODII"</string>
+    <string name="tab_playlists">"LISTE DE REDARE"</string>
+    <string name="tab_genres">"GENURI"</string>
+    <string name="error">"Eroare"</string>
+</resources>

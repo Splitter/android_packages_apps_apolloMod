@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Gør dette til en favoritsang</string>
+    <string name="cd_search">Søg i din musik</string>
+    <string name="cd_overflow">Vis flere indstillinger</string>
+    <string name="cd_bottom_action_bar_album_art">Albumcover for denne sang</string>
+    <string name="cd_repeat">Gentag en eller alle</string>
+    <string name="cd_previous">Forrige</string>
+    <string name="cd_play">Afspil og pause</string>
+    <string name="cd_next">Næste</string>
+    <string name="cd_shuffle">Bland numre</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Afspiller</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 album</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> albummer</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 sang</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> sange</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 sang tilføjet til afspilningsliste</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> sange tilføjet til afspilningsliste</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">ALBUMLISTE</string>
+    <string name="track_header">NUMMERLISTE</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Indstillinger</string>
+    <string name="shuffle_all">Bland alle</string>
+    <string name="share">Del</string>
+    <string name="play_store">Play Butik</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" indstillet som ringetone</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Omdøb afspilningsliste</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Gentag en</string>
+    <string name="repeat_all">Gentag alle</string>
+    <string name="repeat_off">Gentag fra</string>
+    <string name="shuffle_off">Bland fra</string>
+    <string name="shuffle_on">Bland til</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Hører nu:</string>
+    <string name="by">af</string>
+    <string name="share_track_using">Del nummer via</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Afspil alle</string>
+    <string name="add_to_playlist">Føj til afspilningsliste</string>
+    <string name="use_as_ringtone">Anvend som ringetone</string>
+    <string name="delete_playlist">Slet afspilningsliste</string>
+    <string name="search">Søg</string>
+    <string name="remove">Fjern fra afspilningsliste</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Ukendt</string>
+
+    <!-- Settings -->
+    <string name="about">Om Apollo</string>
+    <string name="eqalizer">Equalizer</string>
+    <string name="header_interface">Brugerflade</string>
+    <string name="themes">Temaer</string>
+    <string name="apollo_themes">Vælg tema for Apollo</string>
+    <string name="select_theme">Vælg tema</string>
+    <string name="version">Apollo Version</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Anvend tema</string>
+    <string name="get_more_themes">Hent flere temaer</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Favoritter</string>
+    <string name="queue">Kø</string>
+    <string name="new_playlist">Ny</string>
+    <string name="new_playlist_name_template">Afspilningsliste <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Gem</string>
+    <string name="overwrite">Overskriv</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">SENESTE</string>
+    <string name="tab_artists">KUNSTNERE</string>
+    <string name="tab_albums">ALBUMMER</string>
+    <string name="tab_songs">SANGE</string>
+    <string name="tab_playlists">AFSPILNINGSLISTER</string>
+    <string name="tab_genres">GENRER</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">Vælg den handling, der skal anvendes på: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">Afspil</string>
+    <string name="play_external_question_button_queue">Sæt i kø</string>
+    <string name="play_external_question_button_cancel">Annuller</string>
+    <string name="play_external_error">Kunne ikke afspille filen</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Fejl</string>
+
+</resources>

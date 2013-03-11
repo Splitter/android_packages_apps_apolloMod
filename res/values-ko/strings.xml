@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">이 곡을 즐겨찾기에 넣습니다</string>
+    <string name="cd_search">원하는 음악을 찾습니다</string>
+    <string name="cd_overflow">더 많은 옵션을 보여줍니다</string>
+    <string name="cd_bottom_action_bar_album_art">앨범아트를 표시합니다</string>
+    <string name="cd_repeat">한 곡 또는 모든 곡을 반복합니다</string>
+    <string name="cd_previous">이전 곡으로 돌아갑니다</string>
+    <string name="cd_play">재생하거나 잠시 멈춥니다</string>
+    <string name="cd_next">다음 곡으로 건너뜁니다</string>
+    <string name="cd_shuffle">트랙들을 무작위로 재생합니다</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">지금 재생 중</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 앨범</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> 앨범</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">한 곡</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> 곡</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">한 곡을 재생목록에 넣었습니다</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> 곡을 재생목록에 넣었습니다</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">앨범 목록</string>
+    <string name="track_header">트랙 목록</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">설정</string>
+    <string name="shuffle_all">모두 섞기</string>
+    <string name="share">공유</string>
+    <string name="play_store">Play 스토어</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\"를 벨소리로 지정했습니다</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">재생목록 이름바꾸기</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">한 곡 반복</string>
+    <string name="repeat_all">모두 반복</string>
+    <string name="repeat_off">반복 안함</string>
+    <string name="shuffle_off">재생순서 섞지 않음</string>
+    <string name="shuffle_on">재생순서 섞음</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">지금 듣는 곡:</string>
+    <string name="by">by</string>
+    <string name="share_track_using">트랙을 공유합니다</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">모두 재생</string>
+    <string name="add_to_playlist">재생목록에 넣기</string>
+    <string name="use_as_ringtone">벨소리 지정하기</string>
+    <string name="delete_playlist">재생목록을 지우기</string>
+    <string name="search">찾기</string>
+    <string name="remove">재생목록에서 지우기</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">알 수 없는</string>
+
+    <!-- Settings -->
+    <string name="about">Apollo에 대해서</string>
+    <string name="eqalizer">이퀄라이저</string>
+    <string name="header_interface">인터페이스</string>
+    <string name="themes">테마</string>
+    <string name="apollo_themes">Apollo 테마를 고르세요</string>
+    <string name="select_theme">테마 선택</string>
+    <string name="version">Apollo 버전</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">테마 적용하기</string>
+    <string name="get_more_themes">더 많은 테마 가져오기</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">즐겨찾기</string>
+    <string name="queue">Queue</string>
+    <string name="new_playlist">새로 만들기</string>
+    <string name="new_playlist_name_template">재생목록 <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">저장</string>
+    <string name="overwrite">덮어쓰기</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">최근</string>
+    <string name="tab_artists">아티스트</string>
+    <string name="tab_albums">앨범</string>
+    <string name="tab_songs">노래</string>
+    <string name="tab_playlists">재생목록</string>
+    <string name="tab_genres">장르</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">다음에 적용할 액션을 고르세요: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">재생</string>
+    <string name="play_external_question_button_queue">재생 예약</string>
+    <string name="play_external_question_button_cancel">취소</string>
+    <string name="play_external_error">파일을 재생할 수 없습니다</string>
+
+    <!-- Something went wrong -->
+    <string name="error">에러</string>
+
+</resources>

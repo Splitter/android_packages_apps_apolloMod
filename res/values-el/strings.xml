@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Προσθήκη του κομματιού στα αγαπημένα</string>
+    <string name="cd_search">Αναζήτηση στα αρχεία μουσικής σας</string>
+    <string name="cd_overflow">Εμφάνιση περισσότερων επιλογών</string>
+    <string name="cd_bottom_action_bar_album_art">Εξώφυλλο για αυτό το κομμάτι</string>
+    <string name="cd_repeat">Επανάληψη ενός ή όλων</string>
+    <string name="cd_previous">Αναζήτηση προς τα πίσω</string>
+    <string name="cd_play">Αναπαραγωγή και παύση</string>
+    <string name="cd_next">Αναζήτηση προς τα εμπρός</string>
+    <string name="cd_shuffle">Τυχαία αναπαραγωγή</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Παίζεται τώρα</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 άλμπουμ</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> άλμπουμ</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 κομμάτι</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> κομμάτια</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 κομμάτι προστέθηκε στη λίστα αναπαραγωγής</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> κομμάτια προστέθηκαν στη λίστα αναπαραγωγής</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">ΛΙΣΤΑ ΑΛΜΠΟΥΜ</string>
+    <string name="track_header">ΛΙΣΤΑ ΚΟΜΜΑΤΙΩΝ</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="shuffle_all">Τυχαία αναπαραγωγή όλων</string>
+    <string name="share">Κοινή χρήση</string>
+    <string name="play_store">Play Store</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">Χρήση του \"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" ως ήχο κλήσης</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Μετονομασία λίστας αναπαραγωγής</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Επανάληψη τρέχοντος κομματιού</string>
+    <string name="repeat_all">Επανάληψη όλων</string>
+    <string name="repeat_off">Επανάληψη ανενεργή</string>
+    <string name="shuffle_off">Τυχαία αναπαραγωγή ανενεργή</string>
+    <string name="shuffle_on">Τυχαία αναπαραγωγή ενεργή</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Τώρα ακούτε:</string>
+    <string name="by">από</string>
+    <string name="share_track_using">Κοινή χρήση κομματιού μέσω</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Αναπαραγωγή όλων</string>
+    <string name="add_to_playlist">Προσθήκη σε λίστα αναπαραγωγής</string>
+    <string name="use_as_ringtone">Χρήση ως ήχο κλήσης</string>
+    <string name="delete_playlist">Διαγραφή λίστας αναπαραγωγής</string>
+    <string name="search">Αναζήτηση</string>
+    <string name="remove">Αφαίρεση από τη λίστα αναπαραγωγής</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Άγνωστο</string>
+
+    <!-- Settings -->
+    <string name="about">Σχετικά με το Apollo</string>
+    <string name="eqalizer">Ισοσταθμιστής</string>
+    <string name="header_interface">Διεπαφή</string>
+    <string name="themes">Θέματα</string>
+    <string name="apollo_themes">Επιλέξτε θέμα για το Apollo</string>
+    <string name="select_theme">Επιλέξτε θέμα</string>
+    <string name="version">Έκδοση Apollo</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Εφαρμογή θέματος</string>
+    <string name="get_more_themes">Λήψη περισσότερων θεμάτων</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Αγαπημένα</string>
+    <string name="queue">Ουρά</string>
+    <string name="new_playlist">Νέα</string>
+    <string name="new_playlist_name_template">Λίστα αναπαραγωγής <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Αποθήκευση</string>
+    <string name="overwrite">Αντικατάσταση</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">ΠΡΟΣΦΑΤΑ</string>
+    <string name="tab_artists">ΚΑΛΛΙΤΕΧΝΕΣ</string>
+    <string name="tab_albums">ΑΛΜΠΟΥΜ</string>
+    <string name="tab_songs">ΚΟΜΜΑΤΙΑ</string>
+    <string name="tab_playlists">ΛΙΣΤΕΣ</string>
+    <string name="tab_genres">ΕΙΔΗ</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">Επιλέξτε ενέργεια για το αρχείο: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">Αναπαραγωγή</string>
+    <string name="play_external_question_button_queue">Προσθήκη στην ουρά</string>
+    <string name="play_external_question_button_cancel">Άκυρο</string>
+    <string name="play_external_error">Αποτυχία αναπαραγωγής του αρχείου</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Σφάλμα</string>
+
+</resources>

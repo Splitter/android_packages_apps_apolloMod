@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Сделать этот трек любимым</string>
+    <string name="cd_search">Поиск по вашей музыке</string>
+    <string name="cd_overflow">Больше возможностей</string>
+    <string name="cd_bottom_action_bar_album_art">Обложка альбома для этого трека</string>
+    <string name="cd_repeat">Повтор трека или плейлиста</string>
+    <string name="cd_previous">Назад</string>
+    <string name="cd_play">Воспр. или пауза</string>
+    <string name="cd_next">Вперёд</string>
+    <string name="cd_shuffle">Перемешать треки</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Сейчас играет</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 альбом</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> альбома (ов)</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 трек</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> трека (ов)</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 трек добавлен в плейлист</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> трека (ов) добавлены в плейлист.</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">АЛЬБОМЫ</string>
+    <string name="track_header">ТРЕКИ</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Настройки</string>
+    <string name="shuffle_all">Перемешать всё</string>
+    <string name="share">Отправить</string>
+    <string name="play_store">Play Маркет</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" установить рингтоном</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Переименовать плейлист</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Повтор трека</string>
+    <string name="repeat_all">Повтор плейлиста</string>
+    <string name="repeat_off">Повтор выкл.</string>
+    <string name="shuffle_off">Перемеш. вкл.</string>
+    <string name="shuffle_on">Перемеш. выкл.</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Я сейчас слушаю:</string>
+    <string name="by">от</string>
+    <string name="share_track_using">Отправить трек используя</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Играть всё</string>
+    <string name="add_to_playlist">Добавить в плейлист</string>
+    <string name="use_as_ringtone">Установить рингтоном</string>
+    <string name="delete_playlist">Удалить плейлист</string>
+    <string name="search">Поиск</string>
+    <string name="remove">Удалить из плейлиста</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Неизвестный</string>
+
+    <!-- Settings -->
+    <string name="about">Об Apollo</string>
+    <string name="eqalizer">Эквалайзер</string>
+    <string name="header_interface">Интерфейс</string>
+    <string name="themes">Темы</string>
+    <string name="apollo_themes">Выбор темы для Apollo</string>
+    <string name="select_theme">Выберите вашу тему</string>
+    <string name="version">Версия Apollo</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Применить тему</string>
+    <string name="get_more_themes">Скачать больше тем</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Избранные</string>
+    <string name="queue">Очередь</string>
+    <string name="new_playlist">Новый</string>
+    <string name="new_playlist_name_template">Плейлист <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Сохранить</string>
+    <string name="overwrite">Переписать</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Ошибка</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">ПОСЛЕДНИЕ</string>
+    <string name="tab_artists">ИСПОЛНИТЕЛИ</string>
+    <string name="tab_albums">АЛЬБОМЫ</string>
+    <string name="tab_songs">ТРЕКИ</string>
+    <string name="tab_playlists">ПЛЕЙЛИСТЫ</string>
+    <string name="tab_genres">ЖАНРЫ</string>
+</resources>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Zvoliť ako obľúbenú pieseň</string>
+    <string name="cd_search">Prehľadať Vašu hudbu</string>
+    <string name="cd_overflow">Zobraziť viac možností</string>
+    <string name="cd_bottom_action_bar_album_art">Obal albumu pre túto skladbu</string>
+    <string name="cd_repeat">Opakovať jednu, alebo všetky</string>
+    <string name="cd_previous">Skočiť späť</string>
+    <string name="cd_play">Prehrať a pozastaviť</string>
+    <string name="cd_next">Preskočiť dopredu</string>
+    <string name="cd_shuffle">Náhodné stopy</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Práve sa prehráva</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 album</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> albumy(ov)</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 skladba</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> skladieb</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 skladba pridaná do playlistu</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> skladieb pridaných do playlistu</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">ZOZNAM ALBUMOV</string>
+    <string name="track_header">ZOZNAM STÔP</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Nastavenia</string>
+    <string name="shuffle_all">Všetko Náhodne</string>
+    <string name="share">Zdieľanie</string>
+    <string name="play_store">Obchod Play</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" nastaviť ako zvonenie</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Premenovať playlist</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Opakovať jednu</string>
+    <string name="repeat_all">Opakovať všetky</string>
+    <string name="repeat_off">Opakovanie vypnuté</string>
+    <string name="shuffle_off">Náhodné prehrávanie vypnuté</string>
+    <string name="shuffle_on">Náhodné prehrávanie zapnuté</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Práve počúvate:</string>
+    <string name="by">od</string>
+    <string name="share_track_using">Zdieľať skladbu pomocou</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Prehrať všetko</string>
+    <string name="add_to_playlist">Pridať do playlistu</string>
+    <string name="use_as_ringtone">Použiť ako vyzváňací tón</string>
+    <string name="delete_playlist">Odstrániť playlist</string>
+    <string name="search">Vyhľadať</string>
+    <string name="remove">Odstrániť z playlistu</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Neznámy</string>
+
+    <!-- Settings -->
+    <string name="about">O Apollo</string>
+    <string name="eqalizer">Equalizer</string>
+    <string name="header_interface">Rozhranie</string>
+    <string name="themes">Vzhľad</string>
+    <string name="apollo_themes">Vyberte tému pre Apollo</string>
+    <string name="select_theme">Vyberte Vašu tému</string>
+    <string name="version">Verzia Apolla</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Aplikovať tému</string>
+    <string name="get_more_themes">Získať viac tém</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Obľúbené</string>
+    <string name="queue">Rada</string>
+    <string name="new_playlist">Nový</string>
+    <string name="new_playlist_name_template">Playlist <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Uložiť</string>
+    <string name="overwrite">Prepísať</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">NEDÁVNE</string>
+    <string name="tab_artists">UMELCI</string>
+    <string name="tab_albums">ALBUMY</string>
+    <string name="tab_songs">SKLADBY</string>
+    <string name="tab_playlists">PLAYLISTY</string>
+    <string name="tab_genres">ŽÁNRE</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Chyba</string>
+
+</resources>

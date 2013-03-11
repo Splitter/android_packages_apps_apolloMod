@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo Mod</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Make this a favorite song</string>
+    <string name="cd_search">Search through your music</string>
+    <string name="cd_overflow">View more options</string>
+    <string name="cd_bottom_action_bar_album_art">Album art for this song</string>
+    <string name="cd_repeat">Repeat one or all</string>
+    <string name="cd_previous">Skip backwards</string>
+    <string name="cd_play">Play and pause</string>
+    <string name="cd_next">Skip forwards</string>
+    <string name="cd_shuffle">Shuffle tracks</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Now playing</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 album</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> albums</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 song</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> songs</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 song added to playlist</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> songs added to playlist</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">ALBUM LIST</string>
+    <string name="track_header">TRACK LIST</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Settings</string>
+    <string name="shuffle_all">Shuffle all</string>
+    <string name="share">Share</string>
+    <string name="play_store">Play Store</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" set as ringtone</string>
+
+    <!-- Do not translate. Duration format for duration < 1 hour -->
+    <string name="durationformatshort" translatable="false"><xliff:g id="format">%2$d:%5$02d</xliff:g></string>
+    <!-- Do not translate. Duration format for duration >= 1 hour -->
+    <string name="durationformatlong" translatable="false"><xliff:g id="format">%1$d:%3$02d:%5$02d</xliff:g></string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Rename playlist</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Repeat one</string>
+    <string name="repeat_all">Repeat all</string>
+    <string name="repeat_off">Repeat off</string>
+    <string name="shuffle_off">Shuffle off</string>
+    <string name="shuffle_on">Shuffle on</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Now listening to:</string>
+    <string name="by">by</string>
+    <string name="share_track_using">Share track using</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Play all</string>
+    <string name="add_to_playlist">Add to playlist</string>
+    <string name="use_as_ringtone">Use as ringtone</string>
+    <string name="delete_playlist">Delete playlist</string>
+    <string name="search">Search</string>
+    <string name="remove">Remove from playlist</string>
+    <string name="image_edit_gallery">New image from gallery</string>
+    <string name="image_edit_file">Original image from file</string>
+    <string name="image_edit_lastfm">Fetch image from last.fm</string>
+    <string name="image_edit_web">Search the web for an image</string>
+    
+    <!--  ContextMenu Headers -->
+    <string name="image_edit_albums">Edit Album Artwork</string>
+    <string name="image_edit_artists">Edit Artist Image</string>
+    <string name="image_edit_genre">Edit Genre Image</string>
+    <string name="image_edit_playlist">Edit Playlist Image</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Unknown</string>
+
+    <!-- Settings -->
+    <string name="about">About Apollo</string>
+    <string name="eqalizer">Equalizer</string>
+    <string name="header_interface">Interface</string>
+    <string name="settings_storage_category">Storage</string>
+    <string name="themes">Themes</string>
+    <string name="apollo_themes">Select theme for Apollo</string>
+    <string name="select_theme">Select your theme</string>
+    <string name="version">Apollo Version</string>
+    <string name="tab_visibility_title">Tab visibility</string>
+    <string name="tab_visibility_summary">Choose which tabs are displayed</string>
+    <string name="settings_delete_cache_title">Delete cache</string>
+    <string name="settings_delete_cache_summary">Remove all cached images</string>
+    <string name="delete_warning">This will permanently delete the cached image entries</string>
+    <string name="visualizer_title">Audio visualizer</string>
+    <string name="visualizer_summary">Choose to display audio visualizations during playback</string>
+	<string name="widget_style_title">Widget Style</string>
+    <string name="widget_style_summary">Choose the widget design</string>
+    <string name="widget_style_dark">Holo Dark</string>
+    <string name="widget_style_light">Holo Light</string>
+    
+    <!-- Settings keys -->
+    <string name="key_themes" translatable="false">themepreview</string>
+    <string name="key_themes_package" translatable="false">themePackageName</string>
+    <string name="key_themes_preferences" translatable="false">themePrefences</string>
+    <string name="key_build_version" translatable="false">build_version</string>
+    <string name="key_tabs_enabled" translatable="false">tabs_enabled</string>
+    <string name="key_visualization_type" translatable="false">visualization_type</string>
+    <string name="key_widget_style" translatable="false">widget_type</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Apply theme</string>
+    <string name="get_more_themes">Get more themes</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Favorites</string>
+    <string name="queue">Queue</string>
+    <string name="new_playlist">New</string>
+    <string name="new_playlist_name_template">Playlist <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Save</string>
+    <string name="overwrite">Overwrite</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">Recent</string>
+    <string name="tab_artists">Artists</string>
+    <string name="tab_albums">Albums</string>
+    <string name="tab_songs">Songs</string>
+    <string name="tab_playlists">Playlists</string>
+    <string name="tab_genres">Genres</string>
+    
+    <!-- Visualizations -->
+    <string name="visual_none">None</string>
+    <string name="visual_bargraph">Bar Graph</string>
+    <string name="visual_solidbargraph">Solid Bar Graph</string>
+    <string name="visual_waveform">Waveform</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">Select the action to apply to: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">Play</string>
+    <string name="play_external_question_button_queue">Enqueue</string>
+    <string name="play_external_question_button_cancel">Cancel</string>
+    <string name="play_external_error">Failed to play file</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Error</string>
+    
+    <!-- Titles for Albums/Artist screens -->
+    <string name="artist_page_title">" Artist: "</string>
+    <string name="album_page_title">" Album: "</string>
+
+</resources>

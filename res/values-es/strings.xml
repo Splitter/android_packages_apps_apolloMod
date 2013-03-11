@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Apollo</string>
+    <string name="cd_favorite">Marcar como favorita</string>
+    <string name="cd_search">Buscar en tu música</string>
+    <string name="cd_overflow">Ver más opciones</string>
+    <string name="cd_bottom_action_bar_album_art">Carátula para esta canción</string>
+    <string name="cd_repeat">Repetir una o todas</string>
+    <string name="cd_previous">Saltar hacia atrás</string>
+    <string name="cd_play">Reproducir y pausar</string>
+    <string name="cd_next">Saltar hacia delante</string>
+    <string name="cd_shuffle">Pistas aleatorias</string>
+    <string name="nowplaying">Reproduciendo</string>
+
+    <plurals name="Nalbums">
+        <item quantity="one">1 álbum</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> álbumes</item>
+    </plurals>
+
+    <plurals name="Nsongs">
+        <item quantity="one">1 canción</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> canciones</item>
+    </plurals>
+
+    <plurals name="NNNtrackstoplaylist">
+        <item quantity="one">1 canción añadida a la lista de reproducción</item>
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> canciones añadidas a la lista de reproducción.</item>
+    </plurals>
+
+    <string name="album_header">LISTA DE ÁLBUMES</string>
+    <string name="track_header">LISTA DE CANCIONES</string>
+
+    <string name="settings">Ajustes</string>
+    <string name="shuffle_all">Reproducción Aleatoria</string>
+    <string name="share">Compartir</string>
+    <string name="play_store">Play Store</string>
+
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" establecer como tono de llamada</string>
+
+    <string name="rename_playlist">Renombrar lista de reproducción</string>
+
+    <string name="repeat_one">Repetir una</string>
+    <string name="repeat_all">Repetir todas</string>
+    <string name="repeat_off">No repetir</string>
+    <string name="shuffle_off">Modo aleatorio apagado</string>
+    <string name="shuffle_on">Modo aleatorio encendido</string>
+
+    <string name="now_listening_to">Escuchando:</string>
+    <string name="by">por</string>
+    <string name="share_track_using">Compartir canción usando</string>
+
+    <string name="play_all">Reproducir todo</string>
+    <string name="add_to_playlist">Añadir a la lista de reproducción</string>
+    <string name="use_as_ringtone">Establecer como tono de llamada</string>
+    <string name="delete_playlist">Eliminar lista de reproducción</string>
+    <string name="search">Buscar</string>
+    <string name="remove">Eliminar de la lista de reproducción</string>
+
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <string name="unknown">Desconocido</string>
+
+    <string name="about">Acerca de Apollo</string>
+    <string name="eqalizer">Ecualizador</string>
+    <string name="header_interface">Interfaz</string>
+    <string name="themes">Temas</string>
+    <string name="apollo_themes">Seleccione un tema para Apollo</string>
+    <string name="select_theme">Seleccione su tema</string>
+    <string name="version">Versión de Apollo</string>
+
+    <string name="apply_theme">Aplicar tema</string>
+    <string name="get_more_themes">Obtener más temas</string>
+
+    <string name="favorite">Favoritos</string>
+    <string name="queue">Cola</string>
+    <string name="new_playlist">Nuevo</string>
+    <string name="new_playlist_name_template">Lista de reproducción <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Guardar</string>
+    <string name="overwrite">Sobrescribir</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">RECIENTES</string>
+    <string name="tab_artists">ARTISTAS</string>
+    <string name="tab_albums">ÁLBUMES</string>
+    <string name="tab_songs">CANCIONES</string>
+    <string name="tab_playlists">LISTAS</string>
+    <string name="tab_genres">GÉNEROS</string>
+
+    <string name="play_external_question_msg">Seleccione la acción a aplicar a:\n\n
+        <b>
+            <xliff:g id="name">%s</xliff:g>
+        </b>
+    </string>
+    <string name="play_external_question_button_play">Reproducir</string>
+    <string name="play_external_question_button_queue">En cola</string>
+    <string name="play_external_question_button_cancel">Cancelar</string>
+    <string name="play_external_error">No se pudo reproducir el archivo</string>
+
+    <string name="error">Error</string>
+
+</resources>

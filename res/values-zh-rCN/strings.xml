@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">标记为喜爱的</string>
+    <string name="cd_search">搜索您的音乐库</string>
+    <string name="cd_overflow">更多选项</string>
+    <string name="cd_bottom_action_bar_album_art">专辑图片</string>
+    <string name="cd_repeat">重复一首或全部</string>
+    <string name="cd_previous">前一首</string>
+    <string name="cd_play">暂停/继续</string>
+    <string name="cd_next">下一首</string>
+    <string name="cd_shuffle">随机播放</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">现在播放</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 张专辑</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> 张专辑</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 首歌曲</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> 首歌曲</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 首歌曲添加到播放列表.</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> 首歌曲添加到播放列表.</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">专辑列表</string>
+    <string name="track_header">曲目列表</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">设置</string>
+    <string name="shuffle_all">全部随机播放</string>
+    <string name="share">分享</string>
+    <string name="play_store">Play 商店</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" 设置为手机铃声</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">重命名播放列表</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">重复播放当前歌曲</string>
+    <string name="repeat_all">重复播放所有歌曲</string>
+    <string name="repeat_off">重复播放已关闭</string>
+    <string name="shuffle_off">随机播放已关闭</string>
+    <string name="shuffle_on">重复播放已开启</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">现在播放:</string>
+    <string name="by">艺术家:</string>
+    <string name="share_track_using">分享此曲目</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">全部播放</string>
+    <string name="add_to_playlist">添加到播放列表</string>
+    <string name="use_as_ringtone">设置为手机铃声</string>
+    <string name="delete_playlist">删除播放列表</string>
+    <string name="search">搜索</string>
+    <string name="remove">从播放列表中移除</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">未知</string>
+
+    <!-- Settings -->
+    <string name="about">关于 Apollo</string>
+    <string name="eqalizer">均衡器</string>
+    <string name="header_interface">界面</string>
+    <string name="themes">主题</string>
+    <string name="apollo_themes">选择 Apollo 的主题</string>
+    <string name="select_theme">选择您的主题</string>
+    <string name="version">Apollo 版本</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">应用主题</string>
+    <string name="get_more_themes">下载更多主题</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">喜爱</string>
+    <string name="queue">队列</string>
+    <string name="new_playlist">新建</string>
+    <string name="new_playlist_name_template">播放列表 <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">保存</string>
+    <string name="overwrite">覆盖</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">最近</string>
+    <string name="tab_artists">艺术家</string>
+    <string name="tab_albums">专辑</string>
+    <string name="tab_songs">歌曲</string>
+    <string name="tab_playlists">播放列表</string>
+    <string name="tab_genres">流派</string>
+
+    <!-- Something went wrong -->
+    <string name="error">错误</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">选择应用于: \n\n<b><xliff:g id="name">%s</xliff:g></b>的操作</string>
+    <string name="play_external_question_button_play">播放</string>
+    <string name="play_external_question_button_queue">队列</string>
+    <string name="play_external_question_button_cancel">取消</string>
+    <string name="play_external_error">无法播放文件</string>
+
+</resources>

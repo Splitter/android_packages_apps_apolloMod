@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cd_favorite">Fazer desta música uma favorita</string>
+    <string name="cd_search">Buscar nas suas músicas</string>
+    <string name="cd_overflow">Visualizar mais opções</string>
+    <string name="cd_bottom_action_bar_album_art">Capa do álbum para esta música</string>
+    <string name="cd_repeat">Repetir uma ou tudo</string>
+    <string name="cd_previous">Faixa anterior</string>
+    <string name="cd_play">Reproduzir ou pausar</string>
+    <string name="cd_next">Próxima faixa</string>
+    <string name="cd_shuffle">Faixas aleatórias</string>
+    <string name="nowplaying">Reproduzindo agora</string>
+    <plurals name="Nalbums">
+        <!-- Number of albums is one -->
+        <item quantity="one">1 álbum</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> álbums</item>
+    </plurals>
+    <plurals name="Nsongs">
+        <!-- Number of songs is one -->
+        <item quantity="one">1 música</item>
+        <item quantity="other"><xliff:g id="count" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> músicas</item>
+    </plurals>
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 música foi adicionada à lista de reprodução</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> músicas foram adicionadas à lista de reprodução</item>
+    </plurals>
+    <string name="album_header">LISTA DE ÁLBUNS</string>
+    <string name="track_header">LISTA DE MÚSICAS</string>
+    <string name="settings">Configurações</string>
+    <string name="shuffle_all">Todas aleatoriamente</string>
+    <string name="share">Compartilhar</string>
+    <string name="play_store">Play Store</string>
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g>\" definir como toque de celular</string>
+    <string name="rename_playlist">Renomear lista de reprodução</string>
+    <string name="repeat_one">Repetir uma</string>
+    <string name="repeat_all">Repetir todas</string>
+    <string name="repeat_off">Repetição desligada</string>
+    <string name="shuffle_off">Aleatório desligado</string>
+    <string name="shuffle_on">Aleatório ligado</string>
+    <string name="now_listening_to">Agora ouvindo a:</string>
+    <string name="by">por</string>
+    <string name="share_track_using">Compartilhar música usando</string>
+    <string name="play_all">Reproduzir todas</string>
+    <string name="add_to_playlist">Adicionar à lista de reprodução</string>
+    <string name="use_as_ringtone">Usar como toque de celular</string>
+    <string name="delete_playlist">Remover lista de reprodução</string>
+    <string name="search">Buscar</string>
+    <string name="remove">Remover da lista de reprodução</string>
+    <string name="unknown">Desconhecido</string>
+    <string name="about">Sobre</string>
+    <string name="eqalizer">Equalizador</string>
+    <string name="header_interface">Interface</string>
+    <string name="themes">Temas</string>
+    <string name="apollo_themes">Selecionar tema para Apollo</string>
+    <string name="select_theme">Selecionar seu tema</string>
+    <string name="version">Versão Apollo</string>
+    <string name="apply_theme">Aplicar tema</string>
+    <string name="get_more_themes">Obter mais temas</string>
+    <string name="favorite">Favoritos</string>
+    <string name="queue">Fila</string>
+    <string name="new_playlist">Nova</string>
+    <string name="save">Salvar</string>
+    <string name="overwrite">Sobrescrever</string>
+    <string name="error">Erro</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">RECENTE</string>
+    <string name="tab_artists">ARTISTAS</string>
+    <string name="tab_albums">ÁLBUNS</string>
+    <string name="tab_songs">MÚSICAS</string>
+    <string name="tab_playlists">LISTAS</string>
+    <string name="tab_genres">GÊNEROS</string>
+
+    <string name="play_external_question_msg">Selecione a ação para aplicar a: \n\n<b><xliff:g id="name" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">Reproduzir</string>
+    <string name="play_external_question_button_queue">Enfileirar</string>
+    <string name="play_external_question_button_cancel">Cancelar</string>
+    <string name="play_external_error">Falha ao reproduzir o arquivo</string>
+</resources>

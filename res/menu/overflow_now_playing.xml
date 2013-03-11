@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/add_to_playlist"
+        android:showAsAction="never"
+        android:title="@string/add_to_playlist"/>
+    <item
+        android:id="@+id/eq"
+        android:showAsAction="never"
+        android:title="@string/eqalizer"/>
+    <item
+        android:id="@+id/play_store"
+        android:showAsAction="never"
+        android:title="@string/play_store"/>
+    <item
+        android:id="@+id/share"
+        android:showAsAction="never"
+        android:title="@string/share"/>
+    <item
+        android:id="@+id/settings"
+        android:showAsAction="never"
+        android:title="@string/settings"/>
+
+</menu>

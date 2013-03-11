@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- A transparent black -->
+    <color name="transparent_black">#aa000000</color>
+    
+    <!-- selected tab text -->
+    <color name="selected_tabtext">#bb000000</color>
+    
+    <!-- non selected tab text -->
+    <color name="unselected_tabtext">#77000000</color>
+
+    <!-- A semi-transparent dark Holo shade of blue -->
+    <color name="holo_blue_dark">#ff0099cc</color>
+
+    <!-- Transparent -->
+    <color name="transparent">#00000000</color>
+
+    <!-- Black -->
+    <color name="black">#ff000000</color>
+
+    <!-- White -->
+    <color name="white">#ffffffff</color>
+
+    <!-- Quick Queue line seperator -->
+    <color name="queue_callout_line">#99ffffff</color>
+
+</resources>

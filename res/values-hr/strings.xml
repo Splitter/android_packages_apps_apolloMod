@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Dodaj pjesmu u favorite</string>
+    <string name="cd_search">Pretražuj svoju glazbu</string>
+    <string name="cd_overflow">Više postavki</string>
+    <string name="cd_bottom_action_bar_album_art">Album art za ovu pjesmu</string>
+    <string name="cd_repeat">Ponavljaj jednu ili sve</string>
+    <string name="cd_previous">Premotaj natrag</string>
+    <string name="cd_play">Sviraj i pauza</string>
+    <string name="cd_next">Premotaj naprijed</string>
+    <string name="cd_shuffle">Shuffle pjesme</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Upravo svira</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 album</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> albuma</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 pjesma</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> pjesme</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 pjesma dodana je na popis</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> pjesama dodano je popisu</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">LISTA ALBUMA</string>
+    <string name="track_header">LISTA PJESAMA</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Postavke</string>
+    <string name="shuffle_all">Sve shuffle</string>
+    <string name="share">Podjeli</string>
+    <string name="play_store">Play Trgovina</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" postavljena kao Melodija zvona telefona</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Preimenuj popis</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Ponovi jednu</string>
+    <string name="repeat_all">Ponovi sve</string>
+    <string name="repeat_off">Ponavljanje isključeno</string>
+    <string name="shuffle_off">Shuffle isključen</string>
+    <string name="shuffle_on">Shuffle uključen</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Upravo slušam:</string>
+    <string name="by">od</string>
+    <string name="share_track_using">Podjeli pjesmu koristeći</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Sviraj</string>
+    <string name="add_to_playlist">Dodaj u popis</string>
+    <string name="use_as_ringtone">Koristi kao zvono</string>
+    <string name="delete_playlist">Izbriši popis</string>
+    <string name="search">Traži</string>
+    <string name="remove">Izbriši iz popisa</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Nepoznato</string>
+
+    <!-- Settings -->
+    <string name="about">O Apollu</string>
+    <string name="eqalizer">Equalizer</string>
+    <string name="header_interface">Sučelje</string>
+    <string name="themes">Teme</string>
+    <string name="apollo_themes">Izaberite svoju temu za Apollo</string>
+    <string name="select_theme">Izaberite svoju temu</string>
+    <string name="version">Verzija Apolla</string>
+
+    <!-- layout Buttons -->
+    <string name="apply_theme">Primjeni temu</string>
+    <string name="get_more_themes">Pronađi još tema</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Favoriti</string>
+    <string name="queue">Queue</string>
+    <string name="new_playlist">Novi popis</string>
+    <string name="new_playlist_name_template">Popis <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Spremi</string>
+    <string name="overwrite">Prebriši</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">NEDAVNO</string>
+    <string name="tab_artists">IZVOĐAČI</string>
+    <string name="tab_albums">ALBUMI</string>
+    <string name="tab_songs">PJESME</string>
+    <string name="tab_playlists">POPISI</string>
+    <string name="tab_genres">ŽANROVI</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">Izaberi radnju i primjeni na: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">Sviraj</string>
+    <string name="play_external_question_button_queue">Enqueue</string>
+    <string name="play_external_question_button_cancel">Poništi</string>
+    <string name="play_external_error">Neuspjelo otvaranje datoteke</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Greška</string>
+
+</resources>

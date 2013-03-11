@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Legyen kedvenc ez a dal</string>
+    <string name="cd_search">Kerressen a zenéi közt</string>
+    <string name="cd_overflow">További lehetőségek</string>
+    <string name="cd_bottom_action_bar_album_art">A dal albumborítója</string>
+    <string name="cd_repeat">Egy, vagy mind ismétlése</string>
+    <string name="cd_previous">Előző dal</string>
+    <string name="cd_play">Lejátszás és szünet</string>
+    <string name="cd_next">Következő dal</string>
+    <string name="cd_shuffle">Véletlen lejátszás</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Most hallgatott</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 album</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> albumok</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 dal</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> dal</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 dal hozzáadva a lejátszási listához.</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> dal hozzáadva a lejátszási listához.</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">ALBUMOK LISTÁJA</string>
+    <string name="track_header">DALOK LISTÁJA</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Beállítások</string>
+    <string name="shuffle_all">Véletlen lejátszás</string>
+    <string name="share">Megosztás</string>
+    <string name="play_store">Play Áruház</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" beállítva csengőhangként</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Lejátszási lista átnevezése</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Egy dal ismétlése</string>
+    <string name="repeat_all">Minden dal ismétlése</string>
+    <string name="repeat_off">Ismétlés ki</string>
+    <string name="shuffle_off">Véletlen lejátszás ki</string>
+    <string name="shuffle_on">Véletlen lejátszás be</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Most hallgatott:</string>
+    <string name="by">előadó:</string>
+    <string name="share_track_using">Dal megosztása ezzel:</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Összes lejátszása</string>
+    <string name="add_to_playlist">Lejátszási listához ad</string>
+    <string name="use_as_ringtone">Beállítás csengőhangnak</string>
+    <string name="delete_playlist">Lejátszási lista törlése</string>
+    <string name="search">Keresés</string>
+    <string name="remove">Törlés a lejátszási listáról</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Ismeretlen</string>
+
+    <!-- Settings -->
+    <string name="about">Névjegy</string>
+    <string name="eqalizer">Hangszínszabályzó</string>
+    <string name="header_interface">Felület</string>
+    <string name="themes">Témák</string>
+    <string name="apollo_themes">Válasszon ki egy témát az Apollo számára</string>
+    <string name="select_theme">Válasszon ki egy témát</string>
+    <string name="version">Apollo verzió</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Téma alkalmazása</string>
+    <string name="get_more_themes">Új témák beszerzése</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Kedvencek</string>
+    <string name="queue">Sor</string>
+    <string name="new_playlist">Új</string>
+    <string name="new_playlist_name_template"><xliff:g id="number">%d</xliff:g>. Lejátszási lista</string>
+    <string name="save">Mentés</string>
+    <string name="overwrite">Felülírás</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">MOSTANÁBAN</string>
+    <string name="tab_artists">ELŐADÓK</string>
+    <string name="tab_albums">ALBUMOK</string>
+    <string name="tab_songs">DALOK</string>
+    <string name="tab_playlists">LISTÁK</string>
+    <string name="tab_genres">MŰFAJOK</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">Válasszon eseményt a következőhöz: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">Lejátszás</string>
+    <string name="play_external_question_button_queue">Sorba rendezés</string>
+    <string name="play_external_question_button_cancel">Mégse</string>
+    <string name="play_external_error">Nem sikerült lejátszani a fájlt</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Hiba</string>
+
+</resources>

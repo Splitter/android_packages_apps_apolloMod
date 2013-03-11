@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.andrew.apolloMod"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="15" />
+
+    <!-- This is used for Last.fm and Google Music -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Used to check for a data connection -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Used to keep the service running when the phone sleeps -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Stick Broadcast -->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <!-- Incoming calls -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Used to set ringtone -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+
+    <application
+        android:allowTaskReparenting="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:process=":main"
+        android:taskAffinity="apollo.task.music"
+        android:theme="@android:style/Theme.Holo.Light" >
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".activities.QueryBrowserActivity" />
+        <!-- Serach -->
+        <activity
+            android:name=".activities.QueryBrowserActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Holo.Light" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <action android:name="android.intent.action.MEDIA_SEARCH" />
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+
+        <!-- Main Activity -->
+        <activity
+            android:name=".activities.MusicLibrary"
+            android:label="@string/app_name"
+        	android:logo="@drawable/ic_logo"
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MUSIC_PLAYER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_MUSIC" />
+            </intent-filter>
+        </activity>
+        <!-- Now Playing -->
+        <activity
+            android:name=".activities.AudioPlayerHolder"
+            android:clearTaskOnLaunch="true"
+            android:excludeFromRecents="true"
+            android:label="@string/nowplaying"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:host="media" />
+                <data android:mimeType="audio/*" />
+                <data android:mimeType="application/ogg" />
+                <data android:mimeType="application/x-ogg" />
+                <data android:mimeType="application/itunes" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.andrew.apolloMod.PLAYBACK_VIEWER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- Play External File -->
+        <activity
+            android:name=".activities.PlayExternal"
+            android:clearTaskOnLaunch="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.Light.Translucent"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="file" />
+                <data android:mimeType="audio/*" />
+                <data android:mimeType="application/ogg" />
+                <data android:mimeType="application/x-ogg" />
+                <data android:mimeType="application/itunes" />
+            </intent-filter>
+        </activity>
+        <!-- Track browser -->
+        <activity
+            android:name=".activities.TracksBrowser"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.EDIT" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Quickly show the queue -->
+        <activity
+            android:name=".activities.QuickQueue"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTop"
+            android:noHistory="true"
+            android:theme="@style/Theme.QuickQueue"
+            android:windowSoftInputMode="stateUnchanged" />
+        <!-- Settings -->
+        <activity
+            android:name=".preferences.SettingsHolder"
+        	android:logo="@drawable/ic_logo"
+            android:label="@string/settings" />
+        <activity
+            android:name=".menu.PlaylistDialog"
+            android:label="@string/rename_playlist"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" >
+            <intent-filter>
+                <action android:name="com.andrew.apolloMod.CREATE_PLAYLIST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.andrew.apolloMod.RENAME_PLAYLIST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.andrew.apolloMod.menu.PlaylistPicker"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" >
+            <intent-filter>
+                <action android:name="com.andrew.apolloMod.ADD_TO_PLAYLIST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 1x1 App Widget -->
+        <receiver
+            android:name="com.andrew.apolloMod.app.widgets.AppWidget11"
+            android:label="@string/apollo_1x1" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget1x1_info" />
+        </receiver>
+        <!-- 4x1 App Widget -->
+        <receiver
+            android:name="com.andrew.apolloMod.app.widgets.AppWidget41"
+            android:label="@string/apollo_4x1" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget4x1_info" />
+        </receiver>
+        <!-- 4x2 App Widget -->
+        <receiver
+            android:name="com.andrew.apolloMod.app.widgets.AppWidget42"
+            android:label="@string/apollo_4x2" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget4x2_info" />
+        </receiver>
+        <!-- Media button receiver -->
+        <receiver android:name="com.andrew.apolloMod.service.MediaButtonIntentReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+            </intent-filter>
+        </receiver>
+        <!-- Music service -->
+        <service
+            android:name="com.andrew.apolloMod.service.ApolloService"
+            android:label="@string/app_name"
+            android:process=":main" />
+    </application>
+
+</manifest>

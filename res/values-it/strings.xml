@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Apollo</string>
+    <string name="cd_favorite">Aggiungi questa canzone ai preferiti</string>
+    <string name="cd_search">Cerca nella tua musica</string>
+    <string name="cd_overflow">Visualizza più opzioni</string>
+    <string name="cd_bottom_action_bar_album_art">Copertina Album di questa canzone</string>
+    <string name="cd_repeat">Ripeti una o tutte</string>
+    <string name="cd_previous">Traccia precedente</string>
+    <string name="cd_play">Play e pausa</string>
+    <string name="cd_next">Traccia successiva</string>
+    <string name="cd_shuffle">Riproduzione casuale</string>
+    <string name="nowplaying">In esecuzione</string>
+    <plurals name="Nalbums">
+        <item quantity="one">Un album</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> album</item>
+    </plurals>
+    <plurals name="Nsongs">
+        <item quantity="one">Una canzone</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> canzoni</item>
+    </plurals>
+    <plurals name="NNNtrackstoplaylist">
+        <item quantity="one">Una canzone aggiunta alla playlist</item>
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> canzoni aggiunte alla playlist</item>
+    </plurals>
+    <string name="album_header">ALBUM</string>
+    <string name="track_header">TRACCE</string>
+    <string name="settings">Impostazioni</string>
+    <string name="shuffle_all">Riproduzione casuale</string>
+    <string name="share">Condividi</string>
+    <string name="play_store">Play Store</string>
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" imposta come suoneria</string>
+    <string name="rename_playlist">Rinomina playlist</string>
+    <string name="repeat_one">Ripeti una volta</string>
+    <string name="repeat_all">Ripeti tutti</string>
+    <string name="repeat_off">Ripeti disattivato</string>
+    <string name="shuffle_off">Riproduzione casuale disattivata</string>
+    <string name="shuffle_on">Riproduzione casuale attivata</string>
+    <string name="now_listening_to">Stai ascoltando:</string>
+    <string name="by">by</string>
+    <string name="share_track_using">Condividi canzone usando</string>
+    <string name="play_all">Riproduci tutti</string>
+    <string name="add_to_playlist">Aggiungi alla playlist</string>
+    <string name="use_as_ringtone">Usa come suoneria</string>
+    <string name="delete_playlist">Cancella playlist</string>
+    <string name="search">Cerca</string>
+    <string name="remove">Rimuovi dalla playlist</string>
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+    <string name="unknown">Sconosciuto</string>
+    <string name="about">About Apollo</string>
+    <string name="eqalizer">Equalizzatore</string>
+    <string name="header_interface">Interfaccia</string>
+    <string name="themes">Temi</string>
+    <string name="apollo_themes">Seleziona un tema per Apollo</string>
+    <string name="select_theme">Seleziona tema</string>
+    <string name="version">Versione Apollo</string>
+    <string name="apply_theme">Applica tema</string>
+    <string name="get_more_themes">Ottieni altri temi</string>
+    <string name="favorite">Preferiti</string>
+    <string name="queue">Coda</string>
+    <string name="new_playlist">Nuova</string>
+    <string name="new_playlist_name_template">Playlist <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Salva</string>
+    <string name="overwrite">Sovrascrivi</string>
+    <string name="tab_recent">RECENTI</string>
+    <string name="tab_artists">ARTISTI</string>
+    <string name="tab_albums">ALBUM</string>
+    <string name="tab_songs">TRACCE</string>
+    <string name="tab_playlists">PLAYLIST</string>
+    <string name="tab_genres">GENERI</string>
+    <string name="play_external_question_msg">Selezionare l\'azione da eseguire per: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">Esegui</string>
+    <string name="play_external_question_button_queue">Metti in coda</string>
+    <string name="play_external_question_button_cancel">Annulla</string>
+    <string name="play_external_error">Impossibile riprodurre il file</string>
+    <string name="error">Errore</string>
+</resources>
+

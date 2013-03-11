@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/audio_player_seek_bar_padding" >
+
+        <SeekBar
+            android:id="@android:id/progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/audio_player_seek_bar_padding"
+            android:thumb="@null" />
+
+        <TextView
+            android:id="@+id/audio_player_current_time"
+            style="@style/AudioPlayerText"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@android:id/progress"
+            android:paddingLeft="@dimen/audio_player_info_container_padding"
+            android:paddingRight="@dimen/audio_player_info_container_padding"
+            android:textColor="@color/transparent_black"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/audio_player_total_time"
+            style="@style/AudioPlayerText"
+            android:layout_alignParentRight="true"
+            android:layout_below="@android:id/progress"
+            android:paddingLeft="@dimen/audio_player_info_container_padding"
+            android:paddingRight="@dimen/audio_player_info_container_padding"
+            android:textColor="@color/transparent_black"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/audio_player_controls_height"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/audio_player_button_container_padding" >
+
+        <ImageButton
+            android:id="@+id/audio_player_repeat"
+            style="@style/AudioPlayerButton"
+            android:contentDescription="@string/cd_repeat"
+            android:src="@drawable/apollo_holo_light_repeat_normal" />
+
+        <com.andrew.apolloMod.ui.widgets.RepeatingImageButton
+            android:id="@+id/audio_player_prev"
+            style="@style/AudioPlayerButton"
+            android:src="@drawable/apollo_holo_light_previous" />
+
+        <ImageButton
+            android:id="@+id/audio_player_play"
+            style="@style/AudioPlayerButton"
+            android:contentDescription="@string/cd_play"
+            android:src="@drawable/apollo_holo_light_pause" />
+
+        <com.andrew.apolloMod.ui.widgets.RepeatingImageButton
+            android:id="@+id/audio_player_next"
+            style="@style/AudioPlayerButton"
+            android:src="@drawable/apollo_holo_light_next" />
+
+        <ImageButton
+            android:id="@+id/audio_player_shuffle"
+            style="@style/AudioPlayerButton"
+            android:contentDescription="@string/cd_shuffle"
+            android:src="@drawable/apollo_holo_light_shuffle_normal" />
+    </LinearLayout>
+
+</merge>

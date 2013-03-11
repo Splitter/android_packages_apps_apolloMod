@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cd_favorite">הפוך שיר זה למועדף</string>
+    <string name="cd_search">חפש במוזיקה שלך</string>
+    <string name="cd_overflow">הצג אפשרויות נוספות</string>
+    <string name="cd_bottom_action_bar_album_art">עטיפת אלבום עבור שיר זה</string>
+    <string name="cd_repeat">חזור על אחד או על כולם</string>
+    <string name="cd_previous">דלג אחורה</string>
+    <string name="cd_next">דלג קדימה</string>
+    <string name="cd_play">נגן והפסק</string>
+    <string name="cd_shuffle">ערבב שירים</string>
+    <string name="nowplaying">עכשיו מתנגן</string>
+    <string name="settings">הגדרות</string>
+    <string name="shuffle_all">ערבב הכל</string>
+    <string name="share">שתף</string>
+    <string name="play_store">"חנות Play"</string>
+    <string name="rename_playlist">שנה את שם הרשימה</string>
+    <string name="repeat_one">חזור על אחד</string>
+    <string name="repeat_all">חזור על הכל</string>
+    <string name="repeat_off">ללא חזרה</string>
+    <string name="shuffle_off">ללא ערבוב</string>
+    <string name="shuffle_on">ערבוב פועל</string>
+    <string name="now_listening_to">מקשיב עכשיו ל:</string>
+    <string name="by">על-ידי</string>
+    <string name="share_track_using">שתף שיר בעזרת</string>
+    <string name="play_all">נגן הכל</string>
+    <string name="add_to_playlist">הוסף לרשימת השמעה</string>
+    <string name="use_as_ringtone">השתמש כצלצול</string>
+    <string name="delete_playlist">מחק רשימת השמעה</string>
+    <string name="search">חפש</string>
+    <string name="remove">הסר מרשימת השמעה</string>
+    <string name="unknown">לא ידוע</string>
+    <string name="about">"אודות Apollo"</string>
+    <string name="eqalizer">אקולייזר</string>
+    <string name="header_interface">ממשק</string>
+    <string name="themes">ערכות נושא</string>
+    <string name="apollo_themes">"בחר ערכת נושא עבור Apollo"</string>
+    <string name="select_theme">בחר את ערכת הנושא שלך</string>
+    <string name="version">"גירסת Apollo"</string>
+    <string name="apply_theme">החל ערכת נושא</string>
+    <string name="get_more_themes">השג עוד ערכות נושא</string>
+    <string name="favorite">מועדפים</string>
+    <string name="queue">הכנס לתור</string>
+    <string name="new_playlist">חדש</string>
+    <string name="save">שמור</string>
+    <string name="overwrite">החלף</string>
+    <string name="error">שגיאה</string>
+    <string name="tab_recent">אחרונים</string>
+    <string name="tab_artists">אמנים</string>
+    <string name="tab_albums">אלבומים</string>
+    <string name="tab_songs">שירים</string>
+    <string name="tab_playlists">רשימות השמעה</string>
+    <string name="tab_genres">סגנונות</string>
+    <string name="album_header">רשימת אלבומים</string>
+    <string name="track_header">רשימת שירים</string>
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">שיר 1 נוסף לרשימת השמעה</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other">
+            <xliff:g id="number" example="27" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> שירים נוספו לרשימת השמעה.</item>
+    </plurals>
+    <plurals name="Nsongs">
+        <!-- Number of songs is one -->
+        <item quantity="one">שיר 1</item>
+        <item quantity="other">
+            <xliff:g id="count" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> שירים</item>
+    </plurals>
+    <plurals name="Nalbums">
+        <!-- Number of albums is one -->
+        <item quantity="one">אלבום 1</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other">
+            <xliff:g id="count" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> אלבומים</item>
+    </plurals>
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g>\" נקבע כצלצול</string>
+</resources>

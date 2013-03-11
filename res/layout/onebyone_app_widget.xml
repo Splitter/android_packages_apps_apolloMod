@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/one_by_one_width"
+    android:layout_height="@dimen/one_by_one_height" >
+
+    <ImageView
+        android:id="@+id/one_by_one_albumart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/cd_play" />
+
+</FrameLayout>

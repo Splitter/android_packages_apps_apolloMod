@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/action_bar_layout"
+    android:layout_width="96dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right|center"
+    android:background="@drawable/holo_selector"
+    android:clickable="true"
+    android:focusable="true" >
+
+    <ImageView
+        android:id="@+id/action_bar_album_art"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/action_bar_track_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/action_bar_album_art"
+        android:ellipsize="end"
+        android:paddingRight="5dp"
+        android:paddingTop="10dp"
+        android:singleLine="true"
+        android:textColor="@color/transparent_black"
+        android:textSize="@dimen/text_size_micro"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/action_bar_album_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/action_bar_track_name"
+        android:layout_toLeftOf="@+id/action_bar_album_art"
+        android:ellipsize="end"
+        android:paddingRight="5dp"
+        android:singleLine="true"
+        android:textColor="@color/transparent_black"
+        android:textSize="@dimen/text_size_micro" />
+
+</RelativeLayout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Menjadi lagu ini sebagai favorit</string>
+    <string name="cd_search">Cari di musik Anda</string>
+    <string name="cd_overflow">Melihat opsi lain</string>
+    <string name="cd_bottom_action_bar_album_art">Album art untuk lagu ini</string>
+    <string name="cd_repeat">Ulang satu/semua</string>
+    <string name="cd_previous">Mundur lagu</string>
+    <string name="cd_play">Putar dan jeda</string>
+    <string name="cd_next">Lagu ke depan</string>
+    <string name="cd_shuffle">Shuffle lagu</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Lagi putar</string>
+
+    <!-- Used to indicate the number of albums for an artist -->
+    <plurals name="Nalbums">
+
+        <!-- Number of albums is one -->
+        <item quantity="one">1 album</item>
+        <!-- Number of albums is more than one -->
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> album</item>
+    </plurals>
+
+    <!-- Used to indicate the number of songs for an album -->
+
+    <plurals name="Nsongs">
+
+        <!-- Number of songs is one -->
+        <item quantity="one">1 lagu</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> lagu</item>
+    </plurals>
+
+    <!-- Toasts after adding song(s) to playlists -->
+    <plurals name="NNNtrackstoplaylist">
+        <!-- message shown when one song was added -->
+        <item quantity="one">1 lagu menghubung dengan daftar putaran</item>
+        <!-- message shown when zero or more than one song was added -->
+        <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> lagu menghubung dengan daftar putaran</item>
+    </plurals>
+
+    <!-- Headers -->
+    <string name="album_header">DAFTAR ALBUM</string>
+    <string name="track_header">DAFTAR TRACK</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Setelan</string>
+    <string name="shuffle_all">Shuffle semua</string>
+    <string name="share">Berbagi</string>
+    <string name="play_store">Play Store</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" disetel sebagai nada dering</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Ganti nama daftar putaran</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Mengulang satu</string>
+    <string name="repeat_all">Mengulang semua</string>
+    <string name="repeat_off">Mengulangi dimatikan</string>
+    <string name="shuffle_off">Shuffle dimatikan</string>
+    <string name="shuffle_on">Shuffle dimenyala</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Lagi mendengarkan:</string>
+    <string name="by">oleh</string>
+    <string name="share_track_using">Membagikan lagu dengan</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Putar semua</string>
+    <string name="add_to_playlist">Menghubung dengan daftar putaran</string>
+    <string name="use_as_ringtone">Gunakan sebagai nada dering</string>
+    <string name="delete_playlist">Hapus daftar putaran</string>
+    <string name="search">Cari</string>
+    <string name="remove">Ganti nama daftar putaran</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Tidak diketahui</string>
+
+    <!-- Settings -->
+    <string name="about">Tentang Apollo</string>
+    <string name="eqalizer">Equalizer</string>
+    <string name="header_interface">Interface</string>
+    <string name="themes">Tema</string>
+    <string name="apollo_themes">Pilih tema untuk Apollo</string>
+    <string name="select_theme">Pilih tema Anda</string>
+    <string name="version">Versi Apollo</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Menerapkan tema</string>
+    <string name="get_more_themes">Mendapatkan tema lain</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Favorit</string>
+    <string name="queue">Antri</string>
+    <string name="new_playlist">Baru</string>
+    <string name="new_playlist_name_template">Playlist no. <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Simpan</string>
+    <string name="overwrite">Menimpa</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">TERAKHIR</string>
+    <string name="tab_artists">ARTIS</string>
+    <string name="tab_albums">ALBUM</string>
+    <string name="tab_songs">LAGU</string>
+    <string name="tab_playlists">PLAYLIST</string>
+    <string name="tab_genres">GENRE</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">
+
+Pilih aksi untuk menerapkan pada: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">Putar</string>
+    <string name="play_external_question_button_queue">Antrikan</string>
+    <string name="play_external_question_button_cancel">Batal</string>
+    <string name="play_external_error">Gagal memutar berkas</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Kesalahan</string>
+
+</resources>

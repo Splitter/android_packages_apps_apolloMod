@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/image_edit_gallery" android:title="@string/image_edit_gallery" />
+    <item android:id="@+id/image_edit_lastfm" android:title="@string/image_edit_lastfm"/>
+    <item android:id="@+id/image_edit_web" android:title="@string/image_edit_web"/>
+</menu>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Apollo</string>
+
+    <!-- Content descriptions for the Bottom Action Bar -->
+    <string name="cd_favorite">Hiervan een favoriet nummer maken</string>
+    <string name="cd_search">Zoeken door muziek</string>
+    <string name="cd_overflow">Meer opties tonen</string>
+    <string name="cd_bottom_action_bar_album_art">Albumillustratie voor dit nummer</string>
+    <string name="cd_repeat">Eén/alles herhalen</string>
+    <string name="cd_previous">Vorig nummer afspelen</string>
+    <string name="cd_play">Afspelen en pauzeren</string>
+    <string name="cd_next">Volgend nummer afspelen</string>
+    <string name="cd_shuffle">Nummers willekeurig afspelen</string>
+
+    <!-- AudioPlayer title -->
+    <string name="nowplaying">Nu aan het afspelen</string>
+
+    <!-- Headers -->
+    <string name="album_header">ALBUMLIJST</string>
+    <string name="track_header">NUMMERLIJST</string>
+
+    <!-- Options MenuItems -->
+    <string name="settings">Instellingen</string>
+    <string name="shuffle_all">Alles willekeurig afspelen</string>
+    <string name="share">Delen</string>
+    <string name="play_store">Play Store</string>
+
+    <!-- Set track as ringtone -->
+    <string name="set_as_ringtone">\"<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\" instellen als beltoon</string>
+
+    <!-- Transient popup message shown after renaming a playlist -->
+    <string name="rename_playlist">Naam afspeellijst wijzigen</string>
+
+    <!-- Shuffle and repeat messages -->
+    <string name="repeat_one">Eén herhalen</string>
+    <string name="repeat_all">Alles herhalen</string>
+    <string name="repeat_off">Niets herhalen</string>
+    <string name="shuffle_off">In volgorde afspelen</string>
+    <string name="shuffle_on">Willekeurig afspelen</string>
+
+    <!-- Share Intent -->
+    <string name="now_listening_to">Nu aan het luisteren naar:</string>
+    <string name="by">door</string>
+    <string name="share_track_using">Nummer delen met</string>
+
+    <!-- ContextMenu items -->
+    <string name="play_all">Alles afspelen</string>
+    <string name="add_to_playlist">Toevoegen aan afspeellijst</string>
+    <string name="use_as_ringtone">Gebruiken als beltoon</string>
+    <string name="delete_playlist">Afspeellijst verwijderen</string>
+    <string name="search">Zoeken</string>
+    <string name="remove">Verwijderen uit afspeellijst</string>
+
+    <!-- App Widgets -->
+    <string name="apollo_1x1">Apollo (1x1)</string>
+    <string name="apollo_4x1">Apollo (4x1)</string>
+    <string name="apollo_4x2">Apollo (4x2)</string>
+
+    <!-- Unknown genre name -->
+    <string name="unknown">Onbekend</string>
+
+    <!-- Settings -->
+    <string name="about">Over Apollo</string>
+    <string name="eqalizer">Equalizer</string>
+    <string name="header_interface">Uiterlijk</string>
+    <string name="themes">Thema\'s</string>
+    <string name="apollo_themes">Thema voor Apollo selecteren</string>
+    <string name="select_theme">Selecteer uw thema</string>
+    <string name="version">Apollo-versie</string>
+
+    <!-- Theme layout Buttons -->
+    <string name="apply_theme">Thema toepassen</string>
+    <string name="get_more_themes">Meer thema\'s verkrijgen</string>
+
+    <!-- Playlists menu -->
+    <string name="favorite">Favorieten</string>
+    <string name="queue">Wachtrij</string>
+    <string name="new_playlist">Nieuw</string>
+    <string name="new_playlist_name_template">Afspeellijst nummer <xliff:g id="number">%d</xliff:g></string>
+    <string name="save">Opslaan</string>
+    <string name="overwrite">Overschrijven</string>
+
+    <!-- Tabs -->
+    <string name="tab_recent">RECENT</string>
+    <string name="tab_artists">ARTIESTEN</string>
+    <string name="tab_albums">ALBUMS</string>
+    <string name="tab_songs">NUMMERS</string>
+    <string name="tab_playlists">AFSPEELLIJSTEN</string>
+    <string name="tab_genres">GENRES</string>
+
+    <!-- External file dialog -->
+    <string name="play_external_question_msg">Kies de toe te passen actie op: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
+    <string name="play_external_question_button_play">Afspelen</string>
+    <string name="play_external_question_button_queue">In wachtrij plaatsen</string>
+    <string name="play_external_question_button_cancel">Annuleren</string>
+    <string name="play_external_error">Kan bestand niet afspelen</string>
+
+    <!-- Something went wrong -->
+    <string name="error">Fout</string>
+
+</resources>

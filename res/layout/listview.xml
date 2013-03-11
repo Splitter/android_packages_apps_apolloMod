@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <include layout="@layout/shadow" />
+
+    <include layout="@layout/list_separator" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="@color/transparent"
+        android:drawSelectorOnTop="false"
+        android:fastScrollAlwaysVisible="true"
+        android:fastScrollEnabled="true"
+        android:listSelector="@drawable/holo_selector"
+        android:paddingRight="@dimen/fast_scroll_padding_right" />
+
+    <include
+        android:id="@+id/empty_view"
+        layout="@layout/empty_view" />
+
+</LinearLayout>

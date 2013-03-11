@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+     <string-array name="tab_titles">
+        <item>@string/tab_recent</item>
+        <item>@string/tab_artists</item>
+        <item>@string/tab_albums</item>
+        <item>@string/tab_songs</item>
+        <item>@string/tab_playlists</item>
+        <item>@string/tab_genres</item>
+    </string-array>
+    
+     <string-array name="visualization_types">
+        <item>@string/visual_none</item>
+        <item>@string/visual_bargraph</item>
+        <item>@string/visual_solidbargraph</item>
+        <item>@string/visual_waveform</item>
+    </string-array>
+    
+     
+     <string-array name="widget_style_types">
+        <item>@string/widget_style_dark</item>
+        <item>@string/widget_style_light</item>
+    </string-array>
+     
+
+</resources>

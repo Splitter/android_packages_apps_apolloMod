@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+    	android:title="@string/cd_search"
+        android:icon="@drawable/apollo_holo_light_search"/>
+    <!--
+    <item
+        android:id="@+id/action_favorite"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+    	android:title="@string/cd_favorite"
+        android:icon="@drawable/apollo_holo_light_favorite_normal"/>
+    -->
+    <item
+        android:id="@+id/action_overflow"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+    	android:title="@string/cd_overflow"
+        android:icon="@drawable/apollo_holo_light_overflow">
+        
+        <menu>
+            <item android:id="@+id/action_settings"
+                  android:title="@string/settings" />
+            <item android:id="@+id/action_eqalizer"
+                  android:title="@string/eqalizer" />
+            <item android:id="@+id/action_shuffle_all"
+                  android:title="@string/shuffle_all" />
+        </menu>
+    </item>
+        
+
+</menu>

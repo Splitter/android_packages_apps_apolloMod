@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <com.andrew.apolloMod.ui.widgets.ScrollableTabView
+        android:id="@+id/scrollingTabs"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_height"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scrollingTabs" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_action_bar_height"
+        android:layout_alignParentBottom="true" >
+        
+        <fragment android:name="com.andrew.apolloMod.ui.fragments.BottomActionBarFragment"
+            android:id="@+id/bottomactionbar_new"
+            android:layout_weight="1"
+			android:layout_width="match_parent"
+            android:layout_height="match_parent" /> 
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/black" >
+        <ImageView
+            android:id="@+id/audio_player_album_art"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+        
+   	 	<include layout="@layout/shadow" />
+   	 	
+        <com.andrew.apolloMod.ui.widgets.VisualizerView
+            android:id="@+id/visualizerView"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/audio_player_text_border" />
+        
+		<View
+		    android:id="@+id/audio_player_text_border"
+		    style="@style/Topborderline"
+            android:layout_above="@+id/audio_player_track_text"
+		    />
+	    <RelativeLayout
+            android:id="@+id/audio_player_track_text"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="@dimen/audio_player_info_container_padding"
+	        android:paddingRight="@dimen/audio_player_info_container_padding"
+	        android:paddingTop="@dimen/audio_player_artwork_padding"
+	        android:paddingBottom="@dimen/audio_player_artwork_padding"
+	        android:layout_alignParentBottom="true" 
+		    android:background="@color/transparent_black"  >
+	        <TextView
+	            android:id="@+id/audio_player_track"
+	            style="@style/ShadowedText"
+	            android:textColor="@color/white"
+	            android:textSize="@dimen/text_size_large"
+	            android:textStyle="bold" />
+	
+	        <TextView
+	            android:id="@+id/audio_player_album_artist"
+	            style="@style/ShadowedText"
+	            android:layout_below="@+id/audio_player_track"
+	            android:textColor="@color/white"
+	            android:textSize="@dimen/text_size_small" />
+	    </RelativeLayout>
+     </RelativeLayout>
+    
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/colorstrip_bottom"
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/colorstrip_height"
+        android:background="@color/holo_blue_dark" />
+	<View
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/colorstrip_height"
+	    android:background="@drawable/colorstrip_shadow" 
+	    />		
+    <include layout="@layout/audio_controls" />
+</LinearLayout>
