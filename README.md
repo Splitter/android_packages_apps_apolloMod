@@ -18,3 +18,4 @@ New Features:
 ![ScreenShot](http://i.imgur.com/bhguvpT.png)
 ![ScreenShot](http://i.imgur.com/9MwbZDn.png)
 ![ScreenShot](http://i.imgur.com/H8wPy7S.png)
+![ScreenShot](http://i.imgur.com/y5QIymQ.png)
