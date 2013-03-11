@@ -12,3 +12,9 @@ New Features:
 - Ability to choose widget style (holo dark or holo light)
 - Extended notifications
 - Audio visualizations on now playing screen(experimental at this point)
+
+
+![ScreenShot](http://i.imgur.com/zPbrrxq.png)
+![ScreenShot](http://i.imgur.com/bhguvpT.png)
+![ScreenShot](http://i.imgur.com/9MwbZDn.png)
+![ScreenShot](http://i.imgur.com/H8wPy7S.png)
