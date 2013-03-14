@@ -34,9 +34,9 @@ import com.andrew.apolloMod.ui.adapters.TabAdapter;
 public class ScrollableTabView extends HorizontalScrollView implements
         ViewPager.OnPageChangeListener {
 
-    private ViewPager mPager;
+    private ViewPager mPager = null;
 
-    private TabAdapter mAdapter;
+    private TabAdapter mAdapter = null;
 
     private final LinearLayout mContainer;
 

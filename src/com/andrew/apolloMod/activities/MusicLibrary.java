@@ -28,6 +28,7 @@ import android.provider.BaseColumns;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Audio.AudioColumns;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -71,18 +72,18 @@ public class MusicLibrary extends Activity implements ServiceConnection {
         // Landscape mode on phone isn't ready
         if (!ApolloUtils.isTablet(this))
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
+        
         // Scan for music
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-       
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);       
+        
+        // Layout
+        setContentView(R.layout.library_browser);
+
         // Style the actionbar
         initActionBar();
 
         // Control Media volume
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
-
-        // Layout
-        setContentView(R.layout.library_browser);
         
         // Important!
         initPager();  
@@ -140,27 +141,28 @@ public class MusicLibrary extends Activity implements ServiceConnection {
         //if its empty fill reset it to full defaults
         	//stops app from crashing when no tabs are shown
         	//TODO:rewrite activity to not crash when no tabs are chosen to show
-        if(tabs_set.size()==0)
+        if(tabs_set.size()==0){
         	tabs_set = defaults;
+        }
         
         //Only show tabs that were set in preferences
         // Recently added tracks
-        if(tabs_set.contains("Recent"))
+        if(tabs_set.contains(getResources().getString(R.string.tab_recent)))
         	mPagerAdapter.addFragment(new RecentlyAddedFragment(bundle));
         // Artists
-        if(tabs_set.contains("Artists"))
+        if(tabs_set.contains(getResources().getString(R.string.tab_artists)))
         	mPagerAdapter.addFragment(new ArtistsFragment());
         // Albums
-        if(tabs_set.contains("Albums"))
+        if(tabs_set.contains(getResources().getString(R.string.tab_albums)))
         	mPagerAdapter.addFragment(new AlbumsFragment());
         // // Tracks
-        if(tabs_set.contains("Songs"))
+        if(tabs_set.contains(getResources().getString(R.string.tab_songs)))
         	mPagerAdapter.addFragment(new TracksFragment());
         // // Playlists
-        if(tabs_set.contains("Playlists"))
+        if(tabs_set.contains(getResources().getString(R.string.tab_playlists)))
         	mPagerAdapter.addFragment(new PlaylistsFragment());
         // // Genres
-        if(tabs_set.contains("Genres"))
+        if(tabs_set.contains(getResources().getString(R.string.tab_genres)))
         	mPagerAdapter.addFragment(new GenresFragment());
 
         // Initiate ViewPager
@@ -169,7 +171,7 @@ public class MusicLibrary extends Activity implements ServiceConnection {
         mViewPager.setPageMarginDrawable(R.drawable.viewpager_margin);
         mViewPager.setOffscreenPageLimit(mPagerAdapter.getCount());
         mViewPager.setAdapter(mPagerAdapter);
-        mViewPager.setCurrentItem(0);
+        //mViewPager.setCurrentItem(0);
 
         // Tabs
         initScrollableTabs(mViewPager);
