@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.media.audiofx.Visualizer;
 
 public class VisualizerUtils {
+		
 	  private static Visualizer mVisualizer = null;
 	  private static WeakReference<VisualizerView> mView = null;
 
@@ -43,8 +44,18 @@ public class VisualizerUtils {
 	  
 	  public static void initVisualizer( MediaPlayer player ){
 		  VisualizerUtils.releaseVisualizer();
-		  mVisualizer =  new Visualizer(player.getAudioSessionId());
+		  try{
+			  mVisualizer =  new Visualizer(player.getAudioSessionId());
+		  }
+		  catch(Exception e){
+			  mVisualizer = null;
+			  return;
+		  }
+
+		  mVisualizer.setEnabled(false);		  
+
 		  mVisualizer.setCaptureSize(Visualizer.getCaptureSizeRange()[1]);
+
 		  Visualizer.OnDataCaptureListener captureListener = new Visualizer.OnDataCaptureListener()
 		  {
 			  @Override
@@ -61,10 +72,8 @@ public class VisualizerUtils {
 				  VisualizerUtils.updateVisualizerFFT(bytes);
 			  }
 		  };
+		  mVisualizer.setDataCaptureListener(captureListener,20000 , true, true);	
 
-		  mVisualizer.setDataCaptureListener(captureListener,20000 , true, true);		  
 		  mVisualizer.setEnabled(true);		  
 	  }
-	  
-
 }
