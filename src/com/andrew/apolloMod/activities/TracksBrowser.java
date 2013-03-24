@@ -4,12 +4,19 @@
 
 package com.andrew.apolloMod.activities;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.*;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +24,7 @@ import android.os.IBinder;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
+import android.provider.MediaStore.Audio.ArtistColumns;
 import android.support.v4.view.ViewPager;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -426,7 +434,29 @@ public class TracksBrowser extends Activity implements ServiceConnection {
     public String getNumAlbums() {
         if (bundle.getString(NUMALBUMS) != null)
             return bundle.getString(NUMALBUMS);
-        return getResources().getString(R.string.app_name);
+        String[] projection = {
+                BaseColumns._ID, ArtistColumns.ARTIST, ArtistColumns.NUMBER_OF_ALBUMS
+        };
+        Uri uri = Audio.Artists.EXTERNAL_CONTENT_URI;        
+        Long id = ApolloUtils.getArtistId(getArtist(), ARTIST_ID, this);
+        Cursor cursor = null;
+        try{
+        	cursor = this.getContentResolver().query(uri, projection, BaseColumns._ID+ "=" + DatabaseUtils.sqlEscapeString(String.valueOf(id)), null, null);
+        }
+        catch(Exception e){
+        	e.printStackTrace();        	
+        }
+        if(cursor == null)
+        	return String.valueOf(0);
+        int mArtistNumAlbumsIndex = cursor.getColumnIndexOrThrow(ArtistColumns.NUMBER_OF_ALBUMS);
+        if(cursor.getCount()>0){
+	    	cursor.moveToFirst();
+	        String numAlbums = cursor.getString(mArtistNumAlbumsIndex);	  
+	        if(numAlbums != null){
+	        	return numAlbums;
+	        }
+        }        
+        return String.valueOf(0);
     }
 
     /**
