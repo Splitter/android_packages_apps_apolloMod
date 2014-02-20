@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/listview_item_height"
+        android:paddingTop="5dp" 
+        android:paddingBottom="5dp"
     android:layout_gravity="center_vertical" >
 
     <ImageView
@@ -24,7 +26,7 @@
         android:maxLength="29"
         android:paddingLeft="@dimen/listview_items_padding_left_top"
         android:paddingRight="@dimen/listview_items_padding_right"
-        android:paddingTop="@dimen/listview_items_padding_left_top"
+        android:paddingTop="5dp"
         android:singleLine="true"
         android:textSize="@dimen/text_size_medium" />
 

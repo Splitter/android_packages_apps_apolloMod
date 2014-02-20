@@ -34,7 +34,7 @@
     <dimen name="list_separator_container_padding_left">16dp</dimen>
 
     <!-- ListView items -->
-    <dimen name="listview_item_height">64dp</dimen>
+    <dimen name="listview_item_height">66dp</dimen>
     <dimen name="listview_items_padding_left_top">9dp</dimen>
     <dimen name="listview_items_padding_small_top">4dp</dimen>
     <dimen name="listview_items_padding_right">85dp</dimen>

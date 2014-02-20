@@ -1065,9 +1065,6 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
      */
     public void open(long[] list, int position) {
         synchronized (this) {
-            if (mShuffleMode == SHUFFLE_AUTO) {
-                mShuffleMode = SHUFFLE_NORMAL;
-            }
             long oldId = getAudioId();
             int listlength = list.length;
             boolean newlist = true;
@@ -1088,7 +1085,7 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
             if (position >= 0) {
                 mPlayPos = position;
             } else {
-                mPlayPos = mRand.nextInt(mPlayListLen);
+                mPlayPos = 0;
             }
             mHistory.clear();
 

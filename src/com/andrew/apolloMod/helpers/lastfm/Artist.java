@@ -27,7 +27,12 @@
 package com.andrew.apolloMod.helpers.lastfm;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.WeakHashMap;
+
+import android.content.Context;
+import android.util.Log;
 
 import com.andrew.apolloMod.helpers.DomElement;
 import com.andrew.apolloMod.helpers.utils.StringUtilities;
@@ -54,42 +59,35 @@ public class Artist extends MusicEntry {
     }
 
     /**
-     * Get {@link Image}s for this artist in a variety of sizes.
-     * 
-     * @param artistOrMbid The artist name in question
-     * @param apiKey A Last.fm API key
-     * @return a list of {@link Image}s
-     */
-    public static PaginatedResult<Image> getImages(String artistOrMbid, String apiKey) {
-        return getImages(artistOrMbid, -1, -1, apiKey);
+    * Retrieves detailed artist info for the given artist or mbid entry.
+    *
+    * @param artistOrMbid Name of the artist or an mbid
+    * @return detailed artist info
+    */
+    public final static Artist getInfo(final String artistOrMbid, String apiKey) {
+        return getInfo(artistOrMbid, Locale.getDefault(), apiKey);
     }
 
+
     /**
-     * Get {@link Image}s for this artist in a variety of sizes.
-     * 
-     * @param artistOrMbid The artist name in question
-     * @param page Which page of limit amount to display
-     * @param limit How many to return. Defaults and maxes out at 50
-     * @param apiKey A Last.fm API key
-     * @return a list of {@link Image}s
-     */
-    public static PaginatedResult<Image> getImages(String artistOrMbid, int page, int limit,
-            String apiKey) {
-        Map<String, String> params = new HashMap<String, String>();
-        if (StringUtilities.isMbid(artistOrMbid)) {
-            params.put("mbid", artistOrMbid);
-        } else {
-            params.put("artist", artistOrMbid);
+    * Retrieves detailed artist info for the given artist or mbid entry.
+    *
+    * @param artistOrMbid Name of the artist or an mbid
+    * @param locale The language to fetch info in, or <code>null</code>
+    * @param apiKey The API key
+    * @return detailed artist info
+    */
+    public final static Artist getInfo(final String artistOrMbid,
+            final Locale locale, final String apiKey) {
+        final Map<String, String> mParams = new WeakHashMap<String, String>();
+        mParams.put("artist", artistOrMbid);
+        if (locale != null && locale.getLanguage().length() != 0) {
+            mParams.put("lang", locale.getLanguage());
         }
-        if (page != -1) {
-        	params.put("page", Integer.toString(page));
-		}
-        if (limit != -1) {
-        	params.put("limit", Integer.toString(limit));
-		}     
-        Result result = Caller.getInstance().call("artist.getImages", apiKey, params);
-        return ResponseBuilder.buildPaginatedResult(result, Image.class);
+        final Result mResult = Caller.getInstance().call("artist.getInfo", apiKey, mParams);
+        return ResponseBuilder.buildItem(mResult, Artist.class);
     }
+   
 
     private static class ArtistFactory implements ItemFactory<Artist> {
         @Override

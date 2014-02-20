@@ -287,7 +287,7 @@ public class MusicLibrary extends Activity implements ServiceConnection {
             BaseColumns._ID
         };
         String selection = AudioColumns.IS_MUSIC + "=1";
-        String sortOrder = Audio.Media.DEFAULT_SORT_ORDER;
+        String sortOrder = "RANDOM()";
         Cursor cursor = MusicUtils.query(this, uri, projection, selection, null, sortOrder);
         if (cursor != null) {
             MusicUtils.shuffleAll(this, cursor);

@@ -12,6 +12,8 @@
 
     <!-- A semi-transparent dark Holo shade of blue -->
     <color name="holo_blue_dark">#ff0099cc</color>
+    
+    <color name="shuffle_grey">#ffdedede</color>
 
     <!-- Transparent -->
     <color name="transparent">#00000000</color>

@@ -1,8 +1,14 @@
 
 package com.andrew.apolloMod.ui.adapters;
 
+import static com.andrew.apolloMod.Constants.SIZE_THUMB;
+import static com.andrew.apolloMod.Constants.SRC_FIRST_AVAILABLE;
+import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
+import static com.andrew.apolloMod.Constants.TYPE_ARTIST;
+
 import java.lang.ref.WeakReference;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.drawable.AnimationDrawable;
@@ -12,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.SimpleCursorAdapter;
 
 import com.andrew.apolloMod.R;
+import com.andrew.apolloMod.cache.ImageInfo;
+import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
 import com.andrew.apolloMod.views.ViewHolderList;
@@ -24,9 +32,15 @@ public class TrackAdapter extends SimpleCursorAdapter {
     private AnimationDrawable mPeakOneAnimation, mPeakTwoAnimation;
 
     private WeakReference<ViewHolderList> holderReference;
+    
+    private Context mContext;
+    
+    private ImageProvider mImageProvider;
 
     public TrackAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
         super(context, layout, c, from, to, flags);
+    	mContext = context;
+    	mImageProvider = ImageProvider.getInstance( (Activity) mContext );
     }
 
     /**
@@ -64,9 +78,14 @@ public class TrackAdapter extends SimpleCursorAdapter {
         // Artist name
         String artistName = mCursor.getString(TracksFragment.mArtistIndex);
         holderReference.get().mViewHolderLineTwo.setText(artistName);
-
-        // Hide the album art
-        holderReference.get().mViewHolderImage.setVisibility(View.GONE);
+        
+        ImageInfo mInfo = new ImageInfo();
+        mInfo.type = TYPE_ARTIST;
+        mInfo.size = SIZE_THUMB;
+        mInfo.source = SRC_FIRST_AVAILABLE;
+        mInfo.data = new String[]{ artistName };
+        
+        mImageProvider.loadImage( viewholder.mViewHolderImage, mInfo );
 
         holderReference.get().mQuickContext.setOnClickListener(showContextMenu);
 

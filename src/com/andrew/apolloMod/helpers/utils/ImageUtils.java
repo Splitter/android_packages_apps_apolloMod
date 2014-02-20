@@ -22,6 +22,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.provider.MediaStore.Audio;
+import android.util.Log;
 
 import static com.andrew.apolloMod.Constants.*;
 
@@ -115,15 +116,14 @@ public class ImageUtils {
 	            	imageUrl = image.getLargestImage();
 	            }
 	        }
-	        else if ( imageInfo.type.equals(TYPE_ARTIST) ) {
-		        PaginatedResult<Image> images = Artist.getImages(imageInfo.data[0], 2, 1, LASTFM_API_KEY);
-	            Iterator<Image> iterator = images.getPageResults().iterator();
-	            if (iterator.hasNext()) {
-		            Image image = iterator.next();	
-			        imageUrl = image.getLargestImage();
+	        else if( imageInfo.type.equals(TYPE_ARTIST) ){
+	        	Artist image = Artist.getInfo(imageInfo.data[0], LASTFM_API_KEY);
+	            if (image != null) {
+	            	imageUrl = image.getLargestImage();
 	            }
 	        }
         } catch ( Exception e ) {
+        	e.printStackTrace();
         	return null;
         }
         if ( imageUrl == null || imageUrl.isEmpty() ) {
