@@ -40,7 +40,7 @@
         <activity
             android:name=".activities.QueryBrowserActivity"
             android:exported="true"
-            android:theme="@android:style/Theme.Holo.Light" >
+            android:theme="@style/ApolloTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
                 <action android:name="android.intent.action.MEDIA_SEARCH" />
