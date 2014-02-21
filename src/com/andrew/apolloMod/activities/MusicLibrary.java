@@ -44,6 +44,7 @@ import com.andrew.apolloMod.ui.fragments.grid.ArtistsFragment;
 import com.andrew.apolloMod.ui.fragments.list.GenresFragment;
 import com.andrew.apolloMod.ui.fragments.list.PlaylistsFragment;
 import com.andrew.apolloMod.ui.fragments.list.RecentlyAddedFragment;
+import com.andrew.apolloMod.ui.fragments.list.SongsFragment;
 import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
@@ -156,7 +157,7 @@ public class MusicLibrary extends Activity implements ServiceConnection {
         	mPagerAdapter.addFragment(new AlbumsFragment());
         // // Tracks
         if(tabs_set.contains(getResources().getString(R.string.tab_songs)))
-        	mPagerAdapter.addFragment(new TracksFragment());
+        	mPagerAdapter.addFragment(new SongsFragment());
         // // Playlists
         if(tabs_set.contains(getResources().getString(R.string.tab_playlists)))
         	mPagerAdapter.addFragment(new PlaylistsFragment());
