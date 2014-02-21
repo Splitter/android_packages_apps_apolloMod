@@ -308,7 +308,7 @@ public class TracksFragment extends RefreshableFragment implements LoaderCallbac
             if (mPlaylistId == PLAYLIST_QUEUE) {
                 long[] mNowPlaying = MusicUtils.getQueue();
 
-            	String[] audioCols = new String[] { BaseColumns._ID, MediaColumns.TITLE, AudioColumns.ARTIST};
+            	String[] audioCols = new String[] { BaseColumns._ID, MediaColumns.TITLE, AudioColumns.ARTIST, AudioColumns.ALBUM};
                 
                 MatrixCursor playlistCursor = new MatrixCursor(audioCols);
             	for(int i = 0; i < mNowPlaying.length; i++){
@@ -318,7 +318,8 @@ public class TracksFragment extends RefreshableFragment implements LoaderCallbac
 	                	if( audioid == mNowPlaying[i]) {
 	                        String trackName = data.getString(TracksFragment.mTitleIndex);
 	                        String artistName = data.getString(TracksFragment.mArtistIndex);
-	                		playlistCursor.addRow(new Object[] {audioid, trackName, artistName });
+	                        String albumName = data.getString(TracksFragment.mAlbumIndex);
+	                		playlistCursor.addRow(new Object[] {audioid, trackName, artistName, albumName });
 
 	                	}
 	                }
@@ -326,6 +327,7 @@ public class TracksFragment extends RefreshableFragment implements LoaderCallbac
                 mMediaIdIndex = playlistCursor.getColumnIndexOrThrow(BaseColumns._ID);
                 mTitleIndex = playlistCursor.getColumnIndexOrThrow(MediaColumns.TITLE);
                 mArtistIndex = playlistCursor.getColumnIndexOrThrow(AudioColumns.ARTIST);
+                mAlbumIndex = playlistCursor.getColumnIndexOrThrow(AudioColumns.ALBUM);
                 mTrackAdapter.changeCursor(playlistCursor);
                 mListView.invalidateViews();
                 mCursor = playlistCursor;
@@ -507,7 +509,7 @@ public class TracksFragment extends RefreshableFragment implements LoaderCallbac
             mMediaIdIndex =mCursor.getColumnIndexOrThrow(BaseColumns._ID);
             mTitleIndex = mCursor.getColumnIndexOrThrow(MediaColumns.TITLE);
             mArtistIndex = mCursor.getColumnIndexOrThrow(AudioColumns.ARTIST);
-
+            mAlbumIndex = mCursor.getColumnIndexOrThrow(AudioColumns.ALBUM);
             
             String[] audioCols = new String[] { BaseColumns._ID, MediaColumns.TITLE, AudioColumns.ARTIST};
             
@@ -519,7 +521,8 @@ public class TracksFragment extends RefreshableFragment implements LoaderCallbac
                 	if( audioid == mNowPlaying[i]) {
                         String trackName = mCursor.getString(TracksFragment.mTitleIndex);
                         String artistName = mCursor.getString(TracksFragment.mArtistIndex);
-                		playlistCursor.addRow(new Object[] {audioid, trackName, artistName });
+                        String albumName = mCursor.getString(TracksFragment.mAlbumIndex);
+                		playlistCursor.addRow(new Object[] {audioid, trackName, artistName ,albumName});
 
                 	}
                 }
@@ -527,6 +530,7 @@ public class TracksFragment extends RefreshableFragment implements LoaderCallbac
             mMediaIdIndex = playlistCursor.getColumnIndexOrThrow(BaseColumns._ID);
             mTitleIndex = playlistCursor.getColumnIndexOrThrow(MediaColumns.TITLE);
             mArtistIndex = playlistCursor.getColumnIndexOrThrow(AudioColumns.ARTIST);
+            mAlbumIndex = playlistCursor.getColumnIndexOrThrow(AudioColumns.ALBUM);
             mCursor = playlistCursor;
             mTrackAdapter.changeCursor(playlistCursor);
         }
