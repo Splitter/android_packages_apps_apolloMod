@@ -22,6 +22,7 @@ public class GenreAdapter extends SimpleCursorAdapter {
     private WeakReference<ViewHolderList> holderReference;
 
     private final int left;
+    private final int top;
     
     private Context mContext;
 
@@ -31,6 +32,8 @@ public class GenreAdapter extends SimpleCursorAdapter {
         mContext = context;
         left = mContext.getResources().getDimensionPixelSize(
                 R.dimen.listview_items_padding_left_top);
+        top = mContext.getResources().getDimensionPixelSize(
+                R.dimen.listview_items_padding_gp_top);
     }
 
     /**
@@ -66,7 +69,7 @@ public class GenreAdapter extends SimpleCursorAdapter {
         holderReference.get().mViewHolderLineOne.setText(MusicUtils.parseGenreName(mContext,
                 genreName));
 
-        holderReference.get().mViewHolderLineOne.setPadding(left, 40, 0, 0);
+        holderReference.get().mViewHolderLineOne.setPadding(left, top, 0, 0);
 
         holderReference.get().mViewHolderImage.setVisibility(View.GONE);
         holderReference.get().mViewHolderLineTwo.setVisibility(View.GONE);

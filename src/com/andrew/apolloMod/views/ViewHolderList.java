@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.utils.ThemeUtils;
 
 /**
  * @author Andrew Neal
@@ -36,10 +35,5 @@ public class ViewHolderList {
         mQuickContextDivider = (ImageView)view.findViewById(R.id.quick_context_line);
         mQuickContextTip = (ImageView)view.findViewById(R.id.quick_context_tip);
 
-        // Theme chooser
-        ThemeUtils.setTextColor(view.getContext(), mViewHolderLineOne, "list_view_text_color");
-        ThemeUtils.setTextColor(view.getContext(), mViewHolderLineTwo, "list_view_text_color");
-        ThemeUtils.setBackgroundColor(view.getContext(), mQuickContextDivider,
-                "list_view_quick_context_menu_button_divider");
     }
 }

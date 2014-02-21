@@ -33,7 +33,6 @@ import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.helpers.utils.ThemeUtils;
 import com.andrew.apolloMod.ui.adapters.PagerAdapter;
 import com.andrew.apolloMod.ui.fragments.list.ArtistAlbumsFragment;
 import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
@@ -296,13 +295,9 @@ public class TracksBrowser extends Activity implements ServiceConnection {
      * For the theme chooser
      */
     private void initColorstrip() {
-        FrameLayout mColorstrip = (FrameLayout)findViewById(R.id.colorstrip);
-        mColorstrip.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
-        ThemeUtils.setBackgroundColor(this, mColorstrip, "colorstrip");
 
         RelativeLayout mColorstrip2 = (RelativeLayout)findViewById(R.id.bottom_colorstrip);
         mColorstrip2.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
-        ThemeUtils.setBackgroundColor(this, mColorstrip2, "colorstrip");
     }
 
     /**
@@ -310,19 +305,6 @@ public class TracksBrowser extends Activity implements ServiceConnection {
      */
     private void initActionBar() {
         ApolloUtils.showUpTitleOnly(getActionBar());
-
-        // The ActionBar Title and UP ids are hidden.
-        int titleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
-        int upId = Resources.getSystem().getIdentifier("up", "id", "android");
-
-        TextView actionBarTitle = (TextView)findViewById(titleId);
-        ImageView actionBarUp = (ImageView)findViewById(upId);
-
-        // Theme chooser
-        ThemeUtils.setActionBarBackground(this, getActionBar(), "action_bar_background");
-        ThemeUtils.setTextColor(this, actionBarTitle, "action_bar_title_color");
-        ThemeUtils.initThemeChooser(this, actionBarUp, "action_bar_up", THEME_ITEM_BACKGROUND);
-
     }
 
     /**
@@ -388,10 +370,6 @@ public class TracksBrowser extends Activity implements ServiceConnection {
         mViewPager.setPageMarginDrawable(R.drawable.viewpager_margin);
         mViewPager.setOffscreenPageLimit(mPagerAdapter.getCount());
         mViewPager.setAdapter(mPagerAdapter);
-
-        // Theme chooser
-        ThemeUtils.initThemeChooser(this, mViewPager, "viewpager", THEME_ITEM_BACKGROUND);
-        ThemeUtils.setMarginDrawable(this, mViewPager, "viewpager_margin");
     }
 
     

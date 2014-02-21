@@ -47,7 +47,6 @@ import com.andrew.apolloMod.ui.fragments.list.RecentlyAddedFragment;
 import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.helpers.utils.ThemeUtils;
 import com.andrew.apolloMod.preferences.SettingsHolder;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceToken;
@@ -175,10 +174,6 @@ public class MusicLibrary extends Activity implements ServiceConnection {
 
         // Tabs
         initScrollableTabs(mViewPager);
-
-        // Theme chooser
-        ThemeUtils.initThemeChooser(this, mViewPager, "viewpager", THEME_ITEM_BACKGROUND);
-        ThemeUtils.setMarginDrawable(this, mViewPager, "viewpager_margin");
     }
 
     /**
@@ -189,28 +184,13 @@ public class MusicLibrary extends Activity implements ServiceConnection {
         ScrollingTabsAdapter mScrollingTabsAdapter = new ScrollingTabsAdapter(this);
         mScrollingTabs.setAdapter(mScrollingTabsAdapter);
         mScrollingTabs.setViewPager(mViewPager);
-
-        // Theme chooser
-        ThemeUtils.initThemeChooser(this, mScrollingTabs, "scrollable_tab_background",
-                THEME_ITEM_BACKGROUND);
     }
     
     /**
      * For the theme chooser
      */
     private void initActionBar() {
-
     	ActionBar actBar = getActionBar();
-        
-        // The ActionBar Title and UP ids are hidden.
-        int upId = Resources.getSystem().getIdentifier("up", "id", "android");
-        
-        ImageView actionBarUp = (ImageView)findViewById(upId);
-
-        // Theme chooser
-        ThemeUtils.setActionBarBackground(this, actBar, "action_bar_background");
-        ThemeUtils.initThemeChooser(this, actionBarUp, "action_bar_up", THEME_ITEM_BACKGROUND);
-
     	actBar.setDisplayUseLogoEnabled(true);
         actBar.setDisplayShowTitleEnabled(false);
     }
@@ -266,17 +246,6 @@ public class MusicLibrary extends Activity implements ServiceConnection {
 	    return true;
 	}
 
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem search = menu.findItem(R.id.action_search);
-        MenuItem overflow = menu.findItem(R.id.action_overflow);
-        // Theme chooser
-        ThemeUtils.setActionBarItem(this, search, "apollo_search");
-        ThemeUtils.setActionBarItem(this, overflow, "apollo_overflow");
-        
-        return super.onPrepareOptionsMenu(menu);
-    }
 
 	/**
      * Shuffle all the tracks

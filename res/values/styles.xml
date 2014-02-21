@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="ApolloTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/ApolloTheme.BlueActionBar</item>
+    	<item name="android:actionOverflowButtonStyle">@style/ApolloTheme.OverFlow</item>
+    </style>
+	<style name="ApolloTheme.OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+	    <item name="android:src">@drawable/apollo_holo_dark_overflow</item>
+	</style>
+    <style name="ApolloTheme.BlueActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/actionbar</item>
+        <item name="android:textColor">@color/actionbar_text</item>
+    	<item name="android:titleTextStyle">@style/ApolloTheme.ActionBar.TitleTextStyle</item>
+	</style>
+	<style name="ApolloTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+		<item name="android:textColor">@color/actionbar_text</item>
+	</style>
 
     <!-- Translucent dialog (for @PlayExternal) -->
     <style name="Theme.Light.Translucent" parent="android:style/Theme.Light.NoTitleBar">

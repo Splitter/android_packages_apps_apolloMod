@@ -19,7 +19,6 @@ import android.widget.ImageButton;
 
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.helpers.utils.ThemeUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.widgets.BottomActionBar;
 
@@ -76,9 +75,6 @@ public class BottomActionBarFragment extends Fragment {
                 }
             }
         });
-
-        ThemeUtils.setImageButton(getActivity(), mPrev, "apollo_previous");
-        ThemeUtils.setImageButton(getActivity(), mNext, "apollo_next");
         return root;
     }
 
@@ -136,12 +132,8 @@ public class BottomActionBarFragment extends Fragment {
         try {
             if (MusicUtils.mService != null && MusicUtils.mService.isPlaying()) {
                 mPlay.setImageResource(R.drawable.apollo_holo_light_pause);
-                // Theme chooser
-                ThemeUtils.setImageButton(getActivity(), mPlay, "apollo_pause");
             } else {
                 mPlay.setImageResource(R.drawable.apollo_holo_light_play);
-                // Theme chooser
-                ThemeUtils.setImageButton(getActivity(), mPlay, "apollo_play");
             }
         } catch (RemoteException ex) {
             ex.printStackTrace();

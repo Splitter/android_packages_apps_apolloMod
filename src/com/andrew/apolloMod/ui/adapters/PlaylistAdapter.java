@@ -24,10 +24,18 @@ public class PlaylistAdapter extends SimpleCursorAdapter {
     private WeakReference<ViewHolderList> holderReference;
     
     private Context mContext;
-
+    private int left;
+    private int top;
+    
+    
     public PlaylistAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
         super(context, layout, c, from, to, flags);
         mContext = context;
+        // Helps center the text in the Playlist tab
+        left = mContext.getResources().getDimensionPixelSize(
+                R.dimen.listview_items_padding_left_top);
+        top = mContext.getResources().getDimensionPixelSize(
+                R.dimen.listview_items_padding_gp_top);
     }
 
     /**
@@ -61,10 +69,7 @@ public class PlaylistAdapter extends SimpleCursorAdapter {
         String playlist_name = mCursor.getString(PlaylistsFragment.mPlaylistNameIndex);
         holderReference.get().mViewHolderLineOne.setText(playlist_name);
 
-        // Helps center the text in the Playlist tab
-        int left = mContext.getResources().getDimensionPixelSize(
-                R.dimen.listview_items_padding_left_top);
-        holderReference.get().mViewHolderLineOne.setPadding(left, 40, 0, 0);
+        holderReference.get().mViewHolderLineOne.setPadding(left, top, 0, 0);
 
         holderReference.get().mViewHolderImage.setVisibility(View.GONE);
 

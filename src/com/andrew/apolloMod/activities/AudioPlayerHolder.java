@@ -35,7 +35,6 @@ import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.helpers.utils.ThemeUtils;
 import com.andrew.apolloMod.preferences.SettingsHolder;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceToken;
@@ -65,12 +64,7 @@ public class AudioPlayerHolder extends Activity implements ServiceConnection {
 
     @Override
     protected void onCreate(Bundle icicle) {
-        // For the theme chooser and overflow MenuItem
-        if (ThemeUtils.overflowLight(this)) {
-            setTheme(R.style.Apollo_Holo);
-        } else {
-            setTheme(R.style.Apollo_Holo_Light);
-        }
+        
         // Landscape mode on phone isn't ready
         if (!ApolloUtils.isTablet(this))
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -80,9 +74,6 @@ public class AudioPlayerHolder extends Activity implements ServiceConnection {
 
         // Layout
         setContentView(R.layout.audio_player_browser);
-
-        // Set up the colorstrip
-        initColorstrip();
 
         // Set up the ActionBar
         initActionBar();
@@ -154,7 +145,7 @@ public class AudioPlayerHolder extends Activity implements ServiceConnection {
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, FAVORITE, 0, R.string.cd_favorite).setShowAsAction(
                 MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        menu.add(0, SEARCH, 0, R.string.cd_search).setIcon(R.drawable.apollo_holo_light_search)
+        menu.add(0, SEARCH, 0, R.string.cd_search).setIcon(R.drawable.apollo_holo_dark_search)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         MenuInflater inflater = getMenuInflater();
@@ -165,18 +156,13 @@ public class AudioPlayerHolder extends Activity implements ServiceConnection {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem favorite = menu.findItem(FAVORITE);
-        MenuItem search = menu.findItem(SEARCH);
         if (MusicUtils.mService != null && MusicUtils.getCurrentAudioId() != -1) {
             if (MusicUtils.isFavorite(this, MusicUtils.getCurrentAudioId())) {
-                favorite.setIcon(R.drawable.apollo_holo_light_favorite_selected);
+                favorite.setIcon(R.drawable.apollo_holo_dark_favorite_selected);
             } else {
-                favorite.setIcon(R.drawable.apollo_holo_light_favorite_normal);
-                // Theme chooser
-                ThemeUtils.setActionBarItem(this, favorite, "apollo_favorite_normal");
+                favorite.setIcon(R.drawable.apollo_holo_dark_favorite_normal);
             }
         }
-        // Theme chooser
-        ThemeUtils.setActionBarItem(this, search, "apollo_search");
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -244,18 +230,6 @@ public class AudioPlayerHolder extends Activity implements ServiceConnection {
 
     private void initActionBar() {
         ApolloUtils.showUpTitleOnly(getActionBar());
-
-        // The ActionBar Title and UP ids are hidden.
-        int titleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
-        int upId = Resources.getSystem().getIdentifier("up", "id", "android");
-
-        TextView actionBarTitle = (TextView)findViewById(titleId);
-        ImageView actionBarUp = (ImageView)findViewById(upId);
-
-        // Theme chooser
-        ThemeUtils.setActionBarBackground(this, getActionBar(), "action_bar_background");
-        ThemeUtils.setTextColor(this, actionBarTitle, "action_bar_title_color");
-        ThemeUtils.initThemeChooser(this, actionBarUp, "action_bar_up", THEME_ITEM_BACKGROUND);
     }
 
     /**
@@ -301,18 +275,6 @@ public class AudioPlayerHolder extends Activity implements ServiceConnection {
         mViewPager.setOffscreenPageLimit(mPagerAdapter.getCount());
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.setCurrentItem(1);
-
-        // Theme chooser
-        ThemeUtils.initThemeChooser(this, mViewPager, "viewpager", THEME_ITEM_BACKGROUND);
-        ThemeUtils.setMarginDrawable(this, mViewPager, "viewpager_margin");
     }
 
-    /**
-     * For the theme chooser
-     */
-    private void initColorstrip() {
-        FrameLayout mColorstrip = (FrameLayout)findViewById(R.id.colorstrip);
-        mColorstrip.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
-        ThemeUtils.setBackgroundColor(this, mColorstrip, "colorstrip");
-    }
 }

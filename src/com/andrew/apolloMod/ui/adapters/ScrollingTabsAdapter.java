@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.utils.ThemeUtils;
 
 import static com.andrew.apolloMod.Constants.TABS_ENABLED;
 
@@ -59,8 +58,6 @@ public class ScrollingTabsAdapter implements TabAdapter {
         if (position < tabs_new.length)
             tab.setText(tabs_new[position].toUpperCase());
 
-        // Theme chooser
-        ThemeUtils.setTextColor(activity, tab, "tab_text_color");
         return tab;
     }
 }

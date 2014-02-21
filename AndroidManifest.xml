@@ -32,7 +32,7 @@
         android:largeHeap="true"
         android:process=":main"
         android:taskAffinity="apollo.task.music"
-        android:theme="@android:style/Theme.Holo.Light" >
+        android:theme="@style/ApolloTheme" >
         <meta-data
             android:name="android.app.default_searchable"
             android:value=".activities.QueryBrowserActivity" />

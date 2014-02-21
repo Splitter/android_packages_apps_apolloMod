@@ -2,19 +2,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <PreferenceCategory android:title="@string/header_interface" >
-        <PreferenceScreen
-            android:icon="@drawable/apollo_settings_themes"
-            android:key="@string/key_themes_preferences"
-            android:title="@string/themes" >
-            <ListPreference
-                android:key="@string/key_themes_package"
-                android:summary="@string/apollo_themes"
-                android:title="@string/select_theme" />
-
-            <com.andrew.apolloMod.preferences.ThemePreview
-                android:key="@string/key_themes"
-                android:layout="@layout/theme_preview" />
-        </PreferenceScreen>
         <MultiSelectListPreference
 	        android:dialogTitle="@string/tab_visibility_title"
 	        android:key="@string/key_tabs_enabled"

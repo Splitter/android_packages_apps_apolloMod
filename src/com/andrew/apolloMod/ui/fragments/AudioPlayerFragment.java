@@ -45,7 +45,6 @@ import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.helpers.utils.ThemeUtils;
 import com.andrew.apolloMod.helpers.utils.VisualizerUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.widgets.RepeatingImageButton;
@@ -188,12 +187,6 @@ public class AudioPlayerFragment extends Fragment {
         
         FrameLayout mColorstripBottom = (FrameLayout)root.findViewById(R.id.colorstrip_bottom);
         mColorstripBottom.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
-        ThemeUtils.setBackgroundColor(getActivity(), mColorstripBottom, "colorstrip");
-        
-        // Theme chooser
-        ThemeUtils.setImageButton(getActivity(), mPrev, "apollo_previous");
-        ThemeUtils.setImageButton(getActivity(), mNext, "apollo_next");
-        ThemeUtils.setProgessDrawable(getActivity(), mProgress, "apollo_seekbar_background");
         return root;
     }
 
@@ -425,8 +418,6 @@ public class AudioPlayerFragment extends Fragment {
                     break;
                 default:
                     mRepeat.setImageResource(R.drawable.apollo_holo_light_repeat_normal);
-                    // Theme chooser
-                    ThemeUtils.setImageButton(getActivity(), mRepeat, "apollo_repeat_normal");
                     break;
             }
         } catch (RemoteException ex) {
@@ -444,8 +435,6 @@ public class AudioPlayerFragment extends Fragment {
             switch (MusicUtils.mService.getShuffleMode()) {
                 case ApolloService.SHUFFLE_NONE:
                     mShuffle.setImageResource(R.drawable.apollo_holo_light_shuffle_normal);
-                    // Theme chooser
-                    ThemeUtils.setImageButton(getActivity(), mShuffle, "apollo_shuffle_normal");
                     break;
                 case ApolloService.SHUFFLE_AUTO:
                     mShuffle.setImageResource(R.drawable.apollo_holo_light_shuffle_on);
@@ -466,12 +455,8 @@ public class AudioPlayerFragment extends Fragment {
         try {
             if (MusicUtils.mService != null && MusicUtils.mService.isPlaying()) {
                 mPlay.setImageResource(R.drawable.apollo_holo_light_pause);
-                // Theme chooser
-                ThemeUtils.setImageButton(getActivity(), mPlay, "apollo_pause");
             } else {
                 mPlay.setImageResource(R.drawable.apollo_holo_light_play);
-                // Theme chooser
-                ThemeUtils.setImageButton(getActivity(), mPlay, "apollo_play");
             }
         } catch (RemoteException ex) {
             ex.printStackTrace();
@@ -562,8 +547,6 @@ public class AudioPlayerFragment extends Fragment {
                 if (MusicUtils.mService.isPlaying()) {
                     mCurrentTime.setVisibility(View.VISIBLE);
                     mCurrentTime.setTextColor(getResources().getColor(R.color.transparent_black));
-                    // Theme chooser
-                    ThemeUtils.setTextColor(getActivity(), mCurrentTime, "audio_player_text_color");
                 } else {
                     // blink the counter
                     int col = mCurrentTime.getCurrentTextColor();
@@ -572,8 +555,6 @@ public class AudioPlayerFragment extends Fragment {
                             R.color.holo_blue_dark) : getResources().getColor(
                             R.color.transparent_black));
                     remaining = 500;
-                    // Theme chooser
-                    ThemeUtils.setTextColor(getActivity(), mCurrentTime, "audio_player_text_color");
                 }
 
                 mProgress.setProgress((int)(1000 * pos / mDuration));
@@ -612,11 +593,6 @@ public class AudioPlayerFragment extends Fragment {
         mInfo.data = new String[]{ albumId , artistName, albumName };
         
         ImageProvider.getInstance( getActivity() ).loadImage( mAlbumArt, mInfo );
-
-        // Theme chooser
-        ThemeUtils.setTextColor(getActivity(), mTrackName, "audio_player_text_color");
-        ThemeUtils.setTextColor(getActivity(), mAlbumArtistName, "audio_player_text_color");
-        ThemeUtils.setTextColor(getActivity(), mTotalTime, "audio_player_text_color");
 
     }
 

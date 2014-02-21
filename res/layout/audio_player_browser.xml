@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <include layout="@layout/colorstrip" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"

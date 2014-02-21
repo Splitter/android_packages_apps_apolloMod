@@ -33,13 +33,10 @@ import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.activities.MusicLibrary;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.helpers.utils.ThemeUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceToken;
 
 import static com.andrew.apolloMod.Constants.APOLLO;
-import static com.andrew.apolloMod.Constants.THEME_PACKAGE_NAME;
-import static com.andrew.apolloMod.Constants.THEME_PREVIEW;
 import static com.andrew.apolloMod.Constants.WIDGET_STYLE;
 /**
  * @author Andrew Neal FIXME - Work on the IllegalStateException thrown when
@@ -66,11 +63,6 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
         // Init delete cache option
         initDeleteCache();
         
-        // Load the theme chooser
-        initThemeChooser();
-        
-        //Enable up button
-       // getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -119,69 +111,6 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
             }
         });
     }
-    
-
-    /**
-     * @param v
-     */
-    public void applyTheme(View v) {
-        ThemePreview themePreview = (ThemePreview)findPreference(THEME_PREVIEW);
-        String packageName = themePreview.getValue().toString();
-        ThemeUtils.setThemePackageName(this, packageName);
-        Intent intent = new Intent();
-        intent.setClass(this, MusicLibrary.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        finish();
-    }
-
-    /**
-     * @param v
-     */
-    public void getThemes(View v) {
-        Uri marketUri = Uri
-                .parse("https://market.android.com/search?q=ApolloThemes&c=apps&featured=APP_STORE_SEARCH");
-        Intent marketIntent = new Intent(Intent.ACTION_VIEW).setData(marketUri);
-        startActivity(marketIntent);
-        finish();
-    }
-
-    /**
-     * Set up the theme chooser
-     */
-    public void initThemeChooser() {
-        SharedPreferences sp = getPreferenceManager().getSharedPreferences();
-        String themePackage = sp.getString(THEME_PACKAGE_NAME, APOLLO);
-        ListPreference themeLp = (ListPreference)findPreference(THEME_PACKAGE_NAME);
-        themeLp.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                ThemePreview themePreview = (ThemePreview)findPreference(THEME_PREVIEW);
-                themePreview.setTheme(newValue.toString());
-                return false;
-            }
-        });
-
-        Intent intent = new Intent("com.andrew.apollo.THEMES");
-        intent.addCategory("android.intent.category.DEFAULT");
-        PackageManager pm = getPackageManager();
-        List<ResolveInfo> themes = pm.queryIntentActivities(intent, 0);
-        String[] entries = new String[themes.size() + 1];
-        String[] values = new String[themes.size() + 1];
-        entries[0] = APOLLO;
-        values[0] = APOLLO;
-        for (int i = 0; i < themes.size(); i++) {
-            String appPackageName = (themes.get(i)).activityInfo.packageName.toString();
-            String themeName = (themes.get(i)).loadLabel(pm).toString();
-            entries[i + 1] = themeName;
-            values[i + 1] = appPackageName;
-        }
-        themeLp.setEntries(entries);
-        themeLp.setEntryValues(values);
-        ThemePreview themePreview = (ThemePreview)findPreference(THEME_PREVIEW);
-        themePreview.setTheme(themePackage);
-    }
-    
 
     @Override
     public void onServiceConnected(ComponentName name, IBinder obj) {

@@ -11,7 +11,7 @@
     <!-- Tabs -->
     <dimen name="tab_padding_top_bottom">6dp</dimen>
     <dimen name="tab_padding_left_right">40dp</dimen>
-    <dimen name="tab_height">30dp</dimen>
+    <dimen name="tab_height">40dp</dimen>
 
     <!-- Bottom ActionBar -->
     <dimen name="bottom_action_bar_height">48dp</dimen>
@@ -37,6 +37,7 @@
     <dimen name="listview_item_height">66dp</dimen>
     <dimen name="listview_items_padding_left_top">9dp</dimen>
     <dimen name="listview_items_padding_small_top">4dp</dimen>
+    <dimen name="listview_items_padding_gp_top">16dp</dimen>
     <dimen name="listview_items_padding_right">85dp</dimen>
     <dimen name="listview_peak_meter_one_padding_right">80dp</dimen>
     <dimen name="listview_peak_meter_two_padding_right">70dp</dimen>

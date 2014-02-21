@@ -25,7 +25,6 @@ import com.andrew.apolloMod.activities.QuickQueue;
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.helpers.utils.ThemeUtils;
 
 /**
  * @author Andrew Neal
@@ -87,10 +86,6 @@ public class BottomActionBar extends LinearLayout implements OnClickListener, On
             ImageView mDivider = (ImageView)activity
                     .findViewById(R.id.bottom_action_bar_info_divider);
             
-            // Theme chooser
-            ThemeUtils.setTextColor(activity, mTrackName, "bottom_action_bar_text_color");
-            ThemeUtils.setTextColor(activity, mArtistName, "bottom_action_bar_text_color");
-            ThemeUtils.setBackgroundColor(activity, mDivider, "bottom_action_bar_info_divider");
         }
     }
 
