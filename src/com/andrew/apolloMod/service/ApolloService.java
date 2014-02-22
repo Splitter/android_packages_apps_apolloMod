@@ -1518,9 +1518,7 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
 
             // Store the current file in the history, but keep the history at a
             // reasonable size
-            if (mPlayPos >= 0) {
-                mHistory.add(mPlayPos);
-            }
+			
             if (mHistory.size() > MAX_HISTORY_SIZE) {
                 mHistory.removeElementAt(0);
             }
@@ -1602,6 +1600,10 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
                     notifyChange(PLAYSTATE_CHANGED);
                 }
                 return;
+            }
+
+            if (mPlayPos >= 0) {
+                mHistory.add(mPlayPos);
             }
             mPlayPos = pos;
             saveBookmarkIfNeeded();
