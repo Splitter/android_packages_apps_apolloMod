@@ -4,20 +4,13 @@
 
 package com.andrew.apolloMod.preferences;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.ListPreference;
@@ -28,20 +21,16 @@ import android.preference.PreferenceActivity;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import com.andrew.apolloMod.IApolloService;
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.activities.MusicLibrary;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceToken;
 
-import static com.andrew.apolloMod.Constants.APOLLO;
 import static com.andrew.apolloMod.Constants.WIDGET_STYLE;
 import static com.andrew.apolloMod.Constants.DELETE_CACHE;
 import static com.andrew.apolloMod.Constants.BUILD_VERSION;

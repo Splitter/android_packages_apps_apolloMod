@@ -3,7 +3,6 @@ package com.andrew.apolloMod.ui.adapters;
 
 import static com.andrew.apolloMod.Constants.SIZE_THUMB;
 import static com.andrew.apolloMod.Constants.SRC_FIRST_AVAILABLE;
-import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
 import static com.andrew.apolloMod.Constants.TYPE_ARTIST;
 
 import java.lang.ref.WeakReference;
@@ -22,7 +21,6 @@ import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.ui.fragments.list.SongsFragment;
-import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
 import com.andrew.apolloMod.views.ViewHolderList;
 
 /**

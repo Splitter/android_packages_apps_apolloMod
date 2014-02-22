@@ -16,7 +16,6 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.media.AudioManager;
 import android.media.audiofx.AudioEffect;
@@ -28,12 +27,10 @@ import android.provider.BaseColumns;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Audio.AudioColumns;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
-import android.widget.ImageView;
 
 import com.andrew.apolloMod.IApolloService;
 import com.andrew.apolloMod.R;
@@ -45,7 +42,6 @@ import com.andrew.apolloMod.ui.fragments.list.GenresFragment;
 import com.andrew.apolloMod.ui.fragments.list.PlaylistsFragment;
 import com.andrew.apolloMod.ui.fragments.list.RecentlyAddedFragment;
 import com.andrew.apolloMod.ui.fragments.list.SongsFragment;
-import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.preferences.SettingsHolder;
@@ -56,7 +52,6 @@ import com.andrew.apolloMod.ui.widgets.ScrollableTabView;
 import static com.andrew.apolloMod.Constants.MIME_TYPE;
 import static com.andrew.apolloMod.Constants.PLAYLIST_RECENTLY_ADDED;
 import static com.andrew.apolloMod.Constants.TABS_ENABLED;
-import static com.andrew.apolloMod.Constants.THEME_ITEM_BACKGROUND;
 
 /**
  * @author Andrew Neal

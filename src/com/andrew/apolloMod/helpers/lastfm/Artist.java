@@ -26,16 +26,11 @@
 
 package com.andrew.apolloMod.helpers.lastfm;
 
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import android.content.Context;
-import android.util.Log;
-
 import com.andrew.apolloMod.helpers.DomElement;
-import com.andrew.apolloMod.helpers.utils.StringUtilities;
 
 /**
  * Bean that contains artist information.<br/>

@@ -6,13 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Iterator;
 
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.helpers.lastfm.Album;
 import com.andrew.apolloMod.helpers.lastfm.Artist;
-import com.andrew.apolloMod.helpers.lastfm.Image;
-import com.andrew.apolloMod.helpers.lastfm.PaginatedResult;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -22,7 +19,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.provider.MediaStore.Audio;
-import android.util.Log;
 
 import static com.andrew.apolloMod.Constants.*;
 

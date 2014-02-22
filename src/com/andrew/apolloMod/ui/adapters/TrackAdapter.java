@@ -3,7 +3,6 @@ package com.andrew.apolloMod.ui.adapters;
 
 import static com.andrew.apolloMod.Constants.SIZE_THUMB;
 import static com.andrew.apolloMod.Constants.SRC_FIRST_AVAILABLE;
-import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
 import static com.andrew.apolloMod.Constants.TYPE_ARTIST;
 
 import java.lang.ref.WeakReference;

@@ -12,7 +12,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
-import android.content.res.Resources;
 import android.media.AudioManager;
 import android.media.audiofx.AudioEffect;
 import android.os.Bundle;
@@ -24,9 +23,6 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.andrew.apolloMod.ui.adapters.PagerAdapter;
 import com.andrew.apolloMod.ui.fragments.AudioPlayerFragment;
@@ -43,7 +39,6 @@ import static com.andrew.apolloMod.Constants.INTENT_ADD_TO_PLAYLIST;
 import static com.andrew.apolloMod.Constants.INTENT_PLAYLIST_LIST;
 import static com.andrew.apolloMod.Constants.MIME_TYPE;
 import static com.andrew.apolloMod.Constants.PLAYLIST_QUEUE;
-import static com.andrew.apolloMod.Constants.THEME_ITEM_BACKGROUND;
 
 /**
  * @author Andrew Neal
