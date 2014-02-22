@@ -38,16 +38,14 @@
 
         <!-- Delete cache -->
         <Preference
-            android:key="delete_cache"
+            android:key="@string/key_delete_cache"
             android:summary="@string/settings_delete_cache_summary"
             android:title="@string/settings_delete_cache_title" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about" >
         <Preference
-            style="?android:preferenceInformationStyle"
-            android:enabled="false"
             android:key="@string/key_build_version"
-            android:summary="1.0"
+            android:summary="@string/app_version_number"
             android:title="@string/version" />
     </PreferenceCategory>
 

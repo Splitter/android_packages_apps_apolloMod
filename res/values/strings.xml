@@ -3,6 +3,7 @@
 
     <!-- App name -->
     <string name="app_name">Apollo Mod</string>
+    <string name="app_version_number">1.3</string>
 
     <!-- Content descriptions for the Bottom Action Bar -->
     <string name="cd_favorite">Make this a favorite song</string>
@@ -104,14 +105,14 @@
     <string name="unknown">Unknown</string>
 
     <!-- Settings -->
-    <string name="about">About Apollo</string>
+    <string name="about">About ApolloMod</string>
     <string name="eqalizer">Equalizer</string>
     <string name="header_interface">Interface</string>
     <string name="settings_storage_category">Storage</string>
     <string name="themes">Themes</string>
     <string name="apollo_themes">Select theme for Apollo</string>
     <string name="select_theme">Select your theme</string>
-    <string name="version">Apollo Version</string>
+    <string name="version">ApolloMod Version</string>
     <string name="tab_visibility_title">Tab visibility</string>
     <string name="tab_visibility_summary">Choose which tabs are displayed</string>
     <string name="settings_delete_cache_title">Delete cache</string>
@@ -123,6 +124,16 @@
     <string name="widget_style_summary">Choose the widget design</string>
     <string name="widget_style_dark">Holo Dark</string>
     <string name="widget_style_light">Holo Light</string>
+    <string name="about_apollomod_title">About ApolloMod</string>
+    <string name="about_apollomod_message"><![CDATA[ApolloMod is an open source music player based on CyanogenMod\'s Apollo Music Player and released under the same Apache License.\n\n
+License Link:\n
+        http://www.apache.org/licenses/LICENSE-2.0.html \n\n
+ApolloMod Source Code:\n
+https://github.com/Splitter/android_packages_apps_apolloMod  \n\n
+Original Apollo Source Code: \n
+https://github.com/CyanogenMod/android_packages_apps_Apollo/tree/cm-10.1
+        
+    ]]></string>
     
     <!-- Settings keys -->
     <string name="key_themes" translatable="false">themepreview</string>
@@ -132,6 +143,7 @@
     <string name="key_tabs_enabled" translatable="false">tabs_enabled</string>
     <string name="key_visualization_type" translatable="false">visualization_type</string>
     <string name="key_widget_style" translatable="false">widget_type</string>
+    <string name="key_delete_cache" translatable="false">delete_cache</string>
 
     <!-- Theme layout Buttons -->
     <string name="apply_theme">Apply theme</string>

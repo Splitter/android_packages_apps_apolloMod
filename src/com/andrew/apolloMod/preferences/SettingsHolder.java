@@ -25,8 +25,13 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.andrew.apolloMod.IApolloService;
 import com.andrew.apolloMod.R;
@@ -38,6 +43,8 @@ import com.andrew.apolloMod.service.ServiceToken;
 
 import static com.andrew.apolloMod.Constants.APOLLO;
 import static com.andrew.apolloMod.Constants.WIDGET_STYLE;
+import static com.andrew.apolloMod.Constants.DELETE_CACHE;
+import static com.andrew.apolloMod.Constants.BUILD_VERSION;
 /**
  * @author Andrew Neal FIXME - Work on the IllegalStateException thrown when
  *         using PreferenceFragment and theme chooser
@@ -63,6 +70,9 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
         // Init delete cache option
         initDeleteCache();
         
+        // Init about dialog
+        initAboutDialog();
+        
     }
 
     @Override
@@ -86,11 +96,43 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
         });
     }
 
+    private void initAboutDialog(){
+        final Preference aboutApolloMod = findPreference(BUILD_VERSION);
+        aboutApolloMod.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(final Preference preference) {
+            	  final TextView message = new TextView(mContext);
+            	  message.setPadding(25, 25, 25, 25);
+            	  // i.e.: R.string.dialog_message =>
+            	            // "Test this dialog following the link to dtmilano.blogspot.com"
+            	  final SpannableString s = new SpannableString(mContext.getText(R.string.about_apollomod_message));
+            	  Linkify.addLinks(s, Linkify.WEB_URLS);
+            	  message.setText(s);
+            	  message.setMovementMethod(LinkMovementMethod.getInstance());
+
+            	 new AlertDialog.Builder(SettingsHolder.this)
+            	  		.setTitle(R.string.about_apollomod_title)
+            	  		.setCancelable(true)
+            	  		.setPositiveButton(android.R.string.ok, null)
+            	  		.setView(message)
+            	  		.create()
+            	  		.show();
+            	 
+
+            	
+            	
+            	
+            	
+            	return true;
+            }
+        });
+    	
+    }
     /**
      * Removes all of the cache entries.
      */
     private void initDeleteCache() {
-        final Preference deleteCache = findPreference("delete_cache");
+        final Preference deleteCache = findPreference(DELETE_CACHE);
         deleteCache.setOnPreferenceClickListener(new OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(final Preference preference) {
