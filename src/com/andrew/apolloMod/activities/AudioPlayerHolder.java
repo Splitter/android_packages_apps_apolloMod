@@ -26,9 +26,9 @@ import android.view.MenuItem;
 
 import com.andrew.apolloMod.ui.adapters.PagerAdapter;
 import com.andrew.apolloMod.ui.fragments.AudioPlayerFragment;
+import com.andrew.apolloMod.ui.fragments.list.NowPlayingFragment;
 import com.andrew.apolloMod.IApolloService;
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.preferences.SettingsHolder;
@@ -259,7 +259,7 @@ public class AudioPlayerHolder extends Activity implements ServiceConnection {
         Bundle bundle = new Bundle();
         bundle.putString(MIME_TYPE, Audio.Playlists.CONTENT_TYPE);
         bundle.putLong(BaseColumns._ID, PLAYLIST_QUEUE);
-        mPagerAdapter.addFragment(new TracksFragment(bundle));
+        mPagerAdapter.addFragment(new NowPlayingFragment(bundle));
         // Artists
         mPagerAdapter.addFragment(new AudioPlayerFragment());
 
