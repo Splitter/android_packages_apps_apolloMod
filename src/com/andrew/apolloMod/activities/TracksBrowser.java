@@ -4,7 +4,6 @@
 
 package com.andrew.apolloMod.activities;
 
-import android.app.Activity;
 import android.app.SearchManager;
 import android.content.*;
 import android.content.pm.ActivityInfo;
@@ -18,10 +17,12 @@ import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Audio.ArtistColumns;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -32,10 +33,13 @@ import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.ui.adapters.PagerAdapter;
+import com.andrew.apolloMod.ui.fragments.BottomActionBarFragment;
 import com.andrew.apolloMod.ui.fragments.list.ArtistAlbumsFragment;
 import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceToken;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelSlideListener;
 
 import static com.andrew.apolloMod.Constants.*;
 
@@ -43,9 +47,9 @@ import static com.andrew.apolloMod.Constants.*;
  * @author Andrew Neal
  * @Note This displays specific track or album listings
  */
-public class TracksBrowser extends Activity implements ServiceConnection {
-
-    // Bundle
+public class TracksBrowser extends FragmentActivity implements ServiceConnection {
+	
+	 // Bundle
     private Bundle bundle;
 
     private Intent intent;
@@ -57,10 +61,17 @@ public class TracksBrowser extends Activity implements ServiceConnection {
     private int RESULT_LOAD_IMAGE = 1;
     
     private ImageProvider mImageProvider;
-
+    
+    private SlidingUpPanelLayout mPanel;
+    
+    BottomActionBarFragment mBActionbar;
+    
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+        
         // Landscape mode on phone isn't ready
         if (!ApolloUtils.isTablet(this))
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -71,6 +82,51 @@ public class TracksBrowser extends Activity implements ServiceConnection {
         // Layout
         setContentView(R.layout.track_browser);
         registerForContextMenu(findViewById(R.id.half_artist_image));
+        
+        
+
+        
+
+        mBActionbar =(BottomActionBarFragment) getSupportFragmentManager().findFragmentById(R.id.bottomactionbar_new);
+  
+        mBActionbar.setUpQueueSwitch(this);
+        
+        mPanel = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
+
+        mPanel.setAnchorPoint(0);
+        
+        mPanel.setDragView(findViewById(R.id.bottom_action_bar_dragview));
+        mPanel.setShadowDrawable(getResources().getDrawable(R.drawable.above_shadow));
+        mPanel.setAnchorPoint(0.0f);
+        mPanel.setPanelSlideListener(new PanelSlideListener() {
+            @Override
+            public void onPanelSlide(View panel, float slideOffset) {
+                if (slideOffset < 0.2) {
+                    mBActionbar.onExpanded();
+                    if (getActionBar().isShowing()) {
+                        getActionBar().hide();
+                    }
+                } else {
+                    mBActionbar.onCollapsed();
+                    if (!getActionBar().isShowing()) {
+                        getActionBar().show();
+                    }
+                }
+            }
+            @Override
+            public void onPanelExpanded(View panel) {
+            }
+            @Override
+            public void onPanelCollapsed(View panel) {
+            }
+            @Override
+            public void onPanelAnchored(View panel) {
+            }
+        });
+        
+        
+        
+        
 
         //ImageCache
     	mImageProvider = ImageProvider.getInstance( this );
@@ -90,6 +146,18 @@ public class TracksBrowser extends Activity implements ServiceConnection {
         // Important!
         initPager();
     }
+    
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    	if(mPanel.isExpanded()){
+            mPanel.collapsePane();
+    	}
+    	else{
+    		super.onBackPressed();
+    	}
+    }    
     
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -174,7 +242,7 @@ public class TracksBrowser extends Activity implements ServiceConnection {
     
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        if (resultCode == Activity.RESULT_OK && requestCode == RESULT_LOAD_IMAGE  && data != null)
+        if (resultCode == FragmentActivity.RESULT_OK && requestCode == RESULT_LOAD_IMAGE  && data != null)
 	    {
         	Uri selectedImage = data.getData();
 	        String[] filePathColumn = { MediaStore.Images.Media.DATA };
@@ -355,7 +423,7 @@ public class TracksBrowser extends Activity implements ServiceConnection {
      */
     private void initPager() {
         // Initiate PagerAdapter
-        PagerAdapter mPagerAdapter = new PagerAdapter(getFragmentManager());
+        PagerAdapter mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
         if (ApolloUtils.isArtist(mimeType))
             // Show all albums for an artist
             mPagerAdapter.addFragment(new ArtistAlbumsFragment(bundle));

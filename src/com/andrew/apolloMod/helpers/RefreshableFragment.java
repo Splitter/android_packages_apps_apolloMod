@@ -16,7 +16,8 @@
 
 package com.andrew.apolloMod.helpers;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+
 
 /**
  * An abstract class that defines a {@link Fragment} like refreshable

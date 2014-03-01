@@ -17,6 +17,4 @@
         android:numColumns="@integer/gridview_columns"
         android:scrollbars="none" />
 
-    <include layout="@layout/empty_view" />
-
 </LinearLayout>

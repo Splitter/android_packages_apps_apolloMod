@@ -4,18 +4,12 @@
 
 package com.andrew.apolloMod.ui.fragments;
 
-import static com.andrew.apolloMod.Constants.ALBUM_ID_KEY;
-import static com.andrew.apolloMod.Constants.ALBUM_KEY;
-import static com.andrew.apolloMod.Constants.ARTIST_ID;
-import static com.andrew.apolloMod.Constants.ARTIST_KEY;
-import static com.andrew.apolloMod.Constants.MIME_TYPE;
 import static com.andrew.apolloMod.Constants.SIZE_THUMB;
 import static com.andrew.apolloMod.Constants.SRC_FIRST_AVAILABLE;
 import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
 
 import java.lang.ref.WeakReference;
 
-import android.app.Fragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -25,8 +19,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.os.SystemClock;
-import android.provider.BaseColumns;
-import android.provider.MediaStore.Audio;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,7 +33,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.activities.TracksBrowser;
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
@@ -54,9 +46,6 @@ import com.andrew.apolloMod.ui.widgets.VisualizerView;
  * @author Andrew Neal
  */
 public class AudioPlayerFragment extends Fragment {
-
-    // Track, album, and artist name
-    private TextView mTrackName, mAlbumArtistName;
 
     // Total and current time
     private TextView mTotalTime, mCurrentTime;
@@ -89,22 +78,6 @@ public class AudioPlayerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.audio_player, container, false);
 
-        mTrackName = (TextView)root.findViewById(R.id.audio_player_track);
-        mTrackName.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                tracksBrowser();
-            }
-        });
-        mAlbumArtistName = (TextView)root.findViewById(R.id.audio_player_album_artist);
-        mAlbumArtistName.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                tracksBrowserArtist();
-            }
-        });
 
         mTotalTime = (TextView)root.findViewById(R.id.audio_player_total_time);
         mCurrentTime = (TextView)root.findViewById(R.id.audio_player_current_time);
@@ -579,10 +552,7 @@ public class AudioPlayerFragment extends Fragment {
 
         String artistName = MusicUtils.getArtistName();
         String albumName = MusicUtils.getAlbumName();
-        String trackName = MusicUtils.getTrackName();
         String albumId = String.valueOf(MusicUtils.getCurrentAlbumId());
-        mTrackName.setText(trackName);
-        mAlbumArtistName.setText(albumName + " - " + artistName);
         mDuration = MusicUtils.getDuration();
         mTotalTime.setText(MusicUtils.makeTimeString(getActivity(), mDuration / 1000));
 
@@ -596,49 +566,4 @@ public class AudioPlayerFragment extends Fragment {
 
     }
 
-    /**
-     * Takes you into the @TracksBrowser to view all of the tracks on the
-     * current album
-     */
-    private void tracksBrowser() {
-
-        String artistName = MusicUtils.getArtistName();
-        String albumName = MusicUtils.getAlbumName();
-        String albumId = String.valueOf(MusicUtils.getCurrentAlbumId());
-        long id = MusicUtils.getCurrentAlbumId();
-
-        Bundle bundle = new Bundle();
-        bundle.putString(MIME_TYPE, Audio.Albums.CONTENT_TYPE);
-        bundle.putString(ARTIST_KEY, artistName);
-        bundle.putString(ALBUM_KEY, albumName);
-        bundle.putString(ALBUM_ID_KEY, albumId);
-        bundle.putLong(BaseColumns._ID, id);
-
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setClass(getActivity(), TracksBrowser.class);
-        intent.putExtras(bundle);
-        getActivity().startActivity(intent);
-    }
-
-    /**
-     * Takes you into the @TracksBrowser to view all of the tracks and albums by
-     * the current artist
-     */
-    private void tracksBrowserArtist() {
-
-        String artistName = MusicUtils.getArtistName();
-        long id = MusicUtils.getCurrentArtistId();
-
-        Bundle bundle = new Bundle();
-        bundle.putString(MIME_TYPE, Audio.Artists.CONTENT_TYPE);
-        bundle.putString(ARTIST_KEY, artistName);
-        bundle.putLong(BaseColumns._ID, id);
-
-        ApolloUtils.setArtistId(artistName, id, ARTIST_ID, getActivity());
-
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setClass(getActivity(), TracksBrowser.class);
-        intent.putExtras(bundle);
-        getActivity().startActivity(intent);
-    }
 }

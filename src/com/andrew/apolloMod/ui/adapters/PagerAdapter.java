@@ -6,9 +6,9 @@ package com.andrew.apolloMod.ui.adapters;
 
 import java.util.ArrayList;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 
 import com.andrew.apolloMod.helpers.RefreshableFragment;
 
@@ -19,8 +19,8 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     private final ArrayList<Fragment> mFragments = new ArrayList<Fragment>();
 
-    public PagerAdapter(FragmentManager manager) {
-        super(manager);
+    public PagerAdapter(FragmentManager fragmentManager) {
+        super(fragmentManager);
     }
 
     public void addFragment(Fragment fragment) {

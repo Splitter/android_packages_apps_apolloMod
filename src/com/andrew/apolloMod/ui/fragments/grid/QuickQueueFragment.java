@@ -4,13 +4,13 @@
 
 package com.andrew.apolloMod.ui.fragments.grid;
 
-import android.app.Fragment;
-import android.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.content.Loader;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;

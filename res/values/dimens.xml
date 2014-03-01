@@ -14,13 +14,13 @@
     <dimen name="tab_height">40dp</dimen>
 
     <!-- Bottom ActionBar -->
-    <dimen name="bottom_action_bar_height">48dp</dimen>
-    <dimen name="bottom_action_bar_padding_left">4dp</dimen>
-    <dimen name="bottom_action_bar_item_width">56dp</dimen>
-    <dimen name="bottom_action_bar_item_padding_left_right">12dp</dimen>
-    <dimen name="bottom_action_bar_album_art_width_height">30dp</dimen>
+    <dimen name="bottom_action_bar_height">68dp</dimen>
+    <dimen name="bottom_action_bar_padding_left">12dp</dimen>
+    <dimen name="bottom_action_bar_item_width">36dp</dimen>
+    <dimen name="bottom_action_bar_item_padding_left_right">6dp</dimen>
+    <dimen name="bottom_action_bar_album_art_width_height">45dp</dimen>
     <dimen name="bottom_action_bar_divider_height">2dp</dimen>
-    <dimen name="bottom_action_bar_info_padding_left">5dp</dimen>
+    <dimen name="bottom_action_bar_info_padding_left">12dp</dimen>
 
     <!-- ViewPager margin stroke width -->
     <dimen name="viewpager_margin_stroke_width">0dp</dimen>
@@ -73,7 +73,7 @@
     <!-- GridView items -->
     <dimen name="gridview_image_width">152dp</dimen>
     <dimen name="gridview_image_height">152dp</dimen>
-    <dimen name="gridview_item_margin">3dp</dimen>
+    <dimen name="gridview_item_margin">7dp</dimen>
     <dimen name="gridview_item_ccontainer_height">64dp</dimen>
     <dimen name="gridview_item_ccontainer_padding_left">12dp</dimen>
     <dimen name="gridview_item_ccontainer_padding_right">12dp</dimen>

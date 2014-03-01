@@ -1,30 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
-
-    <com.andrew.apolloMod.ui.widgets.ScrollableTabView
-        android:id="@+id/scrollingTabs"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/tab_height"/>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scrollingTabs" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_action_bar_height"
-        android:layout_alignParentBottom="true" >
-        
-        <fragment android:name="com.andrew.apolloMod.ui.fragments.BottomActionBarFragment"
-            android:id="@+id/bottomactionbar_new"
-            android:layout_weight="1"
-			android:layout_width="match_parent"
-            android:layout_height="match_parent" /> 
-
-    </LinearLayout>
-
+    android:layout_height="match_parent">
+	<com.sothree.slidinguppanel.SlidingUpPanelLayout
+	    android:id="@+id/sliding_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:gravity="bottom">
+	
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical"
+		    android:paddingTop="?android:attr/actionBarSize"
+		    android:clickable="true"
+			android:focusable="false"
+			android:focusableInTouchMode="true" >
+		
+		    <com.andrew.apolloMod.ui.widgets.ScrollableTabView
+		        android:id="@+id/scrollingTabs"
+		        android:layout_width="match_parent"
+		        android:layout_height="@dimen/tab_height"/>
+		
+		    <android.support.v4.view.ViewPager
+		        android:id="@+id/viewPager"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/scrollingTabs" />
+		</LinearLayout>
+	
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+			android:orientation="vertical" 
+			android:clickable="true"
+			android:focusable="false" >
+	        <LinearLayout 
+				    android:id="@+id/bottom_action_bar_container2"
+				    android:layout_width="match_parent"
+				    android:layout_height="@dimen/bottom_action_bar_height"
+				    android:layout_gravity="top"
+				    android:orientation="vertical" >
+				
+				<fragment android:name="com.andrew.apolloMod.ui.fragments.BottomActionBarFragment"
+		            android:id="@+id/bottomactionbar_new"
+		            android:layout_weight="1"
+					android:layout_width="match_parent"
+            		android:layout_height="match_parent" /> 
+            		
+			</LinearLayout>
+			<fragment android:name="com.andrew.apolloMod.ui.fragments.AudioPlayerFragment"
+	            android:id="@+id/audio_player_view"
+	            android:layout_weight="1"
+				android:layout_width="match_parent"
+           		android:layout_height="match_parent" /> 
+	    </LinearLayout>
+	</com.sothree.slidinguppanel.SlidingUpPanelLayout>
 </RelativeLayout>

@@ -4,13 +4,13 @@
 
 package com.andrew.apolloMod.ui.fragments.list;
 
-import android.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.Loader;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
@@ -28,7 +28,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.andrew.apolloMod.NowPlayingCursor;
@@ -112,11 +111,6 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.listview, container, false);
         mListView = (ListView)root.findViewById(android.R.id.list);
-       
-	    LinearLayout emptyness = (LinearLayout)root.findViewById(R.id.empty_view);
-	    emptyness.setVisibility(View.GONE);
-                
-        
         return root;
     }
 

@@ -174,7 +174,8 @@ public class PlayExternal extends Activity
         }
 
         // Show now playing
-        Intent intent = new Intent(this, AudioPlayerHolder.class);
+        Intent intent = new Intent(this, MusicLibrary.class);
+        intent.putExtra("started_from", "NOTIF_SERVICE");
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
@@ -186,7 +187,8 @@ public class PlayExternal extends Activity
         MusicUtils.mService.play();
 
         // Show now playing
-        Intent nowPlayingIntent = new Intent(this, AudioPlayerHolder.class);
+        Intent nowPlayingIntent = new Intent(this, MusicLibrary.class)
+        							.putExtra("started_from", "NOTIF_SERVICE");
         startActivity(nowPlayingIntent);
     }
 

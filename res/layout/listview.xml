@@ -60,8 +60,5 @@
         android:paddingRight="10dp" 
         android:paddingLeft="10dp"  />
 
-    <include
-        android:id="@+id/empty_view"
-        layout="@layout/empty_view" />
 
 </LinearLayout>

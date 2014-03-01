@@ -16,6 +16,8 @@
 
 package com.andrew.apolloMod.service;
 
+import com.andrew.apolloMod.activities.MusicLibrary;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +26,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
 
-import com.andrew.apolloMod.activities.AudioPlayerHolder;
 
 public class MediaButtonIntentReceiver extends BroadcastReceiver {
 
@@ -47,7 +48,8 @@ public class MediaButtonIntentReceiver extends BroadcastReceiver {
                         Context context = (Context)msg.obj;
                         Intent i = new Intent();
                         i.putExtra("autoshuffle", "true");
-                        i.setClass(context, AudioPlayerHolder.class);
+                        i.setClass(context,  MusicLibrary.class);
+        				i.putExtra("started_from", "NOTIF_SERVICE");
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         context.startActivity(i);
                         mLaunched = true;

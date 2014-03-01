@@ -13,14 +13,12 @@ import android.content.Intent;
 import android.os.RemoteException;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.activities.AudioPlayerHolder;
 import com.andrew.apolloMod.activities.QuickQueue;
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
@@ -29,7 +27,7 @@ import com.andrew.apolloMod.helpers.utils.MusicUtils;
 /**
  * @author Andrew Neal
  */
-public class BottomActionBar extends LinearLayout implements OnClickListener, OnLongClickListener {
+public class BottomActionBar extends LinearLayout implements OnLongClickListener {
 	 
     public BottomActionBar(Context context) {
         super(context);
@@ -37,7 +35,6 @@ public class BottomActionBar extends LinearLayout implements OnClickListener, On
 
     public BottomActionBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setOnClickListener(this);
         setOnLongClickListener(this);
     }
 
@@ -82,26 +79,7 @@ public class BottomActionBar extends LinearLayout implements OnClickListener, On
             
             ImageProvider.getInstance( activity ).loadImage( mAlbumArt , mInfo );
             
-            // Divider
-            ImageView mDivider = (ImageView)activity
-                    .findViewById(R.id.bottom_action_bar_info_divider);
-            
         }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.bottom_action_bar:
-                Intent intent = new Intent();
-                intent.setClass(v.getContext(), AudioPlayerHolder.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                v.getContext().startActivity(intent);
-                break;
-            default:
-                break;
-        }
-
     }
 
     @Override

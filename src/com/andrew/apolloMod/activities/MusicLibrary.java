@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -26,16 +25,21 @@ import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Audio.AudioColumns;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 
 import com.andrew.apolloMod.IApolloService;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.ui.adapters.PagerAdapter;
 import com.andrew.apolloMod.ui.adapters.ScrollingTabsAdapter;
+import com.andrew.apolloMod.ui.fragments.BottomActionBarFragment;
 import com.andrew.apolloMod.ui.fragments.grid.AlbumsFragment;
 import com.andrew.apolloMod.ui.fragments.grid.ArtistsFragment;
 import com.andrew.apolloMod.ui.fragments.list.GenresFragment;
@@ -48,6 +52,8 @@ import com.andrew.apolloMod.preferences.SettingsHolder;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceToken;
 import com.andrew.apolloMod.ui.widgets.ScrollableTabView;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelSlideListener;
 
 import static com.andrew.apolloMod.Constants.MIME_TYPE;
 import static com.andrew.apolloMod.Constants.PLAYLIST_RECENTLY_ADDED;
@@ -57,23 +63,86 @@ import static com.andrew.apolloMod.Constants.TABS_ENABLED;
  * @author Andrew Neal
  * @Note This is the "holder" for all of the tabs
  */
-public class MusicLibrary extends Activity implements ServiceConnection {
-
-    private ServiceToken mToken;
+public class MusicLibrary extends FragmentActivity implements ServiceConnection {
+	
+	private SlidingUpPanelLayout mPanel;
+    
+	private ServiceToken mToken;
+    
+	public static final String SAVED_STATE_ACTION_BAR_HIDDEN = "saved_state_action_bar_hidden";
+    
+	BottomActionBarFragment mBActionbar;
+    
+	private boolean isAlreadyStarted = false;
+	
+    
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         // Landscape mode on phone isn't ready
         if (!ApolloUtils.isTablet(this))
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         
         // Scan for music
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);       
+       // getSupportFragmentManager().beginTransaction().add(R.id.bottomactionbar_new, new BottomActionBarFragment(), "bottomactionbar_new").commit();
         
         // Layout
         setContentView(R.layout.library_browser);
+        
+        mBActionbar =(BottomActionBarFragment) getSupportFragmentManager().findFragmentById(R.id.bottomactionbar_new);
+  
+        mBActionbar.setUpQueueSwitch(this);
+        
+        mPanel = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
 
+        mPanel.setAnchorPoint(0);
+        
+        mPanel.setDragView(findViewById(R.id.bottom_action_bar_dragview));
+        mPanel.setShadowDrawable(getResources().getDrawable(R.drawable.above_shadow));
+        mPanel.setAnchorPoint(0.0f);
+        mPanel.setPanelSlideListener(new PanelSlideListener() {
+            @Override
+            public void onPanelSlide(View panel, float slideOffset) {
+                if (slideOffset < 0.2) {
+                    mBActionbar.onExpanded();
+                    if (getActionBar().isShowing()) {
+                        getActionBar().hide();
+                    }
+                } else {
+                    mBActionbar.onCollapsed();
+                    if (!getActionBar().isShowing()) {
+                        getActionBar().show();
+                    }
+                }
+            }
+            @Override
+            public void onPanelExpanded(View panel) {
+            }
+            @Override
+            public void onPanelCollapsed(View panel) {
+            }
+            @Override
+            public void onPanelAnchored(View panel) {
+            }
+        });
+        
+        String startedFrom = getIntent().getStringExtra("started_from");
+        if(startedFrom!=null){
+        	ViewTreeObserver vto = mPanel.getViewTreeObserver();
+        	vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        	    @Override
+        	    public void onGlobalLayout() {
+        	    	if(!isAlreadyStarted){
+            	        mPanel.expandPane();
+            	        isAlreadyStarted=true;
+        	    	}
+        	    }
+        	});
+        }
+        
         // Style the actionbar
         initActionBar();
 
@@ -83,7 +152,17 @@ public class MusicLibrary extends Activity implements ServiceConnection {
         // Important!
         initPager();  
     }
-
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    	if(mPanel.isExpanded()){
+            mPanel.collapsePane();
+    	}
+    	else{
+    		super.onBackPressed();
+    	}
+    }
+    
     @Override
     public void onServiceConnected(ComponentName name, IBinder obj) {
         MusicUtils.mService = IApolloService.Stub.asInterface(obj);
@@ -121,7 +200,7 @@ public class MusicLibrary extends Activity implements ServiceConnection {
      */
     public void initPager() {
         // Initiate PagerAdapter
-        PagerAdapter mPagerAdapter = new PagerAdapter(getFragmentManager());
+        PagerAdapter mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
 
         Bundle bundle = new Bundle();
         bundle.putString(MIME_TYPE, Audio.Playlists.CONTENT_TYPE);
@@ -221,7 +300,6 @@ public class MusicLibrary extends Activity implements ServiceConnection {
         return true;
     }
 
-    
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
     	Intent i = getBaseContext().getPackageManager()
@@ -229,9 +307,6 @@ public class MusicLibrary extends Activity implements ServiceConnection {
 		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(i);
     }   
-    
-    
-    
     
     /**
      * Initiate the Top Actionbar
@@ -241,7 +316,6 @@ public class MusicLibrary extends Activity implements ServiceConnection {
 	    inflater.inflate(R.menu.actionbar_top, menu);
 	    return true;
 	}
-
 
 	/**
      * Shuffle all the tracks

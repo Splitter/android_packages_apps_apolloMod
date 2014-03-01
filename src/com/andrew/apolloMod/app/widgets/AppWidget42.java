@@ -29,7 +29,6 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.activities.AudioPlayerHolder;
 import com.andrew.apolloMod.activities.MusicLibrary;
 import com.andrew.apolloMod.service.ApolloService;
 import static com.andrew.apolloMod.Constants.WIDGET_STYLE;
@@ -212,7 +211,8 @@ public class AppWidget42 extends AppWidgetProvider {
         final ComponentName serviceName = new ComponentName(context, ApolloService.class);
 
         if (playerActive) {
-            intent = new Intent(context, AudioPlayerHolder.class);
+            intent = new Intent(context, MusicLibrary.class)
+								.putExtra("started_from", "NOTIF_SERVICE");
             pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
             views.setOnClickPendingIntent(R.id.four_by_two_albumart, pendingIntent);
             views.setOnClickPendingIntent(R.id.four_by_two_info, pendingIntent);

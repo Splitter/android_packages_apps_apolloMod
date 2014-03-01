@@ -1,31 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
-
-    <include
-        android:id="@+id/half"
-        layout="@layout/half_and_half" />
-    
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/half" 
-        android:windowContentOverlay="@null"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_action_bar_height"
-        android:layout_alignParentBottom="true" >
-
-        
-        <fragment android:name="com.andrew.apolloMod.ui.fragments.BottomActionBarFragment"
-            android:id="@+id/bottomactionbar_new"
-            android:layout_weight="1"
-			android:layout_width="match_parent"
-            android:layout_height="match_parent" /> 
-
-    </LinearLayout>
-
+    android:layout_height="match_parent">
+	<com.sothree.slidinguppanel.SlidingUpPanelLayout
+	    android:id="@+id/sliding_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:gravity="bottom">
+	
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content" >
+		
+		    <include
+		        android:id="@+id/half"
+		        layout="@layout/half_and_half" />
+		    
+		    <android.support.v4.view.ViewPager
+		        android:id="@+id/viewPager"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_below="@+id/half" 
+		        android:windowContentOverlay="@null"/>	
+		
+		</RelativeLayout>
+		
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+			android:orientation="vertical" 
+			android:clickable="true"
+			android:focusable="false" >
+	        <LinearLayout 
+				    android:id="@+id/bottom_action_bar_container2"
+				    android:layout_width="match_parent"
+				    android:layout_height="@dimen/bottom_action_bar_height"
+				    android:layout_gravity="top"
+				    android:orientation="vertical" >
+				
+				<fragment android:name="com.andrew.apolloMod.ui.fragments.BottomActionBarFragment"
+		            android:id="@+id/bottomactionbar_new"
+		            android:layout_weight="1"
+					android:layout_width="match_parent"
+	           		android:layout_height="match_parent" />            		
+			</LinearLayout>
+	        <fragment android:name="com.andrew.apolloMod.ui.fragments.AudioPlayerFragment"
+	            android:id="@+id/audio_player_view"
+	            android:layout_weight="1"
+				android:layout_width="match_parent"
+	          	android:layout_height="match_parent" /> 
+	    </LinearLayout>
+	</com.sothree.slidinguppanel.SlidingUpPanelLayout>
 </RelativeLayout>

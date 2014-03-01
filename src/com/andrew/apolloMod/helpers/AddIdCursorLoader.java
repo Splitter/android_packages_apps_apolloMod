@@ -16,7 +16,8 @@
 
 package com.andrew.apolloMod.helpers;
 
-import android.content.AsyncTaskLoader;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
 import android.content.ContentQueryMap;
 import android.content.Context;
 import android.content.ContentValues;

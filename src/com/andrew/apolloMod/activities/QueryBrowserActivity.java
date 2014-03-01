@@ -41,7 +41,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -172,9 +171,6 @@ public class QueryBrowserActivity extends ListActivity implements ServiceConnect
                 getQueryCursor(mAdapter.getQueryHandler(), mFilterString);
             }
         }
-
-        LinearLayout emptyness = (LinearLayout)findViewById(R.id.empty_view);
-        emptyness.setVisibility(View.GONE);
     }
 
     @Override

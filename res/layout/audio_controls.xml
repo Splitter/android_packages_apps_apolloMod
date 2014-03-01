@@ -11,7 +11,8 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/audio_player_seek_bar_padding"
+            android:paddingTop="@dimen/audio_player_seek_bar_padding"    
+            android:progressDrawable="@drawable/audio_player_seekbar" 
             android:thumb="@null" />
 
         <TextView
