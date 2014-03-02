@@ -140,8 +140,10 @@ public class BottomActionBarFragment extends Fragment {
     	mPrev.setVisibility(View.VISIBLE);
     	mNext.setVisibility(View.VISIBLE);
     	mPlay.setVisibility(View.VISIBLE);
+    	
+    	mQueue.setImageResource(R.drawable.btn_switch_queue);
     	mQueue.setVisibility(View.GONE);
-
+        
         listQueue.setVisibility(View.GONE);
         albumArt.setVisibility(View.VISIBLE);
 
