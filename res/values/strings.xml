@@ -3,7 +3,7 @@
 
     <!-- App name -->
     <string name="app_name">Apollo Mod</string>
-    <string name="app_version_number">1.3</string>
+    <string name="app_version_number">1.0</string>
 
     <!-- Content descriptions for the Bottom Action Bar -->
     <string name="cd_favorite">Make this a favorite song</string>

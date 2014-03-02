@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.ListPreference;
@@ -87,6 +88,16 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
 
     private void initAboutDialog(){
         final Preference aboutApolloMod = findPreference(BUILD_VERSION);
+        String versionName = null;
+		try {
+			versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+		} catch (NameNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(versionName!=null){
+	        aboutApolloMod.setSummary(versionName);
+		}
         aboutApolloMod.setOnPreferenceClickListener(new OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(final Preference preference) {
