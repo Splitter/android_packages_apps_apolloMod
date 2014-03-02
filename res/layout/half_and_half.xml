@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 			
-            <ImageView
+            <com.andrew.apolloMod.views.TrackBrowserImageView
                 android:id="@+id/half_artist_image"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/half_and_half_imageheight"
