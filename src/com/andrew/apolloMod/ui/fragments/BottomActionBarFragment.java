@@ -193,8 +193,8 @@ public class BottomActionBarFragment extends Fragment {
             public void onClick(View v) {
             	if(albumArt.getVisibility()==View.VISIBLE){
             		listQueue.removeAllViews();
-            		 getFragmentManager().beginTransaction().add(R.id.audio_player_queue_wrapper, new NowPlayingFragment(), "NowPlayingTag").commit();
-            	        
+            		getFragmentManager().beginTransaction().add(R.id.audio_player_queue_wrapper, new NowPlayingFragment(), "NowPlayingTag").commit();
+            		mQueue.setImageResource(R.drawable.btn_switch_queue_active);
                     albumArt.setVisibility(View.GONE);
                     listQueue.setVisibility(View.VISIBLE);
                     // Fade out the pager container
@@ -205,6 +205,7 @@ public class BottomActionBarFragment extends Fragment {
             	else{
                     listQueue.setVisibility(View.GONE);
                     albumArt.setVisibility(View.VISIBLE);
+            		mQueue.setImageResource(R.drawable.btn_switch_queue);
                     // Fade out the pager container
                     fade(listQueue, 0f);
                     // Fade in the album art
