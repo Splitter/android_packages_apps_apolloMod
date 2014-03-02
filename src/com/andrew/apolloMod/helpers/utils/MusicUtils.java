@@ -135,6 +135,7 @@ public class MusicUtils {
             sFormatBuilder.setLength(0);
             sFormatter.format(f, Integer.valueOf(numsongs));
             songs_albums.append(sFormatBuilder);
+            songs_albums.append("\n");
         } else {
             String f = r.getQuantityText(R.plurals.Nalbums, numalbums).toString();
             sFormatBuilder.setLength(0);

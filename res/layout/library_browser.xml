@@ -16,11 +16,13 @@
 		    android:paddingTop="?android:attr/actionBarSize"
 		    android:clickable="true"
 			android:focusable="false"
+        	android:background="@color/background_grey"
 			android:focusableInTouchMode="true" >
 		
 		    <com.andrew.apolloMod.ui.widgets.ScrollableTabView
 		        android:id="@+id/scrollingTabs"
 		        android:layout_width="match_parent"
+        		android:background="@color/white"
 		        android:layout_height="@dimen/tab_height"/>
 		
 		    <android.support.v4.view.ViewPager
@@ -34,6 +36,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
 			android:orientation="vertical" 
+        	android:background="@color/white"
 			android:clickable="true"
 			android:focusable="false" >
 	        <LinearLayout 

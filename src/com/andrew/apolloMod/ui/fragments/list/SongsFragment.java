@@ -18,6 +18,7 @@ import android.provider.BaseColumns;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Audio.AudioColumns;
 import android.provider.MediaStore.MediaColumns;
+import android.util.TypedValue;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -108,7 +109,14 @@ public class SongsFragment extends RefreshableFragment implements LoaderCallback
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.listview, container, false);
         mListView = (ListView)root.findViewById(android.R.id.list);
-    	RelativeLayout  shuffle = (RelativeLayout)root.findViewById(R.id.shuffle_wrapper);
+        View shuffle_temp = View.inflate(getActivity(), R.layout.shuffle_all, null);
+//        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 55, getResources().getDisplayMetrics());
+//        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)shuffle_temp.getLayoutParams();
+//        params.height = height;
+//        shuffle_temp.setLayoutParams(params);
+        mListView.addHeaderView(shuffle_temp);
+        
+    	RelativeLayout  shuffle = (RelativeLayout)shuffle_temp.findViewById(R.id.shuffle_wrapper);
     	shuffle.setVisibility(View.VISIBLE);
     	shuffle.setOnClickListener(new RelativeLayout.OnClickListener() {  
             public void onClick(View v)
@@ -228,11 +236,11 @@ public class SongsFragment extends RefreshableFragment implements LoaderCallback
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         if (mCursor instanceof NowPlayingCursor) {
             if (MusicUtils.mService != null) {
-                MusicUtils.setQueuePosition(position);
+                MusicUtils.setQueuePosition(position-1);
                 return;
             }
         }
-        MusicUtils.playAll(getActivity(), mCursor, position);
+        MusicUtils.playAll(getActivity(), mCursor, position-1);
     }
 
     /**

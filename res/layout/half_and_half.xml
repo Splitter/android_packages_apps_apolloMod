@@ -19,30 +19,48 @@
             <ImageView
                 android:id="@+id/half_artist_image"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/half_and_half_imageheight"
                 android:scaleType="centerCrop" />
 
-			<LinearLayout
+			<RelativeLayout
 		        android:id="@+id/half_artist_info_holder"
 		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
+		        android:layout_height="@dimen/half_and_half_text_wrap_height"
 	            android:layout_alignBottom="@+id/half_artist_image"
 		        android:background="@color/transparent_black"
-		        android:gravity="center_vertical"
-		        android:orientation="vertical"
 		        android:paddingTop="@dimen/gridview_item_ccontainer_padding_left"
 		        android:paddingBottom="@dimen/gridview_item_ccontainer_padding_left"
 			    android:paddingLeft="@dimen/gridview_item_ccontainer_padding_left"
 	        	android:paddingRight="@dimen/gridview_item_ccontainer_padding_right">
 		        <TextView
+		            android:layout_alignParentLeft="true"
 		            android:id="@+id/half_artist_image_text"
+        			android:layout_width="match_parent"
+        			android:layout_height="wrap_content"
+        			android:singleLine="true"
+			        android:ellipsize="end"
+			        android:maxLength="22"
 		            style="@style/GridviewShadowedText"
 		            android:textStyle="bold"/>
+		        <ImageButton
+		            android:id="@+id/view_more"
+		            style="@style/GridviewShadowedText"
+		            android:layout_alignParentRight="true"
+		            android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:visibility="gone"
+			        android:padding="@dimen/half_and_half_imagebutton_padding"
+					android:src="@drawable/view_more_album"
+		            android:background="@drawable/view_more"/>
 		
 		        <TextView
+		            android:layout_alignParentLeft="true"
+		            android:layout_width="wrap_content"
+        			android:layout_height="wrap_content"
+			        android:layout_below="@+id/half_artist_image_text"
 		            android:id="@+id/half_artist_image_text_line_two"
 		            style="@style/GridviewShadowedText"/>
-	        </LinearLayout>
+	        </RelativeLayout>
 	        
 		    <RelativeLayout
 		        android:layout_width="fill_parent"

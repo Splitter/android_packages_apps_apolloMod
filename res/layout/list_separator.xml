@@ -6,8 +6,5 @@
     android:paddingLeft="@dimen/list_separator_container_padding_left"
     android:paddingRight="@dimen/fast_scroll_padding_right" >
 
-    <TextView
-        android:id="@+id/title"
-        style="@style/SeparatorTextViewStyle" />
-
+	
 </FrameLayout>

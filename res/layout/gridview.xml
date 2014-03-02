@@ -15,6 +15,7 @@
         android:cacheColorHint="@color/transparent"
         android:drawSelectorOnTop="true"
         android:numColumns="@integer/gridview_columns"
+        android:background="@color/background_grey"
         android:scrollbars="none" />
 
 </LinearLayout>

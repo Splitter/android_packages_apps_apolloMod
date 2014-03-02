@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/shuffle_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:paddingRight="10dp" 
+    android:paddingLeft="10dp" 
+    android:paddingBottom="13dp"
+  	android:layout_gravity="center_vertical"
+  	android:background="@drawable/shuffle_background">
+
+    <ImageView
+        android:id="@+id/shuffle_imageview"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerCrop" 
+    	android:layout_marginTop="13dp" 
+    	android:layout_marginLeft="16dp" 
+	    android:background="@drawable/apollo_holo_light_shuffle_normal"/>
+
+    <!-- Padding may be set on via code for some tabs -->
+
+    <TextView
+        android:id="@+id/shuffle_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/shuffle_imageview"
+        android:ellipsize="end"
+        android:maxLength="29"
+        android:text="Shuffle All"
+        android:paddingRight="@dimen/listview_items_padding_right"
+    	android:layout_marginTop="14dp" 
+    	android:layout_marginLeft="31dp" 
+        android:singleLine="true"
+        android:textSize="@dimen/text_size_medium" />
+
+</RelativeLayout>

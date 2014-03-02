@@ -13,16 +13,20 @@ import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Audio.ArtistColumns;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -61,6 +65,10 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
     private int RESULT_LOAD_IMAGE = 1;
     
     private ImageProvider mImageProvider;
+    
+    private ViewPager mViewPager = null;
+    
+    private ImageButton mChangeButton;
     
     private SlidingUpPanelLayout mPanel;
     
@@ -373,6 +381,25 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         ApolloUtils.showUpTitleOnly(getActionBar());
     }
 
+    private void onToggleButton(){
+    	if(mViewPager!=null){
+    		int cur = mViewPager.getCurrentItem();
+    		if(cur == 0){
+    			mChangeButton.setImageResource(R.drawable.view_more_song);
+    			mViewPager.setCurrentItem(1);
+    			TextView lineTwoView = (TextView)findViewById(R.id.half_artist_image_text_line_two);
+    	        String lineTwo = MusicUtils.makeAlbumsLabel(this, 0, Integer.parseInt(getNumSongs()), true);
+    			lineTwoView.setText(lineTwo);
+    		}else{
+    			mChangeButton.setImageResource(R.drawable.view_more_album);
+    			mViewPager.setCurrentItem(0);
+    			TextView lineTwoView = (TextView)findViewById(R.id.half_artist_image_text_line_two);
+    			String lineTwo = MusicUtils.makeAlbumsLabel(this, Integer.parseInt(getNumAlbums()), 0, false);
+    	        lineTwoView.setText(lineTwo);
+    		}
+    	}    	
+    }
+    
     /**
      * Sets up the @half_and_half.xml layout
      */
@@ -385,6 +412,14 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
     	String lineTwo = "";
 
         if (ApolloUtils.isArtist(mimeType)) {
+        	mChangeButton = (ImageButton)findViewById(R.id.view_more);
+        	mChangeButton.setVisibility(View.VISIBLE);
+        	mChangeButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                	onToggleButton();
+                }
+            });
         	String mArtist = getArtist();
             mInfo.type = TYPE_ARTIST;
             mInfo.data = new String[]{ mArtist };  
@@ -431,13 +466,31 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         mPagerAdapter.addFragment(new TracksFragment(bundle));
 
         // Set up ViewPager
-        ViewPager mViewPager = (ViewPager)findViewById(R.id.viewPager);
+        mViewPager = (ViewPager)findViewById(R.id.viewPager);
         mViewPager.setPageMargin(getResources().getInteger(R.integer.viewpager_margin_width));
         mViewPager.setPageMarginDrawable(R.drawable.viewpager_margin);
         mViewPager.setOffscreenPageLimit(mPagerAdapter.getCount());
         mViewPager.setAdapter(mPagerAdapter);
+        mViewPager.setOnPageChangeListener(new PageListener());
     }
 
+    private class PageListener extends SimpleOnPageChangeListener{
+        public void onPageSelected(int cur) {            
+        	if(cur == 0){
+    			ImageButton mCButton = (ImageButton)findViewById(R.id.view_more);
+    			mCButton.setImageResource(R.drawable.view_more_album);
+    			TextView lineTwoView = (TextView)findViewById(R.id.half_artist_image_text_line_two);
+    			String lineTwo = MusicUtils.makeAlbumsLabel(TracksBrowser.this, Integer.parseInt(getNumAlbums()), 0, false);
+    	        lineTwoView.setText(lineTwo);
+    		}else{
+            	ImageButton mCButton = (ImageButton)findViewById(R.id.view_more);
+    			mCButton.setImageResource(R.drawable.view_more_song);
+    			TextView lineTwoView = (TextView)findViewById(R.id.half_artist_image_text_line_two);
+    	        String lineTwo = MusicUtils.makeAlbumsLabel(TracksBrowser.this, 0, Integer.parseInt(getNumSongs()), true);
+    			lineTwoView.setText(lineTwo);
+    		}
+	    }
+	}
     
     /**
      * @return artist name from Bundle
@@ -466,6 +519,35 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         return getResources().getString(R.string.app_name);
     }
 
+    /**
+     * @return number of albums from Bundle
+     */
+    public String getNumSongs() {
+    	String[] projection = {
+                BaseColumns._ID, ArtistColumns.ARTIST, ArtistColumns.NUMBER_OF_TRACKS
+        };
+    	Uri uri = Audio.Artists.EXTERNAL_CONTENT_URI;        
+        Long id = ApolloUtils.getArtistId(getArtist(), ARTIST_ID, this);
+        Cursor cursor = null;
+        try{
+        	cursor = this.getContentResolver().query(uri, projection, BaseColumns._ID+ "=" + DatabaseUtils.sqlEscapeString(String.valueOf(id)), null, null);
+        }
+        catch(Exception e){
+        	e.printStackTrace();        	
+        }
+        if(cursor == null)
+        	return String.valueOf(0);
+        int mArtistNumAlbumsIndex = cursor.getColumnIndexOrThrow(ArtistColumns.NUMBER_OF_TRACKS);
+        if(cursor.getCount()>0){
+	    	cursor.moveToFirst();
+	        String numAlbums = cursor.getString(mArtistNumAlbumsIndex);	  
+	        if(numAlbums != null){
+	        	return numAlbums;
+	        }
+        }        
+        return String.valueOf(0);
+    }
+    
     /**
      * @return number of albums from Bundle
      */

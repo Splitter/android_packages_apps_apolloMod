@@ -34,11 +34,13 @@
     <dimen name="list_separator_container_padding_left">16dp</dimen>
 
     <!-- ListView items -->
-    <dimen name="listview_item_height">66dp</dimen>
+    <dimen name="listview_item_height">74dp</dimen>
     <dimen name="listview_items_padding_left_top">9dp</dimen>
     <dimen name="listview_items_padding_small_top">4dp</dimen>
     <dimen name="listview_items_padding_gp_top">16dp</dimen>
-    <dimen name="listview_items_padding_right">85dp</dimen>
+    <dimen name="listview_items_padding_right">50dp</dimen>
+    <dimen name="listview_items_padding_top_bottom">5dp</dimen>
+    <dimen name="listview_items_padding_left_right">10dp</dimen>
     <dimen name="listview_peak_meter_one_padding_right">80dp</dimen>
     <dimen name="listview_peak_meter_two_padding_right">70dp</dimen>
     <dimen name="listview_album_art">54dp</dimen>
@@ -63,8 +65,10 @@
 
     <!-- Half and half layout -->
     <dimen name="half_and_half_text_padding">5dp</dimen>
-    <dimen name="half_and_half_image_height">200dp</dimen>
+    <dimen name="half_and_half_imageheight">200dp</dimen>
     <dimen name="half_and_half_container_padding">3dp</dimen>
+    <dimen name="half_and_half_text_wrap_height">70dp</dimen>
+    <dimen name="half_and_half_imagebutton_padding">4dp</dimen>
 
     <!-- ContextMenu header text padding -->
     <dimen name="header_text_padding">5dp</dimen>
