@@ -14,7 +14,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.RemoteException;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SimpleCursorAdapter;
 
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.cache.ImageInfo;
@@ -22,11 +21,12 @@ import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.ui.fragments.list.NowPlayingFragment;
 import com.andrew.apolloMod.views.ViewHolderList;
+import com.mobeta.android.dslv.SimpleDragSortCursorAdapter;
 
 /**
  * @author Andrew Neal
  */
-public class NowPlayingAdapter extends SimpleCursorAdapter {
+public class NowPlayingAdapter extends SimpleDragSortCursorAdapter {
 
     private AnimationDrawable mPeakOneAnimation, mPeakTwoAnimation;
 
@@ -42,6 +42,23 @@ public class NowPlayingAdapter extends SimpleCursorAdapter {
     	mImageProvider = ImageProvider.getInstance( (Activity) mContext );
     }
 
+    @Override
+    public void drop(int from, int to) {
+    	super.drop(from, to);
+        if (from != to) {
+        	MusicUtils.moveQueueItem(from, to);
+        }
+    }
+    
+    @Override
+    public void remove(int which) {
+        int cursorPos = getCursorPosition(which);
+        mCursor.moveToPosition(cursorPos);
+        long id = mCursor.getLong(NowPlayingFragment.mMediaIdIndex);
+        MusicUtils.removeTrack(id);
+    	super.remove(which);
+    }
+    
     /**
      * Used to quickly our the ContextMenu
      */

@@ -25,10 +25,8 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.andrew.apolloMod.R;
 import com.androidquery.util.AQUtility;
 
 import static com.andrew.apolloMod.Constants.MIME_TYPE;

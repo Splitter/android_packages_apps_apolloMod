@@ -27,7 +27,6 @@ import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.activities.TracksBrowser;
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
-import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.adapters.ArtistAlbumAdapter;

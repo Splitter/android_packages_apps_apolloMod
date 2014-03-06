@@ -28,7 +28,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 
 import com.andrew.apolloMod.NowPlayingCursor;
 import com.andrew.apolloMod.R;
@@ -36,6 +35,8 @@ import com.andrew.apolloMod.helpers.RefreshableFragment;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.adapters.NowPlayingAdapter;
+import com.mobeta.android.dslv.DragSortController;
+import com.mobeta.android.dslv.DragSortListView;
 
 import static com.andrew.apolloMod.Constants.INTENT_ADD_TO_PLAYLIST;
 import static com.andrew.apolloMod.Constants.INTENT_PLAYLIST_LIST;
@@ -50,7 +51,7 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
     private NowPlayingAdapter mTrackAdapter;
 
     // ListView
-    private ListView mListView;
+    private DragSortListView mListView;
 
     // Cursor
     private Cursor mCursor;
@@ -72,7 +73,6 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
 
     private final int REMOVE = 10;
 
-
     // Audio columns
     public static int mTitleIndex, mAlbumIndex, mArtistIndex, mMediaIdIndex;
 
@@ -89,11 +89,12 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
         super.onActivityCreated(savedInstanceState);
 
         // Adapter
-        mTrackAdapter = new NowPlayingAdapter(getActivity(), R.layout.listview_items, null,
+        mTrackAdapter = new NowPlayingAdapter(getActivity(), R.layout.nowplaying_listview_items, null,
                 new String[] {}, new int[] {}, 0);
         mListView.setOnCreateContextMenuListener(this);
         mListView.setOnItemClickListener(this);
         mListView.setAdapter(mTrackAdapter);
+        //mListView.setDropListener(mDropListener);
 
         // Important!
         getLoaderManager().initLoader(0, null, this);
@@ -109,8 +110,14 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.listview, container, false);
-        mListView = (ListView)root.findViewById(android.R.id.list);
+        View root = inflater.inflate(R.layout.nowplaying_listview, container, false);
+        mListView = (DragSortListView)root.findViewById(R.id.list_view);
+        DragSortController controller = new DragSortController(mListView);
+        controller.setDragHandleId(R.id.listview_drag_handle);
+        controller.setRemoveEnabled(true);
+        controller.setRemoveMode(1);
+        mListView.setFloatViewManager(controller);
+        mListView.setOnTouchListener(controller);
         return root;
     }
 
@@ -178,6 +185,9 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
             mTitleIndex = playlistCursor.getColumnIndexOrThrow(MediaColumns.TITLE);
             mArtistIndex = playlistCursor.getColumnIndexOrThrow(AudioColumns.ARTIST);
             mAlbumIndex = playlistCursor.getColumnIndexOrThrow(AudioColumns.ALBUM);
+            data.close();
+            if(mCursor!=null)
+            	mCursor.close();
             mTrackAdapter.changeCursor(playlistCursor);
             mListView.invalidateViews();
             mCursor = playlistCursor;
@@ -188,8 +198,11 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        if (mTrackAdapter != null)
+        if (mTrackAdapter != null){
+            if(mCursor!=null)
+            	mCursor.close();
             mTrackAdapter.changeCursor(null);
+        }
     }
 
     @Override

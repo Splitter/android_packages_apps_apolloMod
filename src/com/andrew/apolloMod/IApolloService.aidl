@@ -32,6 +32,7 @@ interface IApolloService
     void notifyChange(String what);
     int getShuffleMode();
     int removeTracks(int first, int last);
+    void moveQueueItem(int from, int to);
     int removeTrack(long id);
     void setRepeatMode(int repeatmode);
     int getRepeatMode();

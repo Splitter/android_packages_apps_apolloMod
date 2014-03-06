@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <include layout="@layout/shadow" />
+
+    <include layout="@layout/list_separator" />
+    
+    <com.mobeta.android.dslv.DragSortListView
+    	xmlns:dslv="http://schemas.android.com/apk/lib/com.mobeta.android.dslv"
+	    android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="@color/transparent"
+        android:drawSelectorOnTop="false"
+        android:fastScrollAlwaysVisible="false"
+        android:fastScrollEnabled="false"
+        android:scrollbars="none"
+        android:listSelector="@drawable/holo_selector"
+        android:background="@color/background_grey"
+  		android:divider="@android:color/transparent"
+  		android:dividerHeight="@dimen/listview_items_padding_top_bottom"
+        android:paddingRight="@dimen/listview_items_padding_top_bottom" 
+        android:paddingLeft="@dimen/listview_items_padding_top_bottom"
+	    dslv:drag_enabled="true"
+    	dslv:drag_handle_id="@+id/listview_drag_handle"
+	    dslv:collapsed_height="2dp"
+	    dslv:drag_scroll_start="0.33"
+	    dslv:max_drag_scroll_speed="0.5"
+	    dslv:float_alpha="0.6"
+	    dslv:slide_shuffle_speed="0.3"
+	    dslv:track_drag_sort="false"
+	    dslv:use_default_controller="true" />
+    
+    
+    
+
+
+</LinearLayout>

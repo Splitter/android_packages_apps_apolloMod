@@ -6,6 +6,6 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Mike/Documents/GitHub/android_packages_apps_apolloMod/libs/android-support-v4.jar"/>
-	<classpathentry kind="src" path="/library"/>
+	<classpathentry kind="src" path="/SlideUpPanel"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

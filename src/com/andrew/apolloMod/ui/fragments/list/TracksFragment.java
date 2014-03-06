@@ -32,12 +32,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.andrew.apolloMod.NowPlayingCursor;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.RefreshableFragment;
-import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.adapters.TrackAdapter;
