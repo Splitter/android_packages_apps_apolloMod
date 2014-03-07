@@ -17,6 +17,7 @@ import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Audio.ArtistColumns;
+import android.provider.MediaStore.Audio.Playlists;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
@@ -38,6 +39,7 @@ import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.ui.adapters.PagerAdapter;
 import com.andrew.apolloMod.ui.fragments.BottomActionBarFragment;
 import com.andrew.apolloMod.ui.fragments.list.ArtistAlbumsFragment;
+import com.andrew.apolloMod.ui.fragments.list.PlaylistListFragment;
 import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceToken;
@@ -462,7 +464,12 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
             // Show all albums for an artist
             mPagerAdapter.addFragment(new ArtistAlbumsFragment(bundle));
         // Show the tracks for an artist or album
-        mPagerAdapter.addFragment(new TracksFragment(bundle));
+        if(Playlists.CONTENT_TYPE.equals(mimeType)){
+            mPagerAdapter.addFragment(new PlaylistListFragment(bundle));
+        }
+        else{
+            mPagerAdapter.addFragment(new TracksFragment(bundle));
+        }
 
         // Set up ViewPager
         mViewPager = (ViewPager)findViewById(R.id.viewPager);

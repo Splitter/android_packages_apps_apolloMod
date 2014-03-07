@@ -44,6 +44,9 @@
         <!-- message shown when zero or more than one song was added -->
         <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> songs added to playlist</item>
     </plurals>
+    <!-- Toasts after removing song from playlist -->
+    <string name="track_removed_from_playlist">\"%s\" removed from playlist</string>
+    
 
     <!-- Headers -->
     <string name="album_header">ALBUM LIST</string>

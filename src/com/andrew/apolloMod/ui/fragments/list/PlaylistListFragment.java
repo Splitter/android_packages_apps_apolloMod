@@ -12,12 +12,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
-import android.database.MatrixCursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Audio.AudioColumns;
+import android.provider.MediaStore.Audio.Playlists;
 import android.provider.MediaStore.MediaColumns;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -34,27 +34,33 @@ import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.RefreshableFragment;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
-import com.andrew.apolloMod.ui.adapters.NowPlayingAdapter;
+import com.andrew.apolloMod.ui.adapters.PlaylistListAdapter;
 import com.mobeta.android.dslv.DragSortController;
 import com.mobeta.android.dslv.DragSortListView;
 
+import static com.andrew.apolloMod.Constants.EXTERNAL;
 import static com.andrew.apolloMod.Constants.INTENT_ADD_TO_PLAYLIST;
 import static com.andrew.apolloMod.Constants.INTENT_PLAYLIST_LIST;
+import static com.andrew.apolloMod.Constants.MIME_TYPE;
+import static com.andrew.apolloMod.Constants.PLAYLIST_FAVORITES;
 
 /**
  * @author Andrew Neal
  */
-public class NowPlayingFragment extends RefreshableFragment implements LoaderCallbacks<Cursor>,
+public class PlaylistListFragment extends RefreshableFragment implements LoaderCallbacks<Cursor>,
         OnItemClickListener {
 
     // Adapter
-    private NowPlayingAdapter mTrackAdapter;
+    private PlaylistListAdapter mTrackAdapter;
 
     // ListView
     private DragSortListView mListView;
 
     // Cursor
     private Cursor mCursor;
+
+    // Playlist ID
+    private long mPlaylistId = -1;
 
     // Selected position
     private int mSelectedPosition;
@@ -73,14 +79,16 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
 
     private final int REMOVE = 10;
 
+    private boolean mEditMode = false;
+
     // Audio columns
     public static int mTitleIndex, mAlbumIndex, mArtistIndex, mMediaIdIndex;
 
     // Bundle
-    public NowPlayingFragment() {
+    public PlaylistListFragment() {
     }
 
-    public NowPlayingFragment(Bundle args) {
+    public PlaylistListFragment(Bundle args) {
         setArguments(args);
     }
 
@@ -88,13 +96,14 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        isEditMode();
+
         // Adapter
-        mTrackAdapter = new NowPlayingAdapter(getActivity(), R.layout.dragsort_listview_items, null,
-                new String[] {}, new int[] {}, 0);
+        mTrackAdapter = new PlaylistListAdapter(getActivity(), R.layout.dragsort_listview_items, null,
+                new String[] {}, new int[] {}, 0, mPlaylistId);
         mListView.setOnCreateContextMenuListener(this);
         mListView.setOnItemClickListener(this);
         mListView.setAdapter(mTrackAdapter);
-        //mListView.setDropListener(mDropListener);
 
         // Important!
         getLoaderManager().initLoader(0, null, this);
@@ -123,29 +132,34 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        if (id < 0)
+            return null;
         String[] projection = new String[] {
-                BaseColumns._ID, MediaColumns.TITLE, AudioColumns.ALBUM, AudioColumns.ARTIST
+                Playlists.Members._ID, Playlists.Members.AUDIO_ID,
+                MediaColumns.TITLE, AudioColumns.ALBUM, AudioColumns.ARTIST,
+                AudioColumns.DURATION
         };
         StringBuilder where = new StringBuilder();
-        String sortOrder = Audio.Media.DEFAULT_SORT_ORDER;
+        String sortOrder = Playlists.Members.PLAY_ORDER;;
         where.append(AudioColumns.IS_MUSIC + "=1").append(" AND " + MediaColumns.TITLE + " != ''");
-        Uri uri = Audio.Media.EXTERNAL_CONTENT_URI;
-        where = new StringBuilder();
-        where.append(AudioColumns.IS_MUSIC + "=1");
-        where.append(" AND " + MediaColumns.TITLE + " != ''");
-        uri = Audio.Media.EXTERNAL_CONTENT_URI;
-        long[] mNowPlaying = MusicUtils.getQueue();
-        if (mNowPlaying.length == 0)
-            return null;
-        where = new StringBuilder();
-        where.append(BaseColumns._ID + " IN (");
-        if (mNowPlaying == null || mNowPlaying.length <= 0)
-            return null;
-        for (long queue_id : mNowPlaying) {
-            where.append(queue_id + ",");
+        
+        Uri uri = Playlists.Members.getContentUri(EXTERNAL, mPlaylistId);
+        
+        
+        if (getArguments() != null) {
+            mPlaylistId = getArguments().getLong(BaseColumns._ID);
+            where = new StringBuilder();
+            where.append(AudioColumns.IS_MUSIC + "=1");
+            where.append(" AND " + MediaColumns.TITLE + " != ''");
+            if(mPlaylistId == PLAYLIST_FAVORITES){
+                long favorites_id = MusicUtils.getFavoritesId(getActivity());
+                projection = new String[] {
+                        Playlists.Members._ID, Playlists.Members.AUDIO_ID,
+                        MediaColumns.TITLE, AudioColumns.ALBUM, AudioColumns.ARTIST
+                };
+                uri = Playlists.Members.getContentUri(EXTERNAL, favorites_id);
+            }         
         }
-        where.deleteCharAt(where.length() - 1);
-        where.append(")");
         return new CursorLoader(getActivity(), uri, projection, where.toString(), null, sortOrder);
     }
 
@@ -155,54 +169,20 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
         if (data == null) {
             return;
         }
-        else {
-            mMediaIdIndex = data.getColumnIndexOrThrow(BaseColumns._ID);
-            mTitleIndex = data.getColumnIndexOrThrow(MediaColumns.TITLE);
-            mArtistIndex = data.getColumnIndexOrThrow(AudioColumns.ARTIST);
-            mAlbumIndex = data.getColumnIndexOrThrow(AudioColumns.ALBUM);
 
-            //TODO: rewrite fragment to make it more efficient so this section can be removed
-
-            long[] mNowPlaying = MusicUtils.getQueue();
-
-        	String[] audioCols = new String[] { BaseColumns._ID, MediaColumns.TITLE, AudioColumns.ARTIST, AudioColumns.ALBUM};
-            
-            MatrixCursor playlistCursor = new MatrixCursor(audioCols);
-        	for(int i = 0; i < mNowPlaying.length; i++){
-        		data.moveToPosition(-1);
-        		while (data.moveToNext()) {
-                    long audioid = data.getLong(mMediaIdIndex);
-                	if( audioid == mNowPlaying[i]) {
-                        String trackName = data.getString(NowPlayingFragment.mTitleIndex);
-                        String artistName = data.getString(NowPlayingFragment.mArtistIndex);
-                        String albumName = data.getString(NowPlayingFragment.mAlbumIndex);
-                		playlistCursor.addRow(new Object[] {audioid, trackName, artistName, albumName });
-
-                	}
-                }
-        	}
-            mMediaIdIndex = playlistCursor.getColumnIndexOrThrow(BaseColumns._ID);
-            mTitleIndex = playlistCursor.getColumnIndexOrThrow(MediaColumns.TITLE);
-            mArtistIndex = playlistCursor.getColumnIndexOrThrow(AudioColumns.ARTIST);
-            mAlbumIndex = playlistCursor.getColumnIndexOrThrow(AudioColumns.ALBUM);
-            data.close();
-            if(mCursor!=null)
-            	mCursor.close();
-            mTrackAdapter.changeCursor(playlistCursor);
-            mListView.invalidateViews();
-            mCursor = playlistCursor;
-            return;
-            
-        }
+        mMediaIdIndex = data.getColumnIndexOrThrow(Playlists.Members.AUDIO_ID);
+        mTitleIndex = data.getColumnIndexOrThrow(MediaColumns.TITLE);
+        mAlbumIndex = data.getColumnIndexOrThrow(AudioColumns.ALBUM);        
+        mArtistIndex = data.getColumnIndexOrThrow(AudioColumns.ARTIST);        
+        mTrackAdapter.changeCursor(data);
+        mListView.invalidateViews();
+        mCursor = data;
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        if (mTrackAdapter != null){
-            if(mCursor!=null)
-            	mCursor.close();
+        if (mTrackAdapter != null)
             mTrackAdapter.changeCursor(null);
-        }
     }
 
     @Override
@@ -216,8 +196,9 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
         menu.add(0, PLAY_SELECTION, 0, getResources().getString(R.string.play_all));
         menu.add(0, ADD_TO_PLAYLIST, 0, getResources().getString(R.string.add_to_playlist));
         menu.add(0, USE_AS_RINGTONE, 0, getResources().getString(R.string.use_as_ringtone));
-        menu.add(0, REMOVE, 0, R.string.remove);
-        
+        if (mEditMode) {
+            menu.add(0, REMOVE, 0, R.string.remove);
+        }
         menu.add(0, SEARCH, 0, getResources().getString(R.string.search));
 
         AdapterContextMenuInfo mi = (AdapterContextMenuInfo)menuInfo;
@@ -288,12 +269,6 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
         public void onReceive(Context context, Intent intent) {
             if (mListView != null) {
                 mTrackAdapter.notifyDataSetChanged();
-                mListView.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mListView.setSelection(MusicUtils.getQueuePosition());
-                        }
-                    }, 100);
             }
         }
 
@@ -323,66 +298,36 @@ public class NowPlayingFragment extends RefreshableFragment implements LoaderCal
 
         mCursor.moveToPosition(which);
         long id = mCursor.getLong(mMediaIdIndex);
-        MusicUtils.removeTrack(id);
-        reloadQueueCursor();
+        if (mPlaylistId >= 0) {
+            Uri uri = Playlists.Members.getContentUri(EXTERNAL, mPlaylistId);
+            getActivity().getContentResolver().delete(uri, Playlists.Members.AUDIO_ID + "=" + id,
+                    null);
+        } else if (mPlaylistId == PLAYLIST_FAVORITES) {
+            MusicUtils.removeFromFavorites(getActivity(), id);
+        }
         mListView.invalidateViews();
     }
 
+    
     /**
-     * Reload the queue after we remove a track
+     * Check if we're viewing the contents of a playlist
      */
-    private void reloadQueueCursor() {
-        String[] cols = new String[] {
-                BaseColumns._ID, MediaColumns.TITLE, MediaColumns.DATA, AudioColumns.ALBUM,
-                AudioColumns.ARTIST, AudioColumns.ARTIST_ID
-        };
-        StringBuilder selection = new StringBuilder();
-        selection.append(AudioColumns.IS_MUSIC + "=1");
-        selection.append(" AND " + MediaColumns.TITLE + " != ''");
-        Uri uri = Audio.Media.EXTERNAL_CONTENT_URI;
-        long[] mNowPlaying = MusicUtils.getQueue();
-        if (mNowPlaying.length == 0) {
-        }
-        selection = new StringBuilder();
-        selection.append(BaseColumns._ID + " IN (");
-        for (int i = 0; i < mNowPlaying.length; i++) {
-            selection.append(mNowPlaying[i]);
-            if (i < mNowPlaying.length - 1) {
-                selection.append(",");
+    public void isEditMode() {
+        if (getArguments() != null) {
+            String mimetype = getArguments().getString(MIME_TYPE);
+            if (Audio.Playlists.CONTENT_TYPE.equals(mimetype)) {
+                mPlaylistId = getArguments().getLong(BaseColumns._ID);
+                switch ((int)mPlaylistId) {
+                    case (int)PLAYLIST_FAVORITES:
+                        mEditMode = true;
+                        break;
+                    default:
+                        if (mPlaylistId > 0) {
+                            mEditMode = true;
+                        }
+                        break;
+                }
             }
         }
-        selection.append(")");
-        mCursor = MusicUtils.query(getActivity(), uri, cols, selection.toString(), null, null);
-
-        mMediaIdIndex =mCursor.getColumnIndexOrThrow(BaseColumns._ID);
-        mTitleIndex = mCursor.getColumnIndexOrThrow(MediaColumns.TITLE);
-        mArtistIndex = mCursor.getColumnIndexOrThrow(AudioColumns.ARTIST);
-        mAlbumIndex = mCursor.getColumnIndexOrThrow(AudioColumns.ALBUM);
-        
-        String[] audioCols = new String[] { BaseColumns._ID, MediaColumns.TITLE, AudioColumns.ARTIST, AudioColumns.ALBUM};
-        
-        MatrixCursor playlistCursor = new MatrixCursor(audioCols);
-    	for(int i = 0; i < mNowPlaying.length; i++){
-    		mCursor.moveToPosition(-1);
-    		while (mCursor.moveToNext()) {
-                long audioid = mCursor.getLong(mMediaIdIndex);
-            	if( audioid == mNowPlaying[i]) {
-                    String trackName = mCursor.getString(NowPlayingFragment.mTitleIndex);
-                    String artistName = mCursor.getString(NowPlayingFragment.mArtistIndex);
-                    String albumName = mCursor.getString(NowPlayingFragment.mAlbumIndex);
-            		playlistCursor.addRow(new Object[] {audioid, trackName, artistName ,albumName});
-
-            	}
-            }
-    	}
-        mMediaIdIndex = playlistCursor.getColumnIndexOrThrow(BaseColumns._ID);
-        mTitleIndex = playlistCursor.getColumnIndexOrThrow(MediaColumns.TITLE);
-        mArtistIndex = playlistCursor.getColumnIndexOrThrow(AudioColumns.ARTIST);
-        mAlbumIndex = playlistCursor.getColumnIndexOrThrow(AudioColumns.ALBUM);
-        mCursor = playlistCursor;
-        mTrackAdapter.changeCursor(playlistCursor);
-            
-        
     }
-
 }
