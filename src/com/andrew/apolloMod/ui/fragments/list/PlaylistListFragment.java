@@ -213,7 +213,6 @@ public class PlaylistListFragment extends RefreshableFragment implements LoaderC
 
         String title = mCursor.getString(mTitleIndex);
         menu.setHeaderTitle(title);
-        super.onCreateContextMenu(menu, v, menuInfo);
     }
 
     @Override

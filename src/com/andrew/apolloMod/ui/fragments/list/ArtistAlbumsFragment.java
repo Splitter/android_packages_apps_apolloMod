@@ -198,7 +198,6 @@ public class ArtistAlbumsFragment extends Fragment implements LoaderCallbacks<Cu
         mCurrentAlbumId = mCursor.getString(mCursor.getColumnIndexOrThrow(BaseColumns._ID));
 
         menu.setHeaderView(setHeaderLayout());
-        super.onCreateContextMenu(menu, v, menuInfo);
     }
 
     @Override

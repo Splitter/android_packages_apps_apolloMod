@@ -270,7 +270,6 @@ public class TracksFragment extends RefreshableFragment implements LoaderCallbac
 
         String title = mCursor.getString(mTitleIndex);
         menu.setHeaderTitle(title);
-        super.onCreateContextMenu(menu, v, menuInfo);
     }
 
     @Override
