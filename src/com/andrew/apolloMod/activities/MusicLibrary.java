@@ -313,6 +313,11 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.actionbar_top, menu);
+	    final Intent intent = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
+        if (getPackageManager().resolveActivity(intent, 0) == null) {
+            final MenuItem eq = menu.findItem(R.id.action_eqalizer);
+            eq.setVisible(false);
+        }
 	    return true;
 	}
 
