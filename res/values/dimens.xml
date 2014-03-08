@@ -136,5 +136,14 @@
     <dimen name="four_by_two_height">180dp</dimen>
     <dimen name="four_by_two_control_height">55dp</dimen>
     <dimen name="four_by_two_album_art_width">135dp</dimen>
+    
+    <!-- Simple Eq -->
+    <dimen name="simple_eq_margin_top_bottom">3dp</dimen>
+    <dimen name="simple_eq_margin_left_right">6dp</dimen>
+    <dimen name="simple_eq_section_margin">10dp</dimen>
+    <dimen name="simple_eq_seek_vert_height">26dp</dimen>
+    <dimen name="simple_eq_seek_vert_width">30dp</dimen>
+    <dimen name="simple_eq_seek_vert_padding_right">10dp</dimen>
+    <dimen name="simple_eq_seek_vert_padding_left">20dp</dimen>
 
 </resources>

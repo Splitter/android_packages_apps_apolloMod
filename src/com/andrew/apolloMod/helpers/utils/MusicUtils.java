@@ -21,6 +21,9 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.media.MediaPlayer;
+import android.media.audiofx.BassBoost;
+import android.media.audiofx.Equalizer;
 import android.net.Uri;
 import android.os.RemoteException;
 import android.provider.BaseColumns;
@@ -44,6 +47,7 @@ import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceBinder;
 import com.andrew.apolloMod.service.ServiceToken;
 
+import static com.andrew.apolloMod.Constants.APOLLO_PREFERENCES;
 import static com.andrew.apolloMod.Constants.EXTERNAL;
 import static com.andrew.apolloMod.Constants.GENRES_DB;
 import static com.andrew.apolloMod.Constants.PLAYLIST_NAME_FAVORITES;
@@ -69,6 +73,10 @@ public class MusicUtils {
     private static final Object[] sTimeArgs = new Object[5];
 
     private static ContentValues[] sContentValuesCache = null;
+    
+    private static Equalizer mEqualizer = null;
+    
+    private static BassBoost mBoost = null;
 
     /**
      * @param context
@@ -114,6 +122,48 @@ public class MusicUtils {
         if (sConnectionMap.isEmpty()) {
             mService = null;
         }
+    }
+
+    public static void releaseEqualizer(){
+    	if(mEqualizer != null){
+    		mEqualizer.release();
+    	}
+    	if(mBoost != null){
+    		mBoost.release();
+    	}
+    }
+    /**
+     * @param media player from apollo service.
+     */
+    public static void initEqualizer(MediaPlayer player, Context context){
+    	releaseEqualizer();
+    	int id = player.getAudioSessionId();
+    	mEqualizer = new Equalizer(1,id);
+    	mBoost = new BassBoost(1, id);
+    	updateEqualizerSettings(context);
+    }
+
+
+	public static void updateEqualizerSettings(Context context){
+
+        SharedPreferences mPreferences = context.getSharedPreferences(APOLLO_PREFERENCES, Context.MODE_WORLD_READABLE
+                | Context.MODE_WORLD_WRITEABLE);
+
+    	if(mBoost != null){
+    		mBoost.setEnabled(mPreferences.getBoolean("simple_eq_boost_enable", false));
+    		mBoost.setStrength ((short)(mPreferences.getInt("simple_eq_bboost",0)*10));
+    	}
+    	
+    	if(mEqualizer != null){
+	    	mEqualizer.setEnabled(mPreferences.getBoolean("simple_eq_equalizer_enable", false));
+	        short r[] = mEqualizer.getBandLevelRange();
+	        short min_level = r[0];
+	        short max_level = r[1];
+	    	for( int i = 0; i <= 5 ; i++ ){
+	            int new_level = min_level + (max_level - min_level) * mPreferences.getInt("simple_eq_seekbars"+String.valueOf(i),100) / 100; 
+	            mEqualizer.setBandLevel ((short)i, (short)new_level);
+	    	}
+    	}
     }
 
     /**

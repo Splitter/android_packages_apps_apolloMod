@@ -187,5 +187,16 @@ https://github.com/CyanogenMod/android_packages_apps_Apollo/tree/cm-10.1
     <!-- Titles for Albums/Artist screens -->
     <string name="artist_page_title">" Artist: "</string>
     <string name="album_page_title">" Album: "</string>
+    
+    <!--  Simple EQ -->
+    <string name="simple_eq_page_title">Equalizer</string>
+    <string name="simple_eq_bass">Bass Boost</string>
+    <string name="simple_eq_equalizer">Equalizer</string>
+    <string name="simple_eq_band0">15Hz</string>
+    <string name="simple_eq_band1">62Hz</string>
+    <string name="simple_eq_band2">250Hz</string>
+    <string name="simple_eq_band3">1kHz</string>
+    <string name="simple_eq_band4">5kHz</string>
+    <string name="simple_eq_band5">16kHz</string>
 
 </resources>

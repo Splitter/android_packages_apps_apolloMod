@@ -2273,7 +2273,10 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
             i.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, getAudioSessionId());
             i.putExtra(AudioEffect.EXTRA_PACKAGE_NAME, getPackageName());
             sendBroadcast(i);
-
+            Intent intent = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
+    	    if (getPackageManager().resolveActivity(intent, 0) == null) {
+    	    	MusicUtils.initEqualizer( player , getApplicationContext());
+    	    }
             VisualizerUtils.initVisualizer( player );
             return true;
         }

@@ -142,6 +142,14 @@
             android:name=".preferences.SettingsHolder"
         	android:logo="@drawable/ic_logo"
             android:label="@string/settings" />
+        <!-- Simple EQ -->
+        <activity
+            android:name=".activities.SimpleEq"
+            android:excludeFromRecents="true"
+            android:label="@string/simple_eq_page_title"
+            android:windowSoftInputMode="adjustPan" 
+        	android:parentActivityName=".activities.MusicLibrary" />
+
         <activity
             android:name=".menu.PlaylistDialog"
             android:label="@string/rename_playlist"

@@ -74,6 +74,8 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
     
 	private boolean isAlreadyStarted = false;
 	
+	private boolean isEqAvailable = false;
+	
     
     @Override
     protected void onCreate(Bundle icicle) {
@@ -284,9 +286,14 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
 	            break;
 
 	        case R.id.action_eqalizer:
-	        	Intent i = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
-                i.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, MusicUtils.getCurrentAudioId());
-                startActivityForResult(i, 0);
+	        	if(isEqAvailable){
+		        	Intent i = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
+		        	i.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, MusicUtils.getCurrentAudioId());
+	                startActivityForResult(i, 0);
+	        	}
+	        	else{
+		        	startActivityForResult(new Intent(this, SimpleEq.class),0);
+	        	}
 	            break;
 
 	        case R.id.action_shuffle_all:
@@ -315,8 +322,10 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
 	    inflater.inflate(R.menu.actionbar_top, menu);
 	    final Intent intent = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
         if (getPackageManager().resolveActivity(intent, 0) == null) {
-            final MenuItem eq = menu.findItem(R.id.action_eqalizer);
-            eq.setVisible(false);
+        	isEqAvailable = false;
+        }
+        else{
+        	isEqAvailable=true;
         }
 	    return true;
 	}
