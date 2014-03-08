@@ -72,10 +72,7 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
     
 	BottomActionBarFragment mBActionbar;
     
-	private boolean isAlreadyStarted = false;
-	
-	private boolean isEqAvailable = false;
-	
+	private boolean isAlreadyStarted = false;	
     
     @Override
     protected void onCreate(Bundle icicle) {
@@ -286,13 +283,13 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
 	            break;
 
 	        case R.id.action_eqalizer:
-	        	if(isEqAvailable){
-		        	Intent i = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
-		        	i.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, MusicUtils.getCurrentAudioId());
-	                startActivityForResult(i, 0);
+	    	    final Intent intent = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
+	            if (getPackageManager().resolveActivity(intent, 0) == null) {
+		        	startActivityForResult(new Intent(this, SimpleEq.class),0);
 	        	}
 	        	else{
-		        	startActivityForResult(new Intent(this, SimpleEq.class),0);
+	        		intent.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, MusicUtils.getCurrentAudioId());
+	        		startActivityForResult(intent, 0);
 	        	}
 	            break;
 
@@ -320,13 +317,6 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.actionbar_top, menu);
-	    final Intent intent = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
-        if (getPackageManager().resolveActivity(intent, 0) == null) {
-        	isEqAvailable = false;
-        }
-        else{
-        	isEqAvailable=true;
-        }
 	    return true;
 	}
 
