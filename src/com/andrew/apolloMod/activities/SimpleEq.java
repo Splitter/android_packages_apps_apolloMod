@@ -92,9 +92,15 @@ public class SimpleEq extends FragmentActivity
     	bBoostEnable.setChecked(mPreferences.getBoolean("simple_eq_boost_enable", false));
         
     	eQEnable.setChecked(mPreferences.getBoolean("simple_eq_equalizer_enable", false));
-        
+        int[] freqs = MusicUtils.getEqualizerFrequencies();
 		for( int i = 0; i <= 5 ; i++ ){
 			SeekBars[i].setProgress(mPreferences.getInt("simple_eq_seekbars"+String.valueOf(i),100));
+			String freq = "";			
+		    if (freqs[i] < 1000000)
+		    	freq= "" + (freqs[i] / 1000) + "Hz";
+		    else
+		    	freq= "" + (freqs[i] / 1000000) + "kHz";					
+		    SeekBarLabels[i].setText(freq);		  
 		}
     }
     

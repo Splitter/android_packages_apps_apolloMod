@@ -285,11 +285,11 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
 	        case R.id.action_eqalizer:
 	    	    final Intent intent = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
 	            if (getPackageManager().resolveActivity(intent, 0) == null) {
-		        	startActivityForResult(new Intent(this, SimpleEq.class),0);
+		        	startActivity(new Intent(this, SimpleEq.class));
 	        	}
 	        	else{
 	        		intent.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, MusicUtils.getCurrentAudioId());
-	        		startActivityForResult(intent, 0);
+	        		startActivity(intent);
 	        	}
 	            break;
 
@@ -309,7 +309,7 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
 	             .getLaunchIntentForPackage( getBaseContext().getPackageName() );
 		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(i);
-    }   
+    }
     
     /**
      * Initiate the Top Actionbar
@@ -336,6 +336,5 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
             cursor.close();
             cursor = null;
         }
-    }    
-
+    }
 }

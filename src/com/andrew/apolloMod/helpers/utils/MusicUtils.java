@@ -143,7 +143,17 @@ public class MusicUtils {
     	updateEqualizerSettings(context);
     }
 
-
+    public static int[] getEqualizerFrequencies(){
+    	int[] freqs= new int[6];
+    	if(mEqualizer != null){
+			for( int i = 0; i <= 5 ; i++ ){
+				int[] temp = mEqualizer.getBandFreqRange((short)i);
+				freqs[i] = ((temp[1]-temp[0])/2)+temp[0];
+			}
+			return freqs;
+    	}
+    	return null;
+    }
 	public static void updateEqualizerSettings(Context context){
 
         SharedPreferences mPreferences = context.getSharedPreferences(APOLLO_PREFERENCES, Context.MODE_WORLD_READABLE
