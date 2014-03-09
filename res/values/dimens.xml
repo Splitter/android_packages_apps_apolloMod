@@ -79,8 +79,11 @@
     <!-- GridView items -->
     <dimen name="gridview_image_width">152dp</dimen>
     <dimen name="gridview_image_height">132dp</dimen>
+    <dimen name="gridview_item_fullheight">168dp</dimen>
     <dimen name="gridview_item_margin">7dp</dimen>
-    <dimen name="gridview_item_padding_bottom_left">10dp</dimen>
+    <dimen name="gridview_item_padding_right_left">6dp</dimen>
+    <dimen name="gridview_item_padding_right_left_outer">4dp</dimen>
+    <dimen name="gridview_item_padding_bottom">10dp</dimen>
     <dimen name="gridview_item_ccontainer_height">64dp</dimen>
     <dimen name="gridview_item_ccontainer_padding_left">12dp</dimen>
     <dimen name="gridview_item_ccontainer_padding_right">12dp</dimen>
