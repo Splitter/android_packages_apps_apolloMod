@@ -30,7 +30,7 @@ import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.AddIdCursorLoader;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
-import com.andrew.apolloMod.ui.adapters.RecentlyAddedAdapter;
+import com.andrew.apolloMod.ui.adapters.list.RecentlyAddedAdapter;
 
 import static com.andrew.apolloMod.Constants.NUMWEEKS;
 

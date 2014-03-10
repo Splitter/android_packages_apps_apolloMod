@@ -35,7 +35,7 @@ import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.RefreshableFragment;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
-import com.andrew.apolloMod.ui.adapters.SonglistAdapter;
+import com.andrew.apolloMod.ui.adapters.list.SonglistAdapter;
 
 import static com.andrew.apolloMod.Constants.INTENT_ADD_TO_PLAYLIST;
 import static com.andrew.apolloMod.Constants.INTENT_PLAYLIST_LIST;

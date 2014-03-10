@@ -29,7 +29,8 @@ import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
-import com.andrew.apolloMod.ui.adapters.ArtistAlbumAdapter;
+import com.andrew.apolloMod.ui.adapters.list.ArtistAlbumAdapter;
+
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import static com.andrew.apolloMod.Constants.*;

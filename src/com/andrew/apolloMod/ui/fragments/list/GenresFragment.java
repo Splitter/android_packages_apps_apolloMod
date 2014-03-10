@@ -27,7 +27,7 @@ import android.widget.ListView;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.activities.TracksBrowser;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.ui.adapters.GenreAdapter;
+import com.andrew.apolloMod.ui.adapters.list.GenreAdapter;
 
 import static com.andrew.apolloMod.Constants.GENRE_KEY;
 import static com.andrew.apolloMod.Constants.MIME_TYPE;

@@ -31,7 +31,7 @@ import android.widget.ListView;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.activities.TracksBrowser;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.ui.adapters.PlaylistAdapter;
+import com.andrew.apolloMod.ui.adapters.list.PlaylistAdapter;
 
 import static com.andrew.apolloMod.Constants.INTENT_KEY_RENAME;
 import static com.andrew.apolloMod.Constants.INTENT_RENAME_PLAYLIST;

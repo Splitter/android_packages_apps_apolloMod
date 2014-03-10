@@ -32,7 +32,7 @@ import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
-import com.andrew.apolloMod.ui.adapters.ArtistAdapter;
+import com.andrew.apolloMod.ui.adapters.grid.ArtistAdapter;
 
 import static com.andrew.apolloMod.Constants.*;
 

@@ -31,7 +31,7 @@ import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
-import com.andrew.apolloMod.ui.adapters.AlbumAdapter;
+import com.andrew.apolloMod.ui.adapters.grid.AlbumAdapter;
 
 import static com.andrew.apolloMod.Constants.*;
 

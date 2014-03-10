@@ -34,7 +34,7 @@ import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.RefreshableFragment;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
-import com.andrew.apolloMod.ui.adapters.PlaylistListAdapter;
+import com.andrew.apolloMod.ui.adapters.list.PlaylistListAdapter;
 import com.mobeta.android.dslv.DragSortController;
 import com.mobeta.android.dslv.DragSortListView;
 
