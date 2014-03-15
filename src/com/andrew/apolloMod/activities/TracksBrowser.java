@@ -17,6 +17,7 @@ import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Audio.ArtistColumns;
+import android.provider.MediaStore.Audio.Genres;
 import android.provider.MediaStore.Audio.Playlists;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -38,9 +39,11 @@ import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.ui.adapters.PagerAdapter;
 import com.andrew.apolloMod.ui.fragments.BottomActionBarFragment;
+import com.andrew.apolloMod.ui.fragments.list.AlbumListFragment;
 import com.andrew.apolloMod.ui.fragments.list.ArtistAlbumsFragment;
+import com.andrew.apolloMod.ui.fragments.list.ArtistListFragment;
+import com.andrew.apolloMod.ui.fragments.list.GenreListFragment;
 import com.andrew.apolloMod.ui.fragments.list.PlaylistListFragment;
-import com.andrew.apolloMod.ui.fragments.list.TracksFragment;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceToken;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -91,19 +94,12 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         // Layout
         setContentView(R.layout.track_browser);
         registerForContextMenu(findViewById(R.id.half_artist_image));
-        
-        
-
-        
 
         mBActionbar =(BottomActionBarFragment) getSupportFragmentManager().findFragmentById(R.id.bottomactionbar_new);
-  
         mBActionbar.setUpQueueSwitch(this);
         
         mPanel = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
-
-        mPanel.setAnchorPoint(0);
-        
+        mPanel.setAnchorPoint(0);        
         mPanel.setDragView(findViewById(R.id.bottom_action_bar_dragview));
         mPanel.setShadowDrawable(getResources().getDrawable(R.drawable.above_shadow));
         mPanel.setAnchorPoint(0.0f);
@@ -123,35 +119,22 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
                 }
             }
             @Override
-            public void onPanelExpanded(View panel) {
-            }
+            public void onPanelExpanded(View panel) {}
             @Override
-            public void onPanelCollapsed(View panel) {
-            }
+            public void onPanelCollapsed(View panel) {}
             @Override
-            public void onPanelAnchored(View panel) {
-            }
+            public void onPanelAnchored(View panel) {}
         });
-        
-        
-        
-        
-
         //ImageCache
     	mImageProvider = ImageProvider.getInstance( this );
-
         // Important!
         whatBundle(icicle);
-
         // Update the colorstrip color
         initColorstrip();
-
         // Update the ActionBar
         initActionBar();
-
         // Update the half_and_half layout
         initUpperHalf();
-
         // Important!
         initPager();
     }
@@ -180,17 +163,13 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         	menu.setHeaderTitle(R.string.image_edit_albums);
         	getMenuInflater().inflate(R.menu.context_albumimage, menu); 
         	
-        } else if (Audio.Playlists.CONTENT_TYPE.equals(mimeType)) {
-        	
+        } else if (Audio.Playlists.CONTENT_TYPE.equals(mimeType)) {        	
         	menu.setHeaderTitle(R.string.image_edit_playlist);
-        	getMenuInflater().inflate(R.menu.context_playlist_genreimage, menu); 
-        	
+        	getMenuInflater().inflate(R.menu.context_playlist_genreimage, menu);         	
         }
-        else{
-        	
+        else{        	
         	menu.setHeaderTitle(R.string.image_edit_genre);
-        	getMenuInflater().inflate(R.menu.context_playlist_genreimage, menu); 
-        	
+        	getMenuInflater().inflate(R.menu.context_playlist_genreimage, menu);        	
         }
     }
     
@@ -305,23 +284,19 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
      * Update next BottomActionBar as needed
      */
     private final BroadcastReceiver mMediaStatusReceiver = new BroadcastReceiver() {
-
         @Override
         public void onReceive(Context context, Intent intent) {
         	
         }
-
     };
 
     @Override
     protected void onStart() {
         // Bind to Service
         mToken = MusicUtils.bindToService(this, this);
-
         IntentFilter filter = new IntentFilter();
         filter.addAction(ApolloService.META_CHANGED);
         registerReceiver(mMediaStatusReceiver, filter);
-
         setTitle();
         super.onStart();
     }
@@ -467,8 +442,14 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         if(Playlists.CONTENT_TYPE.equals(mimeType)){
             mPagerAdapter.addFragment(new PlaylistListFragment(bundle));
         }
-        else{
-            mPagerAdapter.addFragment(new TracksFragment(bundle));
+        else if(Genres.CONTENT_TYPE.equals(mimeType)){
+        	mPagerAdapter.addFragment(new GenreListFragment(bundle));
+        }
+        else if(ApolloUtils.isArtist(mimeType)){
+        	mPagerAdapter.addFragment(new ArtistListFragment(bundle));
+        }
+        else if(Audio.Albums.CONTENT_TYPE.equals(mimeType)){
+        	mPagerAdapter.addFragment(new AlbumListFragment(bundle));
         }
 
         // Set up ViewPager

@@ -54,8 +54,6 @@ import com.andrew.apolloMod.ui.widgets.ScrollableTabView;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelSlideListener;
 
-import static com.andrew.apolloMod.Constants.MIME_TYPE;
-import static com.andrew.apolloMod.Constants.PLAYLIST_RECENTLY_ADDED;
 import static com.andrew.apolloMod.Constants.TABS_ENABLED;
 
 /**
@@ -200,10 +198,6 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
         // Initiate PagerAdapter
         PagerAdapter mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
 
-        Bundle bundle = new Bundle();
-        bundle.putString(MIME_TYPE, Audio.Playlists.CONTENT_TYPE);
-        bundle.putLong(BaseColumns._ID, PLAYLIST_RECENTLY_ADDED);
-        
         //Get tab visibility preferences
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         Set<String> defaults = new HashSet<String>(Arrays.asList(
@@ -220,7 +214,7 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
         //Only show tabs that were set in preferences
         // Recently added tracks
         if(tabs_set.contains(getResources().getString(R.string.tab_recent)))
-        	mPagerAdapter.addFragment(new RecentlyAddedFragment(bundle));
+        	mPagerAdapter.addFragment(new RecentlyAddedFragment());
         // Artists
         if(tabs_set.contains(getResources().getString(R.string.tab_artists)))
         	mPagerAdapter.addFragment(new ArtistsFragment());

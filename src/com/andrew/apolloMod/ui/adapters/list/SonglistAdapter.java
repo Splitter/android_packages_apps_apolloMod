@@ -4,9 +4,12 @@ package com.andrew.apolloMod.ui.adapters.list;
 import static com.andrew.apolloMod.Constants.TYPE_ARTIST;
 import android.content.Context;
 import android.database.Cursor;
+import android.provider.BaseColumns;
+import android.provider.MediaStore.MediaColumns;
+import android.provider.MediaStore.Audio.AudioColumns;
+
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.ui.adapters.base.ListViewAdapter;
-import com.andrew.apolloMod.ui.fragments.list.SongsFragment;
 
 public class SonglistAdapter extends ListViewAdapter {
 
@@ -15,14 +18,14 @@ public class SonglistAdapter extends ListViewAdapter {
     }
 
     public void setupViewData( Cursor mCursor ){
-    	mLineOneText = mCursor.getString(SongsFragment.mTitleIndex);
+    	mLineOneText = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaColumns.TITLE));
     	
-    	mLineTwoText = mCursor.getString(SongsFragment.mArtistIndex);
+    	mLineTwoText = mCursor.getString(mCursor.getColumnIndexOrThrow(AudioColumns.ARTIST));
     	
         mImageData = new String[]{ mLineTwoText };
         
         mPlayingId = MusicUtils.getCurrentAudioId();
-        mCurrentId = mCursor.getLong(SongsFragment.mMediaIdIndex);
+        mCurrentId = mCursor.getLong(mCursor.getColumnIndexOrThrow(BaseColumns._ID));
         
         mListType = TYPE_ARTIST;   	
     }

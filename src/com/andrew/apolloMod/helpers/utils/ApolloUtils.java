@@ -9,10 +9,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
@@ -20,16 +22,41 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.provider.MediaStore.Audio;
+import android.provider.MediaStore.Audio.AlbumColumns;
+import android.provider.MediaStore.Audio.ArtistColumns;
+import android.provider.MediaStore.Audio.PlaylistsColumns;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andrew.apolloMod.R;
+import com.andrew.apolloMod.activities.TracksBrowser;
+import com.andrew.apolloMod.cache.ImageInfo;
+import com.andrew.apolloMod.cache.ImageProvider;
 import com.androidquery.util.AQUtility;
 
+import static com.andrew.apolloMod.Constants.ALBUM_ID_KEY;
+import static com.andrew.apolloMod.Constants.ALBUM_KEY;
+import static com.andrew.apolloMod.Constants.ARTIST_ID;
+import static com.andrew.apolloMod.Constants.ARTIST_KEY;
+import static com.andrew.apolloMod.Constants.GENRE_KEY;
 import static com.andrew.apolloMod.Constants.MIME_TYPE;
+import static com.andrew.apolloMod.Constants.NUMALBUMS;
+import static com.andrew.apolloMod.Constants.PLAYLIST_NAME;
+import static com.andrew.apolloMod.Constants.SIZE_THUMB;
+import static com.andrew.apolloMod.Constants.SRC_FIRST_AVAILABLE;
+import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
+import static com.andrew.apolloMod.Constants.TYPE_ARTIST;
+import static com.andrew.apolloMod.Constants.TYPE_PLAYLIST;
+import static com.andrew.apolloMod.Constants.TYPE_GENRE;
+import static com.andrew.apolloMod.Constants.UP_STARTS_ALBUM_ACTIVITY;
 
 /**
  * @author Andrew Neal
@@ -73,6 +100,42 @@ public class ApolloUtils {
         canvas.drawBitmap(bitmap, matrix, null);
 
         view.setBackgroundDrawable(new BitmapDrawable(view.getResources(), background));
+    }
+
+	/**
+     * @return A custom ContextMenu header
+     */
+    public static  View setHeaderLayout(String Type, Cursor cursor, Activity activity) {
+        LayoutInflater inflater = activity.getLayoutInflater();
+        View header = inflater.inflate(R.layout.context_menu_header, null, false);
+
+        // Artist image
+        final ImageView mHanderImage = (ImageView)header.findViewById(R.id.header_image);
+        String albumId="",artistName="",albumName="";
+
+        if(Type == TYPE_ALBUM){
+            albumName = cursor.getString(cursor.getColumnIndexOrThrow(AlbumColumns.ALBUM));
+            artistName = cursor.getString(cursor.getColumnIndexOrThrow(AlbumColumns.ARTIST));
+            albumId = cursor.getString(cursor.getColumnIndexOrThrow(BaseColumns._ID));
+        }
+        else{
+            artistName = cursor.getString(cursor.getColumnIndexOrThrow(ArtistColumns.ARTIST));
+        }
+        
+        
+        ImageInfo mInfo = new ImageInfo();
+        mInfo.type = Type;
+        mInfo.size = SIZE_THUMB;
+        mInfo.source = SRC_FIRST_AVAILABLE;
+        mInfo.data = (Type == TYPE_ALBUM ? new String[]{ albumId , artistName, albumName } : new String[]{ artistName});
+       
+        ImageProvider.getInstance(activity).loadImage( mHanderImage, mInfo );
+
+        // Set artist name
+        TextView headerText = (TextView)header.findViewById(R.id.header_text);
+        headerText.setText( (Type == TYPE_ALBUM ? albumName : artistName));
+        headerText.setBackgroundColor((activity).getResources().getColor(R.color.transparent_black));
+        return header;
     }
 
     /**
@@ -267,6 +330,45 @@ public class ApolloUtils {
         }
         mToast.setText(context.getString(message));
         mToast.show();
+    }
+    
+    public static void startTracksBrowser(String Type, long id, Cursor mCursor, Context context ) {
+    	Bundle bundle = new Bundle();
+        if( Type == TYPE_ARTIST ){
+        	String artistName = mCursor.getString(mCursor.getColumnIndexOrThrow(ArtistColumns.ARTIST));
+            String artistNulAlbums = mCursor.getString( mCursor.getColumnIndexOrThrow(ArtistColumns.NUMBER_OF_ALBUMS));        
+            bundle.putString(MIME_TYPE, Audio.Artists.CONTENT_TYPE);
+            bundle.putString(ARTIST_KEY, artistName);
+            bundle.putString(NUMALBUMS, artistNulAlbums);
+            ApolloUtils.setArtistId(artistName, id, ARTIST_ID, context);    	
+        }
+        else if( Type == TYPE_ALBUM ){            
+            String artistName = mCursor.getString(mCursor.getColumnIndexOrThrow(AlbumColumns.ARTIST));
+            String albumName = mCursor.getString(mCursor.getColumnIndexOrThrow(AlbumColumns.ALBUM));
+            String albumId = mCursor.getString(mCursor.getColumnIndexOrThrow(BaseColumns._ID));
+            bundle.putString(MIME_TYPE, Audio.Albums.CONTENT_TYPE);
+            bundle.putString(ARTIST_KEY, artistName);
+            bundle.putString(ALBUM_KEY, albumName);
+            bundle.putString(ALBUM_ID_KEY, albumId);
+            bundle.putBoolean(UP_STARTS_ALBUM_ACTIVITY, true);
+        }
+        else if( Type == TYPE_GENRE ){
+            String genreKey = mCursor.getString(mCursor.getColumnIndexOrThrow(Audio.Genres.NAME));
+            bundle.putString(MIME_TYPE, Audio.Genres.CONTENT_TYPE);
+            bundle.putString(GENRE_KEY, genreKey);
+        }
+        else if( Type == TYPE_PLAYLIST ){
+            String playlistName = mCursor.getString(mCursor.getColumnIndexOrThrow(PlaylistsColumns.NAME));
+            bundle.putString(MIME_TYPE, Audio.Playlists.CONTENT_TYPE);
+            bundle.putString(PLAYLIST_NAME, playlistName);
+            bundle.putLong(BaseColumns._ID, id);
+        }
+        
+        bundle.putLong(BaseColumns._ID, id);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setClass(context, TracksBrowser.class);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
     }
 
 }

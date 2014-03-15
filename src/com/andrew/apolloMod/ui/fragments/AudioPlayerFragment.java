@@ -4,7 +4,7 @@
 
 package com.andrew.apolloMod.ui.fragments;
 
-import static com.andrew.apolloMod.Constants.SIZE_THUMB;
+import static com.andrew.apolloMod.Constants.SIZE_NORMAL;
 import static com.andrew.apolloMod.Constants.SRC_FIRST_AVAILABLE;
 import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
 
@@ -558,7 +558,7 @@ public class AudioPlayerFragment extends Fragment {
 
         ImageInfo mInfo = new ImageInfo();
         mInfo.type = TYPE_ALBUM;
-        mInfo.size = SIZE_THUMB;
+        mInfo.size = SIZE_NORMAL;
         mInfo.source = SRC_FIRST_AVAILABLE;
         mInfo.data = new String[]{ albumId , artistName, albumName };
         

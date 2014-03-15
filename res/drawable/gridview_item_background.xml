@@ -17,7 +17,7 @@
 
             <corners android:radius="2dp" />
 
-            <solid android:color="@color/white" />
+            <solid android:color="@color/listview_item_bg_color" />
 
             <padding android:bottom="8dp"
                 android:left="8dp"

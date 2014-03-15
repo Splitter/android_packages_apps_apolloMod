@@ -2,18 +2,17 @@
 package com.andrew.apolloMod.ui.adapters.list;
 
 import static com.andrew.apolloMod.Constants.EXTERNAL;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.provider.MediaStore.MediaColumns;
+import android.provider.MediaStore.Audio.AudioColumns;
 import android.provider.MediaStore.Audio.Playlists;
 import android.util.Log;
 import android.widget.Toast;
-
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.ui.adapters.base.DragSortListViewAdapter;
-import com.andrew.apolloMod.ui.fragments.list.PlaylistListFragment;
 
 public class PlaylistListAdapter extends DragSortListViewAdapter {
    
@@ -25,14 +24,14 @@ public class PlaylistListAdapter extends DragSortListViewAdapter {
     }
 
     public void setupViewData( Cursor mCursor ){
-    	mLineOneText = mCursor.getString(PlaylistListFragment.mTitleIndex);
+    	mLineOneText = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaColumns.TITLE));
     	
-        mLineTwoText = mCursor.getString(PlaylistListFragment.mArtistIndex);
+        mLineTwoText = mCursor.getString(mCursor.getColumnIndexOrThrow(AudioColumns.ARTIST));
     	
         mImageData = new String[]{ mLineTwoText };
         
         mPlayingId = MusicUtils.getCurrentAudioId();
-        mCurrentId = mCursor.getLong(PlaylistListFragment.mMediaIdIndex);
+        mCurrentId = mCursor.getLong(mCursor.getColumnIndexOrThrow(Playlists.Members.AUDIO_ID));
     }
    
     @Override
@@ -51,8 +50,8 @@ public class PlaylistListAdapter extends DragSortListViewAdapter {
     public void remove(int which) {
         int cursorPos = getCursorPosition(which);
         mCursor.moveToPosition(cursorPos);
-        long id = mCursor.getLong(PlaylistListFragment.mMediaIdIndex);
-        String mName = mCursor.getString(PlaylistListFragment.mTitleIndex);
+        long id = mCursor.getLong(mCursor.getColumnIndexOrThrow(Playlists.Members.AUDIO_ID));
+        String mName = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaColumns.TITLE));
         if (mPlaylistId >= 0) {
             Uri uri = Playlists.Members.getContentUri(EXTERNAL, mPlaylistId);
             mContext.getContentResolver().delete(uri, Playlists.Members.AUDIO_ID + "=" + id,

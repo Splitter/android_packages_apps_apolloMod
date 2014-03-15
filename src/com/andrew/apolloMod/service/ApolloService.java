@@ -488,7 +488,7 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
         registerReceiver(mIntentReceiver, commandFilter);
 
         PowerManager pm = (PowerManager)getSystemService(Context.POWER_SERVICE);
-        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, this.getClass().getName());
+        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, getClass().getName());
         mWakeLock.setReferenceCounted(false);
 
         // If the service was idle, but got killed before it stopped itself, the

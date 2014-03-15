@@ -20,7 +20,7 @@ import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.views.ViewHolderList;
 
-public class ListViewAdapter extends SimpleCursorAdapter {
+public abstract class ListViewAdapter extends SimpleCursorAdapter {
 	
     private WeakReference<ViewHolderList> holderReference;
     
@@ -138,6 +138,6 @@ public class ListViewAdapter extends SimpleCursorAdapter {
         return view;
     }
     
-    public void setupViewData( Cursor mCursor ){}    
+    public abstract void setupViewData( Cursor mCursor ); 
     
 }

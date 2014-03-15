@@ -53,6 +53,11 @@ import static com.andrew.apolloMod.Constants.GENRES_DB;
 import static com.andrew.apolloMod.Constants.PLAYLIST_NAME_FAVORITES;
 import static com.andrew.apolloMod.Constants.PLAYLIST_NEW;
 import static com.andrew.apolloMod.Constants.PLAYLIST_QUEUE;
+import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
+import static com.andrew.apolloMod.Constants.TYPE_ARTIST;
+import static com.andrew.apolloMod.Constants.TYPE_PLAYLIST;
+import static com.andrew.apolloMod.Constants.TYPE_GENRE;
+import static com.andrew.apolloMod.Constants.TYPE_SONG;
 
 /**
  * Various methods used to help with specific music statements
@@ -536,6 +541,22 @@ public class MusicUtils {
             return list;
         }
         return sEmptyList;
+    }
+    
+    public static long[] getSongList( String Type , Context context , long id ){
+    	if ( Type == TYPE_ALBUM ){
+    		return MusicUtils.getSongListForAlbum(context, id);    		
+    	}
+    	else if( Type == TYPE_ARTIST ){
+    		return MusicUtils.getSongListForArtist(context, id);
+    	}
+    	else if( Type == TYPE_GENRE ){
+    		return MusicUtils.getSongListForGenre(context, id);
+    	}
+    	else if ( Type == TYPE_PLAYLIST ){
+    		return MusicUtils.getSongListForPlaylist(context, id);
+    	}    	
+    	return sEmptyList;
     }
 
     /**
@@ -1028,7 +1049,33 @@ public class MusicUtils {
         i.putExtra(SearchManager.QUERY, query);
         mContext.startActivity(Intent.createChooser(i, title));
     }
+    
+    /**
+     * Create a Search Chooser
+     */
+    public static void doSearch(Context mContext, Cursor mCursor, String Type) {
+        CharSequence title = null;
+        Intent i = new Intent();
+        i.setAction(MediaStore.INTENT_ACTION_MEDIA_SEARCH);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        String query = "";
 
+    	if ( Type == TYPE_ALBUM ){
+    		query = mCursor.getString(mCursor.getColumnIndexOrThrow(AlbumColumns.ALBUM));
+    	}
+    	else if( Type == TYPE_ARTIST ){
+    		query = mCursor.getString(mCursor.getColumnIndexOrThrow(ArtistColumns.ARTIST));
+    	}
+    	else if( Type == TYPE_GENRE ||  Type == TYPE_PLAYLIST ||  Type == TYPE_SONG ){
+    		query = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaColumns.TITLE));
+    	}
+        title = "";
+        i.putExtra("", query);
+        title = title + " " + query;
+        title = "Search " + title;
+        i.putExtra(SearchManager.QUERY, query);
+        mContext.startActivity(Intent.createChooser(i, title));
+    }
     /**
      * Method that removes all tracks from the current queue
      */

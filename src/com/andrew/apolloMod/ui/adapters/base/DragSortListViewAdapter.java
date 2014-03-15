@@ -21,7 +21,7 @@ import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.views.ViewHolderList;
 import com.mobeta.android.dslv.SimpleDragSortCursorAdapter;
 
-public class DragSortListViewAdapter extends SimpleDragSortCursorAdapter{
+public abstract class DragSortListViewAdapter extends SimpleDragSortCursorAdapter{
 
     private AnimationDrawable mPeakOneAnimation, mPeakTwoAnimation;
 
@@ -103,5 +103,5 @@ public class DragSortListViewAdapter extends SimpleDragSortCursorAdapter{
         return view;
     }
     
-    public void setupViewData( Cursor mCursor ){}    
+    public abstract void setupViewData( Cursor mCursor );
 }

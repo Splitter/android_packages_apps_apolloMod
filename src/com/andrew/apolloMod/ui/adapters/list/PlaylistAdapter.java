@@ -3,8 +3,8 @@ package com.andrew.apolloMod.ui.adapters.list;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.provider.MediaStore.Audio.PlaylistsColumns;
 import com.andrew.apolloMod.ui.adapters.base.ListViewAdapter;
-import com.andrew.apolloMod.ui.fragments.list.PlaylistsFragment;
 
 public class PlaylistAdapter extends ListViewAdapter {    
     
@@ -13,6 +13,6 @@ public class PlaylistAdapter extends ListViewAdapter {
     }
 
     public void setupViewData( Cursor mCursor ){
-    	mLineOneText = mCursor.getString(PlaylistsFragment.mPlaylistNameIndex);
+    	mLineOneText = mCursor.getString(mCursor.getColumnIndexOrThrow(PlaylistsColumns.NAME));
     }    
 }

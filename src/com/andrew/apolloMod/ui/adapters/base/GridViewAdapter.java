@@ -21,7 +21,7 @@ import com.andrew.apolloMod.views.ViewHolderGrid;
 import java.lang.ref.WeakReference;
 
 
-public class GridViewAdapter extends SimpleCursorAdapter {
+public abstract class GridViewAdapter extends SimpleCursorAdapter {
 
     private AnimationDrawable mPeakOneAnimation, mPeakTwoAnimation;
 
@@ -92,5 +92,5 @@ public class GridViewAdapter extends SimpleCursorAdapter {
         return view;
     }
     
-    public void setupViewData( Cursor mCursor ){}
+    public abstract void setupViewData( Cursor mCursor );
 }
