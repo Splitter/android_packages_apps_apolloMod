@@ -23,6 +23,7 @@ import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.andrew.apolloMod.IApolloService;
@@ -35,10 +36,8 @@ import com.andrew.apolloMod.service.ServiceToken;
 import static com.andrew.apolloMod.Constants.WIDGET_STYLE;
 import static com.andrew.apolloMod.Constants.DELETE_CACHE;
 import static com.andrew.apolloMod.Constants.BUILD_VERSION;
-/**
- * @author Andrew Neal FIXME - Work on the IllegalStateException thrown when
- *         using PreferenceFragment and theme chooser
- */
+import static com.andrew.apolloMod.Constants.BUILD_DEPENDS;
+
 @SuppressWarnings("deprecation")
 public class SettingsHolder extends PreferenceActivity  implements ServiceConnection  {
 	Context mContext;
@@ -62,6 +61,8 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
         
         // Init about dialog
         initAboutDialog();
+        
+        initDependencies();
         
     }
 
@@ -127,6 +128,25 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
             }
         });
     	
+    }
+    
+    private void initDependencies(){
+        final Preference buildDepend = findPreference(BUILD_DEPENDS);
+        buildDepend.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(final Preference preference) {
+            	
+            	final WebView webView = new WebView(mContext);
+                webView.loadUrl("file:///android_asset/licenses.html");
+                new AlertDialog.Builder(mContext)
+                        .setTitle(R.string.dependencies_title)
+                        .setView(webView)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .create()
+                        .show();
+                return true;
+            }
+        });
     }
     /**
      * Removes all of the cache entries.

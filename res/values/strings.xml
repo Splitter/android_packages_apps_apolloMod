@@ -137,12 +137,15 @@ Original Apollo Source Code: \n
 https://github.com/CyanogenMod/android_packages_apps_Apollo/tree/cm-10.1
         
     ]]></string>
+    <string name="dependencies">Dependency Licenses</string>
+    <string name="dependencies_title">Dependency Licenses:</string>
     
     <!-- Settings keys -->
     <string name="key_themes" translatable="false">themepreview</string>
     <string name="key_themes_package" translatable="false">themePackageName</string>
     <string name="key_themes_preferences" translatable="false">themePrefences</string>
     <string name="key_build_version" translatable="false">build_version</string>
+    <string name="key_build_depends" translatable="false">build_depends</string>
     <string name="key_tabs_enabled" translatable="false">tabs_enabled</string>
     <string name="key_visualization_type" translatable="false">visualization_type</string>
     <string name="key_widget_style" translatable="false">widget_type</string>
