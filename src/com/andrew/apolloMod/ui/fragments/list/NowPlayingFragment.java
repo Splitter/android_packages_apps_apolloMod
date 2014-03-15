@@ -66,6 +66,7 @@ public class NowPlayingFragment extends DragSortListViewFragment{
             }
     	}
         data.close();
+		mCursor = playlistCursor;
         super.onLoadFinished(loader, playlistCursor);
     }
 
@@ -105,6 +106,8 @@ public class NowPlayingFragment extends DragSortListViewFragment{
             }
         }
         selection.append(")");
+		if(mCursor != null)
+			mCursor.close();
         mCursor = MusicUtils.query(getActivity(), uri, cols, selection.toString(), null, null);
         String[] audioCols = new String[] { BaseColumns._ID, MediaColumns.TITLE, AudioColumns.ARTIST, AudioColumns.ALBUM}; 
         MatrixCursor playlistCursor = new MatrixCursor(audioCols);
@@ -121,6 +124,8 @@ public class NowPlayingFragment extends DragSortListViewFragment{
             	}
             }
     	}
+		if(mCursor != null)
+			mCursor.close();
         mCursor = playlistCursor;
         mAdapter.changeCursor(playlistCursor);
     }

@@ -55,6 +55,7 @@ import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.os.RemoteException;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
@@ -84,6 +85,7 @@ import static com.andrew.apolloMod.Constants.DATA_SCHEME;
 import static com.andrew.apolloMod.Constants.SIZE_THUMB;
 import static com.andrew.apolloMod.Constants.SRC_FIRST_AVAILABLE;
 import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
+import static com.andrew.apolloMod.Constants.VISUALIZATION_TYPE;
 
 public class ApolloService extends Service implements GetBitmapTask.OnBitmapReadyListener {
     /**
@@ -2276,8 +2278,12 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
             Intent intent = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
     	    if (getPackageManager().resolveActivity(intent, 0) == null) {
     	    	MusicUtils.initEqualizer( player , getApplicationContext());
-    	    }
-            VisualizerUtils.initVisualizer( player );
+    	    }    	                                
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            String type = sp.getString(VISUALIZATION_TYPE, getResources().getString(R.string.visual_none));                    
+    	    if(!type.equals(getResources().getString(R.string.visual_none))){
+        	    VisualizerUtils.initVisualizer( player );
+            }
             return true;
         }
 

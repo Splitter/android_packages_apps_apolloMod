@@ -527,7 +527,8 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         int mArtistNumAlbumsIndex = cursor.getColumnIndexOrThrow(ArtistColumns.NUMBER_OF_TRACKS);
         if(cursor.getCount()>0){
 	    	cursor.moveToFirst();
-	        String numAlbums = cursor.getString(mArtistNumAlbumsIndex);	  
+	        String numAlbums = cursor.getString(mArtistNumAlbumsIndex);	
+			cursor.close();
 	        if(numAlbums != null){
 	        	return numAlbums;
 	        }
@@ -558,7 +559,8 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         int mArtistNumAlbumsIndex = cursor.getColumnIndexOrThrow(ArtistColumns.NUMBER_OF_ALBUMS);
         if(cursor.getCount()>0){
 	    	cursor.moveToFirst();
-	        String numAlbums = cursor.getString(mArtistNumAlbumsIndex);	  
+	        String numAlbums = cursor.getString(mArtistNumAlbumsIndex);	
+			cursor.close();
 	        if(numAlbums != null){
 	        	return numAlbums;
 	        }
