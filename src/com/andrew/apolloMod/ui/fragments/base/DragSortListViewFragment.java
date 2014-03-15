@@ -132,8 +132,6 @@ public abstract class DragSortListViewFragment extends RefreshableFragment imple
         if (data == null) {
             return;
         }
-        if(mCursor!=null)
-        	mCursor.close();
         mAdapter.reset();
         mAdapter.changeCursor(data);
         mListView.invalidateViews();
