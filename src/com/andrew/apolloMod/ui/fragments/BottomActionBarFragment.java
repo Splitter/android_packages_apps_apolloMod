@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 package com.andrew.apolloMod.ui.fragments;
 
@@ -20,16 +17,12 @@ import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.fragments.list.NowPlayingFragment;
 import com.andrew.apolloMod.ui.widgets.BottomActionBar;
 
-/**
- * @author Andrew Neal
- */
 public class BottomActionBarFragment extends Fragment {
 
 	private ImageButton mPrev, mPlay, mNext, mQueue;

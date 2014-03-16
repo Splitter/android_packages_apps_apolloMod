@@ -1,15 +1,10 @@
-/**
- * 
- */
 
 package com.andrew.apolloMod.ui.fragments;
 
 import static com.andrew.apolloMod.Constants.SIZE_NORMAL;
 import static com.andrew.apolloMod.Constants.SRC_FIRST_AVAILABLE;
 import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
-
 import java.lang.ref.WeakReference;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -20,18 +15,18 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
@@ -39,20 +34,19 @@ import com.andrew.apolloMod.helpers.utils.ApolloUtils;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.helpers.utils.VisualizerUtils;
 import com.andrew.apolloMod.service.ApolloService;
+import com.andrew.apolloMod.ui.adapters.AlbumArtPagerAdapter;
 import com.andrew.apolloMod.ui.widgets.RepeatingImageButton;
 import com.andrew.apolloMod.ui.widgets.VisualizerView;
 
-/**
- * @author Andrew Neal
- */
 public class AudioPlayerFragment extends Fragment {
 
     // Total and current time
     private TextView mTotalTime, mCurrentTime;
 
     // Album art
-    private ImageView mAlbumArt;
+    private ViewPager mAlbumArtPager;
 
+    private AlbumArtPagerAdapter mPagerAdapter;
     // Controls
     private ImageButton mRepeat, mPlay, mShuffle;
 
@@ -77,12 +71,9 @@ public class AudioPlayerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.audio_player, container, false);
-
-
+        
         mTotalTime = (TextView)root.findViewById(R.id.audio_player_total_time);
         mCurrentTime = (TextView)root.findViewById(R.id.audio_player_current_time);
-
-        mAlbumArt = (ImageView)root.findViewById(R.id.audio_player_album_art);
 
         mRepeat = (ImageButton)root.findViewById(R.id.audio_player_repeat);
         mPrev = (RepeatingImageButton)root.findViewById(R.id.audio_player_prev);
@@ -100,7 +91,6 @@ public class AudioPlayerFragment extends Fragment {
 
         mPrev.setRepeatListener(mRewListener, 260);
         mPrev.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 if (MusicUtils.mService == null)
@@ -117,18 +107,16 @@ public class AudioPlayerFragment extends Fragment {
                 }
             }
         });
-
+        
         mPlay.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 doPauseResume();
             }
         });
-
+        
         mNext.setRepeatListener(mFfwdListener, 260);
         mNext.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 if (MusicUtils.mService == null)
@@ -140,15 +128,14 @@ public class AudioPlayerFragment extends Fragment {
                 }
             }
         });
-
+        
         mShuffle.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 toggleShuffle();
             }
         });
-
+        
         mProgress = (SeekBar)root.findViewById(android.R.id.progress);
         if (mProgress instanceof SeekBar) {
             SeekBar seeker = mProgress;
@@ -156,13 +143,54 @@ public class AudioPlayerFragment extends Fragment {
         }
         mProgress.setMax(1000);
         
-
+        mAlbumArtPager = (ViewPager)root.findViewById(R.id.now_playing_viewpager);
+        mPagerAdapter = new AlbumArtPagerAdapter(getChildFragmentManager());
+        mPagerAdapter.addFragment(new AlbumArtFragment());
+        mPagerAdapter.addFragment(new AlbumArtFragment());
+        mPagerAdapter.addFragment(new AlbumArtFragment());
+        mAlbumArtPager.setAdapter(mPagerAdapter);
+        mAlbumArtPager.setOffscreenPageLimit(3);
+        mAlbumArtPager.setCurrentItem(1);
+        mAlbumArtPager.setOnPageChangeListener(new AlbumArtPageListener());
         
         FrameLayout mColorstripBottom = (FrameLayout)root.findViewById(R.id.colorstrip_bottom);
         mColorstripBottom.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
         return root;
     }
 
+    private class AlbumArtPageListener extends SimpleOnPageChangeListener{
+        public void onPageScrollStateChanged(int state) {   
+        	if(state == ViewPager.SCROLL_STATE_IDLE){
+        		int cur = mAlbumArtPager.getCurrentItem();
+	        	if(cur == 0){
+	        		mPagerAdapter.addFragmentTo(new AlbumArtFragment(), 0);
+	        		mPagerAdapter.removeItem(3);
+	                mAlbumArtPager.setAdapter(mPagerAdapter);
+	                mAlbumArtPager.setCurrentItem(1);
+	                if (MusicUtils.mService == null)
+	                    return;
+	                try {
+	                    MusicUtils.mService.prev();
+	                } catch (RemoteException ex) {
+	                    ex.printStackTrace();
+	                }
+	    		}
+	        	else if ( cur == 2 ){
+	        		mPagerAdapter.addFragmentTo(new AlbumArtFragment(), 3);
+	        		mPagerAdapter.removeItem(0);
+	                mAlbumArtPager.setAdapter(mPagerAdapter);
+	                mAlbumArtPager.setCurrentItem(1);
+	                if (MusicUtils.mService == null)
+	                    return;
+	                try {
+	                    MusicUtils.mService.next();
+	                } catch (RemoteException ex) {
+	                    ex.printStackTrace();
+	                }
+	    		}
+        	}
+	    }
+	}
     /**
      * Update everything as the meta or playstate changes
      */
@@ -561,9 +589,9 @@ public class AudioPlayerFragment extends Fragment {
         mInfo.size = SIZE_NORMAL;
         mInfo.source = SRC_FIRST_AVAILABLE;
         mInfo.data = new String[]{ albumId , artistName, albumName };
-        
-        ImageProvider.getInstance( getActivity() ).loadImage( mAlbumArt, mInfo );
 
+        AlbumArtFragment cur =(AlbumArtFragment) mPagerAdapter.getItem(mAlbumArtPager.getCurrentItem());
+        ImageProvider.getInstance( getActivity() ).loadImage( cur.albumArt, mInfo );
     }
 
 }
