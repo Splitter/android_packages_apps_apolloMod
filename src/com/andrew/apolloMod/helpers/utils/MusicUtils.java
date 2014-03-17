@@ -149,9 +149,10 @@ public class MusicUtils {
     }
 
     public static int[] getEqualizerFrequencies(){
-    	int[] freqs= new int[6];
+    	short numBands = mEqualizer.getNumberOfBands()<=6?mEqualizer.getNumberOfBands():6;	
+    	int[] freqs= new int[numBands];
     	if(mEqualizer != null){
-			for( int i = 0; i <= 5 ; i++ ){
+			for( int i = 0; i <= numBands-1 ; i++ ){
 				int[] temp = mEqualizer.getBandFreqRange((short)i);
 				freqs[i] = ((temp[1]-temp[0])/2)+temp[0];
 			}
@@ -159,6 +160,7 @@ public class MusicUtils {
     	}
     	return null;
     }
+    
 	public static void updateEqualizerSettings(Context context){
 
         SharedPreferences mPreferences = context.getSharedPreferences(APOLLO_PREFERENCES, Context.MODE_WORLD_READABLE
@@ -171,10 +173,11 @@ public class MusicUtils {
     	
     	if(mEqualizer != null){
 	    	mEqualizer.setEnabled(mPreferences.getBoolean("simple_eq_equalizer_enable", false));
-	        short r[] = mEqualizer.getBandLevelRange();
+	    	short numBands = mEqualizer.getNumberOfBands()<=6?mEqualizer.getNumberOfBands():6;
+	    	short r[] = mEqualizer.getBandLevelRange();
 	        short min_level = r[0];
 	        short max_level = r[1];
-	    	for( int i = 0; i <= 5 ; i++ ){
+	    	for( int i = 0; i <= (numBands -1) ; i++ ){
 	            int new_level = min_level + (max_level - min_level) * mPreferences.getInt("simple_eq_seekbars"+String.valueOf(i),100) / 100; 
 	            mEqualizer.setBandLevel ((short)i, (short)new_level);
 	    	}
