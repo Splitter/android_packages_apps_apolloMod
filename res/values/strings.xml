@@ -15,9 +15,10 @@
     <string name="cd_play">Play and pause</string>
     <string name="cd_next">Skip forwards</string>
     <string name="cd_shuffle">Shuffle tracks</string>
+    <string name="cd_show_queue">Show now playing queue</string>
 
     <!-- AudioPlayer title -->
-    <string name="nowplaying">Now playing</string>
+    <string name="nowplaying">Now Playing</string>
 
     <!-- Used to indicate the number of albums for an artist -->
     <plurals name="Nalbums">
@@ -54,7 +55,7 @@
 
     <!-- Options MenuItems -->
     <string name="settings">Settings</string>
-    <string name="shuffle_all">Shuffle all</string>
+    <string name="shuffle_all">Shuffle All</string>
     <string name="share">Share</string>
     <string name="play_store">Play Store</string>
 

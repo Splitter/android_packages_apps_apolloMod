@@ -14,6 +14,7 @@ import android.os.RemoteException;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnLongClickListener;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -55,11 +56,24 @@ public class BottomActionBar extends LinearLayout implements OnLongClickListener
         }
 
         if (MusicUtils.mService != null && MusicUtils.getCurrentAudioId() != -1) {
-
+        	ImageButton mFavs = (ImageButton)bottomActionBar
+        			.findViewById(R.id.bottom_action_bar_favorites);
+        	if(MusicUtils.isFavorite(activity, MusicUtils.getCurrentAudioId())){
+        		mFavs.setImageResource(R.drawable.apollo_holo_light_favorite_selected);
+        	}
+        	else{
+        		mFavs.setImageResource(R.drawable.apollo_holo_light_favorite_normal);
+        	}
+            
             // Track name
             TextView mTrackName = (TextView)bottomActionBar
                     .findViewById(R.id.bottom_action_bar_track_name);
             mTrackName.setText(MusicUtils.getTrackName());
+            
+            // Track name
+            TextView mTrackNameOnly = (TextView)bottomActionBar
+                    .findViewById(R.id.bottom_action_bar_track_name_only);
+            mTrackNameOnly.setText(MusicUtils.getTrackName());
 
             // Artist name
             TextView mArtistName = (TextView)bottomActionBar

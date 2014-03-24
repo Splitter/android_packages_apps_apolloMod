@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="ApolloTheme.Light" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/ApolloTheme.BlueActionBar</item>
+    	<item name="android:actionOverflowButtonStyle">@style/ApolloTheme.OverFlow</item>
+    	
+    	<item name="Tabs">@style/Tabs_Light</item>
+    	
+    	<item name="BottomActionBarItem">@style/BottomActionBarItem_Light</item>
+    	<item name="BottomActionBarText">@style/BottomActionBarText_Light</item>
+    	<item name="BottomActionBarDivider">@style/BottomActionBarDivider_Light</item>
+    	<item name="BottomActionBar">@style/BottomActionBar_Light</item>
+    	<item name="BottomActionBarWrapper">@style/BottomActionBarWrapper_Light</item>
+    	<item name="BottomActionBarFavorites">@style/BottomActionBarFavorites_Light</item>
+    	<item name="BottomActionBarPrevious">@style/BottomActionBarPrevious_Light</item>
+    	<item name="BottomActionBarPlay">@style/BottomActionBarPlay_Light</item>
+    	<item name="BottomActionBarNext">@style/BottomActionBarNext_Light</item>
+    	<item name="BottomActionBarNowQueue">@style/BottomActionBarNowQueue_Light</item>
+    	
+    	<item name="AudioPlayerText">@style/AudioPlayerText_Light</item>
+    	<item name="AudioPlayerArtistAlbumText">@style/AudioPlayerAlbumArtistText_Light</item>
+    	<item name="AudioPlayerInfoText">@style/AudioPlayerInfoText_Light</item>
+    	<item name="AudioPlayerViewMore">@style/AudioPlayerViewMore_Light</item>
+    	<item name="AudioPlayerButton">@style/AudioPlayerButton_Light</item>
+    	<item name="AudioPlayerTimeText">@style/AudioPlayerTimeText_Light</item>
+    	<item name="AudioPlayerNowPlayingText">@style/AudioPlayerNowPlayingText_Light</item>
+    	<item name="AudioPlayerQueueBG">@style/AudioPlayerQueueBG_Light</item>
+    	<item name="AudioPlayerColorstrip">@style/AudioPlayerColorstrip_Light</item>
+    	<item name="AudioPlayerColorstripShadow">@style/AudioPlayerColorstripShadow_Light</item>
+    	<item name="AudioPlayerPrevious">@style/AudioPlayerPrevious_Light</item>
+    	<item name="AudioPlayerPlay">@style/AudioPlayerPrevious_Light</item>
+    	<item name="AudioPlayerNext">@style/AudioPlayerNext_Light</item>
+    	<item name="AudioPlayerRepeat">@style/AudioPlayerRepeat_Light</item>
+    	<item name="AudioPlayerShuffle">@style/AudioPlayerShuffle_Light</item>
+    	<item name="AudioPlayerSeek">@style/AudioPlayerSeek_Light</item>
+    	
+    	<item name="ContextMenuLine">@style/ContextMenuLine_Light</item>
+    	<item name="ContextMenuArrow">@style/ContextMenuArrow_Light</item>
+    	
+    	<item name="ListviewItemWrapper">@style/ListviewItemWrapper_Light</item>
+    	<item name="ListviewItemArt">@style/ListviewItemArt_Light</item>
+    </style>
+    
+</resources>

@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-	<ImageView
+	<com.andrew.apolloMod.views.TrackBrowserImageView
             android:id="@+id/audio_player_album_art"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/no_art_normal"
-            android:scaleType="fitXY" />
+            android:scaleType="matrix" />
 	
 </LinearLayout>

@@ -28,7 +28,7 @@
         android:layout_toRightOf="@+id/shuffle_imageview"
         android:ellipsize="end"
         android:maxLength="29"
-        android:text="Shuffle All"
+        android:text="@string/shuffle_all"
         android:paddingRight="@dimen/listview_items_padding_right"
     	android:layout_marginTop="14dp" 
     	android:layout_marginLeft="31dp" 

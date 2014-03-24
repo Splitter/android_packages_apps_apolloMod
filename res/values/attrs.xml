@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+		<declare-styleable name="ApolloTheme.Light">
+			<attr name="Tabs" format="reference" />
+    		<attr name="BottomActionBarItem" format="reference" />
+    		<attr name="BottomActionBarText" format="reference" />
+    		<attr name="BottomActionBarDivider" format="reference" />
+    		<attr name="BottomActionBar" format="reference" />
+    		<attr name="BottomActionBarWrapper" format="reference" />
+    		<attr name="BottomActionBarFavorites" format="reference" />
+    		<attr name="BottomActionBarPrevious" format="reference" />
+    		<attr name="BottomActionBarPlay" format="reference" />
+    		<attr name="BottomActionBarNext" format="reference" />
+    		<attr name="BottomActionBarNowQueue" format="reference" />    		
+    		<attr name="AudioPlayerText" format="reference" />
+    		<attr name="AudioPlayerArtistAlbumText" format="reference" />
+    		<attr name="AudioPlayerInfoText" format="reference" />
+    		<attr name="AudioPlayerViewMore" format="reference" />
+    		<attr name="AudioPlayerButton" format="reference" />
+    		<attr name="AudioPlayerTimeText" format="reference" />
+    		<attr name="AudioPlayerNowPlayingText" format="reference" />
+    		<attr name="AudioPlayerQueueBG" format="reference" />
+    		<attr name="AudioPlayerColorstrip" format="reference" />
+    		<attr name="AudioPlayerColorstripShadow" format="reference" />
+    		<attr name="AudioPlayerPrevious" format="reference" />
+    		<attr name="AudioPlayerPlay" format="reference" />
+    		<attr name="AudioPlayerNext" format="reference" />
+    		<attr name="AudioPlayerRepeat" format="reference" />
+    		<attr name="AudioPlayerShuffle" format="reference" />
+    		<attr name="AudioPlayerSeek" format="reference" />
+    		<attr name="ContextMenuLine" format="reference" />
+    		<attr name="ContextMenuArrow" format="reference" />
+    		<attr name="ListviewItemWrapper" format="reference" />
+    		<attr name="ListviewItemArt" format="reference" />
+		</declare-styleable>
+</resources>

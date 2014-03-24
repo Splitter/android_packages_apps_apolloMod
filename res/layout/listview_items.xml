@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/listview_item_height"
-    android:paddingTop="@dimen/listview_items_padding_top_bottom" 
-    android:paddingBottom="@dimen/listview_items_padding_top_bottom"
-	android:background="@drawable/listview_item_background" 
-    android:layout_gravity="center_vertical" >
+    style="?ListviewItemWrapper" >
  
     <ImageView
         android:id="@+id/listview_item_image"
-        android:layout_width="@dimen/listview_album_art"
-        android:layout_height="@dimen/listview_album_art"
-        android:layout_alignParentLeft="true"
-        android:layout_margin="@dimen/listview_album_margin"
-        android:scaleType="centerCrop" 
-	    android:background="@drawable/no_art_small"/>
+        style="?ListviewItemArt"/>
 
     <!-- Padding may be set on via code for some tabs -->
 
@@ -27,9 +17,9 @@
         android:maxLength="29"
         android:paddingLeft="@dimen/listview_items_padding_left_top"
         android:paddingRight="@dimen/listview_items_padding_right"
-        android:paddingTop="@dimen/listview_items_padding_top_bottom"
+        android:paddingTop="9dp"
         android:singleLine="true"
-        android:textSize="@dimen/text_size_medium" />
+        android:textSize="@dimen/text_size_small_medium" />
 
     <TextView
         android:id="@+id/listview_item_line_two"
@@ -42,6 +32,7 @@
         android:paddingRight="@dimen/listview_items_padding_right"
         android:paddingTop="@dimen/listview_items_padding_small_top"
         android:singleLine="true"
+        android:textColor="@color/light_grey"
         android:textSize="@dimen/text_size_small" />
 
     <include layout="@layout/context_menu" />

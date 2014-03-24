@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ApolloTheme" parent="@android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/ApolloTheme.BlueActionBar</item>
-    	<item name="android:actionOverflowButtonStyle">@style/ApolloTheme.OverFlow</item>
-    </style>
+    
+	<!-- 
+		GENERAL THEME STYLES
+	-->	    
+    <!--  ActionBar Styles -->
 	<style name="ApolloTheme.OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
 	    <item name="android:src">@drawable/apollo_holo_dark_overflow</item>
 	</style>
@@ -15,23 +16,8 @@
 	<style name="ApolloTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
 		<item name="android:textColor">@color/actionbar_text</item>
 	</style>
-
-    <!-- Translucent dialog (for @PlayExternal) -->
-    <style name="Theme.Light.Translucent" parent="android:style/Theme.Light.NoTitleBar">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:backgroundDimEnabled">false</item>
-    </style>
-    <style name="Theme.Light.Translucent.Dialog" parent="@android:style/Theme.Holo.Light.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-    <!-- Custom tabs -->
-    <style name="Tabs">
+    <!--  Tabs Styles -->
+    <style name="TabsLayout">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/tab_height</item>
         <item name="android:background">@drawable/tab</item>
@@ -40,33 +26,297 @@
         <item name="android:paddingLeft">@dimen/tab_padding_left_right</item>
         <item name="android:paddingRight">@dimen/tab_padding_left_right</item>
         <item name="android:paddingTop">@dimen/tab_padding_top_bottom</item>
-        <item name="android:textColor">@color/tab_text_color</item>
-        <item name="android:textSize">@dimen/text_size_micro</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:focusable">true</item>
         <item name="android:focusableInTouchMode">false</item>
         <item name="android:selectAllOnFocus">false</item>
+    </style>    
+    <!-- BottomActionBar Styles-->
+    <style name="BottomActionBarLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+	    <item name="android:paddingLeft">@dimen/bottom_action_bar_padding_left</item>
+	    <item name="android:paddingRight">@dimen/bottom_action_bar_padding_left</item>
+        <item name="android:orientation">horizontal</item>
     </style>
-
-    <!-- ImageButton in the bottom bar -->
-    <style name="BottomActionBarItem">
+    <style name="BottomActionBarWrapperLayout">        
+    	<item name="android:layout_width">match_parent</item>
+    	<item name="android:layout_height">@dimen/bottom_action_bar_height</item>
+    	<item name="android:layout_gravity">bottom</item>
+    	<item name="android:orientation">vertical</item> 
+    </style>
+    <style name="BottomActionBarItemLayout">
         <item name="android:layout_width">@dimen/bottom_action_bar_item_width</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:paddingLeft">@dimen/bottom_action_bar_item_padding_left_right</item>
         <item name="android:paddingRight">@dimen/bottom_action_bar_item_padding_left_right</item>
-        <item name="android:background">@drawable/holo_selector</item>
     </style>
-
-    <!-- TextView in the bottom bar -->
-    <style name="BottomActionBarText">
+    <style name="BottomActionBarTextLayout">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:ellipsize">end</item>
         <item name="android:singleLine">true</item>
         <item name="android:paddingTop">3dp</item>
-        <item name="android:textSize">@dimen/text_size_extra_micro</item>
+	    <item name="android:paddingLeft">@dimen/bottom_action_bar_padding_left</item>
+	    <item name="android:textSize">@dimen/text_size_micro</item>
         <item name="android:textAllCaps">true</item>
     </style>
+    <style name="BottomActionBarDividerLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/bottom_action_bar_divider_height</item>
+    </style> 	
+    <!-- AudioPlayer Styles -->
+    <style name="AudioPlayerTextLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+        <item name="android:scrollHorizontally">false</item>
+    </style>
+    <style name="AudioPlayerAlbumArtistTextLayout" parent="AudioPlayerTextLayout">        
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+    <style name="AudioPlayerInfoTextLayout" parent="AudioPlayerTextLayout">  
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLength">21</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="AudioPlayerViewMoreLayout" parent="GridviewShadowedText">  
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+	    <item name="android:padding">@dimen/half_and_half_imagebutton_padding</item>
+    </style>    
+    <style name="AudioPlayerButtonLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="AudioPlayerTimeTextLayout" parent="AudioPlayerTextLayout">
+        <item name="android:layout_alignBottom">@android:id/progress</item>
+        <item name="android:layout_alignTop">@android:id/progress</item>
+        <item name="android:gravity">center</item>
+    </style>    
+    <style name="AudioPlayerNowPlayingTextLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/audio_player_nowplaying_padding_top_bottom</item>
+        <item name="android:paddingBottom">@dimen/audio_player_nowplaying_padding_top_bottom</item>
+        <item name="android:paddingLeft">@dimen/audio_player_nowplaying_padding_left</item>
+        <item name="android:layout_alignBottom">@+id/now_playing_viewpager</item>
+        <item name="android:text">@string/nowplaying</item>
+    </style>    
+    <style name="AudioPlayerQueueBGLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="AudioPlayerColorstripLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/colorstrip_height</item>
+    </style>
+    <style name="AudioPlayerSeekLayout" parent="android:attr/progressBarStyleHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_toLeftOf">@+id/audio_player_total_time</item>
+        <item name="android:layout_toRightOf">@+id/audio_player_current_time</item>
+        <item name="android:paddingTop">@dimen/audio_player_seek_bar_padding</item>
+        <item name="android:thumb">@null</item>
+    </style>
+    <!-- Context Menu Styles -->
+    <style name="ContextMenuLineLayout">
+        <item name="android:layout_width">@dimen/quick_context_line_width</item>
+        <item name="android:layout_height">@dimen/quick_context_line_height</item>
+        <item name="android:layout_gravity">center|left</item>
+    </style>
+    <style name="ContextMenuArrowLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginRight">@dimen/quick_context_margin_right</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+    <!--  Listview Items -->    
+    <style name="ListviewItemWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/listview_item_height</item>
+        <item name="android:paddingTop">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:paddingBottom">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>   
+    <style name="ListviewItemArtLayout">
+        <item name="android:layout_width">@dimen/listview_album_art</item>
+        <item name="android:layout_height">@dimen/listview_album_art</item>
+        <item name="android:layout_alignParentLeft">true</item> 
+        <item name="android:layout_margin">@dimen/listview_album_margin</item> 
+        <item name="android:scaleType">centerCrop</item> 
+    </style>
+    
+    
+    
+	<!-- 
+		// GENERAL THEME STYLES
+	-->	
+	
+	
+	
+	
+	
+	
+	
+    <!--  *************************************************************** -->
+    
+    
+    
+    
+    
+    
+    
+    
+	<!-- 
+		LIGHT THEME STYLES
+	-->	
+	
+    <!-- Tabs -->
+    <style name="Tabs_Light" parent="TabsLayout">
+        <item name="android:textColor">@color/tab_text_color</item>
+        <item name="android:textSize">@dimen/text_size_micro</item>
+        <item name="android:textStyle">bold</item>
+    </style> 
+    
+	<!-- BottomActionBar -->  
+	<style name="BottomActionBar_Light" parent="BottomActionBarLayout">
+        <item name="android:background">@drawable/holo_selector</item>
+	</style>
+    <style name="BottomActionBarWrapper_Light" parent="BottomActionBarWrapperLayout"></style>
+    <style name="BottomActionBarItem_Light" parent="BottomActionBarItemLayout">
+		<item name="android:background">@drawable/holo_selector</item>
+	</style>    
+    <style name="BottomActionBarText_Light" parent="BottomActionBarTextLayout">
+	    <item name="android:textColor">@color/transparent_black</item>
+    </style>    
+    <style name="BottomActionBarFavorites_Light" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_favorite</item>
+        <item name="android:src">@drawable/apollo_holo_light_favorite_normal</item>
+    </style>
+    <style name="BottomActionBarPrevious_Light" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_previous</item>
+        <item name="android:src">@drawable/apollo_holo_light_previous</item>
+    </style>
+    <style name="BottomActionBarPlay_Light" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_play</item>
+        <item name="android:src">@drawable/apollo_holo_light_play</item>
+    </style>
+    <style name="BottomActionBarNext_Light" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_next</item>
+        <item name="android:src">@drawable/apollo_holo_light_next</item>
+    </style>
+    <style name="BottomActionBarNowQueue_Light" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_show_queue</item>
+        <item name="android:src">@drawable/btn_switch_queue</item>
+    </style>
+    <style name="BottomActionBarDivider_Light" parent="BottomActionBarDividerLayout">
+        <item name="android:background">@color/holo_blue_dark</item>
+    </style>    
+    
+    <!-- AudioPlayer Styles -->
+    <style name="AudioPlayerText_Light" parent="AudioPlayerTextLayout"></style>
+    <style name="AudioPlayerAlbumArtistText_Light" parent="AudioPlayerAlbumArtistTextLayout">
+        <item name="android:textColor">@color/transparent_black</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">bold</item>
+    </style>    
+    <style name="AudioPlayerInfoText_Light" parent="AudioPlayerInfoTextLayout">
+        <item name="android:textColor">@color/transparent_black</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>    
+    <style name="AudioPlayerViewMore_Light" parent="AudioPlayerViewMoreLayout"> 
+        <item name="android:src">@drawable/view_more_now</item>
+        <item name="android:background">@drawable/holo_selector</item>
+    </style>    
+    <style name="AudioPlayerButton_Light" parent="AudioPlayerButtonLayout">
+        <item name="android:background">@drawable/holo_selector</item>
+    </style>
+    <style name="AudioPlayerTimeText_Light" parent="AudioPlayerTimeTextLayout">
+        <item name="android:textColor">@color/transparent_black</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+    <style name="AudioPlayerNowPlayingText_Light" parent="AudioPlayerNowPlayingTextLayout">        
+        <item name="android:background">@drawable/transparent_black</item>
+		<item name="android:textColor">@color/white</item>
+		<item name="android:textSize">@dimen/text_size_medium</item>
+    </style>    
+    <style name="AudioPlayerQueueBG_Light" parent="AudioPlayerQueueBGLayout">
+        <item name="android:background">@color/background_grey</item>
+    </style>
+    <style name="AudioPlayerColorstrip_Light" parent="AudioPlayerColorstripLayout">
+        <item name="android:background">@color/holo_blue_dark</item>
+    </style>
+    <style name="AudioPlayerColorstripShadow_Light" parent="AudioPlayerColorstripLayout">
+        <item name="android:background">@drawable/colorstrip_shadow</item>
+    </style>    
+    <style name="AudioPlayerPrevious_Light" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_previous</item>
+        <item name="android:src">@drawable/apollo_holo_light_previous</item> 
+    </style>
+    <style name="AudioPlayerPlay_Light" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_play</item>
+        <item name="android:src">@drawable/apollo_holo_light_pause</item> 
+    </style>
+    <style name="AudioPlayerNext_Light" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_next</item>
+        <item name="android:src">@drawable/apollo_holo_light_next</item> 
+    </style>
+    <style name="AudioPlayerRepeat_Light" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_repeat</item>
+        <item name="android:src">@drawable/apollo_holo_light_repeat_normal</item> 
+    </style>
+    <style name="AudioPlayerShuffle_Light" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_shuffle</item>
+        <item name="android:src">@drawable/apollo_holo_light_shuffle_normal</item> 
+    </style>
+    <style name="AudioPlayerSeek_Light" parent="AudioPlayerSeekLayout">  
+        <item name="android:progressDrawable">@drawable/audio_player_seekbar</item>
+    </style>
+    
+    <!-- Context Menu Styles -->
+    <style name="ContextMenuLine_Light" parent="ContextMenuLineLayout">
+        <item name="android:background">@color/transparent_black</item>
+    </style>
+    <style name="ContextMenuArrow_Light" parent="ContextMenuArrowLayout">
+        <item name="android:src">@drawable/dropdown_ic_arrow_normal_holo_light</item>
+    </style>
+    
+    <!--  Listview Items -->    
+    <style name="ListviewItemWrapper_Light" parent="ListviewItemWrapperLayout">
+        <item name="android:background">@drawable/listview_item_background</item>
+    </style>
+    <style name="ListviewItemArt_Light" parent="ListviewItemArtLayout">
+        <item name="android:background">@drawable/no_art_small</item>
+    </style>
+    
+	<!-- 
+		// LIGHT THEME STYLES
+	-->	
+    
+    
+    
+    
+    
+    
+    
+
+   
 
     <!-- List separator with a blue underline -->
     <style name="SeparatorTextViewStyle">
@@ -139,7 +389,7 @@
         <item name="android:shadowColor">@color/white</item>
         <item name="android:shadowRadius">1</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
     </style>
 
     <!-- Now playing indicator -->
@@ -149,20 +399,9 @@
         <item name="android:layout_alignParentRight">true</item>
     </style>
 
-    <!-- TextView in the audio player -->
-    <style name="AudioPlayerText">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:ellipsize">marquee</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:focusable">true</item>
-        <item name="android:focusableInTouchMode">true</item>
-        <item name="android:lineSpacingMultiplier">1.2</item>
-        <item name="android:scrollHorizontally">true</item>
-    </style>
     
     <!--  TextView with drop-shadow and white text -->
-    <style name="ShadowedText" parent="AudioPlayerText">        
+    <style name="ShadowedText" parent="AudioPlayerTextLayout">        
 	    <item name="android:shadowColor">#000000</item>
 	    <item name="android:shadowDx">1</item>
 	    <item name="android:shadowDy">1</item>
@@ -175,21 +414,6 @@
 	    <item name="android:shadowDx">1</item>
 	    <item name="android:shadowDy">1</item>
 	    <item name="android:shadowRadius">1.5</item> 
-    </style>
-
-    <!--  Black top border  -->
-    <style name="Topborderline"> 
-	    <item name="android:layout_width">match_parent</item>
-	    <item name="android:layout_height">2dp</item>
-	    <item name="android:background">@color/black</item>
-    </style>
-    
-    <!-- ImageButton in the audio player controls -->
-    <style name="AudioPlayerButton">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/holo_selector</item>
     </style>
 
     <!-- QuickQueue -->
@@ -233,5 +457,25 @@
     <style name="OverFlowHolo.Light" parent="@android:style/Widget.Holo.ActionButton.Overflow">
         <item name="android:src">@drawable/apollo_holo_light_overflow</item>
     </style>
+    
+    
+    
+    
+    <!-- Translucent dialog (for @PlayExternal) -->
+    <style name="Light.Translucent" parent="android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="Light.Translucent.Dialog" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    
+    
+    
     
 </resources>

@@ -106,7 +106,7 @@ public class PlayExternal extends Activity
             else {
                 // Show a dialog asking the user for play or queue the song
                 AlertDialog.Builder builder =
-                        new AlertDialog.Builder(this, R.style.Theme_Light_Translucent_Dialog);
+                        new AlertDialog.Builder(this, R.style.Light_Translucent_Dialog);
                 builder.setTitle(R.string.app_name);
                 builder.setMessage(getString(R.string.play_external_question_msg, name));
 

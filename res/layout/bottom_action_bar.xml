@@ -2,27 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_action_bar_container"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/bottom_action_bar_height"
-    android:layout_gravity="bottom"
-    android:orientation="vertical" >
+    style="?BottomActionBarWrapper">
 
     <ImageView
         android:id="@+id/bottom_action_bar_info_divider"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_action_bar_divider_height"
-        android:background="@color/holo_blue_dark"
+	    style="?BottomActionBarDivider"
         tools:ignore="ContentDescription" />
 
     <com.andrew.apolloMod.ui.widgets.BottomActionBar
         android:id="@+id/bottom_action_bar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/holo_selector"
-	    android:paddingLeft="@dimen/bottom_action_bar_padding_left"
-	    android:paddingRight="@dimen/bottom_action_bar_padding_left"
-        android:orientation="horizontal" >
+		style="?BottomActionBar">
 
+        <ImageButton
+            android:id="@+id/bottom_action_bar_favorites"
+            style="?BottomActionBarFavorites" 
+            android:visibility="gone"/>        
+            
         <RelativeLayout
         	android:id="@+id/bottom_action_bar_dragview"
 	        android:layout_width="0dp"
@@ -38,49 +33,45 @@
 	            android:contentDescription="@string/cd_bottom_action_bar_album_art"
 	            android:scaleType="fitXY" />
 	
+	
+	            <TextView
+	                android:id="@+id/bottom_action_bar_track_name_only"
+	                style="?BottomActionBarText"
+	                android:gravity="center"
+	                android:layout_width="match_parent"
+	                android:paddingLeft="0dp"
+	                android:visibility="gone"
+	                android:textStyle="bold" />
+	            
 	            <TextView
 	                android:id="@+id/bottom_action_bar_track_name"
-	                style="@style/BottomActionBarText"
+	                style="?BottomActionBarText"
 	                android:layout_toRightOf="@+id/bottom_action_bar_album_art"
-	                android:paddingLeft="@dimen/bottom_action_bar_padding_left"
-	                android:textColor="@color/transparent_black"
-	                android:textSize="@dimen/text_size_micro"
 	                android:textStyle="bold" />
 	
 	            <TextView
 	                android:id="@+id/bottom_action_bar_artist_name"
-	                style="@style/BottomActionBarText"
-	                android:paddingLeft="@dimen/bottom_action_bar_padding_left"
+	                style="?BottomActionBarText"
 	                android:layout_below="@+id/bottom_action_bar_track_name"
-	                android:layout_toRightOf="@+id/bottom_action_bar_album_art"
-	                android:textSize="@dimen/text_size_micro"
-	                android:textColor="@color/transparent_black" />
+	                android:layout_toRightOf="@+id/bottom_action_bar_album_art" />
 	    </RelativeLayout>
         
         <ImageButton
             android:id="@+id/bottom_action_bar_previous"
-            style="@style/BottomActionBarItem"
-            android:contentDescription="@string/cd_previous"
-            android:src="@drawable/apollo_holo_light_previous" />
+            style="?BottomActionBarPrevious"/>
 
         <ImageButton
             android:id="@+id/bottom_action_bar_play"
-            style="@style/BottomActionBarItem"
-            android:contentDescription="@string/cd_play"
-            android:src="@drawable/apollo_holo_light_play" />
+            style="?BottomActionBarPlay" />
 
         <ImageButton
             android:id="@+id/bottom_action_bar_next"
-            style="@style/BottomActionBarItem"
-            android:contentDescription="@string/cd_next"
-            android:src="@drawable/apollo_holo_light_next" />      
+            style="?BottomActionBarNext"/>      
               
         <ImageButton
             android:id="@+id/bottom_action_bar_switch_queue"
-            style="@style/BottomActionBarItem"
-            android:visibility="gone" 
-            android:contentDescription="@string/cd_next"
-            android:src="@drawable/btn_switch_queue" />        
+            style="?BottomActionBarItem"
+            android:visibility="gone"/>"
         
     </com.andrew.apolloMod.ui.widgets.BottomActionBar>
 

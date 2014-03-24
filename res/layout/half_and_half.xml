@@ -20,14 +20,14 @@
                 android:id="@+id/half_artist_image"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/half_and_half_imageheight"
-                android:scaleType="centerCrop" />
+                android:scaleType="matrix" />
 
 			<RelativeLayout
 		        android:id="@+id/half_artist_info_holder"
 		        android:layout_width="match_parent"
 		        android:layout_height="@dimen/half_and_half_text_wrap_height"
 	            android:layout_alignBottom="@+id/half_artist_image"
-		        android:background="@color/transparent_black"
+            	android:background="@drawable/transparent_black"
 		        android:paddingTop="@dimen/gridview_item_ccontainer_padding_left"
 		        android:paddingBottom="@dimen/gridview_item_ccontainer_padding_left"
 			    android:paddingLeft="@dimen/gridview_item_ccontainer_padding_left"

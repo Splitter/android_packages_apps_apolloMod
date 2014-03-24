@@ -14,7 +14,7 @@
 		        android:id="@+id/gridview_image"
 		        android:layout_width="@dimen/gridview_image_width"
 		        android:layout_height="@dimen/gridview_image_height"
-		        android:scaleType="centerCrop" 
+		        android:scaleType="matrix" 
 			    android:background="@drawable/no_art_small"/>
 		     
 		    <LinearLayout
@@ -25,17 +25,14 @@
 		        android:gravity="center_vertical"
 		        android:orientation="vertical">
 		  		       
-				<View
-				    android:id="@+id/gridview_text_border"
-				    style="@style/Topborderline"
-				    />
+				
 				<LinearLayout
 			        android:id="@+id/gridview_info_holder"
 			        android:layout_width="match_parent"
 			        android:layout_height="@dimen/gridview_item_ccontainer_height"
-			        android:background="@color/transparent_black"
 			        android:gravity="center_vertical"
 			        android:orientation="vertical"
+            		android:background="@drawable/transparent_black"
 				    android:paddingLeft="@dimen/gridview_item_ccontainer_padding_left"
 		        	android:paddingRight="@dimen/gridview_item_ccontainer_padding_right" 
 				    >

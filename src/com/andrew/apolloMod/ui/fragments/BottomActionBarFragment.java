@@ -16,7 +16,10 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
@@ -25,18 +28,37 @@ import com.andrew.apolloMod.ui.widgets.BottomActionBar;
 
 public class BottomActionBarFragment extends Fragment {
 
-	private ImageButton mPrev, mPlay, mNext, mQueue;
+	private ImageButton mPrev, mPlay, mNext, mQueue, mFavs;
+	private ImageView mAlbumImage;
     private BottomActionBar mBottomActionBar;
     private RelativeLayout albumArt, listQueue;
+    private TextView mSongName, mSongNameOnly, mArtistName;
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     	View root = inflater.inflate(R.layout.bottom_action_bar, container);
         mBottomActionBar = new BottomActionBar(getActivity());
-        
-        
+        mAlbumImage = (ImageView)root.findViewById(R.id.bottom_action_bar_album_art);
+
+        mSongName = (TextView)root.findViewById(R.id.bottom_action_bar_track_name);
+        mSongNameOnly = (TextView)root.findViewById(R.id.bottom_action_bar_track_name_only);
+        mArtistName = (TextView)root.findViewById(R.id.bottom_action_bar_artist_name);
+
         mQueue = (ImageButton)root.findViewById(R.id.bottom_action_bar_switch_queue);
-        
+
+        mFavs = (ImageButton)root.findViewById(R.id.bottom_action_bar_favorites);
+        mFavs.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            	MusicUtils.toggleFavorite();
+            	if(MusicUtils.isFavorite(getActivity(), MusicUtils.getCurrentAudioId())){
+            		mFavs.setImageResource(R.drawable.apollo_holo_light_favorite_selected);
+            	}
+            	else{
+            		mFavs.setImageResource(R.drawable.apollo_holo_light_favorite_normal);
+            	}
+            }
+        });
         
         
         mPrev = (ImageButton)root.findViewById(R.id.bottom_action_bar_previous);
@@ -129,19 +151,23 @@ public class BottomActionBarFragment extends Fragment {
         }
     }
 
-    public void onCollapsed(){
+    public void onCollapsed(){    	
+    	mQueue.setImageResource(R.drawable.btn_switch_queue);
+    	mQueue.setVisibility(View.GONE);
+    	mFavs.setVisibility(View.GONE);        
+        listQueue.setVisibility(View.GONE);
+        
     	mPrev.setVisibility(View.VISIBLE);
     	mNext.setVisibility(View.VISIBLE);
     	mPlay.setVisibility(View.VISIBLE);
-    	
-    	mQueue.setImageResource(R.drawable.btn_switch_queue);
-    	mQueue.setVisibility(View.GONE);
-        
-        listQueue.setVisibility(View.GONE);
+    	mAlbumImage.setVisibility(View.VISIBLE);
         albumArt.setVisibility(View.VISIBLE);
+        
+        mSongName.setVisibility(View.VISIBLE);
+        mArtistName.setVisibility(View.VISIBLE);
+        mSongNameOnly.setVisibility(View.GONE);
 
         fade(listQueue, 0f);
-        // Fade in the album art
         fade(albumArt, 1f);
     }
     
@@ -149,7 +175,14 @@ public class BottomActionBarFragment extends Fragment {
     	mPrev.setVisibility(View.GONE);
     	mNext.setVisibility(View.GONE);
     	mPlay.setVisibility(View.GONE);
+    	
+    	mAlbumImage.setVisibility(View.GONE);
     	mQueue.setVisibility(View.VISIBLE);
+    	mFavs.setVisibility(View.VISIBLE);
+    	
+        mSongName.setVisibility(View.GONE);
+        mArtistName.setVisibility(View.GONE);
+        mSongNameOnly.setVisibility(View.VISIBLE);
     }
     
     /**

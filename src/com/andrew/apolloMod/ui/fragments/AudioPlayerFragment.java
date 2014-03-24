@@ -1,6 +1,10 @@
 
 package com.andrew.apolloMod.ui.fragments;
 
+import static com.andrew.apolloMod.Constants.ARTIST_ID;
+import static com.andrew.apolloMod.Constants.ARTIST_KEY;
+import static com.andrew.apolloMod.Constants.MIME_TYPE;
+import static com.andrew.apolloMod.Constants.NUMALBUMS;
 import static com.andrew.apolloMod.Constants.SIZE_NORMAL;
 import static com.andrew.apolloMod.Constants.SRC_FIRST_AVAILABLE;
 import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
@@ -9,11 +13,17 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
+import android.database.DatabaseUtils;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.os.SystemClock;
+import android.provider.BaseColumns;
+import android.provider.MediaStore.Audio;
+import android.provider.MediaStore.Audio.ArtistColumns;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
@@ -28,6 +38,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.andrew.apolloMod.R;
+import com.andrew.apolloMod.activities.TracksBrowser;
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.helpers.utils.ApolloUtils;
@@ -41,14 +52,14 @@ import com.andrew.apolloMod.ui.widgets.VisualizerView;
 public class AudioPlayerFragment extends Fragment {
 
     // Total and current time
-    private TextView mTotalTime, mCurrentTime;
+    private TextView mTotalTime, mCurrentTime, mAlbum, mArtist;
 
     // Album art
     private ViewPager mAlbumArtPager;
 
     private AlbumArtPagerAdapter mPagerAdapter;
     // Controls
-    private ImageButton mRepeat, mPlay, mShuffle;
+    private ImageButton mRepeat, mPlay, mShuffle, mViewArtist;
 
     private RepeatingImageButton mPrev, mNext;
 
@@ -71,9 +82,52 @@ public class AudioPlayerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.audio_player, container, false);
-        
+
         mTotalTime = (TextView)root.findViewById(R.id.audio_player_total_time);
         mCurrentTime = (TextView)root.findViewById(R.id.audio_player_current_time);
+
+        mAlbum = (TextView)root.findViewById(R.id.audio_player_album);
+        mArtist = (TextView)root.findViewById(R.id.audio_player_artist);
+        
+        mViewArtist = (ImageButton)root.findViewById(R.id.view_more);
+
+        mViewArtist.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String artistName = MusicUtils.getArtistName();
+                String artistId = String.valueOf(MusicUtils.getCurrentArtistId());
+                Bundle bundle = new Bundle();
+                bundle.putString(MIME_TYPE, Audio.Artists.CONTENT_TYPE);
+                bundle.putString(ARTIST_KEY, artistName);
+                String[] projection = {
+                        BaseColumns._ID, ArtistColumns.ARTIST, ArtistColumns.NUMBER_OF_ALBUMS
+                };
+                Uri uri = Audio.Artists.EXTERNAL_CONTENT_URI;   
+                Cursor cursor = null;
+                try{
+                	cursor = getActivity().getContentResolver().query(uri, projection, BaseColumns._ID+ "=" + DatabaseUtils.sqlEscapeString(artistId), null, null);
+                }
+                catch(Exception e){
+                	e.printStackTrace();        	
+                }
+                String artistNumAlbums = null;
+                int mArtistNumAlbumsIndex = cursor.getColumnIndexOrThrow(ArtistColumns.NUMBER_OF_ALBUMS);
+                if(cursor.getCount()>0){
+        	    	cursor.moveToFirst();
+        	    	artistNumAlbums = cursor.getString(mArtistNumAlbumsIndex);	
+        			cursor.close();
+                }
+                bundle.putString(NUMALBUMS, artistNumAlbums);
+                ApolloUtils.setArtistId(artistName, Long.parseLong(artistId), ARTIST_ID, getActivity());   
+
+                bundle.putLong( BaseColumns._ID, Long.parseLong(artistId) );
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setClass(getActivity(), TracksBrowser.class);
+                intent.putExtras(bundle);
+                getActivity().startActivity(intent);
+            }
+        });
+        
 
         mRepeat = (ImageButton)root.findViewById(R.id.audio_player_repeat);
         mPrev = (RepeatingImageButton)root.findViewById(R.id.audio_player_prev);
@@ -584,6 +638,9 @@ public class AudioPlayerFragment extends Fragment {
         mDuration = MusicUtils.getDuration();
         mTotalTime.setText(MusicUtils.makeTimeString(getActivity(), mDuration / 1000));
 
+        mAlbum.setText(albumName);
+        mArtist.setText(artistName);
+        
         ImageInfo mInfo = new ImageInfo();
         mInfo.type = TYPE_ALBUM;
         mInfo.size = SIZE_NORMAL;

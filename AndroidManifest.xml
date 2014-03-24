@@ -32,7 +32,7 @@
         android:largeHeap="true"
         android:process=":main"
         android:taskAffinity="apollo.task.music"
-        android:theme="@style/ApolloTheme" >
+        android:theme="@style/ApolloTheme.Light" >
         <meta-data
             android:name="android.app.default_searchable"
             android:value=".activities.QueryBrowserActivity" />
@@ -40,7 +40,7 @@
         <activity
             android:name=".activities.QueryBrowserActivity"
             android:exported="true"
-            android:theme="@style/ApolloTheme" >
+            android:theme="@style/ApolloTheme.Light" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
                 <action android:name="android.intent.action.MEDIA_SEARCH" />
@@ -102,7 +102,7 @@
             android:excludeFromRecents="true"
             android:noHistory="true"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.Light.Translucent"
+            android:theme="@style/Light.Translucent"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

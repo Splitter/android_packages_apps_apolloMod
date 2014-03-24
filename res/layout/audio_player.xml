@@ -22,27 +22,26 @@
             android:id="@+id/visualizerView"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:layout_above="@+id/audio_player_text_border" />
-       
+            android:layout_above="@+id/audio_player_nowplaying_text" />
+		
+        <TextView
+            android:id="@+id/audio_player_nowplaying_text"
+            style="?AudioPlayerNowPlayingText"/>
+        
    </RelativeLayout>
+   
    <RelativeLayout
         android:id="@+id/audio_player_queue_wrapper"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/background_grey"
-        android:visibility="gone" >
+        android:visibility="gone" 
+        style="?AudioPlayerQueueBG">
    </RelativeLayout>
     
     <FrameLayout 
 	    android:id="@+id/colorstrip_bottom"
-	    android:layout_width="match_parent"
-	    android:layout_height="@dimen/colorstrip_height"
-        android:background="@color/holo_blue_dark" />
+		style="?AudioPlayerColorstrip"/>
+    
 	<View
-	    android:layout_width="match_parent"
-	    android:layout_height="@dimen/colorstrip_height"
-	    android:background="@drawable/colorstrip_shadow" 
-	    />		
+	    style="?AudioPlayerColorstripShadow"/>	
+	    	
     <include layout="@layout/audio_controls" />
 </LinearLayout>

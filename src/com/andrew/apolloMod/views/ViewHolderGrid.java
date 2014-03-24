@@ -31,7 +31,6 @@ public class ViewHolderGrid {
         mPeakOne = (ImageView)view.findViewById(R.id.peak_one);
         mPeakTwo = (ImageView)view.findViewById(R.id.peak_two);
         mInfoHolder = (LinearLayout)view.findViewById(R.id.gridview_info_holder);
-        mInfoHolder.setBackgroundColor(view.getResources().getColor(R.color.transparent_black));
     }
 
 }

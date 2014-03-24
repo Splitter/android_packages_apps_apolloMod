@@ -26,6 +26,9 @@
     <!-- White -->
     <color name="white">#ffffffff</color>
     
+    <!-- Light Grey Text -->
+    <color name="light_grey">#ff888888</color>
+    
     <!-- Quick Queue line seperator -->
     <color name="actionbar_text">#eeffffff</color>
 
