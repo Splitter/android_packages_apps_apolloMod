@@ -7,47 +7,21 @@
     	android:paddingRight="@dimen/gridview_item_padding_right_left"
     	android:paddingBottom="@dimen/gridview_item_padding_bottom">
 	<RelativeLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="@dimen/gridview_recent_item_height"
-	    android:paddingTop="@dimen/listview_items_padding_top_bottom" 
-	    android:paddingBottom="@dimen/listview_items_padding_top_bottom"
-		android:background="@drawable/listview_item_background" 
-	    android:layout_gravity="center_vertical" >
+	    style="?GridviewRecentsWrapper">
 	 
 	    <com.andrew.apolloMod.views.TrackBrowserImageView
 	        android:id="@+id/gridview_image"
-		    android:layout_width="@dimen/gridview_image_width"
-	        android:layout_height="@dimen/gridview_recent_album_art"
-	        android:layout_alignParentLeft="true"
-	        android:scaleType="matrix" 
-		    android:background="@drawable/no_art_small"/>
+	        style="?GridviewRecentsArt"/>
 	
 	    <!-- Padding may be set on via code for some tabs -->
 	
 	    <TextView
 	        android:id="@+id/gridview_line_one"
-			style="@style/GridviewShadowedText"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-            android:background="@drawable/transparent_black"
-            android:layout_alignBottom="@+id/gridview_image"
-	        android:ellipsize="end"
-	        android:maxLength="49"
-	        android:padding="4dp"
-	        android:singleLine="true"
-			android:textColor="@color/white"
-	        android:textSize="@dimen/text_size_small" />
+			style="?GridviewRecentsShadowedText"/>
 	
 	    <TextView
 	        android:id="@+id/gridview_line_two"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/gridview_image"
-	        android:ellipsize="end"
-	        android:paddingTop="@dimen/listview_items_padding_small_top"
-	        android:singleLine="true"
-	        android:textColor="@color/light_grey"
-	        android:textSize="@dimen/text_size_micro" />
+	        style="?GridviewRecentsText"/>
 	
 	    <ImageView
 	        android:id="@+id/peak_two"

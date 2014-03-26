@@ -40,6 +40,22 @@
     	
     	<item name="ListviewItemWrapper">@style/ListviewItemWrapper_Light</item>
     	<item name="ListviewItemArt">@style/ListviewItemArt_Light</item>
+    	<item name="ListviewItemLineOne">@style/ListviewItemLineOne_Light</item>
+    	<item name="ListviewItemLineTwo">@style/ListviewItemLineTwo_Light</item>
+    	<item name="Listview">@style/Listview_Light</item>
+    	<item name="ListviewDragHandle">@style/ListviewDragHandle_Light</item>
+    	
+    	<item name="Gridview">@style/Gridview_Light</item>
+    	<item name="GridviewItemWrapper">@style/GridviewItemWrapper_Light</item>
+    	<item name="GridviewItemArt">@style/GridviewItemArt_Light</item>
+    	<item name="GridviewItemTextWrapper">@style/GridviewItemTextWrapper_Light</item>
+    	
+    	<item name="GridviewRecentsWrapper">@style/GridviewRecentsWrapper_Light</item>
+    	<item name="GridviewRecentsArt">@style/GridviewRecentsArt_Light</item>
+    	<item name="GridviewRecentsShadowedText">@style/GridviewRecentsShadowedText_Light</item>
+    	<item name="GridviewRecentsText">@style/GridviewRecentsText_Light</item>
+    	
+    	<item name="ShadowedText">@style/ShadowedText_Light</item>
     </style>
     
 </resources>

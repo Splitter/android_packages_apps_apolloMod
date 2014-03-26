@@ -11,20 +11,7 @@
     
     <ListView
         android:id="@android:id/list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:cacheColorHint="@color/transparent"
-        android:drawSelectorOnTop="false"
-        android:fastScrollAlwaysVisible="false"
-        android:fastScrollEnabled="false"
-        android:scrollbars="none"
-        android:listSelector="@drawable/holo_selector"
-        android:background="@color/background_grey"
-  		android:divider="@android:color/transparent"
-  		android:dividerHeight="@dimen/listview_items_padding_top_bottom"
-        android:paddingRight="@dimen/listview_items_padding_top_bottom" 
-        android:paddingLeft="@dimen/listview_items_padding_top_bottom"  />
+        style="?Listview"  />
 
 
 </LinearLayout>

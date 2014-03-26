@@ -146,7 +146,7 @@
         <item name="android:layout_marginRight">@dimen/quick_context_margin_right</item>
         <item name="android:scaleType">centerInside</item>
     </style>
-    <!--  Listview Items -->    
+    <!--  Listview Styles -->    
     <style name="ListviewItemWrapperLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/listview_item_height</item>
@@ -161,7 +161,123 @@
         <item name="android:layout_margin">@dimen/listview_album_margin</item> 
         <item name="android:scaleType">centerCrop</item> 
     </style>
+    <style name="ListviewItemLineOneLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_toRightOf">@+id/listview_item_image</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:maxLength">29</item>
+        <item name="android:paddingLeft">@dimen/listview_items_padding_left_top</item>
+        <item name="android:paddingRight">@dimen/listview_items_padding_right</item>
+        <item name="android:paddingTop">@dimen/listview_items_padding_left_top</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_size_small_medium</item> 
+    </style>    
+    <style name="ListviewItemLineTwoLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/listview_items_padding_left_top</item>
+        <item name="android:paddingRight">@dimen/listview_items_padding_right</item>
+        <item name="android:paddingTop">@dimen/listview_items_padding_small_top</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_below">@+id/listview_item_line_one</item>
+        <item name="android:layout_toRightOf">@+id/listview_item_image</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">@dimen/text_size_small</item> 
+    </style> 
+    <style name="ListviewLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">0dp</item> 
+        <item name="android:layout_weight">1</item> 
+        <item name="android:drawSelectorOnTop">false</item> 
+        <item name="android:fastScrollAlwaysVisible">false</item> 
+        <item name="android:fastScrollEnabled">false</item> 
+        <item name="android:scrollbars">none</item> 
+        <item name="android:dividerHeight">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:paddingRight">@dimen/listview_items_padding_top_bottom</item>  
+        <item name="android:paddingLeft">@dimen/listview_items_padding_top_bottom</item> 
+    </style>
+    <!-- Dragsort Listview Styles -->
+    <style name="ListviewDragHandleLayout">
+        <item name="android:layout_width">@dimen/listview_drag_width</item> 
+        <item name="android:layout_height">@dimen/listview_drag_height</item> 
+        <item name="android:layout_alignParentLeft">true</item> 
+        <item name="android:scaleType">center</item> 
+    </style>
+    <!-- Gridview Styles -->    
+    <style name="GridviewLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">0dp</item> 
+        <item name="android:layout_weight">1</item> 
+        <item name="android:paddingLeft">@dimen/gridview_item_padding_right_left_outer</item> 
+        <item name="android:paddingRight">@dimen/gridview_item_padding_right_left_outer</item> 
+        <item name="android:drawSelectorOnTop">true</item> 
+        <item name="android:numColumns">@integer/gridview_columns</item> 
+        <item name="android:scrollbars">none</item> 
+    </style>
+    <style name="GridviewItemWrapperLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">match_parent</item>  
+    </style>
+    <style name="GridviewItemArtLayout"> 
+        <item name="android:layout_width">@dimen/gridview_image_width</item>  
+        <item name="android:layout_height">@dimen/gridview_image_height</item>  
+        <item name="android:scaleType">matrix</item> 
+    </style>
+    <style name="GridviewItemTextWrapperLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">@dimen/gridview_item_ccontainer_height</item> 
+        <item name="android:gravity">center_vertical</item> 
+        <item name="android:orientation">vertical</item> 
+        <item name="android:paddingLeft">@dimen/gridview_item_ccontainer_padding_left</item> 
+        <item name="android:paddingRight">@dimen/gridview_item_ccontainer_padding_right</item>
+    </style>
     
+    <!-- Recents Gridview Styles -->
+    <style name="GridviewRecentsWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/gridview_recent_item_height</item>
+        <item name="android:paddingTop">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:paddingBottom">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <style name="GridviewRecentsArtLayout">
+        <item name="android:layout_width">@dimen/gridview_image_width</item>
+        <item name="android:layout_height">@dimen/gridview_recent_album_art</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:scaleType">matrix</item> 
+    </style>
+    <style name="GridviewRecentsShadowedTextLayout" parent="ShadowedTextLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">wrap_content</item> 
+        <item name="android:layout_alignBottom">@+id/gridview_image</item> 
+        <item name="android:ellipsize">end</item> 
+        <item name="android:maxLength">49</item> 
+        <item name="android:padding">4dp</item> 
+        <item name="android:singleLine">true</item> 
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+    <style name="GridviewRecentsTextLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_below">@+id/gridview_image</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingTop">@dimen/listview_items_padding_small_top</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_size_micro</item>        
+    </style>
+        
+    <!-- Shadowed Text Styles-->
+    <style name="ShadowedTextLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:shadowRadius">1.5</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
     
     
 	<!-- 
@@ -297,13 +413,68 @@
         <item name="android:src">@drawable/dropdown_ic_arrow_normal_holo_light</item>
     </style>
     
-    <!--  Listview Items -->    
+    <!--  Listview Styles -->    
     <style name="ListviewItemWrapper_Light" parent="ListviewItemWrapperLayout">
         <item name="android:background">@drawable/listview_item_background</item>
     </style>
     <style name="ListviewItemArt_Light" parent="ListviewItemArtLayout">
         <item name="android:background">@drawable/no_art_small</item>
     </style>
+    <style name="ListviewItemLineOne_Light" parent="ListviewItemLineOneLayout">
+        <item name="android:textColor">@color/black</item> 
+    </style>
+    <style name="ListviewItemLineTwo_Light" parent="ListviewItemLineTwoLayout">
+        <item name="android:textColor">@color/light_grey</item>
+    </style>
+    <style name="Listview_Light" parent="ListviewLayout">
+        <item name="android:listSelector">@drawable/holo_selector</item> 
+        <item name="android:background">@color/background_grey</item> 
+        <item name="android:divider">@android:color/transparent</item> 
+        <item name="android:cacheColorHint">@color/transparent</item> 
+    </style>
+  
+    <!-- Dragsort Listview Styles -->
+    <style name="ListviewDragHandle_Light" parent="ListviewDragHandleLayout">
+        <item name="android:src">@drawable/btn_drag_sort</item>
+    </style>
+    
+    <!-- Gridview Styles -->
+    <style name="Gridview_Light" parent="GridviewLayout">
+        <item name="android:background">@color/background_grey</item> 
+        <item name="android:cacheColorHint">@color/transparent</item> 
+    </style>
+    <style name="GridviewItemWrapper_Light" parent="GridviewItemWrapperLayout">
+        <item name="android:background">@drawable/gridview_item_background</item>  
+    </style>
+    <style name="GridviewItemArt_Light" parent="GridviewItemArtLayout"> 
+        <item name="android:background">@drawable/no_art_small</item> 
+    </style>
+    <style name="GridviewItemTextWrapper_Light" parent="GridviewItemTextWrapperLayout">
+        <item name="android:background">@drawable/transparent_black</item>  
+    </style>
+    <!-- Recents Gridview Styles -->
+    <style name="GridviewRecentsWrapper_Light" parent="GridviewRecentsWrapperLayout">
+        <item name="android:background">@drawable/gridview_item_background</item>
+    </style>
+    <style name="GridviewRecentsArt_Light" parent="GridviewRecentsArtLayout">
+        <item name="android:background">@drawable/no_art_small</item>
+    </style>
+    <style name="GridviewRecentsShadowedText_Light" parent="GridviewRecentsShadowedTextLayout"> 
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:textColor">@color/white</item> 
+        <item name="android:background">@drawable/transparent_black</item>
+    </style>
+    <style name="GridviewRecentsText_Light" parent="GridviewRecentsTextLayout">
+        <item name="android:textColor">@color/light_grey</item>      
+    </style>
+    
+    <!-- Shadowed Text Style-->
+    <style name="ShadowedText_Light" parent="ShadowedTextLayout">
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
+    
     
 	<!-- 
 		// LIGHT THEME STYLES

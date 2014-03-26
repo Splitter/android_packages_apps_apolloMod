@@ -32,5 +32,18 @@
     		<attr name="ContextMenuArrow" format="reference" />
     		<attr name="ListviewItemWrapper" format="reference" />
     		<attr name="ListviewItemArt" format="reference" />
+    		<attr name="ListviewItemLineOne" format="reference" />
+    		<attr name="ListviewItemLineTwo" format="reference" />
+    		<attr name="ListviewDragHandle" format="reference" />
+    		<attr name="Listview" format="reference" />
+    		<attr name="Gridview" format="reference" />
+    		<attr name="GridviewItemWrapper" format="reference" />
+    		<attr name="GridviewItemArt" format="reference" />
+    		<attr name="GridviewItemTextWrapper" format="reference" />
+    		<attr name="GridviewRecentsWrapper" format="reference" />
+    		<attr name="GridviewRecentsArt" format="reference" />
+    		<attr name="GridviewRecentsShadowedText" format="reference" />
+    		<attr name="GridviewRecentsText" format="reference" />
+    		<attr name="ShadowedText" format="reference" />
 		</declare-styleable>
 </resources>
