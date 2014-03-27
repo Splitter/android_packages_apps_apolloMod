@@ -38,7 +38,7 @@
     
     <FrameLayout 
 	    android:id="@+id/colorstrip_bottom"
-		style="?AudioPlayerColorstrip"/>
+		style="?Colorstrip"/>
     
 	<View
 	    style="?AudioPlayerColorstripShadow"/>	

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:background="@color/background_grey"
-    android:layout_height="match_parent">
+    style="?TracksBrowserWrapper" >
+    
 	<com.sothree.slidinguppanel.SlidingUpPanelLayout
 	    android:id="@+id/sliding_layout"
 	    android:layout_width="match_parent"
@@ -28,12 +27,7 @@
 		</RelativeLayout>
 		
 	    <LinearLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-			android:orientation="vertical" 
-        	android:background="@color/white"
-			android:clickable="true"
-			android:focusable="false" >
+	        style="?BottomActionBarOuter" >
 	        <LinearLayout 
 				    android:id="@+id/bottom_action_bar_container2"
 				    android:layout_width="match_parent"

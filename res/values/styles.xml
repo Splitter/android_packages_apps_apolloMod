@@ -44,6 +44,13 @@
     	<item name="android:layout_gravity">bottom</item>
     	<item name="android:orientation">vertical</item> 
     </style>
+    <style name="BottomActionBarOuterLayout">
+    	<item name="android:layout_width">match_parent</item> 
+    	<item name="android:layout_height">match_parent</item> 
+    	<item name="android:orientation">vertical</item>  
+    	<item name="android:clickable">true</item> 
+    	<item name="android:focusable">false</item> 
+    </style>
     <style name="BottomActionBarItemLayout">
         <item name="android:layout_width">@dimen/bottom_action_bar_item_width</item>
         <item name="android:layout_height">match_parent</item>
@@ -65,6 +72,11 @@
         <item name="android:layout_height">@dimen/bottom_action_bar_divider_height</item>
     </style> 	
     <!-- AudioPlayer Styles -->
+    <style name="AudioPlayerAlbumArtLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">matrix</item>
+    </style>
     <style name="AudioPlayerTextLayout">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -89,7 +101,7 @@
         <item name="android:maxLength">21</item>
         <item name="android:singleLine">true</item>
     </style>
-    <style name="AudioPlayerViewMoreLayout" parent="GridviewShadowedText">  
+    <style name="AudioPlayerViewMoreLayout">  
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -279,6 +291,68 @@
         <item name="android:textSize">@dimen/text_size_small</item>
     </style>
     
+    <!-- Colorstrip Style -->
+    <style name="ColorstripLayout">        
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/colorstrip_height</item>
+    </style>
+    
+    <!-- Half & Half Styles -->
+    <style name="HalfTextWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/half_and_half_text_wrap_height</item>
+        <item name="android:layout_alignBottom">@+id/half_artist_image</item>
+        <item name="android:paddingTop">@dimen/gridview_item_ccontainer_padding_left</item>
+        <item name="android:paddingBottom">@dimen/gridview_item_ccontainer_padding_left</item>
+        <item name="android:paddingLeft">@dimen/gridview_item_ccontainer_padding_left</item>
+        <item name="android:paddingRight">@dimen/gridview_item_ccontainer_padding_right</item>
+    </style>
+    <style name="HalfTextViewMoreLayout">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:padding">@dimen/half_and_half_imagebutton_padding</item>
+    </style>
+    
+    <!-- Library Browser Styles -->
+    <style name="LibraryWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">?android:attr/actionBarSize</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">true</item>        
+    </style>
+    <style name="LibraryTabsWrapperLayout">
+        <item name="android:layout_width">match_parent</item>  
+        <item name="android:layout_height">@dimen/tab_height</item>  
+    </style>
+    
+    <!-- Shuffle Styles -->
+    <style name="ShuffleWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:paddingRight">10dp</item> 
+        <item name="android:paddingLeft">10dp</item> 
+        <item name="android:paddingBottom">13dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <style name="ShuffleImageLayout">
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_marginTop">13dp</item> 
+        <item name="android:layout_marginLeft">16dp</item> 
+	</style>
+    
+    <!-- Track Browser Styles -->
+    <style name="TracksBrowserWrapperLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">match_parent</item>
+    </style>
     
 	<!-- 
 		// GENERAL THEME STYLES
@@ -318,6 +392,9 @@
     <style name="BottomActionBarItem_Light" parent="BottomActionBarItemLayout">
 		<item name="android:background">@drawable/holo_selector</item>
 	</style>    
+    <style name="BottomActionBarOuter_Light" parent="BottomActionBarOuterLayout">
+    	<item name="android:background">@color/white</item> 
+    </style>
     <style name="BottomActionBarText_Light" parent="BottomActionBarTextLayout">
 	    <item name="android:textColor">@color/transparent_black</item>
     </style>    
@@ -346,6 +423,9 @@
     </style>    
     
     <!-- AudioPlayer Styles -->
+    <style name="AudioPlayerAlbumArt_Light" parent="AudioPlayerAlbumArtLayout">
+        <item name="android:src">@drawable/no_art_normal</item>
+    </style>
     <style name="AudioPlayerText_Light" parent="AudioPlayerTextLayout"></style>
     <style name="AudioPlayerAlbumArtistText_Light" parent="AudioPlayerAlbumArtistTextLayout">
         <item name="android:textColor">@color/transparent_black</item>
@@ -474,7 +554,40 @@
         <item name="android:textColor">@color/white</item>
     </style>
     
+    <!-- Colorstrip Style -->
+    <style name="Colorstrip_Light" parent="ColorstripLayout">   
+        <item name="android:background">@color/holo_blue_dark</item> 
+    </style>
     
+    <!-- Half & Half Styles -->
+    <style name="HalfTextWrapper_Light" parent="HalfTextWrapperLayout">
+        <item name="android:background">@drawable/transparent_black</item>
+    </style>    
+    <style name="HalfTextViewMore_Light" parent="HalfTextViewMoreLayout">
+        <item name="android:src">@drawable/view_more_album</item>
+        <item name="android:background">@drawable/view_more</item>
+    </style>
+    
+    <!-- Library Browser Styles -->
+    <style name="LibraryWrapper_Light" parent="LibraryWrapperLayout">
+        <item name="android:background">@color/background_grey</item>        
+    </style>
+    <style name="LibraryTabsWrapper_Light" parent="LibraryTabsWrapperLayout">
+        <item name="android:background">@color/white</item>  
+    </style>    
+    
+    <!-- Shuffle Styles -->
+    <style name="ShuffleWrapper_Light" parent="ShuffleWrapperLayout">
+        <item name="android:background">@drawable/shuffle_background</item>
+    </style>
+    <style name="ShuffleImage_Light" parent="ShuffleImageLayout">
+        <item name="android:background">@drawable/apollo_holo_light_shuffle_normal</item>
+	</style>
+    
+    <!-- Track Browser Styles -->
+    <style name="TracksBrowserWrapper_Light" parent="TracksBrowserWrapperLayout">
+        <item name="android:background">@color/background_grey</item> 
+    </style>
     
 	<!-- 
 		// LIGHT THEME STYLES
@@ -489,22 +602,6 @@
 
    
 
-    <!-- List separator with a blue underline -->
-    <style name="SeparatorTextViewStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">@dimen/list_separator_min_height</item>
-        <item name="android:background">@drawable/list_section_divider_holo_custom</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/holo_blue_dark</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingRight">@dimen/list_separator_padding_left_right</item>
-        <item name="android:visibility">gone</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:textAllCaps">true</item>
-    </style>
     <!-- Notification bar button -->
     <style name="StatusBarButton">
         <item name="android:layout_width">@dimen/status_bar_button_width_height</item>
@@ -523,19 +620,6 @@
         <item name="android:singleLine">true</item>
     </style>
 
-    <!-- Half and half layout -->
-    <style name="HalfText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/transparent_black</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:gravity">center</item>
-        <item name="android:padding">@dimen/half_and_half_text_padding</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/text_size_small</item>
-    </style>
-
     <!-- ContextMenu header text -->
     <style name="HeaderText">
         <item name="android:layout_width">match_parent</item>
@@ -549,18 +633,6 @@
         <item name="android:singleLine">true</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/text_size_large</item>
-    </style>
-
-    <!-- TextView in shown over the images in the GridView -->
-    <style name="GridViewTextItem">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:shadowColor">@color/white</item>
-        <item name="android:shadowRadius">1</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/text_size_small</item>
     </style>
 
     <!-- Now playing indicator -->
@@ -579,14 +651,6 @@
 	    <item name="android:shadowRadius">1.5</item> 
     </style>
     
-    <!--  TextView with drop-shadow and white text -->
-    <style name="GridviewShadowedText" parent="GridViewTextItem">        
-	    <item name="android:shadowColor">#000000</item>
-	    <item name="android:shadowDx">1</item>
-	    <item name="android:shadowDy">1</item>
-	    <item name="android:shadowRadius">1.5</item> 
-    </style>
-
     <!-- QuickQueue -->
     <style name="Theme.QuickQueue" parent="@android:style/Theme.Holo.Light">
         <item name="android:windowBackground">@color/transparent</item>

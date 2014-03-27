@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    
     <CheckBox 
         android:id="@+id/simple_eq_bass"
         android:text="@string/simple_eq_bass"
@@ -14,6 +15,7 @@
         android:layout_marginLeft="@dimen/simple_eq_margin_left_right"
         android:layout_marginRight="@dimen/simple_eq_margin_left_right"
         android:checked="false"/>
+    
 	<SeekBar
 	    android:id="@+id/simple_eq_bassboost"
 	    android:layout_width="fill_parent"
@@ -190,10 +192,7 @@
 	    		android:max="100"
 	    		android:progress="100"/>
         </LinearLayout>
-	    
-	    
-	    
-	    
+        
 	</LinearLayout>
 	
 </LinearLayout>

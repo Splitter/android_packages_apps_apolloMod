@@ -12,12 +12,14 @@
     	<item name="BottomActionBarDivider">@style/BottomActionBarDivider_Light</item>
     	<item name="BottomActionBar">@style/BottomActionBar_Light</item>
     	<item name="BottomActionBarWrapper">@style/BottomActionBarWrapper_Light</item>
+    	<item name="BottomActionBarOuter">@style/BottomActionBarOuter_Light</item>
     	<item name="BottomActionBarFavorites">@style/BottomActionBarFavorites_Light</item>
     	<item name="BottomActionBarPrevious">@style/BottomActionBarPrevious_Light</item>
     	<item name="BottomActionBarPlay">@style/BottomActionBarPlay_Light</item>
     	<item name="BottomActionBarNext">@style/BottomActionBarNext_Light</item>
     	<item name="BottomActionBarNowQueue">@style/BottomActionBarNowQueue_Light</item>
     	
+    	<item name="AudioPlayerAlbumArt">@style/AudioPlayerAlbumArt_Light</item>
     	<item name="AudioPlayerText">@style/AudioPlayerText_Light</item>
     	<item name="AudioPlayerArtistAlbumText">@style/AudioPlayerAlbumArtistText_Light</item>
     	<item name="AudioPlayerInfoText">@style/AudioPlayerInfoText_Light</item>
@@ -56,6 +58,19 @@
     	<item name="GridviewRecentsText">@style/GridviewRecentsText_Light</item>
     	
     	<item name="ShadowedText">@style/ShadowedText_Light</item>
+    	
+    	<item name="Colorstrip">@style/Colorstrip_Light</item>
+    	
+    	<item name="HalfTextWrapper">@style/HalfTextWrapper_Light</item>
+    	<item name="HalfTextViewMore">@style/HalfTextViewMore_Light</item>
+    	
+    	<item name="LibraryWrapper">@style/LibraryWrapper_Light</item>
+    	<item name="LibraryTabsWrapper">@style/LibraryTabsWrapper_Light</item>
+    	
+    	<item name="ShuffleWrapper">@style/ShuffleWrapper_Light</item>
+    	<item name="ShuffleImage">@style/ShuffleImage_Light</item>
+    	
+    	<item name="TracksBrowserWrapper">@style/TracksBrowserWrapper_Light</item>
     </style>
     
 </resources>

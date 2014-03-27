@@ -7,11 +7,13 @@
     		<attr name="BottomActionBarDivider" format="reference" />
     		<attr name="BottomActionBar" format="reference" />
     		<attr name="BottomActionBarWrapper" format="reference" />
+    		<attr name="BottomActionBarOuter" format="reference" />
     		<attr name="BottomActionBarFavorites" format="reference" />
     		<attr name="BottomActionBarPrevious" format="reference" />
     		<attr name="BottomActionBarPlay" format="reference" />
     		<attr name="BottomActionBarNext" format="reference" />
     		<attr name="BottomActionBarNowQueue" format="reference" />    		
+    		<attr name="AudioPlayerAlbumArt" format="reference" />   		
     		<attr name="AudioPlayerText" format="reference" />
     		<attr name="AudioPlayerArtistAlbumText" format="reference" />
     		<attr name="AudioPlayerInfoText" format="reference" />
@@ -45,5 +47,13 @@
     		<attr name="GridviewRecentsShadowedText" format="reference" />
     		<attr name="GridviewRecentsText" format="reference" />
     		<attr name="ShadowedText" format="reference" />
+    		<attr name="Colorstrip" format="reference" />
+    		<attr name="HalfTextWrapper" format="reference" />
+    		<attr name="HalfTextViewMore" format="reference" />
+    		<attr name="LibraryWrapper" format="reference" />
+    		<attr name="LibraryTabsWrapper" format="reference" />
+    		<attr name="ShuffleWrapper" format="reference" />
+    		<attr name="ShuffleImage" format="reference" />
+    		<attr name="TracksBrowserWrapper" format="reference" />
 		</declare-styleable>
 </resources>
