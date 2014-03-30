@@ -24,13 +24,13 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
@@ -38,9 +38,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -53,6 +50,7 @@ import com.andrew.apolloMod.service.ServiceToken;
 import static com.andrew.apolloMod.Constants.ALBUM_KEY;
 import static com.andrew.apolloMod.Constants.ARTIST_ID;
 import static com.andrew.apolloMod.Constants.ARTIST_KEY;
+import static com.andrew.apolloMod.Constants.CURRENT_THEME;
 import static com.andrew.apolloMod.Constants.MIME_TYPE;
 
 public class QueryBrowserActivity extends ListActivity implements ServiceConnection {
@@ -71,6 +69,12 @@ public class QueryBrowserActivity extends ListActivity implements ServiceConnect
     @SuppressWarnings("deprecation")
     @Override
     public void onCreate(Bundle icicle) {
+    	SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+    	String type = sp.getString(CURRENT_THEME, getResources().getString(R.string.theme_light));                    
+		if(type.equals(getResources().getString(R.string.theme_light)))
+			setTheme(R.style.ApolloTheme_Light);
+		else
+			setTheme(R.style.ApolloTheme_Dark);
         super.onCreate(icicle);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         mAdapter = (QueryListAdapter)getLastNonConfigurationInstance();
@@ -120,6 +124,7 @@ public class QueryBrowserActivity extends ListActivity implements ServiceConnect
                 intent.setClass(this, TracksBrowser.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                finish();
                 return;
             }
         }
@@ -152,7 +157,7 @@ public class QueryBrowserActivity extends ListActivity implements ServiceConnect
         mTrackList = getListView();
         mTrackList.setTextFilterEnabled(true);
         if (mAdapter == null) {
-            mAdapter = new QueryListAdapter(getApplication(), this, R.layout.listview_items, null, // cursor
+            mAdapter = new QueryListAdapter(getApplication(), this, R.layout.listview_items_search, null, // cursor
                     new String[] {}, new int[] {}, 0);
             setListAdapter(mAdapter);
             if (TextUtils.isEmpty(mFilterString)) {
@@ -335,21 +340,7 @@ public class QueryBrowserActivity extends ListActivity implements ServiceConnect
         public void bindView(View view, Context context, Cursor cursor) {
 
             TextView tv1 = (TextView)view.findViewById(R.id.listview_item_line_one);
-            tv1.setTextColor(Color.BLACK);
             TextView tv2 = (TextView)view.findViewById(R.id.listview_item_line_two);
-            tv2.setTextColor(Color.BLACK);
-            ImageView iv = (ImageView)view.findViewById(R.id.listview_item_image);
-            iv.setVisibility(View.GONE);
-            FrameLayout fl = (FrameLayout)view.findViewById(R.id.track_list_context_frame);
-            fl.setVisibility(View.GONE);
-            ViewGroup.LayoutParams p = iv.getLayoutParams();
-            if (p == null) {
-                // seen this happen, not sure why
-                DatabaseUtils.dumpCursor(cursor);
-                return;
-            }
-            p.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-            p.height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
             String mimetype = cursor.getString(cursor.getColumnIndexOrThrow(Audio.Media.MIME_TYPE));
 
@@ -440,7 +431,11 @@ public class QueryBrowserActivity extends ListActivity implements ServiceConnect
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            finish();
+        	Intent i = getBaseContext().getPackageManager()
+	   	             .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+	   		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+	   		startActivity(i);
+	   		finish();
             return true;
         }
         return super.onKeyDown(keyCode, event);

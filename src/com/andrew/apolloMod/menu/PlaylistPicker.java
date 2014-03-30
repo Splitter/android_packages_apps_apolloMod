@@ -9,13 +9,18 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources.Theme;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.TypedValue;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 
+import static com.andrew.apolloMod.Constants.CURRENT_THEME;
 import static com.andrew.apolloMod.Constants.INTENT_ADD_TO_PLAYLIST;
 import static com.andrew.apolloMod.Constants.INTENT_CREATE_PLAYLIST;
 import static com.andrew.apolloMod.Constants.INTENT_PLAYLIST_LIST;
@@ -74,6 +79,17 @@ public class PlaylistPicker extends Activity implements DialogInterface.OnClickL
     @Override
     public void onCreate(Bundle icicle) {
 
+    	SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+    	String type = sp.getString(CURRENT_THEME, getResources().getString(R.string.theme_light));                    
+		if(type.equals(getResources().getString(R.string.theme_light)))
+			setTheme(R.style.ApolloTheme_Light);
+		else
+			setTheme(R.style.ApolloTheme_Dark);
+
+    	Theme theme = getTheme();
+		TypedValue typedvalueattr = new TypedValue();
+		theme.resolveAttribute(R.attr.PlaylistDialog, typedvalueattr, true); 
+		setTheme(typedvalueattr.resourceId);
         super.onCreate(icicle);
         setContentView(new LinearLayout(this));
 

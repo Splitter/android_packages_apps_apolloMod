@@ -13,6 +13,7 @@ import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
@@ -80,6 +81,12 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
     
     @Override
     protected void onCreate(Bundle icicle) {
+    	SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+    	String type = sp.getString(CURRENT_THEME, getResources().getString(R.string.theme_light));                    
+		if(type.equals(getResources().getString(R.string.theme_light)))
+			setTheme(R.style.ApolloTheme_Light);
+		else
+			setTheme(R.style.ApolloTheme_Dark);
         super.onCreate(icicle);
         
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);

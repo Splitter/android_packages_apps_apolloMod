@@ -216,6 +216,18 @@
         <item name="android:layout_alignParentLeft">true</item> 
         <item name="android:scaleType">center</item> 
     </style>
+    <style name="ListviewDragWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawSelectorOnTop">false</item>
+        <item name="android:fastScrollAlwaysVisible">false</item>
+        <item name="android:fastScrollEnabled">false</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:dividerHeight">@dimen/listview_items_padding_top_bottom</item>
+        <item name="android:paddingRight">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:paddingLeft">@dimen/listview_items_padding_top_bottom</item>
+    </style>
     <!-- Gridview Styles -->    
     <style name="GridviewLayout">
         <item name="android:layout_width">match_parent</item> 
@@ -384,6 +396,8 @@
         <item name="android:textStyle">bold</item>
     </style> 
     
+    <style name="PlaylistDialog_Light" parent="@android:style/Theme.Holo.Light.Dialog.NoActionBar" ></style>
+    
 	<!-- BottomActionBar -->  
 	<style name="BottomActionBar_Light" parent="BottomActionBarLayout">
         <item name="android:background">@drawable/holo_selector</item>
@@ -517,6 +531,12 @@
     <style name="ListviewDragHandle_Light" parent="ListviewDragHandleLayout">
         <item name="android:src">@drawable/btn_drag_sort</item>
     </style>
+    <style name="ListviewDragWrapper_Light" parent="ListviewDragWrapperLayout">
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:listSelector">@drawable/holo_selector</item>
+        <item name="android:background">@color/background_grey</item>
+        <item name="android:divider">@android:color/transparent</item>
+    </style>
     
     <!-- Gridview Styles -->
     <style name="Gridview_Light" parent="GridviewLayout">
@@ -597,6 +617,168 @@
     
     
     
+    
+    
+	<!-- 
+		DARK THEME STYLES
+	-->	
+    <style name="PlaylistDialog_Dark" parent="@android:style/Theme.Holo.Dialog.NoActionBar" ></style>
+  
+    <!-- Tabs -->
+    <style name="Tabs_Dark" parent="TabsLayout">
+        <item name="android:textColor">@color/tab_text_color_dark</item>
+        <item name="android:textSize">@dimen/text_size_micro</item>
+        <item name="android:textStyle">bold</item>
+    </style> 
+    <style name="BottomActionBarOuter_Dark" parent="BottomActionBarOuterLayout">
+    	<item name="android:background">@color/light_grey_dark</item> 
+    </style>
+    <style name="BottomActionBarText_Dark" parent="BottomActionBarTextLayout">
+	    <item name="android:textColor">@color/transparent_white</item>
+    </style>    
+    <style name="BottomActionBarFavorites_Dark" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_favorite</item>
+        <item name="android:src">@drawable/apollo_holo_dark_favorite_normal</item>
+    </style>
+    <style name="BottomActionBarPrevious_Dark" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_previous</item>
+        <item name="android:src">@drawable/apollo_holo_dark_prev</item>
+    </style>
+    <style name="BottomActionBarPlay_Dark" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_play</item>
+        <item name="android:src">@drawable/apollo_holo_dark_play</item>
+    </style>
+    <style name="BottomActionBarNext_Dark" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_next</item>
+        <item name="android:src">@drawable/apollo_holo_dark_next</item>
+    </style>
+    <style name="BottomActionBarNowQueue_Dark" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_show_queue</item>
+        <item name="android:src">@drawable/btn_switch_queue_dark</item>
+    </style>
+    <style name="AudioPlayerAlbumArt_Dark" parent="AudioPlayerAlbumArtLayout">
+        <item name="android:src">@drawable/no_art_normal_dark</item>
+    </style>
+    <style name="AudioPlayerAlbumArtistText_Dark" parent="AudioPlayerAlbumArtistTextLayout">
+        <item name="android:textColor">@color/transparent_white</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">bold</item>
+    </style>     
+    <style name="AudioPlayerInfoText_Dark" parent="AudioPlayerInfoTextLayout">
+        <item name="android:textColor">@color/transparent_white</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>    
+    <style name="AudioPlayerViewMore_Dark" parent="AudioPlayerViewMoreLayout"> 
+        <item name="android:src">@drawable/view_more_now_dark</item>
+        <item name="android:background">@drawable/holo_selector</item>
+    </style>    
+    <style name="AudioPlayerTimeText_Dark" parent="AudioPlayerTimeTextLayout">
+        <item name="android:textColor">@color/transparent_white</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+    <style name="AudioPlayerQueueBG_Dark" parent="AudioPlayerQueueBGLayout">
+        <item name="android:background">@color/background_grey_dark</item>
+    </style>
+    <style name="AudioPlayerPrevious_Dark" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_previous</item>
+        <item name="android:src">@drawable/apollo_holo_dark_prev</item> 
+    </style>
+    <style name="AudioPlayerPlay_Dark" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_play</item>
+        <item name="android:src">@drawable/apollo_holo_dark_pause</item> 
+    </style>
+    <style name="AudioPlayerNext_Dark" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_next</item>
+        <item name="android:src">@drawable/apollo_holo_dark_next</item> 
+    </style>
+    <style name="AudioPlayerRepeat_Dark" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_repeat</item>
+        <item name="android:src">@drawable/apollo_holo_light_repeat_normal</item> 
+    </style>
+    <style name="AudioPlayerShuffle_Dark" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_shuffle</item>
+        <item name="android:src">@drawable/apollo_holo_dark_shuffle_normal</item> 
+    </style>
+    <style name="AudioPlayerSeek_Dark" parent="AudioPlayerSeekLayout">  
+        <item name="android:progressDrawable">@drawable/audio_player_seekbar_dark</item>
+    </style>
+    
+    <!-- Context Menu Styles -->
+    <style name="ContextMenuLine_Dark" parent="ContextMenuLineLayout">
+        <item name="android:background">@color/transparent_white</item>
+    </style>
+    <style name="ContextMenuArrow_Dark" parent="ContextMenuArrowLayout">
+        <item name="android:src">@drawable/dropdown_ic_arrow_normal_holo_dark</item>
+    </style>
+    
+    
+    <!-- Library Browser Styles -->
+    <style name="LibraryWrapper_Dark" parent="LibraryWrapperLayout">
+        <item name="android:background">@color/background_grey_dark</item>        
+    </style>
+    <style name="ListviewItemArt_Dark" parent="ListviewItemArtLayout">
+        <item name="android:background">@drawable/no_art_small_dark</item>
+    </style>
+    <style name="LibraryTabsWrapper_Dark" parent="LibraryTabsWrapperLayout">
+        <item name="android:background">@color/light_grey_dark</item>  
+    </style>    
+    
+    <style name="ListviewItemWrapper_Dark" parent="ListviewItemWrapperLayout">
+        <item name="android:background">@drawable/listview_item_background_dark</item>
+    </style>
+    <style name="ListviewItemLineOne_Dark" parent="ListviewItemLineOneLayout">
+        <item name="android:textColor">@color/white</item> 
+    </style>
+    <style name="ListviewItemLineTwo_Dark" parent="ListviewItemLineTwoLayout">
+        <item name="android:textColor">@color/transparent_white</item>
+    </style>
+    <style name="Listview_Dark" parent="ListviewLayout">
+        <item name="android:listSelector">@drawable/holo_selector</item> 
+        <item name="android:background">@color/background_grey_dark</item> 
+        <item name="android:divider">@android:color/transparent</item> 
+        <item name="android:cacheColorHint">@color/transparent</item> 
+    </style>
+    <style name="ListviewDragHandle_Dark" parent="ListviewDragHandleLayout">
+        <item name="android:src">@drawable/btn_drag_sort_dark</item>
+    </style>
+    <style name="ListviewDragWrapper_Dark" parent="ListviewDragWrapperLayout">
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:listSelector">@drawable/holo_selector</item>
+        <item name="android:background">@color/background_grey_dark</item>
+        <item name="android:divider">@android:color/transparent</item>
+    </style>
+  
+    <style name="Gridview_Dark" parent="GridviewLayout">
+        <item name="android:background">@color/background_grey_dark</item> 
+        <item name="android:cacheColorHint">@color/transparent</item> 
+    </style>
+    <style name="GridviewItemArt_Dark" parent="GridviewItemArtLayout"> 
+        <item name="android:background">@drawable/no_art_small_dark</item> 
+    </style>
+    <style name="GridviewItemWrapper_Dark" parent="GridviewItemWrapperLayout">
+        <item name="android:background">@drawable/gridview_item_background_dark</item>  
+    </style>
+    <style name="GridviewRecentsArt_Dark" parent="GridviewRecentsArtLayout">
+        <item name="android:background">@drawable/no_art_small_dark</item>
+    </style>
+    <style name="GridviewRecentsWrapper_Dark" parent="GridviewRecentsWrapperLayout">
+        <item name="android:background">@drawable/gridview_item_background_dark</item>  
+    </style>
+    <style name="GridviewRecentsText_Dark" parent="GridviewRecentsTextLayout">
+        <item name="android:textColor">@color/transparent_white</item>      
+    </style>
+    
+    <style name="ShuffleWrapper_Dark" parent="ShuffleWrapperLayout">
+        <item name="android:background">@drawable/shuffle_background_dark</item>
+        <item name="android:textColor">@color/transparent_white</item>
+    </style>
+    <style name="ShuffleImage_Dark" parent="ShuffleImageLayout">
+        <item name="android:background">@drawable/apollo_holo_dark_shuffle_normal</item>
+	</style>
+    <!-- Track Browser Styles -->
+    <style name="TracksBrowserWrapper_Dark" parent="TracksBrowserWrapperLayout">
+        <item name="android:background">@color/background_grey_dark</item> 
+    </style>
     
     
 

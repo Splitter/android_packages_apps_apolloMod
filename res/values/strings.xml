@@ -113,9 +113,9 @@
     <string name="eqalizer">Equalizer</string>
     <string name="header_interface">Interface</string>
     <string name="settings_storage_category">Storage</string>
-    <string name="themes">Themes</string>
-    <string name="apollo_themes">Select theme for Apollo</string>
-    <string name="select_theme">Select your theme</string>
+    <string name="themes">Theme Chooser</string>
+    <string name="themes_title">Theme Chooser</string>
+    <string name="themes_subtitle">Select theme for ApolloMod</string>
     <string name="version">ApolloMod Version</string>
     <string name="tab_visibility_title">Tab visibility</string>
     <string name="tab_visibility_summary">Choose which tabs are displayed</string>
@@ -143,7 +143,7 @@ https://github.com/CyanogenMod/android_packages_apps_Apollo/tree/cm-10.1
     
     <!-- Settings keys -->
     <string name="key_themes" translatable="false">themepreview</string>
-    <string name="key_themes_package" translatable="false">themePackageName</string>
+    <string name="key_current_theme" translatable="false">current_theme</string>
     <string name="key_themes_preferences" translatable="false">themePrefences</string>
     <string name="key_build_version" translatable="false">build_version</string>
     <string name="key_build_depends" translatable="false">build_depends</string>
@@ -177,6 +177,10 @@ https://github.com/CyanogenMod/android_packages_apps_Apollo/tree/cm-10.1
     <string name="visual_bargraph">Bar Graph</string>
     <string name="visual_solidbargraph">Solid Bar Graph</string>
     <string name="visual_waveform">Waveform</string>
+    
+    <!-- Themes -->
+    <string name="theme_light">Light Theme</string>
+    <string name="theme_dark">Dark Theme</string>
 
     <!-- External file dialog -->
     <string name="play_external_question_msg">Select the action to apply to: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>

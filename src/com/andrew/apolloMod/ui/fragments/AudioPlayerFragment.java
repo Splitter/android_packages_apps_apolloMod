@@ -13,6 +13,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources.Theme;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.net.Uri;
@@ -27,6 +28,7 @@ import android.provider.MediaStore.Audio.ArtistColumns;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -206,7 +208,7 @@ public class AudioPlayerFragment extends Fragment {
         mAlbumArtPager.setOffscreenPageLimit(3);
         mAlbumArtPager.setCurrentItem(1);
         mAlbumArtPager.setOnPageChangeListener(new AlbumArtPageListener());
-        
+        setRepeatButtonImage();
         FrameLayout mColorstripBottom = (FrameLayout)root.findViewById(R.id.colorstrip_bottom);
         mColorstripBottom.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
         return root;
@@ -472,7 +474,10 @@ public class AudioPlayerFragment extends Fragment {
                     mRepeat.setImageResource(R.drawable.apollo_holo_light_repeat_one);
                     break;
                 default:
-                    mRepeat.setImageResource(R.drawable.apollo_holo_light_repeat_normal);
+                	Theme theme = getActivity().getTheme();
+        			TypedValue typedvalueattr = new TypedValue();
+            		theme.resolveAttribute(R.attr.AudioRepeatButton, typedvalueattr, true); 
+                    mRepeat.setImageResource(typedvalueattr.resourceId);
                     break;
             }
         } catch (RemoteException ex) {
@@ -489,7 +494,10 @@ public class AudioPlayerFragment extends Fragment {
         try {
             switch (MusicUtils.mService.getShuffleMode()) {
                 case ApolloService.SHUFFLE_NONE:
-                    mShuffle.setImageResource(R.drawable.apollo_holo_light_shuffle_normal);
+                	Theme theme = getActivity().getTheme();
+        			TypedValue typedvalueattr = new TypedValue();
+            		theme.resolveAttribute(R.attr.AudioShuffleButton, typedvalueattr, true); 
+                    mShuffle.setImageResource(typedvalueattr.resourceId);
                     break;
                 case ApolloService.SHUFFLE_AUTO:
                     mShuffle.setImageResource(R.drawable.apollo_holo_light_shuffle_on);
@@ -508,11 +516,14 @@ public class AudioPlayerFragment extends Fragment {
      */
     private void setPauseButtonImage() {
         try {
+        	Theme theme = getActivity().getTheme();
+			TypedValue typedvalueattr = new TypedValue();
             if (MusicUtils.mService != null && MusicUtils.mService.isPlaying()) {
-                mPlay.setImageResource(R.drawable.apollo_holo_light_pause);
+    			theme.resolveAttribute(R.attr.AudioPauseButton, typedvalueattr, true); 
             } else {
-                mPlay.setImageResource(R.drawable.apollo_holo_light_play);
+    			theme.resolveAttribute(R.attr.AudioPlayButton, typedvalueattr, true); 
             }
+            mPlay.setImageResource(typedvalueattr.resourceId);
         } catch (RemoteException ex) {
             ex.printStackTrace();
         }
@@ -591,6 +602,9 @@ public class AudioPlayerFragment extends Fragment {
      * @return current time
      */
     private long refreshNow() {
+    	Theme theme = getActivity().getTheme();
+		TypedValue typedvalueattr = new TypedValue();
+		theme.resolveAttribute(R.attr.AudioTextColor, typedvalueattr, true); 
         if (MusicUtils.mService == null)
             return 500;
         try {
@@ -601,14 +615,14 @@ public class AudioPlayerFragment extends Fragment {
 
                 if (MusicUtils.mService.isPlaying()) {
                     mCurrentTime.setVisibility(View.VISIBLE);
-                    mCurrentTime.setTextColor(getResources().getColor(R.color.transparent_black));
+                    mCurrentTime.setTextColor(getResources().getColor(typedvalueattr.resourceId));
                 } else {
                     // blink the counter
                     int col = mCurrentTime.getCurrentTextColor();
                     mCurrentTime.setTextColor(col == getResources().getColor(
-                            R.color.transparent_black) ? getResources().getColor(
+                    		typedvalueattr.resourceId) ? getResources().getColor(
                             R.color.holo_blue_dark) : getResources().getColor(
-                            R.color.transparent_black));
+                            typedvalueattr.resourceId));
                     remaining = 500;
                 }
 

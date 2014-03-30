@@ -13,7 +13,7 @@ public final class Constants {
     public final static String LASTFM_API_KEY = "0bec3f7ec1f914d7c960c12a916c8fb3";
 
     // SharedPreferences
-    public final static String APOLLO = "Apollo", APOLLO_PREFERENCES = "apollopreferences",
+    public final static String APOLLO = "Apollo", APOLLO_PREFERENCES = "apollopreferences", CURRENT_THEME ="current_theme",
             ARTIST_KEY = "artist", ALBUM_KEY = "album", ALBUM_ID_KEY = "albumid", NUMALBUMS = "num_albums",
             GENRE_KEY = "genres", ARTIST_ID = "artistid", NUMWEEKS = "numweeks",BUILD_DEPENDS = "build_depends",
             PLAYLIST_NAME_FAVORITES = "Favorites", PLAYLIST_NAME = "playlist", WIDGET_STYLE="widget_type",

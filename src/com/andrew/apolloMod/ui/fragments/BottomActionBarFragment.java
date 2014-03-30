@@ -7,9 +7,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources.Theme;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +57,10 @@ public class BottomActionBarFragment extends Fragment {
             		mFavs.setImageResource(R.drawable.apollo_holo_light_favorite_selected);
             	}
             	else{
-            		mFavs.setImageResource(R.drawable.apollo_holo_light_favorite_normal);
+                	Theme theme = getActivity().getTheme();
+            		TypedValue typedvalueattr = new TypedValue();
+            		theme.resolveAttribute(R.attr.AudioFavoritesButton, typedvalueattr, true); 
+            		mFavs.setImageResource(typedvalueattr.resourceId);
             	}
             }
         });
@@ -151,8 +156,11 @@ public class BottomActionBarFragment extends Fragment {
         }
     }
 
-    public void onCollapsed(){    	
-    	mQueue.setImageResource(R.drawable.btn_switch_queue);
+    public void onCollapsed(){    
+    	Theme theme = getActivity().getTheme();
+		TypedValue typedvalueattr = new TypedValue();
+		theme.resolveAttribute(R.attr.AudioQueueButton, typedvalueattr, true); 
+    	mQueue.setImageResource( typedvalueattr.resourceId );
     	mQueue.setVisibility(View.GONE);
     	mFavs.setVisibility(View.GONE);        
         listQueue.setVisibility(View.GONE);
@@ -202,11 +210,14 @@ public class BottomActionBarFragment extends Fragment {
      */
     private void setPauseButtonImage() {
         try {
+        	Theme theme = getActivity().getTheme();
+			TypedValue typedvalueattr = new TypedValue();
             if (MusicUtils.mService != null && MusicUtils.mService.isPlaying()) {
-                mPlay.setImageResource(R.drawable.apollo_holo_light_pause);
+    			theme.resolveAttribute(R.attr.AudioPauseButton, typedvalueattr, true); 
             } else {
-                mPlay.setImageResource(R.drawable.apollo_holo_light_play);
+    			theme.resolveAttribute(R.attr.AudioPlayButton, typedvalueattr, true); 
             }
+            mPlay.setImageResource(typedvalueattr.resourceId);
         } catch (RemoteException ex) {
             ex.printStackTrace();
         }
@@ -233,7 +244,10 @@ public class BottomActionBarFragment extends Fragment {
             	else{
                     listQueue.setVisibility(View.GONE);
                     albumArt.setVisibility(View.VISIBLE);
-            		mQueue.setImageResource(R.drawable.btn_switch_queue);
+                	Theme theme = getActivity().getTheme();
+            		TypedValue typedvalueattr = new TypedValue();
+            		theme.resolveAttribute(R.attr.AudioQueueButton, typedvalueattr, true); 
+            		mQueue.setImageResource(typedvalueattr.resourceId);
                     // Fade out the pager container
                     fade(listQueue, 0f);
                     // Fade in the album art

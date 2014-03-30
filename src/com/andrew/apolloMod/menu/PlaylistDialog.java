@@ -20,18 +20,22 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.DialogInterface.OnShowListener;
+import android.content.res.Resources.Theme;
 import android.database.Cursor;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
 import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -40,6 +44,7 @@ import android.widget.Toast;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.utils.MusicUtils;
 
+import static com.andrew.apolloMod.Constants.CURRENT_THEME;
 import static com.andrew.apolloMod.Constants.INTENT_CREATE_PLAYLIST;
 import static com.andrew.apolloMod.Constants.INTENT_KEY_DEFAULT_NAME;
 import static com.andrew.apolloMod.Constants.INTENT_KEY_RENAME;
@@ -116,7 +121,18 @@ public class PlaylistDialog extends FragmentActivity implements TextWatcher,
     }
 
     @Override
-    public void onCreate(Bundle icicle) {
+    public void onCreate(Bundle icicle) {    	
+    	SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		String type = sp.getString(CURRENT_THEME, getResources().getString(R.string.theme_light));                    
+		if(type.equals(getResources().getString(R.string.theme_light)))
+			setTheme(R.style.ApolloTheme_Light);
+		else
+			setTheme(R.style.ApolloTheme_Dark);
+	
+		Theme theme = getTheme();
+		TypedValue typedvalueattr = new TypedValue();
+		theme.resolveAttribute(R.attr.PlaylistDialog, typedvalueattr, true); 
+		setTheme(typedvalueattr.resourceId);
 
         super.onCreate(icicle);
         setContentView(new LinearLayout(this));

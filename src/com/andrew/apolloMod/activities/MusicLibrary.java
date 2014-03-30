@@ -55,6 +55,7 @@ import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelSlideListener;
 
 import static com.andrew.apolloMod.Constants.TABS_ENABLED;
+import static com.andrew.apolloMod.Constants.CURRENT_THEME;
 
 /**
  * @author Andrew Neal
@@ -73,9 +74,15 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
 	private boolean isAlreadyStarted = false;	
     
     @Override
-    protected void onCreate(Bundle icicle) {
+    protected void onCreate(Bundle icicle) { 
+    	SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+    	String type = sp.getString(CURRENT_THEME, getResources().getString(R.string.theme_light));                    
+		if(type.equals(getResources().getString(R.string.theme_light)))
+			setTheme(R.style.ApolloTheme_Light);
+		else
+			setTheme(R.style.ApolloTheme_Dark);
         super.onCreate(icicle);
-
+        
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         // Landscape mode on phone isn't ready
         if (!ApolloUtils.isTablet(this))
@@ -84,8 +91,7 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
         // Scan for music
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);       
        // getSupportFragmentManager().beginTransaction().add(R.id.bottomactionbar_new, new BottomActionBarFragment(), "bottomactionbar_new").commit();
-        
-        // Layout
+       // Layout
         setContentView(R.layout.library_browser);
         
         mBActionbar =(BottomActionBarFragment) getSupportFragmentManager().findFragmentById(R.id.bottomactionbar_new);

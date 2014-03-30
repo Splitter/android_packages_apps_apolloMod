@@ -6,8 +6,6 @@
         android:id="@+id/listview_item_image"
         style="?ListviewItemArt"/>
 
-    <!-- Padding may be set on via code for some tabs -->
-
     <TextView
         android:id="@+id/listview_item_line_one"
         style="?ListviewItemLineOne"/>

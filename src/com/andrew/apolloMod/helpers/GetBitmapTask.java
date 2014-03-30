@@ -1,9 +1,11 @@
 package com.andrew.apolloMod.helpers;
 
 import android.content.Context;
+import android.content.res.Resources.Theme;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.TypedValue;
 
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.cache.ImageInfo;
@@ -83,17 +85,20 @@ public class GetBitmapTask extends AsyncTask<String, Integer, Bitmap> {
     protected void onPostExecute(Bitmap bitmap) {
         super.onPostExecute(bitmap);
         OnBitmapReadyListener listener = mListenerReference.get();
-        if(bitmap == null && !isCancelled()){
-        	if(mImageInfo.size.equals(SIZE_THUMB))
-        		bitmap = BitmapFactory.decodeResource(mContextReference.get().getResources(),
-        													R.drawable.no_art_small);
-        	else if(mImageInfo.size.equals(SIZE_NORMAL))
-        		bitmap = BitmapFactory.decodeResource(mContextReference.get().getResources(),
-        													R.drawable.no_art_normal);
+        if( bitmap == null && !isCancelled() ){
+			Theme theme = mContextReference.get().getTheme();
+			TypedValue typedvalueattr = new TypedValue();
+        	if( mImageInfo.size.equals(SIZE_THUMB) ) 
+    			theme.resolveAttribute(R.attr.AlbumArtSmall, typedvalueattr, true); 
+        	else if( mImageInfo.size.equals(SIZE_NORMAL) )     			
+    			theme.resolveAttribute(R.attr.AlbumArtNormal, typedvalueattr, true);
+        	
+        	bitmap = BitmapFactory.decodeResource(mContextReference.get().getResources(),
+        															typedvalueattr.resourceId);
         }
-        if (bitmap != null && !isCancelled()) {
-            if (listener != null) {
-                	listener.bitmapReady(bitmap,  ImageUtils.createShortTag(mImageInfo) + mImageInfo.size );
+        if( bitmap != null && !isCancelled() ) {
+            if ( listener != null ) {
+                	listener.bitmapReady( bitmap,  ImageUtils.createShortTag(mImageInfo) + mImageInfo.size );
             }
         }
     }

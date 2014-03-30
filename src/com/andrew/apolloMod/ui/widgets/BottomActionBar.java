@@ -10,8 +10,10 @@ import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources.Theme;
 import android.os.RemoteException;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.widget.ImageButton;
@@ -62,7 +64,10 @@ public class BottomActionBar extends LinearLayout implements OnLongClickListener
         		mFavs.setImageResource(R.drawable.apollo_holo_light_favorite_selected);
         	}
         	else{
-        		mFavs.setImageResource(R.drawable.apollo_holo_light_favorite_normal);
+            	Theme theme = activity.getTheme();
+        		TypedValue typedvalueattr = new TypedValue();
+        		theme.resolveAttribute(R.attr.AudioFavoritesButton, typedvalueattr, true); 
+        		mFavs.setImageResource(typedvalueattr.resourceId);
         	}
             
             // Track name
