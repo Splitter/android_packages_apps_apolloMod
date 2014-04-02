@@ -23,10 +23,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.fragments.list.NowPlayingFragment;
-import com.andrew.apolloMod.ui.widgets.BottomActionBar;
+import com.andrew.apolloMod.ui.views.BottomActionBar;
 
 public class BottomActionBarFragment extends Fragment {
 

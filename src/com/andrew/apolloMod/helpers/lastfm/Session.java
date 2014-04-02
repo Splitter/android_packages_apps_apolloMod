@@ -26,7 +26,6 @@
 
 package com.andrew.apolloMod.helpers.lastfm;
 
-import com.andrew.apolloMod.helpers.DomElement;
 
 /**
  * Contains Session data relevant for making API calls which require

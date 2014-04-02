@@ -32,7 +32,7 @@ import android.widget.TextView;
 import com.andrew.apolloMod.IApolloService;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.cache.ImageProvider;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceToken;
 

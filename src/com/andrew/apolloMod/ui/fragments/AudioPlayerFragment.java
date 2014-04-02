@@ -40,16 +40,16 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.activities.TracksBrowser;
+import com.andrew.apolloMod.ui.activities.TracksBrowser;
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
-import com.andrew.apolloMod.helpers.utils.ApolloUtils;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.helpers.utils.VisualizerUtils;
+import com.andrew.apolloMod.helpers.ApolloUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
+import com.andrew.apolloMod.helpers.VisualizerUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.adapters.AlbumArtPagerAdapter;
-import com.andrew.apolloMod.ui.widgets.RepeatingImageButton;
-import com.andrew.apolloMod.ui.widgets.VisualizerView;
+import com.andrew.apolloMod.ui.views.RepeatingImageButton;
+import com.andrew.apolloMod.ui.views.VisualizerView;
 
 public class AudioPlayerFragment extends Fragment {
 

@@ -10,7 +10,7 @@ import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Audio.AudioColumns;
 import android.provider.MediaStore.MediaColumns;
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.ui.adapters.list.NowPlayingAdapter;
 import com.andrew.apolloMod.ui.fragments.base.DragSortListViewFragment;
 import static com.andrew.apolloMod.Constants.TYPE_SONG;

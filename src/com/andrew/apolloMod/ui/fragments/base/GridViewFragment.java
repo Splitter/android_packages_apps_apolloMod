@@ -4,8 +4,8 @@ import static com.andrew.apolloMod.Constants.INTENT_ADD_TO_PLAYLIST;
 import static com.andrew.apolloMod.Constants.INTENT_PLAYLIST_LIST;
 
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.utils.ApolloUtils;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.ApolloUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.adapters.base.GridViewAdapter;
 

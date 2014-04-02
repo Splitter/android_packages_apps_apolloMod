@@ -26,8 +26,8 @@
 
 package com.andrew.apolloMod.helpers.lastfm;
 
-import static com.andrew.apolloMod.helpers.utils.StringUtilities.encode;
-import static com.andrew.apolloMod.helpers.utils.StringUtilities.map;
+import static com.andrew.apolloMod.helpers.StringUtilities.encode;
+import static com.andrew.apolloMod.helpers.StringUtilities.map;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

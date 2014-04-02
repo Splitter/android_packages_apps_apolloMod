@@ -9,7 +9,7 @@
 	    style="?BottomActionBarDivider"
         tools:ignore="ContentDescription" />
 
-    <com.andrew.apolloMod.ui.widgets.BottomActionBar
+    <com.andrew.apolloMod.ui.views.BottomActionBar
         android:id="@+id/bottom_action_bar"
 		style="?BottomActionBar">
 
@@ -73,6 +73,6 @@
             style="?BottomActionBarItem"
             android:visibility="gone"/>"
         
-    </com.andrew.apolloMod.ui.widgets.BottomActionBar>
+    </com.andrew.apolloMod.ui.views.BottomActionBar>
 
 </LinearLayout>

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-	<com.andrew.apolloMod.views.TrackBrowserImageView
+	<com.andrew.apolloMod.ui.views.TrackBrowserImageView
             android:id="@+id/audio_player_album_art"
             style="?AudioPlayerAlbumArt"/>
 	

@@ -18,7 +18,7 @@
         
    	 	<include layout="@layout/shadow" />
    	 	
-        <com.andrew.apolloMod.ui.widgets.VisualizerView
+        <com.andrew.apolloMod.ui.views.VisualizerView
             android:id="@+id/visualizerView"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"

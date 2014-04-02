@@ -11,7 +11,7 @@ import android.provider.MediaStore.Audio.Playlists;
 import android.util.Log;
 import android.widget.Toast;
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.ui.adapters.base.DragSortListViewAdapter;
 
 public class PlaylistListAdapter extends DragSortListViewAdapter {

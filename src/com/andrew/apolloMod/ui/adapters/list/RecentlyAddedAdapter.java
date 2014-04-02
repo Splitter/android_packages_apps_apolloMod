@@ -6,7 +6,8 @@ import android.database.Cursor;
 import android.provider.BaseColumns;
 import android.provider.MediaStore.MediaColumns;
 import android.provider.MediaStore.Audio.AudioColumns;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.ui.adapters.base.GridViewAdapter;
 import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
 

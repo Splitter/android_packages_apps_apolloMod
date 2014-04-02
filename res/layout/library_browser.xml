@@ -12,7 +12,7 @@
 	    <LinearLayout
 	        style="?LibraryWrapper" >
 		
-		    <com.andrew.apolloMod.ui.widgets.ScrollableTabView
+		    <com.andrew.apolloMod.ui.views.ScrollableTabView
 		        android:id="@+id/scrollingTabs"
 		        style="?LibraryTabsWrapper"/>
 		

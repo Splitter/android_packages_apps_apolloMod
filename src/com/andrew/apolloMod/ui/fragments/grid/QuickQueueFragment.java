@@ -30,10 +30,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 
-import com.andrew.apolloMod.NowPlayingCursor;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.AddIdCursorLoader;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.adapters.QuickQueueAdapter;
 
@@ -183,11 +182,6 @@ public class QuickQueueFragment extends Fragment implements LoaderCallbacks<Curs
 
     @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-        if (mCursor instanceof NowPlayingCursor) {
-            if (MusicUtils.mService != null) {
-                MusicUtils.setQueuePosition(position);
-            }
-        }
         MusicUtils.playAll(getActivity(), mCursor, position);
         getActivity().finish();
     }

@@ -12,8 +12,7 @@ import android.os.AsyncTask;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.GetBitmapTask;
-import com.andrew.apolloMod.helpers.utils.ImageUtils;
+import com.andrew.apolloMod.helpers.ImageUtils;
 
 import static com.andrew.apolloMod.Constants.*;
 

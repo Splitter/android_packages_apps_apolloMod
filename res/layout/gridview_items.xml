@@ -9,7 +9,7 @@
 		<RelativeLayout
 		    style="?GridviewItemWrapper">
 		
-		    <com.andrew.apolloMod.views.TrackBrowserImageView
+		    <com.andrew.apolloMod.ui.views.TrackBrowserImageView
 		        android:id="@+id/gridview_image"
 		        style="?GridviewItemArt"/>
 		     

@@ -28,7 +28,6 @@ package com.andrew.apolloMod.helpers.lastfm;
 
 import java.util.Locale;
 
-import com.andrew.apolloMod.helpers.DomElement;
 
 /**
  * An <code>Image</code> contains metadata and URLs for an artist's image.

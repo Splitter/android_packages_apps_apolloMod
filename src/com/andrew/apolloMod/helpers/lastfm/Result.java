@@ -27,7 +27,6 @@ package com.andrew.apolloMod.helpers.lastfm;
 
 import org.w3c.dom.Document;
 
-import com.andrew.apolloMod.helpers.DomElement;
 
 
 /**

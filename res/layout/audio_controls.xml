@@ -39,7 +39,7 @@
         android:orientation="horizontal"
         android:paddingTop="@dimen/audio_player_button_container_padding" > 
         
-        <com.andrew.apolloMod.ui.widgets.RepeatingImageButton
+        <com.andrew.apolloMod.ui.views.RepeatingImageButton
             android:id="@+id/audio_player_prev"
             style="?AudioPlayerPrevious"/>
 
@@ -47,7 +47,7 @@
             android:id="@+id/audio_player_play"
             style="?AudioPlayerPlay"/>
 
-        <com.andrew.apolloMod.ui.widgets.RepeatingImageButton
+        <com.andrew.apolloMod.ui.views.RepeatingImageButton
             android:id="@+id/audio_player_next"
             style="?AudioPlayerNext"/>
 

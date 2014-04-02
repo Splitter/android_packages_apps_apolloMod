@@ -10,7 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.andrew.apolloMod.helpers.RefreshableFragment;
+import com.andrew.apolloMod.ui.fragments.base.RefreshableFragment;
 
 /**
  * @author Andrew Neal

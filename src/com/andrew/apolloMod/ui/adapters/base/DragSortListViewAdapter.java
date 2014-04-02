@@ -17,8 +17,8 @@ import android.view.ViewGroup;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.views.ViewHolderList;
+import com.andrew.apolloMod.helpers.MusicUtils;
+import com.andrew.apolloMod.ui.views.holders.ViewHolderList;
 import com.mobeta.android.dslv.SimpleDragSortCursorAdapter;
 
 public abstract class DragSortListViewAdapter extends SimpleDragSortCursorAdapter{

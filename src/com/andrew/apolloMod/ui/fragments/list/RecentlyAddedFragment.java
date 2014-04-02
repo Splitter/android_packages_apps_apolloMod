@@ -12,7 +12,7 @@ import android.provider.MediaStore.Audio.AudioColumns;
 import android.provider.MediaStore.MediaColumns;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.helpers.AddIdCursorLoader;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.ui.adapters.list.RecentlyAddedAdapter;
 import com.andrew.apolloMod.ui.fragments.base.GridViewFragment;
 import static com.andrew.apolloMod.Constants.NUMWEEKS;
