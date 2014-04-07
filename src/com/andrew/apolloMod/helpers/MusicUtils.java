@@ -41,6 +41,8 @@ import android.provider.Settings;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.andrew.apolloMod.providers.HistoryStore;
+import com.andrew.apolloMod.providers.HistoryStore.RecentColumns;
 import com.andrew.apolloMod.IApolloService;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.service.ApolloService;
@@ -586,6 +588,36 @@ public class MusicUtils {
             return -1;
         }
         return -1;
+    }
+    
+    public static long addSongToHistory(Context context, String id, String timeplayed, String title, String artist, String album, String album_id){
+    	if(Long.parseLong(id)<0)
+    		return -1;
+    	ContentResolver resolver = context.getContentResolver();
+        String[] cols = new String[] {
+                RecentColumns._ID, RecentColumns.TIME_PLAYED,
+                RecentColumns.TITLE, RecentColumns.ARTIST,
+                RecentColumns.ALBUM               
+            };
+        String whereclause = RecentColumns._ID + " = '" + id + "'";
+
+        ContentValues values = new ContentValues();
+        values.put(RecentColumns._ID, id);
+        values.put(RecentColumns.TIME_PLAYED, timeplayed);
+        values.put(RecentColumns.TITLE, title);
+        values.put(RecentColumns.ARTIST, artist);
+        values.put(RecentColumns.ALBUM, album);
+        values.put(RecentColumns.ALBUM_ID, album_id);
+        
+        Cursor cur = resolver.query(HistoryStore.CONTENT_URI, cols, whereclause, null, null);
+        
+        if (cur.getCount() <= 0) {
+            Uri uri = resolver.insert(HistoryStore.CONTENT_URI, values);
+            return Long.parseLong(uri.getLastPathSegment());
+        }
+        else{
+        	return resolver.update(HistoryStore.CONTENT_URI, values, whereclause, null);
+        }
     }
 
     /**

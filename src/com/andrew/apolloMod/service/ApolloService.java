@@ -2284,7 +2284,7 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
     	    if(!type.equals(getResources().getString(R.string.visual_none))){
         	    VisualizerUtils.initVisualizer( player );
             }
-            return true;
+    	    return true;
         }
 
         public void setNextDataSource(String path) {
@@ -2342,6 +2342,10 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
         MediaPlayer.OnCompletionListener listener = new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
+        	    String timestamp = Long.valueOf(System.currentTimeMillis()/1000).toString();
+        	    MusicUtils.addSongToHistory(getApplicationContext(), String.valueOf(getAudioId()), timestamp, 
+        	    						getTrackName(), getArtistName(), getAlbumName(), String.valueOf(getAlbumId()) );
+                
                 if (mp == mCurrentMediaPlayer && mNextMediaPlayer != null) {
                     mCurrentMediaPlayer.release();
                     mCurrentMediaPlayer = mNextMediaPlayer;

@@ -44,6 +44,7 @@ import com.andrew.apolloMod.ui.fragments.grid.ArtistsFragment;
 import com.andrew.apolloMod.ui.fragments.list.GenresFragment;
 import com.andrew.apolloMod.ui.fragments.list.PlaylistsFragment;
 import com.andrew.apolloMod.ui.fragments.list.RecentlyAddedFragment;
+import com.andrew.apolloMod.ui.fragments.list.RecentlyPlayedFragment;
 import com.andrew.apolloMod.ui.fragments.list.SongsFragment;
 import com.andrew.apolloMod.helpers.ApolloUtils;
 import com.andrew.apolloMod.helpers.MusicUtils;
@@ -220,7 +221,7 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
         //Only show tabs that were set in preferences
         // Recently added tracks
         if(tabs_set.contains(getResources().getString(R.string.tab_recent)))
-        	mPagerAdapter.addFragment(new RecentlyAddedFragment());
+        	mPagerAdapter.addFragment(new RecentlyPlayedFragment());
         // Artists
         if(tabs_set.contains(getResources().getString(R.string.tab_artists)))
         	mPagerAdapter.addFragment(new ArtistsFragment());
