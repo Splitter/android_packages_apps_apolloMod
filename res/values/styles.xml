@@ -106,7 +106,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginRight">15dp</item>
-        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_marginTop">0dp</item>
 	    <item name="android:padding">@dimen/half_and_half_imagebutton_padding</item>
     </style>    
     <style name="AudioPlayerButtonLayout">
@@ -604,6 +604,12 @@
         <item name="android:background">@drawable/apollo_holo_light_shuffle_normal</item>
 	</style>
     
+    <style name="RecentlyAddedWrapper_Light" parent="ShuffleWrapperLayout">
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@drawable/recent_header_background</item>
+    </style>
+    
     <!-- Track Browser Styles -->
     <style name="TracksBrowserWrapper_Light" parent="TracksBrowserWrapperLayout">
         <item name="android:background">@color/background_grey</item> 
@@ -775,6 +781,13 @@
     <style name="ShuffleImage_Dark" parent="ShuffleImageLayout">
         <item name="android:background">@drawable/apollo_holo_dark_shuffle_normal</item>
 	</style>
+    
+    <style name="RecentlyAddedWrapper_Dark" parent="ShuffleWrapperLayout">
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@drawable/recent_header_background_dark</item>
+    </style>
+    
     <!-- Track Browser Styles -->
     <style name="TracksBrowserWrapper_Dark" parent="TracksBrowserWrapperLayout">
         <item name="android:background">@color/background_grey_dark</item> 

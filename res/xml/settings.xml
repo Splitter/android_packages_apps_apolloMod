@@ -24,6 +24,18 @@
 	        android:defaultValue="@array/tab_titles"
 	        android:capitalize="words"
 	        />
+        
+        <ListPreference 
+	        android:dialogTitle="@string/recents_title"
+            android:key="@string/key_recents_type"
+            android:title="@string/recents_title"
+            android:summary="@string/recents_summary"
+            android:defaultValue="@string/recents_added" 
+            android:entries="@array/recents_types"
+            android:entryValues="@array/recents_types"
+	        android:capitalize="words"
+        	/>  
+        
         <ListPreference 
 	        android:dialogTitle="@string/visualizer_title"
             android:key="@string/key_visualization_type"

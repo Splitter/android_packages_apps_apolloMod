@@ -34,7 +34,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public abstract class GridViewFragment extends Fragment implements LoaderCallbacks<Cursor>,
 OnItemClickListener {
 
-	private GridView mGridView;
+	protected GridView mGridView;
 	
 	protected GridViewAdapter mAdapter;
 

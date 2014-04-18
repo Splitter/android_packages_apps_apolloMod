@@ -82,6 +82,8 @@
     	<item name="ShuffleWrapper">@style/ShuffleWrapper_Light</item>
     	<item name="ShuffleImage">@style/ShuffleImage_Light</item>
     	
+    	<item name="RecentlyAddedWrapper">@style/RecentlyAddedWrapper_Light</item>
+    	
     	<item name="TracksBrowserWrapper">@style/TracksBrowserWrapper_Light</item>
     </style>
     
@@ -169,6 +171,8 @@
     	
     	<item name="ShuffleWrapper">@style/ShuffleWrapper_Dark</item>
     	<item name="ShuffleImage">@style/ShuffleImage_Dark</item>
+    	
+    	<item name="RecentlyAddedWrapper">@style/RecentlyAddedWrapper_Dark</item>
     	
     	<item name="TracksBrowserWrapper">@style/TracksBrowserWrapper_Dark</item>
     </style>

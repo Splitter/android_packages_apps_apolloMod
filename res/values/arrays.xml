@@ -17,13 +17,18 @@
         <item>@string/theme_dark</item>
     </string-array>
     
+     <string-array name="recents_types">
+        <item>@string/recents_added</item>
+        <item>@string/recents_played</item>
+        <item>@string/recents_split</item>
+    </string-array>
+    
      <string-array name="visualization_types">
         <item>@string/visual_none</item>
         <item>@string/visual_bargraph</item>
         <item>@string/visual_solidbargraph</item>
         <item>@string/visual_waveform</item>
-    </string-array>
-    
+    </string-array>   
      
      <string-array name="widget_style_types">
         <item>@string/widget_style_dark</item>

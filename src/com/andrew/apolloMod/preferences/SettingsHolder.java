@@ -62,6 +62,7 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
         // Load settings XML
         int preferencesResId = R.xml.settings;
         addPreferencesFromResource(preferencesResId);
+        
         initChangeTheme();
         
         //Init widget style change option
@@ -73,6 +74,7 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
         // Init about dialog
         initAboutDialog();
         
+        //Init dependencies dialog
         initDependencies();
         
     }

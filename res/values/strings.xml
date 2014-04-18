@@ -122,7 +122,9 @@
     <string name="settings_delete_cache_title">Delete cache</string>
     <string name="settings_delete_cache_summary">Remove all cached images</string>
     <string name="delete_warning">This will permanently delete the cached image entries</string>
-    <string name="visualizer_title">Audio visualizer</string>
+    <string name="recents_title">Recents View Type</string>
+    <string name="recents_summary">Choose to the type of recents display to show</string>
+	<string name="visualizer_title">Audio visualizer</string>
     <string name="visualizer_summary">Choose to display audio visualizations during playback</string>
 	<string name="widget_style_title">Widget Style</string>
     <string name="widget_style_summary">Choose the widget design</string>
@@ -148,6 +150,7 @@ https://github.com/CyanogenMod/android_packages_apps_Apollo/tree/cm-10.1
     <string name="key_build_version" translatable="false">build_version</string>
     <string name="key_build_depends" translatable="false">build_depends</string>
     <string name="key_tabs_enabled" translatable="false">tabs_enabled</string>
+    <string name="key_recents_type" translatable="false">recents_type</string>
     <string name="key_visualization_type" translatable="false">visualization_type</string>
     <string name="key_widget_style" translatable="false">widget_type</string>
     <string name="key_delete_cache" translatable="false">delete_cache</string>
@@ -171,6 +174,11 @@ https://github.com/CyanogenMod/android_packages_apps_Apollo/tree/cm-10.1
     <string name="tab_songs">Songs</string>
     <string name="tab_playlists">Playlists</string>
     <string name="tab_genres">Genres</string>
+    
+    <!-- Recents -->
+    <string name="recents_added">Recently Added</string>
+    <string name="recents_played">Recently Played</string>
+    <string name="recents_split">Splitscreen</string>
     
     <!-- Visualizations -->
     <string name="visual_none">None</string>
@@ -206,5 +214,8 @@ https://github.com/CyanogenMod/android_packages_apps_Apollo/tree/cm-10.1
     <string name="simple_eq_band3">1kHz</string>
     <string name="simple_eq_band4">5kHz</string>
     <string name="simple_eq_band5">16kHz</string>
+    
+    <string name="recents_added">Recently Added</string>
+    <string name="recents_played">Recently Played</string>
 
 </resources>

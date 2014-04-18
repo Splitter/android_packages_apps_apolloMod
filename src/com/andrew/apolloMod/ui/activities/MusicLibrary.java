@@ -1,13 +1,9 @@
-/**
- * 
- */
 
 package com.andrew.apolloMod.ui.activities;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
 import android.app.ActionBar;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -33,18 +29,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
-
 import com.andrew.apolloMod.IApolloService;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.ui.adapters.PagerAdapter;
 import com.andrew.apolloMod.ui.adapters.ScrollingTabsAdapter;
 import com.andrew.apolloMod.ui.fragments.BottomActionBarFragment;
+import com.andrew.apolloMod.ui.fragments.RecentsRootFragment;
 import com.andrew.apolloMod.ui.fragments.grid.AlbumsFragment;
 import com.andrew.apolloMod.ui.fragments.grid.ArtistsFragment;
 import com.andrew.apolloMod.ui.fragments.list.GenresFragment;
 import com.andrew.apolloMod.ui.fragments.list.PlaylistsFragment;
-import com.andrew.apolloMod.ui.fragments.list.RecentlyAddedFragment;
-import com.andrew.apolloMod.ui.fragments.list.RecentlyPlayedFragment;
 import com.andrew.apolloMod.ui.fragments.list.SongsFragment;
 import com.andrew.apolloMod.helpers.ApolloUtils;
 import com.andrew.apolloMod.helpers.MusicUtils;
@@ -54,7 +48,6 @@ import com.andrew.apolloMod.service.ServiceToken;
 import com.andrew.apolloMod.ui.views.ScrollableTabView;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout.PanelSlideListener;
-
 import static com.andrew.apolloMod.Constants.TABS_ENABLED;
 import static com.andrew.apolloMod.Constants.CURRENT_THEME;
 
@@ -203,7 +196,7 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
      */
     public void initPager() {
         // Initiate PagerAdapter
-        PagerAdapter mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        PagerAdapter mPagerAdapter = new PagerAdapter(this, getSupportFragmentManager());
 
         //Get tab visibility preferences
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -221,7 +214,7 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
         //Only show tabs that were set in preferences
         // Recently added tracks
         if(tabs_set.contains(getResources().getString(R.string.tab_recent)))
-        	mPagerAdapter.addFragment(new RecentlyPlayedFragment());
+        	mPagerAdapter.addFragment(new RecentsRootFragment());
         // Artists
         if(tabs_set.contains(getResources().getString(R.string.tab_artists)))
         	mPagerAdapter.addFragment(new ArtistsFragment());

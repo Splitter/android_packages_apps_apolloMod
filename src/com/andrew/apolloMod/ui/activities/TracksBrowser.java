@@ -441,7 +441,7 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
      */
     private void initPager() {
         // Initiate PagerAdapter
-        PagerAdapter mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        PagerAdapter mPagerAdapter = new PagerAdapter(this, getSupportFragmentManager());
         if (ApolloUtils.isArtist(mimeType))
             // Show all albums for an artist
             mPagerAdapter.addFragment(new ArtistAlbumsFragment(bundle));

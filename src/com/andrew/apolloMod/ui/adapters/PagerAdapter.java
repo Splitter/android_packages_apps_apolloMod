@@ -4,12 +4,23 @@
 
 package com.andrew.apolloMod.ui.adapters;
 
-import java.util.ArrayList;
+import static com.andrew.apolloMod.Constants.TABS_ENABLED;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.andrew.apolloMod.R;
+import com.andrew.apolloMod.ui.activities.MusicLibrary;
+import com.andrew.apolloMod.ui.fragments.RecentsRootFragment;
 import com.andrew.apolloMod.ui.fragments.base.RefreshableFragment;
 
 /**
@@ -18,9 +29,11 @@ import com.andrew.apolloMod.ui.fragments.base.RefreshableFragment;
 public class PagerAdapter extends FragmentPagerAdapter {
 
     private final ArrayList<Fragment> mFragments = new ArrayList<Fragment>();
+    private Context mContext;
 
-    public PagerAdapter(FragmentManager fragmentManager) {
+    public PagerAdapter(Context context, FragmentManager fragmentManager) {
         super(fragmentManager);
+    	mContext = context;
     }
 
     public void addFragment(Fragment fragment) {
@@ -34,7 +47,18 @@ public class PagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment getItem(int position) {	
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mContext);
+        Set<String> defaults = new HashSet<String>(Arrays.asList(
+        		mContext.getResources().getStringArray(R.array.tab_titles)
+        	));
+        Set<String> tabs_set = sp.getStringSet(TABS_ENABLED,defaults);
+
+    	if (position == 0 
+    			&& tabs_set.contains(mContext.getResources().getString(R.string.tab_recent)) 
+    			&& MusicLibrary.class.isInstance(mContext) ){
+    		return new RecentsRootFragment();
+    	}
         return mFragments.get(position);
     }
 
