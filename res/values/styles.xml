@@ -585,7 +585,7 @@
     </style>    
     <style name="HalfTextViewMore_Light" parent="HalfTextViewMoreLayout">
         <item name="android:src">@drawable/view_more_album</item>
-        <item name="android:background">@drawable/view_more</item>
+        <item name="android:background">@color/transparent</item>
     </style>
     
     <!-- Library Browser Styles -->
