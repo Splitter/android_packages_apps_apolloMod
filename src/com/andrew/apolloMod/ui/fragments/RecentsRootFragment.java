@@ -1,19 +1,10 @@
 
 package com.andrew.apolloMod.ui.fragments;
 
-import static com.andrew.apolloMod.Constants.TABS_ENABLED;
-import static com.andrew.apolloMod.Constants.VISUALIZATION_TYPE;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.ui.fragments.list.RecentlyAddedFragment;
 import com.andrew.apolloMod.ui.fragments.list.RecentlyPlayedFragment;
-
 import static com.andrew.apolloMod.Constants.RECENTS_TYPE;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;

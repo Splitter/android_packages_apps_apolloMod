@@ -15,6 +15,7 @@
      <string-array name="theme_types">
         <item>@string/theme_light</item>
         <item>@string/theme_dark</item>
+        <item>@string/theme_black</item>
     </string-array>
     
      <string-array name="recents_types">

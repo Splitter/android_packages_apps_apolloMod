@@ -53,7 +53,9 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
     	SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
     	String type = sp.getString(CURRENT_THEME, getResources().getString(R.string.theme_light));                    
 		if(type.equals(getResources().getString(R.string.theme_light)))
-			setTheme(R.style.ApolloTheme_Light);
+			setTheme(R.style.ApolloTheme_Light);                  
+		else if(type.equals(getResources().getString(R.string.theme_black)))
+			setTheme(R.style.ApolloTheme_Black);
 		else
 			setTheme(R.style.ApolloTheme_Dark);
         // This should be called first thing

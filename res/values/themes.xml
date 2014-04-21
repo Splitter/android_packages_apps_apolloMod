@@ -177,4 +177,95 @@
     	<item name="TracksBrowserWrapper">@style/TracksBrowserWrapper_Dark</item>
     </style>
     
+    
+    
+    
+    
+    
+    <style name="ApolloTheme.Black" parent="ApolloTheme.Dark">
+        <item name="android:actionBarStyle">@style/ApolloTheme.BlueActionBar</item>
+    	<item name="android:actionOverflowButtonStyle">@style/ApolloTheme.OverFlow</item>
+    	
+    	<item name="PlaylistDialog">@style/PlaylistDialog_Dark</item>
+    	<item name="Tabs">@style/Tabs_Dark</item>
+    	
+    	<item name="AlbumArtNormal">@drawable/no_art_normal_dark</item>
+    	<item name="AlbumArtSmall">@drawable/no_art_small_dark</item>
+    	<item name="AudioPlayButton">@drawable/apollo_holo_dark_play</item>
+    	<item name="AudioPauseButton">@drawable/apollo_holo_dark_pause</item>
+    	<item name="AudioShuffleButton">@drawable/apollo_holo_dark_shuffle_normal</item>
+    	<item name="AudioRepeatButton">@drawable/apollo_holo_dark_repeat_normal</item>
+    	<item name="AudioFavoritesButton">@drawable/apollo_holo_dark_favorite_normal</item>
+    	<item name="AudioQueueButton">@drawable/btn_switch_queue_dark</item>
+    	<item name="AudioTextColor">@color/transparent_white</item>
+    	
+    	<item name="BottomActionBarItem">@style/BottomActionBarItem_Light</item>
+    	<item name="BottomActionBarText">@style/BottomActionBarText_Dark</item>
+    	<item name="BottomActionBarDivider">@style/BottomActionBarDivider_Light</item>
+    	<item name="BottomActionBar">@style/BottomActionBar_Light</item>
+    	<item name="BottomActionBarWrapper">@style/BottomActionBarWrapper_Light</item>
+    	<item name="BottomActionBarOuter">@style/BottomActionBarOuter_Dark</item>
+    	<item name="BottomActionBarFavorites">@style/BottomActionBarFavorites_Dark</item>
+    	<item name="BottomActionBarPrevious">@style/BottomActionBarPrevious_Dark</item>
+    	<item name="BottomActionBarPlay">@style/BottomActionBarPlay_Dark</item>
+    	<item name="BottomActionBarNext">@style/BottomActionBarNext_Dark</item>
+    	<item name="BottomActionBarNowQueue">@style/BottomActionBarNowQueue_Dark</item>
+    	
+    	<item name="AudioPlayerAlbumArt">@style/AudioPlayerAlbumArt_Dark</item>
+    	<item name="AudioPlayerText">@style/AudioPlayerText_Light</item>
+    	<item name="AudioPlayerArtistAlbumText">@style/AudioPlayerAlbumArtistText_Dark</item>
+    	<item name="AudioPlayerInfoText">@style/AudioPlayerInfoText_Dark</item>
+    	<item name="AudioPlayerViewMore">@style/AudioPlayerViewMore_Dark</item>
+    	<item name="AudioPlayerButton">@style/AudioPlayerButton_Light</item>
+    	<item name="AudioPlayerTimeText">@style/AudioPlayerTimeText_Dark</item>
+    	<item name="AudioPlayerNowPlayingText">@style/AudioPlayerNowPlayingText_Light</item>
+    	<item name="AudioPlayerQueueBG">@style/AudioPlayerQueueBG_Dark</item>
+    	<item name="AudioPlayerColorstrip">@style/AudioPlayerColorstrip_Light</item>
+    	<item name="AudioPlayerColorstripShadow">@style/AudioPlayerColorstripShadow_Light</item>
+    	<item name="AudioPlayerPrevious">@style/AudioPlayerPrevious_Dark</item>
+    	<item name="AudioPlayerPlay">@style/AudioPlayerPrevious_Dark</item>
+    	<item name="AudioPlayerNext">@style/AudioPlayerNext_Dark</item>
+    	<item name="AudioPlayerRepeat">@style/AudioPlayerRepeat_Dark</item>
+    	<item name="AudioPlayerShuffle">@style/AudioPlayerShuffle_Dark</item>
+    	<item name="AudioPlayerSeek">@style/AudioPlayerSeek_Dark</item>
+    	
+    	<item name="ContextMenuLine">@style/ContextMenuLine_Dark</item>
+    	<item name="ContextMenuArrow">@style/ContextMenuArrow_Dark</item>
+    	
+    	<item name="ListviewItemWrapper">@style/ListviewItemWrapper_Dark</item>
+    	<item name="ListviewItemArt">@style/ListviewItemArt_Dark</item>
+    	<item name="ListviewItemLineOne">@style/ListviewItemLineOne_Dark</item>
+    	<item name="ListviewItemLineTwo">@style/ListviewItemLineTwo_Dark</item>
+    	<item name="Listview">@style/Listview_Dark</item>
+    	<item name="ListviewDragHandle">@style/ListviewDragHandle_Dark</item>
+    	<item name="ListviewDragWrapper">@style/ListviewDragWrapper_Dark</item>
+    	
+    	<item name="Gridview">@style/Gridview_Dark</item>
+    	<item name="GridviewItemWrapper">@style/GridviewItemWrapper_Dark</item>
+    	<item name="GridviewItemArt">@style/GridviewItemArt_Dark</item>
+    	<item name="GridviewItemTextWrapper">@style/GridviewItemTextWrapper_Light</item>
+    	
+    	<item name="GridviewRecentsWrapper">@style/GridviewRecentsWrapper_Dark</item>
+    	<item name="GridviewRecentsArt">@style/GridviewRecentsArt_Dark</item>
+    	<item name="GridviewRecentsShadowedText">@style/GridviewRecentsShadowedText_Light</item>
+    	<item name="GridviewRecentsText">@style/GridviewRecentsText_Dark</item>
+    	
+    	<item name="ShadowedText">@style/ShadowedText_Light</item>
+    	
+    	<item name="Colorstrip">@style/Colorstrip_Light</item>
+    	
+    	<item name="HalfTextWrapper">@style/HalfTextWrapper_Light</item>
+    	<item name="HalfTextViewMore">@style/HalfTextViewMore_Light</item>
+    	
+    	<item name="LibraryWrapper">@style/LibraryWrapper_Dark</item>
+    	<item name="LibraryTabsWrapper">@style/LibraryTabsWrapper_Dark</item>
+    	
+    	<item name="ShuffleWrapper">@style/ShuffleWrapper_Dark</item>
+    	<item name="ShuffleImage">@style/ShuffleImage_Dark</item>
+    	
+    	<item name="RecentlyAddedWrapper">@style/RecentlyAddedWrapper_Dark</item>
+    	
+    	<item name="TracksBrowserWrapper">@style/TracksBrowserWrapper_Dark</item>
+    </style>
+    
 </resources>

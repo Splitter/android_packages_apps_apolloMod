@@ -189,7 +189,8 @@ https://github.com/CyanogenMod/android_packages_apps_Apollo/tree/cm-10.1
     <!-- Themes -->
     <string name="theme_light">Light Theme</string>
     <string name="theme_dark">Dark Theme</string>
-
+    <string name="theme_black">Black Theme</string>
+    
     <!-- External file dialog -->
     <string name="play_external_question_msg">Select the action to apply to: \n\n<b><xliff:g id="name">%s</xliff:g></b></string>
     <string name="play_external_question_button_play">Play</string>
