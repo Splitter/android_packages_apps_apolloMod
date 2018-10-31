@@ -1,6 +1,6 @@
 android_packages_apps_apolloMod
 ===============================
-#This project is no longer under development. Most changes/features I wanted(and more) now exist in many other players these days. Many incorporated into the original Apollo Player itself. Which makes further development pointless.
+### This project is no longer under development. Most changes/features I wanted(and more) now exist in many other players these days. Many incorporated into the original Apollo Player itself. Which makes further development pointless.
 
 ApolloMod is an open source music player based on CyanogenMod's Apollo Music Player and released under the same Apache License. It has many changes to the layout and basic functionality as well as a growing list of new features. 
 
