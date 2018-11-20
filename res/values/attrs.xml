@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+		<declare-styleable name="ApolloTheme">
+			<attr name="PlaylistDialog" format="reference" />
+			<attr name="Tabs" format="reference" />
+    		<attr name="BottomActionBarItem" format="reference" />
+    		<attr name="BottomActionBarText" format="reference" />
+    		<attr name="BottomActionBarDivider" format="reference" />
+    		<attr name="BottomActionBar" format="reference" />
+    		<attr name="BottomActionBarWrapper" format="reference" />
+    		<attr name="BottomActionBarOuter" format="reference" />
+    		<attr name="BottomActionBarFavorites" format="reference" />
+    		<attr name="BottomActionBarPrevious" format="reference" />
+    		<attr name="BottomActionBarPlay" format="reference" />
+    		<attr name="BottomActionBarNext" format="reference" />
+    		<attr name="BottomActionBarNowQueue" format="reference" />    		
+    		<attr name="AudioPlayerAlbumArt" format="reference" />   		
+    		<attr name="AudioPlayerText" format="reference" />
+    		<attr name="AudioPlayerArtistAlbumText" format="reference" />
+    		<attr name="AudioPlayerInfoText" format="reference" />
+    		<attr name="AudioPlayerViewMore" format="reference" />
+    		<attr name="AudioPlayerButton" format="reference" />
+    		<attr name="AudioPlayerTimeText" format="reference" />
+    		<attr name="AudioPlayerNowPlayingText" format="reference" />
+    		<attr name="AudioPlayerQueueBG" format="reference" />
+    		<attr name="AudioPlayerColorstrip" format="reference" />
+    		<attr name="AudioPlayerColorstripShadow" format="reference" />
+    		<attr name="AudioPlayerPrevious" format="reference" />
+    		<attr name="AudioPlayerPlay" format="reference" />
+    		<attr name="AudioPlayerNext" format="reference" />
+    		<attr name="AudioPlayerRepeat" format="reference" />
+    		<attr name="AudioPlayerShuffle" format="reference" />
+    		<attr name="AudioPlayerSeek" format="reference" />
+    		<attr name="ContextMenuLine" format="reference" />
+    		<attr name="ContextMenuArrow" format="reference" />
+    		<attr name="ListviewItemWrapper" format="reference" />
+    		<attr name="ListviewItemArt" format="reference" />
+    		<attr name="ListviewItemLineOne" format="reference" />
+    		<attr name="ListviewItemLineTwo" format="reference" />
+    		<attr name="ListviewDragHandle" format="reference" />
+    		<attr name="ListviewDragWrapper" format="reference" />
+    		<attr name="Listview" format="reference" />
+    		<attr name="Gridview" format="reference" />
+    		<attr name="GridviewItemWrapper" format="reference" />
+    		<attr name="GridviewItemArt" format="reference" />
+    		<attr name="GridviewItemTextWrapper" format="reference" />
+    		<attr name="GridviewRecentsWrapper" format="reference" />
+    		<attr name="GridviewRecentsArt" format="reference" />
+    		<attr name="GridviewRecentsShadowedText" format="reference" />
+    		<attr name="GridviewRecentsText" format="reference" />
+    		<attr name="ShadowedText" format="reference" />
+    		<attr name="Colorstrip" format="reference" />
+    		<attr name="HalfTextWrapper" format="reference" />
+    		<attr name="HalfTextViewMore" format="reference" />
+    		<attr name="LibraryWrapper" format="reference" />
+    		<attr name="LibraryTabsWrapper" format="reference" />
+    		<attr name="ShuffleWrapper" format="reference" />
+    		<attr name="ShuffleImage" format="reference" />
+    		<attr name="RecentlyAddedWrapper" format="reference" />
+    		<attr name="TracksBrowserWrapper" format="reference" />
+    		
+    		<!-- Resources needed to be grabbed by app directly from themes -->
+    		<attr name="AlbumArtNormal" format="reference" />
+    		<attr name="AlbumArtSmall" format="reference" />
+    		<attr name="AudioPauseButton" format="reference" />
+    		<attr name="AudioPlayButton" format="reference" />
+    		<attr name="AudioShuffleButton" format="reference" />
+    		<attr name="AudioRepeatButton" format="reference" />
+    		<attr name="AudioFavoritesButton" format="reference" />
+    		<attr name="AudioQueueButton" format="reference" />
+    		<attr name="AudioTextColor" format="reference" />
+    		
+		</declare-styleable>
+</resources>

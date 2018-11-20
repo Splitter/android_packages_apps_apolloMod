@@ -5,17 +5,13 @@
     	android:paddingLeft="@dimen/gridview_item_padding_right_left"
     	android:paddingRight="@dimen/gridview_item_padding_right_left"
     	android:paddingBottom="@dimen/gridview_item_padding_bottom">
+    	
 		<RelativeLayout
-		    android:layout_width="match_parent"
-		    android:layout_height="match_parent"
-			android:background="@drawable/gridview_item_background" >
+		    style="?GridviewItemWrapper">
 		
-		    <com.andrew.apolloMod.views.TrackBrowserImageView
+		    <com.andrew.apolloMod.ui.views.TrackBrowserImageView
 		        android:id="@+id/gridview_image"
-		        android:layout_width="@dimen/gridview_image_width"
-		        android:layout_height="@dimen/gridview_image_height"
-		        android:scaleType="centerCrop" 
-			    android:background="@drawable/no_art_small"/>
+		        style="?GridviewItemArt"/>
 		     
 		    <LinearLayout
 				android:id="@+id/gridview_outershell"
@@ -25,28 +21,19 @@
 		        android:gravity="center_vertical"
 		        android:orientation="vertical">
 		  		       
-				<View
-				    android:id="@+id/gridview_text_border"
-				    style="@style/Topborderline"
-				    />
+				
 				<LinearLayout
 			        android:id="@+id/gridview_info_holder"
-			        android:layout_width="match_parent"
-			        android:layout_height="@dimen/gridview_item_ccontainer_height"
-			        android:background="@color/transparent_black"
-			        android:gravity="center_vertical"
-			        android:orientation="vertical"
-				    android:paddingLeft="@dimen/gridview_item_ccontainer_padding_left"
-		        	android:paddingRight="@dimen/gridview_item_ccontainer_padding_right" 
-				    >
+            		style="?GridviewItemTextWrapper" >
+            		
 			        <TextView
 			            android:id="@+id/gridview_line_one"
-			            style="@style/GridviewShadowedText"
+			            style="?ShadowedText"
 			            android:textStyle="bold" />
 			
 			        <TextView
 			            android:id="@+id/gridview_line_two"
-			            style="@style/GridviewShadowedText" />
+			            style="?ShadowedText" />
 		        </LinearLayout>
 		    </LinearLayout>
 		

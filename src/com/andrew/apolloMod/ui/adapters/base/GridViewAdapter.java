@@ -15,8 +15,8 @@ import android.view.ViewGroup;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.views.ViewHolderGrid;
+import com.andrew.apolloMod.helpers.MusicUtils;
+import com.andrew.apolloMod.ui.views.holders.ViewHolderGrid;
 
 import java.lang.ref.WeakReference;
 

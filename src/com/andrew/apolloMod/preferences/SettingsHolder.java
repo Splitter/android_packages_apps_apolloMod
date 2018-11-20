@@ -9,13 +9,16 @@ import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
@@ -29,10 +32,11 @@ import android.widget.TextView;
 import com.andrew.apolloMod.IApolloService;
 import com.andrew.apolloMod.R;
 import com.andrew.apolloMod.cache.ImageProvider;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.service.ServiceToken;
 
+import static com.andrew.apolloMod.Constants.CURRENT_THEME;
 import static com.andrew.apolloMod.Constants.WIDGET_STYLE;
 import static com.andrew.apolloMod.Constants.DELETE_CACHE;
 import static com.andrew.apolloMod.Constants.BUILD_VERSION;
@@ -46,12 +50,22 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+    	SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+    	String type = sp.getString(CURRENT_THEME, getResources().getString(R.string.theme_light));                    
+		if(type.equals(getResources().getString(R.string.theme_light)))
+			setTheme(R.style.ApolloTheme_Light);                  
+		else if(type.equals(getResources().getString(R.string.theme_black)))
+			setTheme(R.style.ApolloTheme_Black);
+		else
+			setTheme(R.style.ApolloTheme_Dark);
         // This should be called first thing
         super.onCreate(savedInstanceState);
         mContext = this;
         // Load settings XML
         int preferencesResId = R.xml.settings;
         addPreferencesFromResource(preferencesResId);
+        
+        initChangeTheme();
         
         //Init widget style change option
         initChangeWidgetTheme();
@@ -62,6 +76,7 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
         // Init about dialog
         initAboutDialog();
         
+        //Init dependencies dialog
         initDependencies();
         
     }
@@ -74,6 +89,19 @@ public class SettingsHolder extends PreferenceActivity  implements ServiceConnec
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void initChangeTheme(){
+    	ListPreference listPreference = (ListPreference)findPreference(CURRENT_THEME);
+        listPreference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+            	Intent intent = getIntent();
+            	finish();
+            	startActivity(intent);
+                return true;
+            }
+        });
     }
     
     private void initChangeWidgetTheme(){

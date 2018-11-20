@@ -15,7 +15,7 @@ import android.widget.SimpleCursorAdapter;
 import com.andrew.apolloMod.cache.ImageInfo;
 import com.andrew.apolloMod.cache.ImageProvider;
 import com.andrew.apolloMod.ui.fragments.grid.QuickQueueFragment;
-import com.andrew.apolloMod.views.ViewHolderQueue;
+import com.andrew.apolloMod.ui.views.holders.ViewHolderQueue;
 
 import java.lang.ref.WeakReference;
 

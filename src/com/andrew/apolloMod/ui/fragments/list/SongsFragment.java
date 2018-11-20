@@ -14,7 +14,7 @@ import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.ui.adapters.list.SonglistAdapter;
 import com.andrew.apolloMod.ui.fragments.base.ListViewFragment;
 import static com.andrew.apolloMod.Constants.TYPE_SONG;

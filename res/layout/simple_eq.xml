@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    
     <CheckBox 
         android:id="@+id/simple_eq_bass"
         android:text="@string/simple_eq_bass"
@@ -14,6 +15,7 @@
         android:layout_marginLeft="@dimen/simple_eq_margin_left_right"
         android:layout_marginRight="@dimen/simple_eq_margin_left_right"
         android:checked="false"/>
+    
 	<SeekBar
 	    android:id="@+id/simple_eq_bassboost"
 	    android:layout_width="fill_parent"
@@ -60,7 +62,7 @@
         		android:layout_width="fill_parent"
         		android:layout_height="wrap_content"
         		android:gravity="center_horizontal"/>
-            <com.andrew.apolloMod.views.VerticalSeekBar 
+            <com.andrew.apolloMod.ui.views.VerticalSeekBar 
                 android:id="@+id/simple_eq_band0_seek"
         		android:gravity="center_horizontal"
         		android:layout_height="fill_parent"
@@ -84,7 +86,7 @@
         		android:layout_width="fill_parent"
         		android:layout_height="wrap_content"
         		android:gravity="center_horizontal"/>
-            <com.andrew.apolloMod.views.VerticalSeekBar 
+            <com.andrew.apolloMod.ui.views.VerticalSeekBar 
                 android:id="@+id/simple_eq_band1_seek"
         		android:gravity="center_horizontal"
         		android:layout_height="fill_parent"
@@ -108,7 +110,7 @@
         		android:layout_width="fill_parent"
         		android:layout_height="wrap_content"
         		android:gravity="center_horizontal"/>
-            <com.andrew.apolloMod.views.VerticalSeekBar 
+            <com.andrew.apolloMod.ui.views.VerticalSeekBar 
                 android:id="@+id/simple_eq_band2_seek"
         		android:gravity="center_horizontal"
         		android:layout_height="fill_parent"
@@ -132,7 +134,7 @@
         		android:layout_width="fill_parent"
         		android:layout_height="wrap_content"
         		android:gravity="center_horizontal"/>
-            <com.andrew.apolloMod.views.VerticalSeekBar 
+            <com.andrew.apolloMod.ui.views.VerticalSeekBar 
                 android:id="@+id/simple_eq_band3_seek"
         		android:gravity="center_horizontal"
         		android:layout_height="fill_parent"
@@ -156,7 +158,7 @@
         		android:layout_width="fill_parent"
         		android:layout_height="wrap_content"
         		android:gravity="center_horizontal"/>
-            <com.andrew.apolloMod.views.VerticalSeekBar 
+            <com.andrew.apolloMod.ui.views.VerticalSeekBar 
                 android:id="@+id/simple_eq_band4_seek"
         		android:gravity="center_horizontal"
         		android:layout_height="fill_parent"
@@ -180,7 +182,7 @@
         		android:layout_width="fill_parent"
         		android:layout_height="wrap_content"
         		android:gravity="center_horizontal"/>
-            <com.andrew.apolloMod.views.VerticalSeekBar 
+            <com.andrew.apolloMod.ui.views.VerticalSeekBar 
                 android:id="@+id/simple_eq_band5_seek"
         		android:gravity="center_horizontal"
         		android:layout_height="fill_parent"
@@ -190,10 +192,7 @@
 	    		android:max="100"
 	    		android:progress="100"/>
         </LinearLayout>
-	    
-	    
-	    
-	    
+        
 	</LinearLayout>
 	
 </LinearLayout>

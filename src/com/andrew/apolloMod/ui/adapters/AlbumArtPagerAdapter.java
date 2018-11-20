@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import com.andrew.apolloMod.helpers.RefreshableFragment;
+
+import com.andrew.apolloMod.ui.fragments.base.RefreshableFragment;
 
 public class AlbumArtPagerAdapter extends FragmentStatePagerAdapter {
 

@@ -16,7 +16,7 @@
 
 package com.andrew.apolloMod.service;
 
-import com.andrew.apolloMod.activities.MusicLibrary;
+import com.andrew.apolloMod.ui.activities.MusicLibrary;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

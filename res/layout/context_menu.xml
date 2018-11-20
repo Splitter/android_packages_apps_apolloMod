@@ -10,18 +10,10 @@
 
     <ImageView
         android:id="@+id/quick_context_line"
-        android:layout_width="@dimen/quick_context_line_width"
-        android:layout_height="@dimen/quick_context_line_height"
-        android:layout_gravity="center|left"
-        android:background="@color/transparent_black" />
+        style="?ContextMenuLine" />
 
     <ImageView
         android:id="@+id/quick_context_tip"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_marginRight="@dimen/quick_context_margin_right"
-        android:scaleType="centerInside"
-        android:src="@drawable/dropdown_ic_arrow_normal_holo_light" />
+        style="?ContextMenuArrow"/>
 
 </FrameLayout>

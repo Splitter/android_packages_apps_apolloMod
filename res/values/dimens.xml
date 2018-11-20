@@ -5,6 +5,7 @@
     <dimen name="text_size_extra_micro">10sp</dimen>
     <dimen name="text_size_micro">12sp</dimen>
     <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_small_medium">15sp</dimen>
     <dimen name="text_size_medium">16sp</dimen>
     <dimen name="text_size_large">18sp</dimen>
 
@@ -36,8 +37,8 @@
     <!-- ListView items -->
     <dimen name="listview_item_height">74dp</dimen>
     <dimen name="listview_items_padding_left_top">9dp</dimen>
-    <dimen name="listview_items_padding_small_top">4dp</dimen>
-    <dimen name="listview_items_padding_gp_top">16dp</dimen>
+    <dimen name="listview_items_padding_small_top">3dp</dimen>
+    <dimen name="listview_items_padding_gp_top">18dp</dimen>
     <dimen name="listview_items_padding_right">50dp</dimen>
     <dimen name="listview_items_padding_top_bottom">5dp</dimen>
     <dimen name="listview_items_padding_left_right">10dp</dimen>
@@ -77,6 +78,8 @@
     <dimen name="header_text_padding_left">15dp</dimen>
 
     <!-- GridView items -->
+    <dimen name="gridview_recent_album_art">67dp</dimen>
+    <dimen name="gridview_recent_item_height">100dp</dimen>
     <dimen name="gridview_image_width">152dp</dimen>
     <dimen name="gridview_image_height">132dp</dimen>
     <dimen name="gridview_item_fullheight">168dp</dimen>
@@ -96,8 +99,13 @@
     <dimen name="audio_player_info_container_padding">16dp</dimen>
     <dimen name="audio_player_artwork_padding">20dp</dimen>
     <dimen name="audio_player_controls_height">56dp</dimen>
-    <dimen name="audio_player_seek_bar_padding">10dp</dimen>
-    <dimen name="audio_player_button_container_padding">2dp</dimen>
+    <dimen name="audio_player_seek_bar_padding">3dp</dimen>
+    <dimen name="audio_player_button_container_padding">20dp</dimen>
+    <dimen name="audio_player_text_padding_top">10dp</dimen>
+    <dimen name="audio_player_text_padding_left">15dp</dimen>
+    <dimen name="audio_player_seek_padding_top_bottom">20dp</dimen>
+    <dimen name="audio_player_nowplaying_padding_top_bottom">12dp</dimen>
+    <dimen name="audio_player_nowplaying_padding_left">17dp</dimen>
 
     <!-- Recent Applications parameters -->
     <!-- How far the thumbnail for a recent app appears from left edge -->

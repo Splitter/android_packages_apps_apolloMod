@@ -7,7 +7,7 @@
 package com.andrew.apolloMod.helpers.visualizer;
 
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 
 import android.content.Context;
 import android.graphics.BlurMaskFilter;

@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import com.andrew.apolloMod.helpers.DomElement;
 
 
 /**

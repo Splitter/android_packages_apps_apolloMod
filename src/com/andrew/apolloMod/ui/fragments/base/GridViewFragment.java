@@ -4,8 +4,8 @@ import static com.andrew.apolloMod.Constants.INTENT_ADD_TO_PLAYLIST;
 import static com.andrew.apolloMod.Constants.INTENT_PLAYLIST_LIST;
 
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.utils.ApolloUtils;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.ApolloUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.adapters.base.GridViewAdapter;
 
@@ -34,7 +34,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public abstract class GridViewFragment extends Fragment implements LoaderCallbacks<Cursor>,
 OnItemClickListener {
 
-	private GridView mGridView;
+	protected GridView mGridView;
 	
 	protected GridViewAdapter mAdapter;
 
@@ -48,7 +48,7 @@ OnItemClickListener {
     
     protected int mFragmentGroupId = 0;
 
-    protected String mCurrentId, mSortOrder = null, mType = null;
+    protected String mCurrentId, mSortOrder = null, mType = null, mWhere = null;
     
     protected String[] mProjection = null;
     
@@ -86,14 +86,16 @@ OnItemClickListener {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-        menu.add(mFragmentGroupId, PLAY_SELECTION, 0, getResources().getString(R.string.play_all));
-        menu.add(mFragmentGroupId, ADD_TO_PLAYLIST, 0, getResources().getString(R.string.add_to_playlist));
-        menu.add(mFragmentGroupId, SEARCH, 0, getResources().getString(R.string.search));
+    	if( mFragmentGroupId != 0 ){
+    	    menu.add(mFragmentGroupId, PLAY_SELECTION, 0, getResources().getString(R.string.play_all));
+    	    menu.add(mFragmentGroupId, ADD_TO_PLAYLIST, 0, getResources().getString(R.string.add_to_playlist));
+    	    menu.add(mFragmentGroupId, SEARCH, 0, getResources().getString(R.string.search));
 
-        mCurrentId = mCursor.getString(mCursor.getColumnIndexOrThrow(BaseColumns._ID));
+    	    mCurrentId = mCursor.getString(mCursor.getColumnIndexOrThrow(BaseColumns._ID));
 
-        menu.setHeaderView(ApolloUtils.setHeaderLayout(mType, mCursor, getActivity()));
-        super.onCreateContextMenu(menu, v, menuInfo);
+    	    menu.setHeaderView(ApolloUtils.setHeaderLayout(mType, mCursor, getActivity()));
+    	    super.onCreateContextMenu(menu, v, menuInfo);
+    	}
     }
 
     @Override
@@ -130,7 +132,7 @@ OnItemClickListener {
 
 	@Override
 	public Loader<Cursor> onCreateLoader(int arg0, Bundle arg1) {
-	     return new CursorLoader(getActivity(), mUri, mProjection, null, null, mSortOrder);
+	     return new CursorLoader(getActivity(), mUri, mProjection,  mWhere, null, mSortOrder);
 	}
 
 	@Override

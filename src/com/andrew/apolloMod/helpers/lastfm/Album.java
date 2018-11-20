@@ -29,8 +29,7 @@ package com.andrew.apolloMod.helpers.lastfm;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.andrew.apolloMod.helpers.DomElement;
-import com.andrew.apolloMod.helpers.utils.StringUtilities;
+import com.andrew.apolloMod.helpers.StringUtilities;
 
 
 /**

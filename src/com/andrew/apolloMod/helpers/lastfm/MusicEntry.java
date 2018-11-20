@@ -29,7 +29,6 @@ package com.andrew.apolloMod.helpers.lastfm;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.andrew.apolloMod.helpers.DomElement;
 
 
 /**

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"	
+    android:id="@+id/recents_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+	<LinearLayout 
+		    android:layout_height="wrap_content"
+		    android:layout_width="0dp"
+			android:layout_weight="1"
+		    android:id="@+id/recent_column1"
+		    android:visibility="invisible"
+		    android:orientation="horizontal"
+	    	android:paddingLeft="@dimen/gridview_item_padding_right_left"
+	    	android:paddingRight="@dimen/gridview_item_padding_right_left"
+	    	android:paddingBottom="@dimen/gridview_item_padding_bottom">
+		<RelativeLayout
+		    style="?GridviewRecentsWrapper"
+		    android:orientation="vertical">				 
+		    <com.andrew.apolloMod.ui.views.TrackBrowserImageView
+		        android:id="@+id/recent_image1"
+		        style="?GridviewRecentsArt"/>
+		    <TextView
+		        android:id="@+id/recent_line_one1"
+				style="?GridviewRecentsShadowedText"
+				android:layout_alignBottom="@+id/recent_image1" />
+		
+		    <TextView
+		        android:id="@+id/recent_line_two1"
+		        style="?GridviewRecentsText"
+        		android:layout_below="@+id/recent_image1" />
+		
+		</RelativeLayout>
+	</LinearLayout>
+	
+	<LinearLayout 
+		    android:layout_height="wrap_content"
+		    android:layout_width="0dp"
+			android:layout_weight="1"
+		    android:id="@+id/recent_column2"
+		    android:visibility="invisible"
+		    android:orientation="horizontal"
+	    	android:paddingLeft="@dimen/gridview_item_padding_right_left"
+	    	android:paddingRight="@dimen/gridview_item_padding_right_left"
+	    	android:paddingBottom="@dimen/gridview_item_padding_bottom">
+		<RelativeLayout
+		    style="?GridviewRecentsWrapper"
+		    android:orientation="vertical">				 
+		    <com.andrew.apolloMod.ui.views.TrackBrowserImageView
+		        android:id="@+id/recent_image2"
+		        style="?GridviewRecentsArt"/>
+		    <TextView
+		        android:id="@+id/recent_line_one2"
+				style="?GridviewRecentsShadowedText"
+				android:layout_alignBottom="@+id/recent_image2" />
+		
+		    <TextView
+		        android:id="@+id/recent_line_two2"
+		        style="?GridviewRecentsText"
+        		android:layout_below="@+id/recent_image2" />
+		
+		</RelativeLayout>
+	</LinearLayout>
+</LinearLayout>

@@ -26,7 +26,6 @@
 
 package com.andrew.apolloMod.helpers.lastfm;
 
-import com.andrew.apolloMod.helpers.DomElement;
 
 /**
  * An <code>ItemFactory</code> can be used to instantiate a value object - such as Artist, Album, Track, Tag - from an XML element. Use the

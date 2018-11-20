@@ -22,7 +22,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
         android:allowTaskReparenting="true"
@@ -31,16 +31,15 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:process=":main"
-        android:taskAffinity="apollo.task.music"
-        android:theme="@style/ApolloTheme" >
+        android:taskAffinity="apollo.task.music" >
         <meta-data
             android:name="android.app.default_searchable"
-            android:value=".activities.QueryBrowserActivity" />
+            android:value=".ui.activities.QueryBrowserActivity" />
         <!-- Serach -->
         <activity
-            android:name=".activities.QueryBrowserActivity"
+            android:name="com.andrew.apolloMod.ui.activities.QueryBrowserActivity"
             android:exported="true"
-            android:theme="@style/ApolloTheme" >
+            android:theme="@style/ApolloTheme.Light" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
                 <action android:name="android.intent.action.MEDIA_SEARCH" />
@@ -56,9 +55,10 @@
 
         <!-- Main Activity -->
         <activity
-            android:name=".activities.MusicLibrary"
+            android:name="com.andrew.apolloMod.ui.activities.MusicLibrary"
             android:label="@string/app_name"
-        	android:logo="@drawable/ic_logo"
+            android:logo="@drawable/ic_logo"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -76,7 +76,7 @@
         </activity>
         <!-- Now Playing -->
         <activity
-            android:name=".activities.AudioPlayerHolder"
+            android:name="com.andrew.apolloMod.ui.activities.AudioPlayerHolder"
             android:clearTaskOnLaunch="true"
             android:excludeFromRecents="true"
             android:label="@string/nowplaying"
@@ -97,13 +97,13 @@
         </activity>
         <!-- Play External File -->
         <activity
-            android:name=".activities.PlayExternal"
+            android:name="com.andrew.apolloMod.ui.activities.PlayExternal"
             android:clearTaskOnLaunch="true"
             android:excludeFromRecents="true"
-            android:noHistory="true"
+            android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.Light.Translucent"
-            android:label="@string/app_name" >
+            android:noHistory="true"
+            android:theme="@style/Light.Translucent" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -118,7 +118,7 @@
         </activity>
         <!-- Track browser -->
         <activity
-            android:name=".activities.TracksBrowser"
+            android:name="com.andrew.apolloMod.ui.activities.TracksBrowser"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
@@ -131,7 +131,7 @@
 
         <!-- Quickly show the queue -->
         <activity
-            android:name=".activities.QuickQueue"
+            android:name="com.andrew.apolloMod.ui.activities.QuickQueue"
             android:excludeFromRecents="true"
             android:launchMode="singleTop"
             android:noHistory="true"
@@ -139,19 +139,18 @@
             android:windowSoftInputMode="stateUnchanged" />
         <!-- Settings -->
         <activity
-            android:name=".preferences.SettingsHolder"
-        	android:logo="@drawable/ic_logo"
-            android:label="@string/settings" />
+            android:name="com.andrew.apolloMod.preferences.SettingsHolder"
+            android:label="@string/settings"
+            android:logo="@drawable/ic_logo" />
         <!-- Simple EQ -->
         <activity
-            android:name=".activities.SimpleEq"
+            android:name="com.andrew.apolloMod.ui.activities.SimpleEq"
             android:excludeFromRecents="true"
             android:label="@string/simple_eq_page_title"
-            android:windowSoftInputMode="adjustPan" 
-        	android:parentActivityName=".activities.MusicLibrary" />
-
+            android:parentActivityName=".activities.MusicLibrary"
+            android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".menu.PlaylistDialog"
+            android:name="com.andrew.apolloMod.ui.activities.dialogs.PlaylistDialog"
             android:label="@string/rename_playlist"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" >
             <intent-filter>
@@ -166,7 +165,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.andrew.apolloMod.menu.PlaylistPicker"
+            android:name="com.andrew.apolloMod.ui.activities.dialogs.PlaylistPicker"
             android:icon="@drawable/ic_launcher"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" >
             <intent-filter>
@@ -177,7 +176,7 @@
         </activity>
         <!-- 1x1 App Widget -->
         <receiver
-            android:name="com.andrew.apolloMod.app.widgets.AppWidget11"
+            android:name="com.andrew.apolloMod.appwidgets.AppWidget11"
             android:label="@string/apollo_1x1" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -189,7 +188,7 @@
         </receiver>
         <!-- 4x1 App Widget -->
         <receiver
-            android:name="com.andrew.apolloMod.app.widgets.AppWidget41"
+            android:name="com.andrew.apolloMod.appwidgets.AppWidget41"
             android:label="@string/apollo_4x1" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -201,7 +200,7 @@
         </receiver>
         <!-- 4x2 App Widget -->
         <receiver
-            android:name="com.andrew.apolloMod.app.widgets.AppWidget42"
+            android:name="com.andrew.apolloMod.appwidgets.AppWidget42"
             android:label="@string/apollo_4x2" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -223,6 +222,13 @@
             android:name="com.andrew.apolloMod.service.ApolloService"
             android:label="@string/app_name"
             android:process=":main" />
+
+        <provider
+            android:name="com.andrew.apolloMod.providers.HistoryStore"
+            android:authorities="com.andrew.apolloMod.recents"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
     </application>
 
 </manifest>

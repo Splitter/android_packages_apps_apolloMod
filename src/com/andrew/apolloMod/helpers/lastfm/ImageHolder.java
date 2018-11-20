@@ -32,7 +32,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import com.andrew.apolloMod.helpers.DomElement;
 
 /**
  * Abstract superclass for all items that may contain images (such as

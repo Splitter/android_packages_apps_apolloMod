@@ -8,16 +8,7 @@
     <include layout="@layout/shadow" />
 
     <GridView
-        android:id="@+id/gridview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-    	android:paddingLeft="@dimen/gridview_item_padding_right_left_outer"
-    	android:paddingRight="@dimen/gridview_item_padding_right_left_outer"
-        android:cacheColorHint="@color/transparent"
-        android:drawSelectorOnTop="true"
-        android:numColumns="@integer/gridview_columns"
-        android:background="@color/background_grey"
-        android:scrollbars="none" />
+        android:id="@+id/gridview" 
+        style="?Gridview"/>
 
 </LinearLayout>

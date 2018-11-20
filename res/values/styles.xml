@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ApolloTheme" parent="@android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/ApolloTheme.BlueActionBar</item>
-    	<item name="android:actionOverflowButtonStyle">@style/ApolloTheme.OverFlow</item>
-    </style>
+    
+	<!-- 
+		GENERAL THEME STYLES
+	-->	    
+    <!--  ActionBar Styles -->
 	<style name="ApolloTheme.OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
 	    <item name="android:src">@drawable/apollo_holo_dark_overflow</item>
 	</style>
@@ -15,23 +16,8 @@
 	<style name="ApolloTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
 		<item name="android:textColor">@color/actionbar_text</item>
 	</style>
-
-    <!-- Translucent dialog (for @PlayExternal) -->
-    <style name="Theme.Light.Translucent" parent="android:style/Theme.Light.NoTitleBar">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:backgroundDimEnabled">false</item>
-    </style>
-    <style name="Theme.Light.Translucent.Dialog" parent="@android:style/Theme.Holo.Light.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-    <!-- Custom tabs -->
-    <style name="Tabs">
+    <!--  Tabs Styles -->
+    <style name="TabsLayout">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/tab_height</item>
         <item name="android:background">@drawable/tab</item>
@@ -40,50 +26,777 @@
         <item name="android:paddingLeft">@dimen/tab_padding_left_right</item>
         <item name="android:paddingRight">@dimen/tab_padding_left_right</item>
         <item name="android:paddingTop">@dimen/tab_padding_top_bottom</item>
-        <item name="android:textColor">@color/tab_text_color</item>
-        <item name="android:textSize">@dimen/text_size_micro</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:focusable">true</item>
         <item name="android:focusableInTouchMode">false</item>
         <item name="android:selectAllOnFocus">false</item>
+    </style>    
+    <!-- BottomActionBar Styles-->
+    <style name="BottomActionBarLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+	    <item name="android:paddingLeft">@dimen/bottom_action_bar_padding_left</item>
+	    <item name="android:paddingRight">@dimen/bottom_action_bar_padding_left</item>
+        <item name="android:orientation">horizontal</item>
     </style>
-
-    <!-- ImageButton in the bottom bar -->
-    <style name="BottomActionBarItem">
+    <style name="BottomActionBarWrapperLayout">        
+    	<item name="android:layout_width">match_parent</item>
+    	<item name="android:layout_height">@dimen/bottom_action_bar_height</item>
+    	<item name="android:layout_gravity">bottom</item>
+    	<item name="android:orientation">vertical</item> 
+    </style>
+    <style name="BottomActionBarOuterLayout">
+    	<item name="android:layout_width">match_parent</item> 
+    	<item name="android:layout_height">match_parent</item> 
+    	<item name="android:orientation">vertical</item>  
+    	<item name="android:clickable">true</item> 
+    	<item name="android:focusable">false</item> 
+    </style>
+    <style name="BottomActionBarItemLayout">
         <item name="android:layout_width">@dimen/bottom_action_bar_item_width</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:paddingLeft">@dimen/bottom_action_bar_item_padding_left_right</item>
         <item name="android:paddingRight">@dimen/bottom_action_bar_item_padding_left_right</item>
-        <item name="android:background">@drawable/holo_selector</item>
     </style>
-
-    <!-- TextView in the bottom bar -->
-    <style name="BottomActionBarText">
+    <style name="BottomActionBarTextLayout">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:ellipsize">end</item>
         <item name="android:singleLine">true</item>
         <item name="android:paddingTop">3dp</item>
-        <item name="android:textSize">@dimen/text_size_extra_micro</item>
+	    <item name="android:paddingLeft">@dimen/bottom_action_bar_padding_left</item>
+	    <item name="android:textSize">@dimen/text_size_micro</item>
         <item name="android:textAllCaps">true</item>
     </style>
-
-    <!-- List separator with a blue underline -->
-    <style name="SeparatorTextViewStyle">
+    <style name="BottomActionBarDividerLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/bottom_action_bar_divider_height</item>
+    </style> 	
+    <!-- AudioPlayer Styles -->
+    <style name="AudioPlayerAlbumArtLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">matrix</item>
+    </style>
+    <style name="AudioPlayerTextLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+        <item name="android:scrollHorizontally">false</item>
+    </style>
+    <style name="AudioPlayerAlbumArtistTextLayout" parent="AudioPlayerTextLayout">        
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+    <style name="AudioPlayerInfoTextLayout" parent="AudioPlayerTextLayout">  
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">@dimen/list_separator_min_height</item>
-        <item name="android:background">@drawable/list_section_divider_holo_custom</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/holo_blue_dark</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingRight">@dimen/list_separator_padding_left_right</item>
-        <item name="android:visibility">gone</item>
+        <item name="android:layout_marginTop">0dp</item>
         <item name="android:ellipsize">end</item>
+        <item name="android:maxLength">21</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textAllCaps">true</item>
     </style>
+    <style name="AudioPlayerViewMoreLayout">  
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+	    <item name="android:padding">@dimen/half_and_half_imagebutton_padding</item>
+    </style>    
+    <style name="AudioPlayerButtonLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="AudioPlayerTimeTextLayout" parent="AudioPlayerTextLayout">
+        <item name="android:layout_alignBottom">@android:id/progress</item>
+        <item name="android:layout_alignTop">@android:id/progress</item>
+        <item name="android:gravity">center</item>
+    </style>    
+    <style name="AudioPlayerNowPlayingTextLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/audio_player_nowplaying_padding_top_bottom</item>
+        <item name="android:paddingBottom">@dimen/audio_player_nowplaying_padding_top_bottom</item>
+        <item name="android:paddingLeft">@dimen/audio_player_nowplaying_padding_left</item>
+        <item name="android:layout_alignBottom">@+id/now_playing_viewpager</item>
+        <item name="android:text">@string/nowplaying</item>
+    </style>    
+    <style name="AudioPlayerQueueBGLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="AudioPlayerColorstripLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/colorstrip_height</item>
+    </style>
+    <style name="AudioPlayerSeekLayout" parent="android:attr/progressBarStyleHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_toLeftOf">@+id/audio_player_total_time</item>
+        <item name="android:layout_toRightOf">@+id/audio_player_current_time</item>
+        <item name="android:paddingTop">@dimen/audio_player_seek_bar_padding</item>
+        <item name="android:thumb">@null</item>
+    </style>
+    <!-- Context Menu Styles -->
+    <style name="ContextMenuLineLayout">
+        <item name="android:layout_width">@dimen/quick_context_line_width</item>
+        <item name="android:layout_height">@dimen/quick_context_line_height</item>
+        <item name="android:layout_gravity">center|left</item>
+    </style>
+    <style name="ContextMenuArrowLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginRight">@dimen/quick_context_margin_right</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+    <!--  Listview Styles -->    
+    <style name="ListviewItemWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/listview_item_height</item>
+        <item name="android:paddingTop">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:paddingBottom">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>   
+    <style name="ListviewItemArtLayout">
+        <item name="android:layout_width">@dimen/listview_album_art</item>
+        <item name="android:layout_height">@dimen/listview_album_art</item>
+        <item name="android:layout_alignParentLeft">true</item> 
+        <item name="android:layout_margin">@dimen/listview_album_margin</item> 
+        <item name="android:scaleType">centerCrop</item> 
+    </style>
+    <style name="ListviewItemLineOneLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_toRightOf">@+id/listview_item_image</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:maxLength">29</item>
+        <item name="android:paddingLeft">@dimen/listview_items_padding_left_top</item>
+        <item name="android:paddingRight">@dimen/listview_items_padding_right</item>
+        <item name="android:paddingTop">@dimen/listview_items_padding_left_top</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_size_small_medium</item> 
+    </style>    
+    <style name="ListviewItemLineTwoLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/listview_items_padding_left_top</item>
+        <item name="android:paddingRight">@dimen/listview_items_padding_right</item>
+        <item name="android:paddingTop">@dimen/listview_items_padding_small_top</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_below">@+id/listview_item_line_one</item>
+        <item name="android:layout_toRightOf">@+id/listview_item_image</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">@dimen/text_size_small</item> 
+    </style> 
+    <style name="ListviewLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">0dp</item> 
+        <item name="android:layout_weight">1</item> 
+        <item name="android:drawSelectorOnTop">false</item> 
+        <item name="android:fastScrollAlwaysVisible">false</item> 
+        <item name="android:fastScrollEnabled">false</item> 
+        <item name="android:scrollbars">none</item> 
+        <item name="android:dividerHeight">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:paddingRight">@dimen/listview_items_padding_top_bottom</item>  
+        <item name="android:paddingLeft">@dimen/listview_items_padding_top_bottom</item> 
+    </style>
+    <!-- Dragsort Listview Styles -->
+    <style name="ListviewDragHandleLayout">
+        <item name="android:layout_width">@dimen/listview_drag_width</item> 
+        <item name="android:layout_height">@dimen/listview_drag_height</item> 
+        <item name="android:layout_alignParentLeft">true</item> 
+        <item name="android:scaleType">center</item> 
+    </style>
+    <style name="ListviewDragWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawSelectorOnTop">false</item>
+        <item name="android:fastScrollAlwaysVisible">false</item>
+        <item name="android:fastScrollEnabled">false</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:dividerHeight">@dimen/listview_items_padding_top_bottom</item>
+        <item name="android:paddingRight">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:paddingLeft">@dimen/listview_items_padding_top_bottom</item>
+    </style>
+    <!-- Gridview Styles -->    
+    <style name="GridviewLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">0dp</item> 
+        <item name="android:layout_weight">1</item> 
+        <item name="android:paddingLeft">@dimen/gridview_item_padding_right_left_outer</item> 
+        <item name="android:paddingRight">@dimen/gridview_item_padding_right_left_outer</item> 
+        <item name="android:drawSelectorOnTop">true</item> 
+        <item name="android:numColumns">@integer/gridview_columns</item> 
+        <item name="android:scrollbars">none</item> 
+    </style>
+    <style name="GridviewItemWrapperLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">match_parent</item>  
+    </style>
+    <style name="GridviewItemArtLayout"> 
+        <item name="android:layout_width">@dimen/gridview_image_width</item>  
+        <item name="android:layout_height">@dimen/gridview_image_height</item>  
+        <item name="android:scaleType">matrix</item> 
+    </style>
+    <style name="GridviewItemTextWrapperLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">@dimen/gridview_item_ccontainer_height</item> 
+        <item name="android:gravity">center_vertical</item> 
+        <item name="android:orientation">vertical</item> 
+        <item name="android:paddingLeft">@dimen/gridview_item_ccontainer_padding_left</item> 
+        <item name="android:paddingRight">@dimen/gridview_item_ccontainer_padding_right</item>
+    </style>
+    
+    <!-- Recents Gridview Styles -->
+    <style name="GridviewRecentsWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/gridview_recent_item_height</item>
+        <item name="android:paddingTop">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:paddingBottom">@dimen/listview_items_padding_top_bottom</item> 
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <style name="GridviewRecentsArtLayout">
+        <item name="android:layout_width">@dimen/gridview_image_width</item>
+        <item name="android:layout_height">@dimen/gridview_recent_album_art</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:scaleType">matrix</item> 
+    </style>
+    <style name="GridviewRecentsShadowedTextLayout" parent="ShadowedTextLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">wrap_content</item> 
+        <item name="android:layout_alignBottom">@+id/gridview_image</item> 
+        <item name="android:ellipsize">end</item> 
+        <item name="android:maxLength">49</item> 
+        <item name="android:padding">4dp</item> 
+        <item name="android:singleLine">true</item> 
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+    <style name="GridviewRecentsTextLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_below">@+id/gridview_image</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingTop">@dimen/listview_items_padding_small_top</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_size_micro</item>        
+    </style>
+        
+    <!-- Shadowed Text Styles-->
+    <style name="ShadowedTextLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:shadowRadius">1.5</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+    
+    <!-- Colorstrip Style -->
+    <style name="ColorstripLayout">        
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/colorstrip_height</item>
+    </style>
+    
+    <!-- Half & Half Styles -->
+    <style name="HalfTextWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/half_and_half_text_wrap_height</item>
+        <item name="android:layout_alignBottom">@+id/half_artist_image</item>
+        <item name="android:paddingTop">@dimen/gridview_item_ccontainer_padding_left</item>
+        <item name="android:paddingBottom">@dimen/gridview_item_ccontainer_padding_left</item>
+        <item name="android:paddingLeft">@dimen/gridview_item_ccontainer_padding_left</item>
+        <item name="android:paddingRight">@dimen/gridview_item_ccontainer_padding_right</item>
+    </style>
+    <style name="HalfTextViewMoreLayout">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:padding">@dimen/half_and_half_imagebutton_padding</item>
+    </style>
+    
+    <!-- Library Browser Styles -->
+    <style name="LibraryWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">?android:attr/actionBarSize</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">true</item>        
+    </style>
+    <style name="LibraryTabsWrapperLayout">
+        <item name="android:layout_width">match_parent</item>  
+        <item name="android:layout_height">@dimen/tab_height</item>  
+    </style>
+    
+    <!-- Shuffle Styles -->
+    <style name="ShuffleWrapperLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:paddingRight">10dp</item> 
+        <item name="android:paddingLeft">10dp</item> 
+        <item name="android:paddingBottom">13dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <style name="ShuffleImageLayout">
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_marginTop">13dp</item> 
+        <item name="android:layout_marginLeft">16dp</item> 
+	</style>
+    
+    <!-- Track Browser Styles -->
+    <style name="TracksBrowserWrapperLayout">
+        <item name="android:layout_width">match_parent</item> 
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    
+	<!-- 
+		// GENERAL THEME STYLES
+	-->	
+	
+	
+	
+	
+	
+	
+	
+    <!--  *************************************************************** -->
+    
+    
+    
+    
+    
+    
+    
+    
+	<!-- 
+		LIGHT THEME STYLES
+	-->	
+	
+    <!-- Tabs -->
+    <style name="Tabs_Light" parent="TabsLayout">
+        <item name="android:textColor">@color/tab_text_color</item>
+        <item name="android:textSize">@dimen/text_size_micro</item>
+        <item name="android:textStyle">bold</item>
+    </style> 
+    
+    <style name="PlaylistDialog_Light" parent="@android:style/Theme.Holo.Light.Dialog.NoActionBar" ></style>
+    
+	<!-- BottomActionBar -->  
+	<style name="BottomActionBar_Light" parent="BottomActionBarLayout">
+        <item name="android:background">@drawable/holo_selector</item>
+	</style>
+    <style name="BottomActionBarWrapper_Light" parent="BottomActionBarWrapperLayout"></style>
+    <style name="BottomActionBarItem_Light" parent="BottomActionBarItemLayout">
+		<item name="android:background">@drawable/holo_selector</item>
+	</style>    
+    <style name="BottomActionBarOuter_Light" parent="BottomActionBarOuterLayout">
+    	<item name="android:background">@color/white</item> 
+    </style>
+    <style name="BottomActionBarText_Light" parent="BottomActionBarTextLayout">
+	    <item name="android:textColor">@color/transparent_black</item>
+    </style>    
+    <style name="BottomActionBarFavorites_Light" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_favorite</item>
+        <item name="android:src">@drawable/apollo_holo_light_favorite_normal</item>
+    </style>
+    <style name="BottomActionBarPrevious_Light" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_previous</item>
+        <item name="android:src">@drawable/apollo_holo_light_previous</item>
+    </style>
+    <style name="BottomActionBarPlay_Light" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_play</item>
+        <item name="android:src">@drawable/apollo_holo_light_play</item>
+    </style>
+    <style name="BottomActionBarNext_Light" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_next</item>
+        <item name="android:src">@drawable/apollo_holo_light_next</item>
+    </style>
+    <style name="BottomActionBarNowQueue_Light" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_show_queue</item>
+        <item name="android:src">@drawable/btn_switch_queue</item>
+    </style>
+    <style name="BottomActionBarDivider_Light" parent="BottomActionBarDividerLayout">
+        <item name="android:background">@color/holo_blue_dark</item>
+    </style>    
+    
+    <!-- AudioPlayer Styles -->
+    <style name="AudioPlayerAlbumArt_Light" parent="AudioPlayerAlbumArtLayout">
+        <item name="android:src">@drawable/no_art_normal</item>
+    </style>
+    <style name="AudioPlayerText_Light" parent="AudioPlayerTextLayout"></style>
+    <style name="AudioPlayerAlbumArtistText_Light" parent="AudioPlayerAlbumArtistTextLayout">
+        <item name="android:textColor">@color/transparent_black</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">bold</item>
+    </style>    
+    <style name="AudioPlayerInfoText_Light" parent="AudioPlayerInfoTextLayout">
+        <item name="android:textColor">@color/transparent_black</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>    
+    <style name="AudioPlayerViewMore_Light" parent="AudioPlayerViewMoreLayout"> 
+        <item name="android:src">@drawable/view_more_now</item>
+        <item name="android:background">@drawable/holo_selector</item>
+    </style>    
+    <style name="AudioPlayerButton_Light" parent="AudioPlayerButtonLayout">
+        <item name="android:background">@drawable/holo_selector</item>
+    </style>
+    <style name="AudioPlayerTimeText_Light" parent="AudioPlayerTimeTextLayout">
+        <item name="android:textColor">@color/transparent_black</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+    <style name="AudioPlayerNowPlayingText_Light" parent="AudioPlayerNowPlayingTextLayout">        
+        <item name="android:background">@drawable/transparent_black</item>
+		<item name="android:textColor">@color/white</item>
+		<item name="android:textSize">@dimen/text_size_medium</item>
+    </style>    
+    <style name="AudioPlayerQueueBG_Light" parent="AudioPlayerQueueBGLayout">
+        <item name="android:background">@color/background_grey</item>
+    </style>
+    <style name="AudioPlayerColorstrip_Light" parent="AudioPlayerColorstripLayout">
+        <item name="android:background">@color/holo_blue_dark</item>
+    </style>
+    <style name="AudioPlayerColorstripShadow_Light" parent="AudioPlayerColorstripLayout">
+        <item name="android:background">@drawable/colorstrip_shadow</item>
+    </style>    
+    <style name="AudioPlayerPrevious_Light" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_previous</item>
+        <item name="android:src">@drawable/apollo_holo_light_previous</item> 
+    </style>
+    <style name="AudioPlayerPlay_Light" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_play</item>
+        <item name="android:src">@drawable/apollo_holo_light_pause</item> 
+    </style>
+    <style name="AudioPlayerNext_Light" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_next</item>
+        <item name="android:src">@drawable/apollo_holo_light_next</item> 
+    </style>
+    <style name="AudioPlayerRepeat_Light" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_repeat</item>
+        <item name="android:src">@drawable/apollo_holo_light_repeat_normal</item> 
+    </style>
+    <style name="AudioPlayerShuffle_Light" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_shuffle</item>
+        <item name="android:src">@drawable/apollo_holo_light_shuffle_normal</item> 
+    </style>
+    <style name="AudioPlayerSeek_Light" parent="AudioPlayerSeekLayout">  
+        <item name="android:progressDrawable">@drawable/audio_player_seekbar</item>
+    </style>
+    
+    <!-- Context Menu Styles -->
+    <style name="ContextMenuLine_Light" parent="ContextMenuLineLayout">
+        <item name="android:background">@color/transparent_black</item>
+    </style>
+    <style name="ContextMenuArrow_Light" parent="ContextMenuArrowLayout">
+        <item name="android:src">@drawable/dropdown_ic_arrow_normal_holo_light</item>
+    </style>
+    
+    <!--  Listview Styles -->    
+    <style name="ListviewItemWrapper_Light" parent="ListviewItemWrapperLayout">
+        <item name="android:background">@drawable/listview_item_background</item>
+    </style>
+    <style name="ListviewItemArt_Light" parent="ListviewItemArtLayout">
+        <item name="android:background">@drawable/no_art_small</item>
+    </style>
+    <style name="ListviewItemLineOne_Light" parent="ListviewItemLineOneLayout">
+        <item name="android:textColor">@color/black</item> 
+    </style>
+    <style name="ListviewItemLineTwo_Light" parent="ListviewItemLineTwoLayout">
+        <item name="android:textColor">@color/light_grey</item>
+    </style>
+    <style name="Listview_Light" parent="ListviewLayout">
+        <item name="android:listSelector">@drawable/holo_selector</item> 
+        <item name="android:background">@color/background_grey</item> 
+        <item name="android:divider">@android:color/transparent</item> 
+        <item name="android:cacheColorHint">@color/transparent</item> 
+    </style>
+  
+    <!-- Dragsort Listview Styles -->
+    <style name="ListviewDragHandle_Light" parent="ListviewDragHandleLayout">
+        <item name="android:src">@drawable/btn_drag_sort</item>
+    </style>
+    <style name="ListviewDragWrapper_Light" parent="ListviewDragWrapperLayout">
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:listSelector">@drawable/holo_selector</item>
+        <item name="android:background">@color/background_grey</item>
+        <item name="android:divider">@android:color/transparent</item>
+    </style>
+    
+    <!-- Gridview Styles -->
+    <style name="Gridview_Light" parent="GridviewLayout">
+        <item name="android:background">@color/background_grey</item> 
+        <item name="android:cacheColorHint">@color/transparent</item> 
+    </style>
+    <style name="GridviewItemWrapper_Light" parent="GridviewItemWrapperLayout">
+        <item name="android:background">@drawable/gridview_item_background</item>  
+    </style>
+    <style name="GridviewItemArt_Light" parent="GridviewItemArtLayout"> 
+        <item name="android:background">@drawable/no_art_small</item> 
+    </style>
+    <style name="GridviewItemTextWrapper_Light" parent="GridviewItemTextWrapperLayout">
+        <item name="android:background">@drawable/transparent_black</item>  
+    </style>
+    <!-- Recents Gridview Styles -->
+    <style name="GridviewRecentsWrapper_Light" parent="GridviewRecentsWrapperLayout">
+        <item name="android:background">@drawable/gridview_item_background</item>
+    </style>
+    <style name="GridviewRecentsArt_Light" parent="GridviewRecentsArtLayout">
+        <item name="android:background">@drawable/no_art_small</item>
+    </style>
+    <style name="GridviewRecentsShadowedText_Light" parent="GridviewRecentsShadowedTextLayout"> 
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:textColor">@color/white</item> 
+        <item name="android:background">@drawable/transparent_black</item>
+    </style>
+    <style name="GridviewRecentsText_Light" parent="GridviewRecentsTextLayout">
+        <item name="android:textColor">@color/light_grey</item>      
+    </style>
+    
+    <!-- Shadowed Text Style-->
+    <style name="ShadowedText_Light" parent="ShadowedTextLayout">
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
+    <!-- Colorstrip Style -->
+    <style name="Colorstrip_Light" parent="ColorstripLayout">   
+        <item name="android:background">@color/holo_blue_dark</item> 
+    </style>
+    
+    <!-- Half & Half Styles -->
+    <style name="HalfTextWrapper_Light" parent="HalfTextWrapperLayout">
+        <item name="android:background">@drawable/transparent_black</item>
+    </style>    
+    <style name="HalfTextViewMore_Light" parent="HalfTextViewMoreLayout">
+        <item name="android:src">@drawable/view_more_album</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+    
+    <!-- Library Browser Styles -->
+    <style name="LibraryWrapper_Light" parent="LibraryWrapperLayout">
+        <item name="android:background">@color/background_grey</item>        
+    </style>
+    <style name="LibraryTabsWrapper_Light" parent="LibraryTabsWrapperLayout">
+        <item name="android:background">@color/white</item>  
+    </style>    
+    
+    <!-- Shuffle Styles -->
+    <style name="ShuffleWrapper_Light" parent="ShuffleWrapperLayout">
+        <item name="android:background">@drawable/shuffle_background</item>
+    </style>
+    <style name="ShuffleImage_Light" parent="ShuffleImageLayout">
+        <item name="android:background">@drawable/apollo_holo_light_shuffle_normal</item>
+	</style>
+    
+    <style name="RecentlyAddedWrapper_Light" parent="ShuffleWrapperLayout">
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@drawable/recent_header_background</item>
+    </style>
+    
+    <!-- Track Browser Styles -->
+    <style name="TracksBrowserWrapper_Light" parent="TracksBrowserWrapperLayout">
+        <item name="android:background">@color/background_grey</item> 
+    </style>
+    
+	<!-- 
+		// LIGHT THEME STYLES
+	-->	
+    
+    
+    
+    
+    
+    
+    
+	<!-- 
+		DARK THEME STYLES
+	-->	
+    <style name="PlaylistDialog_Dark" parent="@android:style/Theme.Holo.Dialog.NoActionBar" ></style>
+  
+    <!-- Tabs -->
+    <style name="Tabs_Dark" parent="TabsLayout">
+        <item name="android:textColor">@color/tab_text_color_dark</item>
+        <item name="android:textSize">@dimen/text_size_micro</item>
+        <item name="android:textStyle">bold</item>
+    </style> 
+    <style name="BottomActionBarOuter_Dark" parent="BottomActionBarOuterLayout">
+    	<item name="android:background">@color/light_grey_dark</item> 
+    </style>
+    <style name="BottomActionBarText_Dark" parent="BottomActionBarTextLayout">
+	    <item name="android:textColor">@color/transparent_white</item>
+    </style>    
+    <style name="BottomActionBarFavorites_Dark" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_favorite</item>
+        <item name="android:src">@drawable/apollo_holo_dark_favorite_normal</item>
+    </style>
+    <style name="BottomActionBarPrevious_Dark" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_previous</item>
+        <item name="android:src">@drawable/apollo_holo_dark_prev</item>
+    </style>
+    <style name="BottomActionBarPlay_Dark" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_play</item>
+        <item name="android:src">@drawable/apollo_holo_dark_play</item>
+    </style>
+    <style name="BottomActionBarNext_Dark" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_next</item>
+        <item name="android:src">@drawable/apollo_holo_dark_next</item>
+    </style>
+    <style name="BottomActionBarNowQueue_Dark" parent="BottomActionBarItem_Light">
+        <item name="android:contentDescription">@string/cd_show_queue</item>
+        <item name="android:src">@drawable/btn_switch_queue_dark</item>
+    </style>
+    <style name="AudioPlayerAlbumArt_Dark" parent="AudioPlayerAlbumArtLayout">
+        <item name="android:src">@drawable/no_art_normal_dark</item>
+    </style>
+    <style name="AudioPlayerAlbumArtistText_Dark" parent="AudioPlayerAlbumArtistTextLayout">
+        <item name="android:textColor">@color/transparent_white</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">bold</item>
+    </style>     
+    <style name="AudioPlayerInfoText_Dark" parent="AudioPlayerInfoTextLayout">
+        <item name="android:textColor">@color/transparent_white</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>    
+    <style name="AudioPlayerViewMore_Dark" parent="AudioPlayerViewMoreLayout"> 
+        <item name="android:src">@drawable/view_more_now_dark</item>
+        <item name="android:background">@drawable/holo_selector</item>
+    </style>    
+    <style name="AudioPlayerTimeText_Dark" parent="AudioPlayerTimeTextLayout">
+        <item name="android:textColor">@color/transparent_white</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+    <style name="AudioPlayerQueueBG_Dark" parent="AudioPlayerQueueBGLayout">
+        <item name="android:background">@color/background_grey_dark</item>
+    </style>
+    <style name="AudioPlayerPrevious_Dark" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_previous</item>
+        <item name="android:src">@drawable/apollo_holo_dark_prev</item> 
+    </style>
+    <style name="AudioPlayerPlay_Dark" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_play</item>
+        <item name="android:src">@drawable/apollo_holo_dark_pause</item> 
+    </style>
+    <style name="AudioPlayerNext_Dark" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_next</item>
+        <item name="android:src">@drawable/apollo_holo_dark_next</item> 
+    </style>
+    <style name="AudioPlayerRepeat_Dark" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_repeat</item>
+        <item name="android:src">@drawable/apollo_holo_light_repeat_normal</item> 
+    </style>
+    <style name="AudioPlayerShuffle_Dark" parent="AudioPlayerButton_Light">
+        <item name="android:contentDescription">@string/cd_shuffle</item>
+        <item name="android:src">@drawable/apollo_holo_dark_shuffle_normal</item> 
+    </style>
+    <style name="AudioPlayerSeek_Dark" parent="AudioPlayerSeekLayout">  
+        <item name="android:progressDrawable">@drawable/audio_player_seekbar_dark</item>
+    </style>
+    
+    <!-- Context Menu Styles -->
+    <style name="ContextMenuLine_Dark" parent="ContextMenuLineLayout">
+        <item name="android:background">@color/transparent_white</item>
+    </style>
+    <style name="ContextMenuArrow_Dark" parent="ContextMenuArrowLayout">
+        <item name="android:src">@drawable/dropdown_ic_arrow_normal_holo_dark</item>
+    </style>
+    
+    
+    <!-- Library Browser Styles -->
+    <style name="LibraryWrapper_Dark" parent="LibraryWrapperLayout">
+        <item name="android:background">@color/background_grey_dark</item>        
+    </style>
+    <style name="ListviewItemArt_Dark" parent="ListviewItemArtLayout">
+        <item name="android:background">@drawable/no_art_small_dark</item>
+    </style>
+    <style name="LibraryTabsWrapper_Dark" parent="LibraryTabsWrapperLayout">
+        <item name="android:background">@color/light_grey_dark</item>  
+    </style>    
+    
+    <style name="ListviewItemWrapper_Dark" parent="ListviewItemWrapperLayout">
+        <item name="android:background">@drawable/listview_item_background_dark</item>
+    </style>
+    <style name="ListviewItemLineOne_Dark" parent="ListviewItemLineOneLayout">
+        <item name="android:textColor">@color/white</item> 
+    </style>
+    <style name="ListviewItemLineTwo_Dark" parent="ListviewItemLineTwoLayout">
+        <item name="android:textColor">@color/transparent_white</item>
+    </style>
+    <style name="Listview_Dark" parent="ListviewLayout">
+        <item name="android:listSelector">@drawable/holo_selector</item> 
+        <item name="android:background">@color/background_grey_dark</item> 
+        <item name="android:divider">@android:color/transparent</item> 
+        <item name="android:cacheColorHint">@color/transparent</item> 
+    </style>
+    <style name="ListviewDragHandle_Dark" parent="ListviewDragHandleLayout">
+        <item name="android:src">@drawable/btn_drag_sort_dark</item>
+    </style>
+    <style name="ListviewDragWrapper_Dark" parent="ListviewDragWrapperLayout">
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:listSelector">@drawable/holo_selector</item>
+        <item name="android:background">@color/background_grey_dark</item>
+        <item name="android:divider">@android:color/transparent</item>
+    </style>
+  
+    <style name="Gridview_Dark" parent="GridviewLayout">
+        <item name="android:background">@color/background_grey_dark</item> 
+        <item name="android:cacheColorHint">@color/transparent</item> 
+    </style>
+    <style name="GridviewItemArt_Dark" parent="GridviewItemArtLayout"> 
+        <item name="android:background">@drawable/no_art_small_dark</item> 
+    </style>
+    <style name="GridviewItemWrapper_Dark" parent="GridviewItemWrapperLayout">
+        <item name="android:background">@drawable/gridview_item_background_dark</item>  
+    </style>
+    <style name="GridviewRecentsArt_Dark" parent="GridviewRecentsArtLayout">
+        <item name="android:background">@drawable/no_art_small_dark</item>
+    </style>
+    <style name="GridviewRecentsWrapper_Dark" parent="GridviewRecentsWrapperLayout">
+        <item name="android:background">@drawable/gridview_item_background_dark</item>  
+    </style>
+    <style name="GridviewRecentsText_Dark" parent="GridviewRecentsTextLayout">
+        <item name="android:textColor">@color/transparent_white</item>      
+    </style>
+    
+    <style name="ShuffleWrapper_Dark" parent="ShuffleWrapperLayout">
+        <item name="android:background">@drawable/shuffle_background_dark</item>
+        <item name="android:textColor">@color/transparent_white</item>
+    </style>
+    <style name="ShuffleImage_Dark" parent="ShuffleImageLayout">
+        <item name="android:background">@drawable/apollo_holo_dark_shuffle_normal</item>
+	</style>
+    
+    <style name="RecentlyAddedWrapper_Dark" parent="ShuffleWrapperLayout">
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@drawable/recent_header_background_dark</item>
+    </style>
+    
+    <!-- Track Browser Styles -->
+    <style name="TracksBrowserWrapper_Dark" parent="TracksBrowserWrapperLayout">
+        <item name="android:background">@color/background_grey_dark</item> 
+    </style>
+    
+    
+
+   
+
     <!-- Notification bar button -->
     <style name="StatusBarButton">
         <item name="android:layout_width">@dimen/status_bar_button_width_height</item>
@@ -102,19 +815,6 @@
         <item name="android:singleLine">true</item>
     </style>
 
-    <!-- Half and half layout -->
-    <style name="HalfText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/transparent_black</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:gravity">center</item>
-        <item name="android:padding">@dimen/half_and_half_text_padding</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/text_size_small</item>
-    </style>
-
     <!-- ContextMenu header text -->
     <style name="HeaderText">
         <item name="android:layout_width">match_parent</item>
@@ -130,18 +830,6 @@
         <item name="android:textSize">@dimen/text_size_large</item>
     </style>
 
-    <!-- TextView in shown over the images in the GridView -->
-    <style name="GridViewTextItem">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:shadowColor">@color/white</item>
-        <item name="android:shadowRadius">1</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/text_size_medium</item>
-    </style>
-
     <!-- Now playing indicator -->
     <style name="PeakMeter">
         <item name="android:layout_width">wrap_content</item>
@@ -149,49 +837,15 @@
         <item name="android:layout_alignParentRight">true</item>
     </style>
 
-    <!-- TextView in the audio player -->
-    <style name="AudioPlayerText">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:ellipsize">marquee</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:focusable">true</item>
-        <item name="android:focusableInTouchMode">true</item>
-        <item name="android:lineSpacingMultiplier">1.2</item>
-        <item name="android:scrollHorizontally">true</item>
-    </style>
     
     <!--  TextView with drop-shadow and white text -->
-    <style name="ShadowedText" parent="AudioPlayerText">        
+    <style name="ShadowedText" parent="AudioPlayerTextLayout">        
 	    <item name="android:shadowColor">#000000</item>
 	    <item name="android:shadowDx">1</item>
 	    <item name="android:shadowDy">1</item>
 	    <item name="android:shadowRadius">1.5</item> 
     </style>
     
-    <!--  TextView with drop-shadow and white text -->
-    <style name="GridviewShadowedText" parent="GridViewTextItem">        
-	    <item name="android:shadowColor">#000000</item>
-	    <item name="android:shadowDx">1</item>
-	    <item name="android:shadowDy">1</item>
-	    <item name="android:shadowRadius">1.5</item> 
-    </style>
-
-    <!--  Black top border  -->
-    <style name="Topborderline"> 
-	    <item name="android:layout_width">match_parent</item>
-	    <item name="android:layout_height">2dp</item>
-	    <item name="android:background">@color/black</item>
-    </style>
-    
-    <!-- ImageButton in the audio player controls -->
-    <style name="AudioPlayerButton">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/holo_selector</item>
-    </style>
-
     <!-- QuickQueue -->
     <style name="Theme.QuickQueue" parent="@android:style/Theme.Holo.Light">
         <item name="android:windowBackground">@color/transparent</item>
@@ -233,5 +887,25 @@
     <style name="OverFlowHolo.Light" parent="@android:style/Widget.Holo.ActionButton.Overflow">
         <item name="android:src">@drawable/apollo_holo_light_overflow</item>
     </style>
+    
+    
+    
+    
+    <!-- Translucent dialog (for @PlayExternal) -->
+    <style name="Light.Translucent" parent="android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="Light.Translucent.Dialog" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    
+    
+    
     
 </resources>

@@ -6,11 +6,12 @@ import android.database.Cursor;
 import android.provider.BaseColumns;
 import android.provider.MediaStore.MediaColumns;
 import android.provider.MediaStore.Audio.AudioColumns;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.ui.adapters.base.ListViewAdapter;
+
+import com.andrew.apolloMod.helpers.MusicUtils;
+import com.andrew.apolloMod.ui.adapters.base.GridViewAdapter;
 import static com.andrew.apolloMod.Constants.TYPE_ALBUM;
 
-public class RecentlyAddedAdapter extends ListViewAdapter {
+public class RecentlyAddedAdapter extends GridViewAdapter {
 
     public RecentlyAddedAdapter(Context context, int layout, Cursor c, String[] from, int[] to,
             int flags) {
@@ -28,8 +29,6 @@ public class RecentlyAddedAdapter extends ListViewAdapter {
         
         mPlayingId = MusicUtils.getCurrentAudioId();
         mCurrentId = mCursor.getLong(mCursor.getColumnIndexOrThrow(BaseColumns._ID));
-
-        mListType = TYPE_ALBUM;
-    	showContextEnabled = false;    	
+        mGridType = TYPE_ALBUM;
     }
 }

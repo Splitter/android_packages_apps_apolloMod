@@ -4,18 +4,30 @@
     <!-- A transparent black -->
     <color name="transparent_black">#aa000000</color>
     
+    <color name="transparent_white">#aaffffff</color>
+    
     <!-- selected tab text -->
     <color name="selected_tabtext">#bb000000</color>
     
     <!-- non selected tab text -->
     <color name="unselected_tabtext">#77000000</color>
 
+    <!-- selected tab text -->
+    <color name="selected_tabtext_dark">#bbffffff</color>
+    
+    <!-- non selected tab text -->
+    <color name="unselected_tabtext_dark">#77ffffff</color>
+    
     <!-- A semi-transparent dark Holo shade of blue -->
     <color name="holo_blue_dark">#ff0099cc</color>
     
     <color name="shuffle_grey">#ffdedede</color>
 
     <color name="background_grey">#ffdedede</color>
+    
+    <color name="background_grey_dark">#ff1a1a1a</color>
+    
+    <color name="light_grey_dark">#ff262626</color>
     
     <!-- Transparent -->
     <color name="transparent">#00000000</color>
@@ -25,6 +37,9 @@
 
     <!-- White -->
     <color name="white">#ffffffff</color>
+    
+    <!-- Light Grey Text -->
+    <color name="light_grey">#ff888888</color>
     
     <!-- Quick Queue line seperator -->
     <color name="actionbar_text">#eeffffff</color>

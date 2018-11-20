@@ -30,7 +30,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import com.andrew.apolloMod.helpers.DomElement;
 
 /**
  * Bean that contains artist information.<br/>

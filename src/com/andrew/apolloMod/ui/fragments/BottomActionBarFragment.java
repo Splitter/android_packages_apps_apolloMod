@@ -7,36 +7,63 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources.Theme;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
 import com.andrew.apolloMod.service.ApolloService;
 import com.andrew.apolloMod.ui.fragments.list.NowPlayingFragment;
-import com.andrew.apolloMod.ui.widgets.BottomActionBar;
+import com.andrew.apolloMod.ui.views.BottomActionBar;
 
 public class BottomActionBarFragment extends Fragment {
 
-	private ImageButton mPrev, mPlay, mNext, mQueue;
+	private ImageButton mPrev, mPlay, mNext, mQueue, mFavs;
+	private ImageView mAlbumImage;
     private BottomActionBar mBottomActionBar;
     private RelativeLayout albumArt, listQueue;
+    private TextView mSongName, mSongNameOnly, mArtistName;
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     	View root = inflater.inflate(R.layout.bottom_action_bar, container);
         mBottomActionBar = new BottomActionBar(getActivity());
-        
-        
+        mAlbumImage = (ImageView)root.findViewById(R.id.bottom_action_bar_album_art);
+
+        mSongName = (TextView)root.findViewById(R.id.bottom_action_bar_track_name);
+        mSongNameOnly = (TextView)root.findViewById(R.id.bottom_action_bar_track_name_only);
+        mArtistName = (TextView)root.findViewById(R.id.bottom_action_bar_artist_name);
+
         mQueue = (ImageButton)root.findViewById(R.id.bottom_action_bar_switch_queue);
-        
+
+        mFavs = (ImageButton)root.findViewById(R.id.bottom_action_bar_favorites);
+        mFavs.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            	MusicUtils.toggleFavorite();
+            	if(MusicUtils.isFavorite(getActivity(), MusicUtils.getCurrentAudioId())){
+            		mFavs.setImageResource(R.drawable.apollo_holo_light_favorite_selected);
+            	}
+            	else{
+                	Theme theme = getActivity().getTheme();
+            		TypedValue typedvalueattr = new TypedValue();
+            		theme.resolveAttribute(R.attr.AudioFavoritesButton, typedvalueattr, true); 
+            		mFavs.setImageResource(typedvalueattr.resourceId);
+            	}
+            }
+        });
         
         
         mPrev = (ImageButton)root.findViewById(R.id.bottom_action_bar_previous);
@@ -129,19 +156,26 @@ public class BottomActionBarFragment extends Fragment {
         }
     }
 
-    public void onCollapsed(){
+    public void onCollapsed(){    
+    	Theme theme = getActivity().getTheme();
+		TypedValue typedvalueattr = new TypedValue();
+		theme.resolveAttribute(R.attr.AudioQueueButton, typedvalueattr, true); 
+    	mQueue.setImageResource( typedvalueattr.resourceId );
+    	mQueue.setVisibility(View.GONE);
+    	mFavs.setVisibility(View.GONE);        
+        listQueue.setVisibility(View.GONE);
+        
     	mPrev.setVisibility(View.VISIBLE);
     	mNext.setVisibility(View.VISIBLE);
     	mPlay.setVisibility(View.VISIBLE);
-    	
-    	mQueue.setImageResource(R.drawable.btn_switch_queue);
-    	mQueue.setVisibility(View.GONE);
-        
-        listQueue.setVisibility(View.GONE);
+    	mAlbumImage.setVisibility(View.VISIBLE);
         albumArt.setVisibility(View.VISIBLE);
+        
+        mSongName.setVisibility(View.VISIBLE);
+        mArtistName.setVisibility(View.VISIBLE);
+        mSongNameOnly.setVisibility(View.GONE);
 
         fade(listQueue, 0f);
-        // Fade in the album art
         fade(albumArt, 1f);
     }
     
@@ -149,7 +183,14 @@ public class BottomActionBarFragment extends Fragment {
     	mPrev.setVisibility(View.GONE);
     	mNext.setVisibility(View.GONE);
     	mPlay.setVisibility(View.GONE);
+    	
+    	mAlbumImage.setVisibility(View.GONE);
     	mQueue.setVisibility(View.VISIBLE);
+    	mFavs.setVisibility(View.VISIBLE);
+    	
+        mSongName.setVisibility(View.GONE);
+        mArtistName.setVisibility(View.GONE);
+        mSongNameOnly.setVisibility(View.VISIBLE);
     }
     
     /**
@@ -169,11 +210,14 @@ public class BottomActionBarFragment extends Fragment {
      */
     private void setPauseButtonImage() {
         try {
+        	Theme theme = getActivity().getTheme();
+			TypedValue typedvalueattr = new TypedValue();
             if (MusicUtils.mService != null && MusicUtils.mService.isPlaying()) {
-                mPlay.setImageResource(R.drawable.apollo_holo_light_pause);
+    			theme.resolveAttribute(R.attr.AudioPauseButton, typedvalueattr, true); 
             } else {
-                mPlay.setImageResource(R.drawable.apollo_holo_light_play);
+    			theme.resolveAttribute(R.attr.AudioPlayButton, typedvalueattr, true); 
             }
+            mPlay.setImageResource(typedvalueattr.resourceId);
         } catch (RemoteException ex) {
             ex.printStackTrace();
         }
@@ -200,7 +244,10 @@ public class BottomActionBarFragment extends Fragment {
             	else{
                     listQueue.setVisibility(View.GONE);
                     albumArt.setVisibility(View.VISIBLE);
-            		mQueue.setImageResource(R.drawable.btn_switch_queue);
+                	Theme theme = getActivity().getTheme();
+            		TypedValue typedvalueattr = new TypedValue();
+            		theme.resolveAttribute(R.attr.AudioQueueButton, typedvalueattr, true); 
+            		mQueue.setImageResource(typedvalueattr.resourceId);
                     // Fade out the pager container
                     fade(listQueue, 0f);
                     // Fade in the album art

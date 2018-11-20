@@ -2,6 +2,18 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <PreferenceCategory android:title="@string/header_interface" >
+        
+        <ListPreference 
+	        android:dialogTitle="@string/themes_title"
+            android:key="@string/key_current_theme"
+            android:title="@string/themes_title"
+            android:summary="@string/themes_subtitle"
+            android:defaultValue="@string/theme_light" 
+            android:entries="@array/theme_types"
+            android:entryValues="@array/theme_types"
+	        android:capitalize="words"
+        	/>          
+        
         <MultiSelectListPreference
 	        android:dialogTitle="@string/tab_visibility_title"
 	        android:key="@string/key_tabs_enabled"
@@ -12,6 +24,18 @@
 	        android:defaultValue="@array/tab_titles"
 	        android:capitalize="words"
 	        />
+        
+        <ListPreference 
+	        android:dialogTitle="@string/recents_title"
+            android:key="@string/key_recents_type"
+            android:title="@string/recents_title"
+            android:summary="@string/recents_summary"
+            android:defaultValue="@string/recents_added" 
+            android:entries="@array/recents_types"
+            android:entryValues="@array/recents_types"
+	        android:capitalize="words"
+        	/>  
+        
         <ListPreference 
 	        android:dialogTitle="@string/visualizer_title"
             android:key="@string/key_visualization_type"

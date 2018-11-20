@@ -69,15 +69,15 @@ import android.widget.RemoteViews;
 
 import com.andrew.apolloMod.IApolloService;
 import com.andrew.apolloMod.R;
-import com.andrew.apolloMod.app.widgets.AppWidget11;
-import com.andrew.apolloMod.app.widgets.AppWidget41;
-import com.andrew.apolloMod.app.widgets.AppWidget42;
+import com.andrew.apolloMod.appwidgets.AppWidget11;
+import com.andrew.apolloMod.appwidgets.AppWidget41;
+import com.andrew.apolloMod.appwidgets.AppWidget42;
+import com.andrew.apolloMod.cache.GetBitmapTask;
 import com.andrew.apolloMod.cache.ImageInfo;
-import com.andrew.apolloMod.helpers.GetBitmapTask;
-import com.andrew.apolloMod.helpers.GetBitmapTask.OnBitmapReadyListener;
-import com.andrew.apolloMod.helpers.utils.ImageUtils;
-import com.andrew.apolloMod.helpers.utils.MusicUtils;
-import com.andrew.apolloMod.helpers.utils.VisualizerUtils;
+import com.andrew.apolloMod.cache.GetBitmapTask.OnBitmapReadyListener;
+import com.andrew.apolloMod.helpers.ImageUtils;
+import com.andrew.apolloMod.helpers.MusicUtils;
+import com.andrew.apolloMod.helpers.VisualizerUtils;
 import com.andrew.apolloMod.preferences.SharedPreferencesCompat;
 
 import static com.andrew.apolloMod.Constants.APOLLO_PREFERENCES;
@@ -2284,7 +2284,7 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
     	    if(!type.equals(getResources().getString(R.string.visual_none))){
         	    VisualizerUtils.initVisualizer( player );
             }
-            return true;
+    	    return true;
         }
 
         public void setNextDataSource(String path) {
@@ -2342,6 +2342,10 @@ public class ApolloService extends Service implements GetBitmapTask.OnBitmapRead
         MediaPlayer.OnCompletionListener listener = new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
+        	    String timestamp = Long.valueOf(System.currentTimeMillis()/1000).toString();
+        	    MusicUtils.addSongToHistory(getApplicationContext(), String.valueOf(getAudioId()), timestamp, 
+        	    						getTrackName(), getArtistName(), getAlbumName(), String.valueOf(getAlbumId()) );
+                
                 if (mp == mCurrentMediaPlayer && mNextMediaPlayer != null) {
                     mCurrentMediaPlayer.release();
                     mCurrentMediaPlayer = mNextMediaPlayer;
