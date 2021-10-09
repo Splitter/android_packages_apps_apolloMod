@@ -1,4 +1,4 @@
-android_packages_apps_apolloMod
+android_packages_apps_apolloMod:-
 ===============================
 ### This project is no longer under development. Most changes/features I wanted(and more) now exist in many other players these days. Many incorporated into the original Apollo Player itself. That said, if any of those who forked this project are still actively developing their versions let me know. And I will happily add a link to your github here. 
 
